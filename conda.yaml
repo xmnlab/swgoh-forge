@@ -1,0 +1,6 @@
+name: swgoh-forge
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - nodejs

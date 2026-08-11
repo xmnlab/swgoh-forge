@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#071014">
+    <meta name="description" content="Build squads, optimize fleets, find counters, compare requirements, and plan your Star Wars: Galaxy of Heroes roster.">
+    <title>SWGOH Forge — Find the Right Squad for Every Battle</title>
+    <link rel="icon" href="assets/ui/forge-mark.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="data/characters.js"></script>
+    <script defer src="data/ships.js"></script>
+    <script defer src="data/recommendations.js"></script>
+    <script defer src="data/encounters.js"></script>
+    <script defer src="data/demo-roster.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#app">Skip to application</a>
+    <div class="space-backdrop" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#build" data-nav="build" aria-label="SWGOH Forge home">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M24 4 42 14v20L24 44 6 34V14Z"/>
+          <path d="m15 18 9-5 9 5v10l-9 5-9-5Z"/>
+          <circle cx="24" cy="23" r="3"/>
+          <path d="M24 13V7M33 28l6 4M15 28l-6 4"/>
+        </svg>
+        <span><strong>SWGOH</strong> FORGE</span>
+      </a>
+
+      <button class="menu-toggle icon-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
+        <a href="#build" data-nav="build">Build</a>
+        <a href="#counter" data-nav="counter">Counter</a>
+        <a href="#missions" data-nav="missions">Missions</a>
+        <a href="#roster" data-nav="roster">Roster</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="community-note" type="button" data-action="show-community-note" aria-describedby="affiliation-note">Unofficial community tool</button>
+        <button class="button button-small button-quiet" type="button" data-nav="roster">My Roster</button>
+      </div>
+      <p class="visually-hidden" id="affiliation-note">Not affiliated with EA, Lucasfilm, or Disney.</p>
+    </header>
+
+    <main id="app" tabindex="-1"></main>
+
+    <footer class="site-footer">
+      <div>
+        <a class="brand footer-brand" href="#build" data-nav="build"><span><strong>SWGOH</strong> FORGE</span></a>
+        <p>Build. Counter. Optimize.</p>
+      </div>
+      <div class="footer-legal">
+        <h2>Unofficial Fan Project</h2>
+        <p>SWGOH Forge is an unofficial, fan-made community tool and is not affiliated with, endorsed by, sponsored by, or associated with Electronic Arts, Lucasfilm Ltd., The Walt Disney Company, or their affiliates.</p>
+        <p>STAR WARS, STAR WARS: Galaxy of Heroes, related characters, ships, names, trademarks, logos, artwork, and other third-party intellectual property remain the property of their respective rights holders. Character and ship imagery, when present, is used only to identify corresponding in-game units. SWGOH Forge does not claim ownership of third-party intellectual property.</p>
+        <p>Strategy information and recommendations are independently generated or community-derived unless otherwise identified.</p>
+        <p class="prototype-notice"><strong>Prototype notice:</strong> Recommendation scores, battle counts, success rates, requirements, and other performance statistics are mock demonstration data.</p>
+      </div>
+    </footer>
+
+    <dialog id="picker-dialog" class="picker-dialog" aria-labelledby="picker-title">
+      <div id="picker-content"></div>
+    </dialog>
+
+    <aside id="detail-drawer" class="detail-drawer" aria-hidden="true" aria-labelledby="drawer-title">
+      <div id="drawer-content"></div>
+    </aside>
+    <div class="drawer-scrim" data-action="close-drawer" hidden></div>
+
+    <div id="toast-region" class="toast-region" role="status" aria-live="polite"></div>
+  </body>
+</html>
