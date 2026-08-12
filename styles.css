@@ -314,7 +314,6 @@ button.unit-token { cursor: pointer; }
   letter-spacing: .04em;
 }
 .portrait::after { position: absolute; inset: 3px; border: 1px solid rgba(255,255,255,.13); border-radius: inherit; content: ""; pointer-events: none; }
-.portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .portrait.ship { border-radius: 10px; }
 .portrait.large { width: 68px; height: 68px; font-size: 14px; }
 .portrait.xlarge { width: 96px; height: 96px; font-size: 18px; }
