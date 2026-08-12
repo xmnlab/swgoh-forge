@@ -125,7 +125,7 @@
     showToast("Required units were restored to the recommendation pool.");
   }
 
-  function setBuildExclusions(ids) {
+  function setBuildExclusions(ids, options = {}) {
     state.excludedUnits = [...new Set(ids.map((id) => characterMap.get(id)?.id).filter(Boolean))];
     const excluded = new Set(state.excludedUnits);
     const previousRequiredCount = state.requiredUnits.length;
@@ -134,7 +134,7 @@
     if (removedLeader) state.leaderId = null;
     persistExcludedUnits();
     invalidateBuildResults();
-    if (state.requiredUnits.length !== previousRequiredCount || removedLeader) {
+    if (options.announceConflicts !== false && (state.requiredUnits.length !== previousRequiredCount || removedLeader)) {
       showToast("Excluded units were removed from the current requirements.");
     }
   }
@@ -182,11 +182,13 @@
     const kind = options.kind || "character";
     const unit = unitById(id, kind);
     if (!unit) return "";
-    return `<div class="formation-unit${options.leader ? " leader" : ""}">
+    const canExclude = options.excludable && kind === "character";
+    return `<div class="formation-unit${options.leader ? " leader" : ""}${canExclude ? " excludable" : ""}">
       ${options.leader ? '<span class="crown" aria-label="Leader">♛</span>' : ""}
-      <button type="button" data-unit-id="${id}" data-unit-kind="${kind}" aria-label="View ${escapeHtml(unit.name)} details">
+      <button class="unit-detail-button" type="button" data-unit-id="${id}" data-unit-kind="${kind}" aria-label="View ${escapeHtml(unit.name)} details">
         ${portrait(unit, kind, options.size || "large", "")}
       </button>
+      ${canExclude ? `<button class="result-exclude-button" type="button" data-exclude-result-unit="${id}" aria-label="Exclude ${escapeHtml(unit.name)} from recommendations" title="Exclude from recommendations"><span aria-hidden="true">×</span></button>` : ""}
       <span class="unit-name">${escapeHtml(displayName(unit))}</span>
     </div>`;
   }
@@ -398,7 +400,7 @@
     return `<article class="recommendation-card">
       <div class="recommendation-main">
         <div class="rank">#${index + 1}</div>
-        <div class="formation" aria-label="Recommended squad">${rec.members.map((id) => formationUnit(id, { leader: id === rec.leaderId })).join("")}</div>
+        <div class="formation" aria-label="Recommended squad">${rec.members.map((id) => formationUnit(id, { leader: id === rec.leaderId, excludable: true })).join("")}</div>
         <div class="metrics-wrap">${renderMetrics(rec)}${rec.model === "synergy" ? `<div class="qualifiers"><span>Basis<strong>Kit relationships</strong></span><span>Target<strong>General</strong></span><span>Simulation<strong>None</strong></span></div>` : `<div class="qualifiers"><span>Investment<strong>${escapeHtml(rec.investment)}</strong></span><span>Mods<strong>${escapeHtml(rec.modDifficulty)}</strong></span><span>RNG<strong>${escapeHtml(rec.rng)}</strong></span></div>`}</div>
         <button class="expand-button" type="button" data-expand-recommendation="${rec.id}" aria-expanded="${expanded}" aria-label="${expanded ? "Collapse" : "Expand"} recommendation details">＋</button>
       </div>
@@ -829,6 +831,16 @@
     render();
   }
 
+  function excludeResultUnit(id) {
+    const unit = characterMap.get(id);
+    if (!unit || state.excludedUnits.includes(unit.id)) return;
+    setBuildExclusions([...state.excludedUnits, unit.id], { announceConflicts: false });
+    state.generatedSquads = calculateSquadRecommendations();
+    state.results.build = true;
+    render();
+    showToast(`${displayName(unit)} was excluded. Recommendations updated.`);
+  }
+
   function changeSection(section) {
     if (!["build", "counter", "missions", "roster"].includes(section)) return;
     state.section = section;
@@ -838,6 +850,12 @@
   }
 
   document.addEventListener("click", (event) => {
+    const resultExcludeButton = event.target.closest("[data-exclude-result-unit]");
+    if (resultExcludeButton) {
+      excludeResultUnit(resultExcludeButton.dataset.excludeResultUnit);
+      return;
+    }
+
     const nav = event.target.closest("[data-nav]");
     if (nav) {
       event.preventDefault();
