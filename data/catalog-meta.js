@@ -5,7 +5,7 @@ window.ForgeData.catalogMeta = {
   "status": "generated",
   "source": "comlink",
   "sourceLabel": "Local SWGOH Comlink snapshot",
-  "generatedAt": "2026-08-12T15:11:08Z",
+  "generatedAt": "2026-08-12T16:19:16Z",
   "gameDataVersion": "0.40.5:RJAhxL8sTGS_f1S8K9y1uw",
   "localizationVersion": "bc79IouQRamTlJtWi4D_kw",
   "locale": "ENG_US",
@@ -20,6 +20,9 @@ window.ForgeData.catalogMeta = {
     "quality": "localized-kit-text",
     "unitProfiles": 340,
     "abilities": 1516,
+    "simulationProfiles": 340,
+    "combatAbilities": 1217,
+    "combatMechanicSignals": 2160,
     "explicitAbilitySynergies": 0,
     "officialSquads": 0
   }

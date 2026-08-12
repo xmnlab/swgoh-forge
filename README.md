@@ -4,14 +4,15 @@
 
 SWGOH Forge is an unofficial, fan-made planning concept for *Star Wars: Galaxy of Heroes*. It is a static frontend prototype with an optional local data pipeline for generating a current character and ship catalog from [SWGOH Comlink](https://github.com/swgoh-utils/swgoh-comlink).
 
-The unit catalog and general squad-synergy model can be generated from current game data. General squad scores compare leader coverage, kit relationships, assists, recovery/control mechanics, explicit team-up tags, faction cohesion, and role balance. They are explainable formation estimates—not observed win rates or a battle simulator. Counter results, fleet results, requirements, battle counts, account details, and whole-roster optimization remain structured mock/demo data.
+The unit catalog and general squad-synergy model can be generated from current game data. General squad scores compare leader coverage, kit relationships, assists, recovery/control mechanics, explicit team-up tags, faction cohesion, and role balance. The squad matchup simulator runs seeded Monte Carlo battles over normalized base stats and compact kit mechanics. Both are explainable estimates—not observed win rates or an exact reproduction of the game engine. Fleet results, requirements, account details, and whole-roster optimization remain structured mock/demo data.
 
 ## Prototype features
 
 - Squad builder with required-character and required-leader constraints
 - Data-driven general squad formation ranking with leadership and cohesion explanations
 - Fleet builder with capital ship, starters, reinforcements, and reinforcement order
-- Squad and fleet counter flows
+- Local two-squad battle simulation with reproducible outcomes and coverage disclosure
+- Demo fleet counter flow
 - Searchable, filterable character and ship pickers
 - Minimum, recommended, and safe requirement tiers
 - Demo roster readiness and whole-roster optimization
@@ -120,6 +121,12 @@ The Build → Characters flow runs locally in the browser over the generated `da
 
 The score deliberately does not claim which squad wins a specific matchup. Gear, relics, mods, datacrons, turn order, AI behavior, an opponent lineup, and empirical battle outcomes are outside this general formation score. Those require roster and battle-history data that Comlink's static game definitions do not provide.
 
+### What the battle simulation means
+
+Counter → Squad compares two explicit 5v5 or 3v3 lineups in the browser. Each run models speed-based turns, Health and Protection damage, defense and penetration, critical hits, parsed recovery, Turn Meter, assists, a small set of control effects, cleanse, revive, cooldown reduction, and applicable abstracted leader benefits. Targeting, damage variance, critical hits, and effect application vary across the selected number of runs; the same matchup and context use the same seed, so results are reproducible.
+
+The result includes a mechanic-coverage percentage and names unsupported or partial mechanics. This is essential: the current checked-in snapshot contains localized kit text rather than executable combat definitions, and many units use bespoke scripts, summons, transformations, locked effects, mode rules, and AI behavior that the compact model cannot reproduce. The simulator also uses normalized Gear XIII base stats, not a player's relics, mods, datacrons, ability upgrades, or roster state. Its percentages are useful for inspecting the model and comparing broad matchup tendencies, not for claiming real-world counter success.
+
 Stop the local service when finished:
 
 ```bash
@@ -148,6 +155,7 @@ swgoh-forge/
 ├── styles.css
 ├── app.js
 ├── team-optimizer.js          # Explainable general squad synergy search
+├── battle-simulator.js        # Seeded approximate character battle engine
 ├── compose.comlink.yaml       # Loopback-only local Comlink service
 ├── requirements-data.txt     # Pinned Python updater dependency
 ├── scripts/
@@ -165,7 +173,8 @@ swgoh-forge/
 │   └── demo-roster.js         # Fictional local roster
 ├── tests/
 │   ├── test_update_game_data.py
-│   └── test_team_optimizer.js
+│   ├── test_team_optimizer.js
+│   └── test_battle_simulator.js
 └── assets/
 ```
 
@@ -182,8 +191,9 @@ Run the local checks with:
 ```bash
 python3 -m unittest discover -s tests
 node tests/test_team_optimizer.js
+node tests/test_battle_simulator.js
 bash -n scripts/update-data.sh scripts/update-data-full.sh
-node --check app.js && node --check team-optimizer.js
+for file in app.js battle-simulator.js team-optimizer.js; do node --check "$file"; done
 ```
 
 ## Disclaimer

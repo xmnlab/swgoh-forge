@@ -780,6 +780,159 @@ def maximum_allied_benefit_percent(description: str) -> int:
     return max(values, default=0)
 
 
+def scaled_stat_value(value: Any) -> float:
+    if not isinstance(value, Mapping):
+        return 0.0
+    raw = first_value(value, "statValueDecimal", "unscaledDecimalValue", "value", default=0)
+    try:
+        numeric = float(raw)
+    except (TypeError, ValueError):
+        return 0.0
+    # Game-data decimal values use four fixed decimal places. `unscaledDecimalValue`
+    # has four additional places and is only a fallback for older response shapes.
+    if "statValueDecimal" not in value and "unscaledDecimalValue" in value:
+        numeric /= 10_000
+    return numeric / 10_000
+
+
+def unit_simulation_stats(unit: Mapping[str, Any], role: str) -> dict[str, int]:
+    tiers = [tier for tier in as_list(unit.get("unitTier")) if isinstance(tier, Mapping)]
+    highest_tier = max(tiers, key=lambda tier: as_int(tier.get("tier"))) if tiers else {}
+    stat_block = first_value(highest_tier, "baseStat", default=unit.get("baseStat", {}))
+    values: dict[int, float] = {}
+    for stat in as_list(first_value(stat_block, "stat", "stats", default=[])):
+        if not isinstance(stat, Mapping):
+            continue
+        stat_id = as_int(first_value(stat, "unitStatId", "statId", "id"))
+        values[stat_id] = scaled_stat_value(stat)
+    fallback = {
+        "Attacker": (20_000, 30_000, 175, 2_100, 240),
+        "Tank": (32_000, 45_000, 135, 1_350, 500),
+        "Healer": (24_000, 36_000, 155, 1_350, 300),
+        "Support": (23_000, 35_000, 165, 1_500, 300),
+    }.get(role, (23_000, 35_000, 160, 1_500, 300))
+    offense = max(values.get(6, 0), values.get(7, 0)) or fallback[3]
+    critical_rating = max(values.get(14, 0), values.get(15, 0))
+    return {
+        "health": max(1, round(values.get(1, fallback[0]))),
+        "protection": max(0, round(values.get(28, fallback[1]))),
+        "speed": max(1, round(values.get(5, fallback[2]))),
+        "offense": max(1, round(offense)),
+        "defense": max(0, round(max(values.get(8, 0), values.get(9, 0)) or fallback[4])),
+        "penetration": max(0, round(max(values.get(10, 0), values.get(11, 0)))),
+        "criticalChance": max(5, min(75, round(10 + critical_rating / 10))),
+        "criticalDamage": max(125, round(values.get(16, 150))),
+    }
+
+
+def maximum_percent_near(description: str, subject_pattern: str) -> int:
+    values: list[int] = []
+    for sentence in re.split(r"[.\n]+", strip_game_markup(description)):
+        if re.search(subject_pattern, sentence, re.IGNORECASE):
+            values.extend(as_int(value) for value in re.findall(r"(\d+)%", sentence))
+    return max(values, default=0)
+
+
+def recovery_percent(description: str, resource: str) -> int:
+    patterns = (
+        rf"recover(?:s|ed)?\s+(\d+)%\s+(?:Max\s+)?{resource}",
+        rf"recover(?:s|ed)?\s+(?:Max\s+)?{resource}\s+equal\s+to\s+(\d+)%",
+    )
+    values = [
+        as_int(value)
+        for pattern in patterns
+        for value in re.findall(pattern, description, flags=re.IGNORECASE)
+    ]
+    return max(values, default=0)
+
+
+def compact_combat_mechanics(description: str, kind: str) -> dict[str, Any]:
+    text = strip_game_markup(description)
+    lowered = text.casefold()
+    mechanics: dict[str, Any] = {}
+    if kind in {"basic", "special"} and re.search(r"\bdeal\w*\b[^.]{0,70}\bdamage\b", lowered):
+        hits = 3 if re.search(r"\bthree times\b|\b3 times\b", lowered) else 2 if re.search(r"\btwice\b|\btwo times\b|\b2 times\b", lowered) else 1
+        mechanics["damage"] = {
+            "target": "all" if re.search(r"\ball enemies\b", lowered) else "single",
+            "hits": hits,
+            "multiplier": round((0.72 if "all enemies" in lowered else 1.0) * (1.2 if kind == "special" else 1.0), 2),
+        }
+
+    health_recovery = recovery_percent(text, "Health")
+    protection_recovery = recovery_percent(text, "Protection")
+    shared_recovery = re.findall(
+        r"recover(?:s|ed)?\s+(\d+)%\s+Health\s+and\s+Protection",
+        text,
+        flags=re.IGNORECASE,
+    )
+    if shared_recovery:
+        health_recovery = max(health_recovery, max(as_int(value) for value in shared_recovery))
+        protection_recovery = max(protection_recovery, max(as_int(value) for value in shared_recovery))
+    if health_recovery or protection_recovery:
+        mechanics["recovery"] = {
+            "target": "all" if re.search(r"\ball allies\b", lowered) else "one" if re.search(r"target ally", lowered) else "self",
+            "healthPercent": min(100, health_recovery),
+            "protectionPercent": min(100, protection_recovery),
+        }
+
+    turn_meter_values = re.findall(
+        r"gain(?:s|ed)?\s+(\d+)%\s+Turn Meter",
+        text,
+        flags=re.IGNORECASE,
+    )
+    turn_meter = max((as_int(value) for value in turn_meter_values), default=0)
+    if turn_meter:
+        mechanics["turnMeterPercent"] = min(100, turn_meter)
+    if re.search(r"call(?:s|ed)?\s+all[^.]{0,45}\bto assist\b", lowered):
+        mechanics["assist"] = "all"
+    elif re.search(r"call(?:s|ed)?[^.]{0,45}\bto assist\b", lowered):
+        mechanics["assist"] = "one"
+    elif kind in {"unique", "leader"} and re.search(
+        r"(?:whenever|when)[^.]{0,80}\b(?:ally|allies)\b[^.]{0,80}"
+        r"\b(?:special ability|uses? (?:a )?special)\b[^.]{0,80}\bassist(?:s|ed|ing)?\b",
+        lowered,
+    ):
+        mechanics["assistTrigger"] = "ally-special"
+
+    controls: list[str] = []
+    for status in ("stun", "daze", "fear", "fracture", "ability block"):
+        escaped = re.escape(status)
+        if any(
+            re.search(pattern, lowered)
+            for pattern in (
+                rf"\b(?:inflict|apply)(?:s|ed)?\b[^.]{{0,45}}\b{escaped}\b",
+                rf"\bchance to (?:inflict )?{escaped}\b",
+                rf"\b{escaped}(?:s|ed)?\s+(?:target|all|the)\b",
+            )
+        ):
+            controls.append(status)
+    if controls:
+        mechanics["control"] = controls
+        mechanics["controlTarget"] = "all" if re.search(r"\ball enemies\b", lowered) else "single"
+    if re.search(r"dispel(?:s|led)? (?:all )?debuff", lowered):
+        mechanics["cleanse"] = "all" if "all allies" in lowered else "self"
+    if re.search(r"dispel(?:s|led)? (?:all )?buff", lowered):
+        mechanics["dispel"] = "all" if "all enemies" in lowered else "target"
+    if re.search(
+        r"\brevive(?:s|d)?\b[^.]{0,60}\b(?:ally|allies|them)\b|"
+        r"\b(?:ally|allies)\b[^.]{0,60}\brevive(?:s|d)?\b",
+        lowered,
+    ) and not re.search(r"\b(?:cannot|can't|prevent\w* from being)\b[^.]{0,35}\brevive", lowered):
+        revive_values = re.findall(
+            r"revive(?:s|d)?[^.]{0,60}?(?:with|at)\s+(\d+)%",
+            text,
+            flags=re.IGNORECASE,
+        )
+        revive_percent = max((as_int(value) for value in revive_values), default=0)
+        mechanics["revivePercent"] = min(100, revive_percent or 30)
+    if re.search(r"\bsummon(?:s|ed|ing)?\b", lowered):
+        mechanics["summon"] = True
+    cooldown_reduction = re.findall(r"reduce[^.]{0,40}cooldown[^.]{0,30}by\s+(\d+)", lowered)
+    if cooldown_reduction:
+        mechanics["cooldownReduction"] = max(as_int(value) for value in cooldown_reduction)
+    return mechanics
+
+
 def general_ability_text(description: str) -> str:
     """Exclude mode-only tails so general scoring does not count an inactive Omicron."""
     return re.split(
@@ -936,6 +1089,7 @@ def normalize_synergy_model(
                 "signals": signals,
                 "modeBonuses": ability_modes(description),
                 "impact": impact,
+                "combat": compact_combat_mechanics(general_text, kind),
             }
             if benefit_percent:
                 ability_record["maximumAlliedBenefitPercent"] = benefit_percent
@@ -958,6 +1112,7 @@ def normalize_synergy_model(
             "baseId": base_id,
             "categories": ids,
             "teamUpTags": [value for value in ids if value.casefold().startswith("teamup_")],
+            "simulationStats": unit_simulation_stats(raw, str(character.get("role", "Support"))),
             "abilities": abilities,
         }
 
@@ -997,6 +1152,17 @@ def normalize_synergy_model(
         "counts": {
             "unitProfiles": len(profiles),
             "abilities": sum(len(profile["abilities"]) for profile in profiles.values()),
+            "simulationProfiles": sum(bool(profile.get("simulationStats")) for profile in profiles.values()),
+            "combatAbilities": sum(
+                bool(ability.get("combat"))
+                for profile in profiles.values()
+                for ability in profile["abilities"]
+            ),
+            "combatMechanicSignals": sum(
+                len(ability.get("combat", {}))
+                for profile in profiles.values()
+                for ability in profile["abilities"]
+            ),
             "explicitAbilitySynergies": explicit_synergy_count,
             "officialSquads": len(official_squads),
         },

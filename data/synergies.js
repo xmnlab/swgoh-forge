@@ -21,6 +21,16 @@ window.ForgeData.synergyModel = {
         "conq_nonsepdroid"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14010,
+        "protection": 57732,
+        "speed": 181,
+        "offense": 432,
+        "defense": 284,
+        "penetration": 125,
+        "criticalChance": 24,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_TRIPLEZERO",
@@ -32,7 +42,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_TRIPLEZERO01",
@@ -45,7 +66,14 @@ window.ForgeData.synergyModel = {
             "gac",
             "gac-3v3"
           ],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_TRIPLEZERO01",
@@ -62,6 +90,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -82,6 +111,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 30,
+              "protectionPercent": 30
+            }
+          },
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -109,6 +145,16 @@ window.ForgeData.synergyModel = {
         "teamup_4lom_ig88",
         "teamup_zuckuss_4lom"
       ],
+      "simulationStats": {
+        "health": 15855,
+        "protection": 57550,
+        "speed": 178,
+        "offense": 1412,
+        "defense": 276,
+        "penetration": 147,
+        "criticalChance": 52,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_4LOM",
@@ -122,7 +168,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_4LOM01",
@@ -142,7 +195,19 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "all",
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_4LOM02",
@@ -164,6 +229,20 @@ window.ForgeData.synergyModel = {
             "raid"
           ],
           "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 30,
+              "protectionPercent": 30
+            },
+            "turnMeterPercent": 10,
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -186,6 +265,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 10
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -209,6 +295,10 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 8,
+          "combat": {
+            "turnMeterPercent": 50,
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -219,7 +309,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         }
       ]
     },
@@ -239,6 +330,16 @@ window.ForgeData.synergyModel = {
         "gc_light_droid"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 20610,
+        "protection": 57732,
+        "speed": 180,
+        "offense": 1476,
+        "defense": 258,
+        "penetration": 128,
+        "criticalChance": 55,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_50RT",
@@ -248,7 +349,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_50RT01",
@@ -265,6 +373,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 3,
+              "multiplier": 0.86
+            },
+            "turnMeterPercent": 5
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -282,7 +398,10 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "leaderskill_50RT",
@@ -301,6 +420,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "revivePercent": 100,
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -317,6 +440,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -341,6 +471,16 @@ window.ForgeData.synergyModel = {
         "raid_order66_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 9050,
+        "protection": 41388,
+        "speed": 145,
+        "offense": 1809,
+        "defense": 65,
+        "penetration": 184,
+        "criticalChance": 75,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_AAYLASECURA",
@@ -355,7 +495,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "specialskill_AAYLASECURA01",
@@ -367,7 +515,19 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 65,
+              "protectionPercent": 0
+            }
+          }
         },
         {
           "skillId": "uniqueskill_AAYLASECURA01",
@@ -379,7 +539,8 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_AAYLASECURA02",
@@ -405,6 +566,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 25,
+              "protectionPercent": 25
+            },
+            "assist": "one",
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -421,6 +591,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 40
         }
       ]
@@ -443,6 +614,16 @@ window.ForgeData.synergyModel = {
         "conq_ls_admiral"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 19930,
+        "protection": 39690,
+        "speed": 139,
+        "offense": 1389,
+        "defense": 288,
+        "penetration": 75,
+        "criticalChance": 16,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_ADMIRALACKBAR",
@@ -454,7 +635,15 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 45
+          }
         },
         {
           "skillId": "specialskill_ADMIRALACKBAR01",
@@ -469,6 +658,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "turnMeterPercent": 40
+          },
           "maximumAlliedBenefitPercent": 9
         },
         {
@@ -484,6 +676,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "turnMeterPercent": 100
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -502,6 +697,9 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 6,
+          "combat": {
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -525,6 +723,16 @@ window.ForgeData.synergyModel = {
         "quest_imperialofficer"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 10435,
+        "protection": 54622,
+        "speed": 179,
+        "offense": 2495,
+        "defense": 87,
+        "penetration": 48,
+        "criticalChance": 65,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_ADMIRALPIETT",
@@ -536,7 +744,15 @@ window.ForgeData.synergyModel = {
             "calls assists"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "specialskill_ADMIRALPIETT01",
@@ -552,7 +768,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {}
         },
         {
           "skillId": "specialskill_ADMIRALPIETT02",
@@ -565,7 +782,20 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "daze",
+              "fear"
+            ],
+            "controlTarget": "all",
+            "dispel": "all"
+          }
         },
         {
           "skillId": "leaderskill_ADMIRALPIETT",
@@ -582,6 +812,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -601,6 +832,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "turnMeterPercent": 5
+          },
           "maximumAlliedBenefitPercent": 20
         }
       ]
@@ -623,6 +857,16 @@ window.ForgeData.synergyModel = {
         "conq_ls_admiral"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 25775,
+        "protection": 57732,
+        "speed": 194,
+        "offense": 1243,
+        "defense": 365,
+        "penetration": 26,
+        "criticalChance": 22,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_ADMIRALRADDUS",
@@ -633,6 +877,13 @@ window.ForgeData.synergyModel = {
           "signals": [],
           "modeBonuses": [],
           "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -656,6 +907,16 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 20,
+              "protectionPercent": 35
+            },
+            "turnMeterPercent": 40,
+            "assist": "all",
+            "cooldownReduction": 2
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -672,6 +933,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 8
         },
         {
@@ -691,6 +960,12 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 7,
+          "combat": {
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "single"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -712,6 +987,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 100,
+              "protectionPercent": 100
+            },
+            "revivePercent": 30
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -729,6 +1012,16 @@ window.ForgeData.synergyModel = {
         "affiliation_separatist"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 13950,
+        "protection": 62219,
+        "speed": 171,
+        "offense": 574,
+        "defense": 167,
+        "penetration": 105,
+        "criticalChance": 32,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_TRENCH",
@@ -740,7 +1033,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_TRENCH01",
@@ -750,7 +1054,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_TRENCH",
@@ -775,6 +1080,7 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 10,
+          "combat": {},
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -785,7 +1091,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         }
       ]
     },
@@ -808,6 +1115,16 @@ window.ForgeData.synergyModel = {
         "reduced_massive_damage"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 60595,
+        "protection": 62219,
+        "speed": 377,
+        "offense": 1552,
+        "defense": 525,
+        "penetration": 100,
+        "criticalChance": 18,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GLAHSOKATANO",
@@ -824,6 +1141,19 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 10
+            },
+            "dispel": "target"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -840,6 +1170,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            }
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -856,6 +1198,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "turnMeterPercent": 25,
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -880,6 +1226,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "turnMeterPercent": 10,
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -892,7 +1242,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_GALACTICLEGEND01",
@@ -907,7 +1258,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -935,6 +1287,16 @@ window.ForgeData.synergyModel = {
         "conq_spectre_attacker"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14400,
+        "protection": 39500,
+        "speed": 168,
+        "offense": 1417,
+        "defense": 86,
+        "penetration": 164,
+        "criticalChance": 55,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_FULCRUMAHSOKA",
@@ -945,6 +1307,13 @@ window.ForgeData.synergyModel = {
           "signals": [],
           "modeBonuses": [],
           "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          },
           "maximumAlliedBenefitPercent": 40
         },
         {
@@ -959,6 +1328,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {
+            "turnMeterPercent": 15
+          },
           "maximumAlliedBenefitPercent": 15
         },
         {
@@ -969,7 +1341,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_FULCRUMAHSOKA01",
@@ -984,7 +1363,15 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 0
+            },
+            "cleanse": "self"
+          }
         }
       ]
     },
@@ -1020,6 +1407,16 @@ window.ForgeData.synergyModel = {
         "teamup_huyang_snips",
         "teamup_jkanakin_snips"
       ],
+      "simulationStats": {
+        "health": 8616,
+        "protection": 34900,
+        "speed": 125,
+        "offense": 1969,
+        "defense": 67,
+        "penetration": 329,
+        "criticalChance": 73,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_AHSOKATANO",
@@ -1037,6 +1434,20 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 15,
+              "protectionPercent": 0
+            },
+            "cleanse": "self",
+            "dispel": "target"
+          },
           "maximumAlliedBenefitPercent": 15
         },
         {
@@ -1054,6 +1465,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "all",
+              "healthPercent": 20,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -1074,7 +1497,10 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "assist": "one"
+          }
         },
         {
           "skillId": "leaderskill_AHSOKATANO",
@@ -1090,6 +1516,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "turnMeterPercent": 20
+          },
           "maximumAlliedBenefitPercent": 20
         }
       ]
@@ -1108,6 +1537,16 @@ window.ForgeData.synergyModel = {
         "conq_ls_admiral"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 25805,
+        "protection": 54640,
+        "speed": 110,
+        "offense": 546,
+        "defense": 354,
+        "penetration": 60,
+        "criticalChance": 29,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_AMILYNHOLDO",
@@ -1120,6 +1559,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -1133,7 +1584,18 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "specialskill_AMILYNHOLDO02",
@@ -1147,6 +1609,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 40,
+              "protectionPercent": 0
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 40
         },
         {
@@ -1164,6 +1634,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 20
         }
       ]
@@ -1193,6 +1670,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_appo_arctrooper"
       ],
+      "simulationStats": {
+        "health": 20555,
+        "protection": 43715,
+        "speed": 177,
+        "offense": 2511,
+        "defense": 193,
+        "penetration": 128,
+        "criticalChance": 40,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_ARCTROOPER501ST",
@@ -1204,7 +1691,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_ARCTROOPER501ST01",
@@ -1216,7 +1710,14 @@ window.ForgeData.synergyModel = {
             "calls assists"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_ARCTROOPER501ST01",
@@ -1230,7 +1731,11 @@ window.ForgeData.synergyModel = {
             "revives allies"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "revivePercent": 30,
+            "summon": true
+          }
         }
       ]
     },
@@ -1259,6 +1764,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_omegafugitive_asajj"
       ],
+      "simulationStats": {
+        "health": 20675,
+        "protection": 36710,
+        "speed": 124,
+        "offense": 1239,
+        "defense": 89,
+        "penetration": 197,
+        "criticalChance": 34,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_ASAJVENTRESS",
@@ -1270,7 +1785,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_ASAJVENTRESS01",
@@ -1287,6 +1813,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 40,
+              "protectionPercent": 0
+            },
+            "dispel": "all"
+          },
           "maximumAlliedBenefitPercent": 40
         },
         {
@@ -1300,7 +1834,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_ASAJVENTRESS01",
@@ -1318,6 +1859,9 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 35
+          },
           "maximumAlliedBenefitPercent": 35
         },
         {
@@ -1335,6 +1879,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "turnMeterPercent": 50
+          },
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -1356,6 +1903,16 @@ window.ForgeData.synergyModel = {
         "territory_dark_platoon"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 12305,
+        "protection": 57732,
+        "speed": 158,
+        "offense": 1364,
+        "defense": 147,
+        "penetration": 194,
+        "criticalChance": 50,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_ASAJJDARKDISCIPLE",
@@ -1369,7 +1926,15 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 12
+          }
         },
         {
           "skillId": "specialskill_ASAJJDARKDISCIPLE01",
@@ -1388,7 +1953,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_ASAJJDARKDISCIPLE02",
@@ -1408,6 +1980,19 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "all",
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single",
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -1430,6 +2015,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "revivePercent": 30
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -1458,6 +2046,9 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 9,
+          "combat": {
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 300
         },
         {
@@ -1468,7 +2059,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         }
       ]
     },
@@ -1493,6 +2085,16 @@ window.ForgeData.synergyModel = {
         "conq_toppled"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 13900,
+        "protection": 44131,
+        "speed": 167,
+        "offense": 2248,
+        "defense": 40,
+        "penetration": 307,
+        "criticalChance": 52,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_AURRA_SING",
@@ -1505,7 +2107,19 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 20,
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_AURRA_SING01",
@@ -1518,7 +2132,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_AURRA_SING02",
@@ -1534,7 +2155,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "leaderskill_AURRA_SING",
@@ -1555,6 +2183,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 25
+            },
+            "turnMeterPercent": 25
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -1568,6 +2204,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {},
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -1578,7 +2215,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         }
       ]
     },
@@ -1602,6 +2240,16 @@ window.ForgeData.synergyModel = {
         "selftag_b1battledroid_shared"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 7535,
+        "protection": 35759,
+        "speed": 165,
+        "offense": 2565,
+        "defense": 33,
+        "penetration": 517,
+        "criticalChance": 44,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_b1battledroidv2",
@@ -1611,7 +2259,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         },
         {
           "skillId": "specialskill_b1battledroidv2_01",
@@ -1626,7 +2275,14 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_b1battledroidv2_01",
@@ -1643,6 +2299,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 15
+          },
           "maximumAlliedBenefitPercent": 15
         },
         {
@@ -1663,6 +2322,9 @@ window.ForgeData.synergyModel = {
             "raid"
           ],
           "impact": 7,
+          "combat": {
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 2
         }
       ]
@@ -1683,6 +2345,16 @@ window.ForgeData.synergyModel = {
         "raid_naboo_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 9507,
+        "protection": 47197,
+        "speed": 131,
+        "offense": 1024,
+        "defense": 351,
+        "penetration": 81,
+        "criticalChance": 40,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_B2SUPERBATTLEDROID",
@@ -1694,7 +2366,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_B2SUPERBATTLEDROID01",
@@ -1704,7 +2383,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_B2SUPERBATTLEDROID01",
@@ -1717,6 +2403,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 100
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -1734,6 +2423,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 5,
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 5
         }
       ]
@@ -1758,6 +2451,16 @@ window.ForgeData.synergyModel = {
         "raid_order66_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 12587,
+        "protection": 46189,
+        "speed": 136,
+        "offense": 1424,
+        "defense": 171,
+        "penetration": 35,
+        "criticalChance": 70,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BARRISSOFFEE",
@@ -1773,6 +2476,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          },
           "maximumAlliedBenefitPercent": 6
         },
         {
@@ -1787,6 +2497,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {},
           "maximumAlliedBenefitPercent": 15
         },
         {
@@ -1802,6 +2513,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 20,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 10,
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -1819,6 +2539,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 20
         }
       ]
@@ -1843,6 +2564,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 24805,
+        "protection": 49176,
+        "speed": 140,
+        "offense": 646,
+        "defense": 174,
+        "penetration": 60,
+        "criticalChance": 32,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BASTILASHAN",
@@ -1857,7 +2588,18 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_BASTILASHAN01",
@@ -1873,7 +2615,11 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "assist": "one",
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "specialskill_BASTILASHAN02",
@@ -1886,7 +2632,15 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "leaderskill_BASTILASHAN",
@@ -1904,6 +2658,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "turnMeterPercent": 15
+          },
           "maximumAlliedBenefitPercent": 150
         },
         {
@@ -1918,6 +2675,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 2
+            },
+            "turnMeterPercent": 3
+          },
           "maximumAlliedBenefitPercent": 3
         },
         {
@@ -1934,7 +2699,8 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -1954,6 +2720,16 @@ window.ForgeData.synergyModel = {
         "conq_lureofthedarkside"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 25950,
+        "protection": 39132,
+        "speed": 156,
+        "offense": 2070,
+        "defense": 169,
+        "penetration": 185,
+        "criticalChance": 66,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BASTILASHANDARK",
@@ -1968,7 +2744,18 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_BASTILASHANDARK01",
@@ -1978,7 +2765,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_BASTILASHANDARK02",
@@ -1993,7 +2787,13 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "control": [
+              "fear"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "uniqueskill_BASTILASHANDARK01",
@@ -2006,7 +2806,14 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 1
+            }
+          }
         },
         {
           "skillId": "uniqueskill_BASTILASHANDARK02",
@@ -2020,7 +2827,13 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "control": [
+              "fear"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "uniqueskill_BASTILASHANDARK03",
@@ -2038,7 +2851,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -2059,6 +2873,16 @@ window.ForgeData.synergyModel = {
         "teamup_batcher_hunter",
         "teamup_batcher_omegafugitive"
       ],
+      "simulationStats": {
+        "health": 11799,
+        "protection": 65294,
+        "speed": 184,
+        "offense": 1277,
+        "defense": 335,
+        "penetration": 123,
+        "criticalChance": 33,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BATCHERS3",
@@ -2070,7 +2894,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_BATCHERS301",
@@ -2087,6 +2918,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "all",
+            "dispel": "all"
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -2101,7 +2939,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_BATCHERS301",
@@ -2119,7 +2964,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 8
+          "impact": 8,
+          "combat": {}
         }
       ]
     },
@@ -2140,6 +2986,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 26075,
+        "protection": 62219,
+        "speed": 182,
+        "offense": 1401,
+        "defense": 436,
+        "penetration": 113,
+        "criticalChance": 35,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BAYLANSKOLL",
@@ -2156,6 +3012,19 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            },
+            "turnMeterPercent": 5
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -2172,7 +3041,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 3,
+              "multiplier": 1.2
+            },
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "specialskill_BAYLANSKOLL02",
@@ -2192,6 +3069,14 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -2214,6 +3099,18 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 50,
+              "protectionPercent": 50
+            },
+            "control": [
+              "fear"
+            ],
+            "controlTarget": "all",
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -2235,7 +3132,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 7
+          "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 3,
+              "protectionPercent": 3
+            }
+          }
         },
         {
           "skillId": "uniqueskill_BAYLANSKOLL02",
@@ -2250,6 +3154,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {},
           "maximumAlliedBenefitPercent": 5
         }
       ]
@@ -2273,6 +3178,16 @@ window.ForgeData.synergyModel = {
         "gac_chaze"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 6533,
+        "protection": 48940,
+        "speed": 110,
+        "offense": 1533,
+        "defense": 233,
+        "penetration": 164,
+        "criticalChance": 39,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BAZEMALBUS",
@@ -2287,7 +3202,15 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 10
+          }
         },
         {
           "skillId": "specialskill_BAZEMALBUS01",
@@ -2303,7 +3226,16 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "assist": "one",
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_BAZEMALBUS02",
@@ -2315,7 +3247,15 @@ window.ForgeData.synergyModel = {
             "dispels enemy buffs"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "uniqueskill_BAZEMALBUS01",
@@ -2328,7 +3268,10 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "turnMeterPercent": 10
+          }
         },
         {
           "skillId": "uniqueskill_BAZEMALBUS02",
@@ -2342,7 +3285,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -2367,6 +3311,16 @@ window.ForgeData.synergyModel = {
         "conq_dotsdots"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 15050,
+        "protection": 38034,
+        "speed": 182,
+        "offense": 482,
+        "defense": 383,
+        "penetration": 37,
+        "criticalChance": 30,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BB8",
@@ -2378,7 +3332,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_BB801",
@@ -2393,6 +3358,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "turnMeterPercent": 8
+          },
           "maximumAlliedBenefitPercent": 8
         },
         {
@@ -2414,6 +3382,16 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 0,
+              "protectionPercent": 20
+            },
+            "turnMeterPercent": 80,
+            "cleanse": "all",
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 80
         },
         {
@@ -2428,7 +3406,10 @@ window.ForgeData.synergyModel = {
             "calls assists"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "assist": "one"
+          }
         },
         {
           "skillId": "uniqueskill_BB802",
@@ -2444,6 +3425,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 8,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 8
+          },
           "maximumAlliedBenefitPercent": 8
         }
       ]
@@ -2465,6 +3454,16 @@ window.ForgeData.synergyModel = {
         "affiliation_kylos"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 15290,
+        "protection": 57732,
+        "speed": 166,
+        "offense": 1923,
+        "defense": 203,
+        "penetration": 122,
+        "criticalChance": 44,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BENSOLO",
@@ -2478,7 +3477,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_BENSOLO01",
@@ -2493,7 +3499,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_BENSOLO02",
@@ -2510,6 +3523,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "turnMeterPercent": 5,
+            "dispel": "all"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -2529,6 +3551,9 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 6,
+          "combat": {
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 15
         },
         {
@@ -2545,7 +3570,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -2566,6 +3592,16 @@ window.ForgeData.synergyModel = {
         "gac_trench"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 15268,
+        "protection": 48293,
+        "speed": 128,
+        "offense": 790,
+        "defense": 288,
+        "penetration": 99,
+        "criticalChance": 58,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BIGGSDARKLIGHTER",
@@ -2577,7 +3613,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_BIGGSDARKLIGHTER01",
@@ -2589,7 +3632,14 @@ window.ForgeData.synergyModel = {
             "calls assists"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_BIGGSDARKLIGHTER01",
@@ -2601,7 +3651,10 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "turnMeterPercent": 100
+          }
         }
       ]
     },
@@ -2622,6 +3675,16 @@ window.ForgeData.synergyModel = {
         "any_obtainable"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14913,
+        "protection": 41615,
+        "speed": 165,
+        "offense": 1942,
+        "defense": 124,
+        "penetration": 159,
+        "criticalChance": 44,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BISTAN",
@@ -2631,7 +3694,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_BISTAN01",
@@ -2644,6 +3714,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "turnMeterPercent": 100
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -2656,7 +3729,14 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_BISTAN01",
@@ -2667,6 +3747,7 @@ window.ForgeData.synergyModel = {
           "signals": [],
           "modeBonuses": [],
           "impact": 2,
+          "combat": {},
           "maximumAlliedBenefitPercent": 12
         }
       ]
@@ -2685,6 +3766,16 @@ window.ForgeData.synergyModel = {
         "affiliation_ls_mandalorian"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 15395,
+        "protection": 30912,
+        "speed": 147,
+        "offense": 1745,
+        "defense": 460,
+        "penetration": 98,
+        "criticalChance": 42,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_MANDALORBOKATAN",
@@ -2700,7 +3791,15 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_MANDALORBOKATAN01",
@@ -2713,7 +3812,15 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_MANDALORBOKATAN02",
@@ -2731,7 +3838,16 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.2
+            },
+            "assist": "one",
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "uniqueskill_MANDALORBOKATAN01",
@@ -2755,6 +3871,14 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 50,
+              "protectionPercent": 0
+            },
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -2777,6 +3901,7 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 40
         }
       ]
@@ -2800,6 +3925,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18795,
+        "protection": 34900,
+        "speed": 152,
+        "offense": 1823,
+        "defense": 75,
+        "penetration": 307,
+        "criticalChance": 39,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BOKATAN",
@@ -2811,7 +3946,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_BOKATAN01",
@@ -2821,7 +3963,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_BOKATAN01",
@@ -2831,7 +3974,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_BOKATAN",
@@ -2852,6 +3996,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "assist": "one",
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 25
         }
       ]
@@ -2891,6 +4039,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_omegafugitive_bobafett"
       ],
+      "simulationStats": {
+        "health": 14833,
+        "protection": 34768,
+        "speed": 167,
+        "offense": 1824,
+        "defense": 122,
+        "penetration": 203,
+        "criticalChance": 47,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BOBAFETT",
@@ -2900,7 +4058,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_BOBAFETT01",
@@ -2912,7 +4077,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "specialskill_BOBAFETT02",
@@ -2928,7 +4104,16 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "dispel": "target",
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "uniqueskill_BOBAFETT01",
@@ -2944,7 +4129,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 100
+            }
+          }
         },
         {
           "skillId": "contractskill_BOBAFETT01",
@@ -2954,7 +4146,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_BOBAFETT",
@@ -2976,6 +4169,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "turnMeterPercent": 15
+          },
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -2996,6 +4192,16 @@ window.ForgeData.synergyModel = {
         "affiliation_bobafetts"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 12800,
+        "protection": 45185,
+        "speed": 146,
+        "offense": 1885,
+        "defense": 57,
+        "penetration": 215,
+        "criticalChance": 75,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BOBAFETTSCION",
@@ -3005,7 +4211,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_BOBAFETTSCION01",
@@ -3023,7 +4236,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_BOBAFETTSCION02",
@@ -3037,7 +4257,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "leaderskill_BOBAFETTSCION",
@@ -3060,6 +4287,7 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 8,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -3078,7 +4306,10 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "turnMeterPercent": 5
+          }
         },
         {
           "skillId": "contractskill_BOBAFETTSCION01",
@@ -3088,7 +4319,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         }
       ]
     },
@@ -3111,6 +4343,16 @@ window.ForgeData.synergyModel = {
         "gac_rebelpilot"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 23181,
+        "protection": 39847,
+        "speed": 152,
+        "offense": 981,
+        "defense": 243,
+        "penetration": 109,
+        "criticalChance": 48,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BODHIROOK",
@@ -3120,7 +4362,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_BODHIROOK01",
@@ -3137,6 +4386,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "turnMeterPercent": 30,
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -3152,6 +4405,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -3168,6 +4424,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -3185,6 +4442,16 @@ window.ForgeData.synergyModel = {
         "raid_naboo_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 20605,
+        "protection": 57732,
+        "speed": 177,
+        "offense": 1476,
+        "defense": 317,
+        "penetration": 128,
+        "criticalChance": 40,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BOSSNASS",
@@ -3201,7 +4468,20 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 30
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "specialskill_BOSSNASS01",
@@ -3221,6 +4501,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 20
+            },
+            "turnMeterPercent": 25,
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -3236,7 +4525,10 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "dispel": "all"
+          }
         },
         {
           "skillId": "leaderskill_BOSSNASS",
@@ -3257,6 +4549,10 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 10,
+          "combat": {
+            "turnMeterPercent": 50,
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -3275,6 +4571,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -3296,6 +4593,16 @@ window.ForgeData.synergyModel = {
         "gac_revenge"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 16150,
+        "protection": 50715,
+        "speed": 171,
+        "offense": 1350,
+        "defense": 218,
+        "penetration": 161,
+        "criticalChance": 66,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BOSSK",
@@ -3305,7 +4612,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_BOSSK01",
@@ -3323,7 +4637,16 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "all",
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_BOSSK02",
@@ -3342,7 +4665,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 50,
+              "protectionPercent": 0
+            },
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "leaderskill_BOSSK",
@@ -3362,6 +4693,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            }
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -3375,7 +4713,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         },
         {
           "skillId": "contractskill_BOSSK01",
@@ -3385,7 +4724,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         }
       ]
     },
@@ -3405,6 +4745,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 24765,
+        "protection": 57707,
+        "speed": 185,
+        "offense": 1685,
+        "defense": 77,
+        "penetration": 130,
+        "criticalChance": 35,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BOUSHH",
@@ -3423,7 +4773,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_BOUSHH01",
@@ -3433,7 +4790,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "leaderskill_BOUSHH",
@@ -3453,6 +4817,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "dispel": "target"
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -3472,7 +4839,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 8
+          "impact": 8,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_BOUSHH02",
@@ -3492,6 +4860,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -3502,7 +4871,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         }
       ]
     },
@@ -3533,6 +4903,16 @@ window.ForgeData.synergyModel = {
         "teamup_vane_brutus",
         "teamup_silvo_brutus"
       ],
+      "simulationStats": {
+        "health": 18605,
+        "protection": 62219,
+        "speed": 174,
+        "offense": 1954,
+        "defense": 167,
+        "penetration": 223,
+        "criticalChance": 56,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BRUTUS",
@@ -3544,7 +4924,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_BRUTUS01",
@@ -3562,7 +4949,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_BRUTUS02",
@@ -3585,7 +4979,11 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 8
+          "impact": 8,
+          "combat": {
+            "turnMeterPercent": 30,
+            "dispel": "all"
+          }
         },
         {
           "skillId": "uniqueskill_BRUTUS01",
@@ -3612,6 +5010,7 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 9,
+          "combat": {},
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -3633,6 +5032,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_ig90_bt1"
       ],
+      "simulationStats": {
+        "health": 8705,
+        "protection": 62219,
+        "speed": 176,
+        "offense": 1846,
+        "defense": 338,
+        "penetration": 234,
+        "criticalChance": 45,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BT1",
@@ -3642,7 +5051,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 3,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_BT101",
@@ -3652,7 +5068,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_BT101",
@@ -3676,6 +5099,9 @@ window.ForgeData.synergyModel = {
             "gac-3v3"
           ],
           "impact": 6,
+          "combat": {
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -3690,7 +5116,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {}
         }
       ]
     },
@@ -3723,6 +5150,16 @@ window.ForgeData.synergyModel = {
         "raid_speeder_bike_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 22515,
+        "protection": 55625,
+        "speed": 152,
+        "offense": 381,
+        "defense": 438,
+        "penetration": 40,
+        "criticalChance": 11,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_C3POLEGENDARY",
@@ -3739,7 +5176,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 5
+          "impact": 5,
+          "combat": {}
         },
         {
           "skillId": "specialskill_C3POLEGENDARY01",
@@ -3751,7 +5189,15 @@ window.ForgeData.synergyModel = {
             "calls assists"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.2
+            },
+            "assist": "all"
+          }
         },
         {
           "skillId": "uniqueskill_C3POLEGENDARY01",
@@ -3771,6 +5217,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -3783,7 +5230,8 @@ window.ForgeData.synergyModel = {
           ],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_C3POLEGENDARY03",
@@ -3799,6 +5247,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {},
           "maximumAlliedBenefitPercent": 15
         },
         {
@@ -3813,6 +5262,7 @@ window.ForgeData.synergyModel = {
           "signals": [],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {},
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -3829,6 +5279,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {},
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -3860,6 +5311,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_4lom_cadbane"
       ],
+      "simulationStats": {
+        "health": 15581,
+        "protection": 46584,
+        "speed": 133,
+        "offense": 1579,
+        "defense": 133,
+        "penetration": 119,
+        "criticalChance": 63,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CADBANE",
@@ -3871,7 +5332,15 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 15
+          }
         },
         {
           "skillId": "specialskill_CADBANE01",
@@ -3886,7 +5355,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "uniqueskill_CADBANE01",
@@ -3901,7 +5378,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 0
+            },
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "leaderskill_CADBANE",
@@ -3917,6 +5402,7 @@ window.ForgeData.synergyModel = {
           "signals": [],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -3927,7 +5413,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         }
       ]
     },
@@ -3949,6 +5436,16 @@ window.ForgeData.synergyModel = {
         "conq_survivedorder66"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17200,
+        "protection": 57732,
+        "speed": 153,
+        "offense": 1394,
+        "defense": 358,
+        "penetration": 18,
+        "criticalChance": 28,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CALKESTIS",
@@ -3962,7 +5459,18 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_CALKESTIS01",
@@ -3978,6 +5486,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "one",
+              "healthPercent": 45,
+              "protectionPercent": 30
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 45
         },
         {
@@ -3994,6 +5510,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 3
+          },
           "maximumAlliedBenefitPercent": 3
         },
         {
@@ -4014,6 +5533,18 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            },
+            "turnMeterPercent": 50,
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "all"
+          },
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -4035,6 +5566,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 13100,
+        "protection": 43715,
+        "speed": 142,
+        "offense": 2839,
+        "defense": 115,
+        "penetration": 316,
+        "criticalChance": 28,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CANDEROUSORDO",
@@ -4044,7 +5585,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_CANDEROUSORDO01",
@@ -4057,7 +5605,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_CANDEROUSORDO02",
@@ -4072,6 +5627,7 @@ window.ForgeData.synergyModel = {
           "signals": [],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {},
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -4086,7 +5642,10 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "turnMeterPercent": 8
+          }
         }
       ]
     },
@@ -4104,6 +5663,16 @@ window.ForgeData.synergyModel = {
         "selftag_carsonteva"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 23480,
+        "protection": 37940,
+        "speed": 179,
+        "offense": 856,
+        "defense": 155,
+        "penetration": 180,
+        "criticalChance": 36,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CARSONTEVA",
@@ -4115,7 +5684,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_CARSONTEVA01",
@@ -4130,7 +5706,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 3,
+              "multiplier": 1.2
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "uniqueskill_CARSONTEVA01",
@@ -4151,6 +5735,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -4169,6 +5756,7 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 8,
+          "combat": {},
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -4189,6 +5777,16 @@ window.ForgeData.synergyModel = {
         "conq_captain"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 22515,
+        "protection": 50738,
+        "speed": 182,
+        "offense": 1085,
+        "defense": 52,
+        "penetration": 130,
+        "criticalChance": 35,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CAPTAINDROGAN",
@@ -4203,7 +5801,18 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_CAPTAINDROGAN01",
@@ -4215,7 +5824,15 @@ window.ForgeData.synergyModel = {
             "dispels enemy buffs"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.2
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_CAPTAINDROGAN02",
@@ -4233,6 +5850,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 0,
+              "protectionPercent": 20
+            },
+            "assist": "all",
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -4255,6 +5881,13 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 0,
+              "protectionPercent": 20
+            }
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -4274,6 +5907,16 @@ window.ForgeData.synergyModel = {
         "conq_captain"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 9732,
+        "protection": 62219,
+        "speed": 173,
+        "offense": 1666,
+        "defense": 323,
+        "penetration": 231,
+        "criticalChance": 39,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CAPTAINENOCH",
@@ -4287,7 +5930,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_CAPTAINENOCH01",
@@ -4304,6 +5955,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "assist": "one",
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 60
         },
         {
@@ -4325,6 +5985,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {},
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -4343,6 +6004,7 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 75
         }
       ]
@@ -4367,6 +6029,16 @@ window.ForgeData.synergyModel = {
         "affiliation_hans"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 9670,
+        "protection": 40740,
+        "speed": 149,
+        "offense": 1018,
+        "defense": 181,
+        "penetration": 75,
+        "criticalChance": 36,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_HOTHHAN",
@@ -4379,7 +6051,19 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 30,
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_HOTHHAN01",
@@ -4396,6 +6080,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "one",
+              "healthPercent": 40,
+              "protectionPercent": 20
+            },
+            "turnMeterPercent": 25,
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 40
         },
         {
@@ -4413,6 +6106,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 50,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 50,
+            "revivePercent": 1
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -4429,7 +6131,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            }
+          }
         }
       ]
     },
@@ -4459,6 +6168,16 @@ window.ForgeData.synergyModel = {
         "teamup_brutus_ithano",
         "teamup_vane_ithano"
       ],
+      "simulationStats": {
+        "health": 15630,
+        "protection": 63334,
+        "speed": 179,
+        "offense": 1122,
+        "defense": 253,
+        "penetration": 92,
+        "criticalChance": 21,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_ITHANO",
@@ -4474,7 +6193,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_ITHANO01",
@@ -4492,6 +6218,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "cleanse": "self",
+            "dispel": "target"
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -4510,7 +6245,19 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "assist": "all",
+            "control": [
+              "fear"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "leaderskill_ITHANO",
@@ -4527,6 +6274,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 70
         },
         {
@@ -4548,6 +6298,7 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -4574,6 +6325,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_finn_phasma"
       ],
+      "simulationStats": {
+        "health": 10022,
+        "protection": 42300,
+        "speed": 141,
+        "offense": 970,
+        "defense": 182,
+        "penetration": 240,
+        "criticalChance": 65,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_PHASMA",
@@ -4585,7 +6346,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_PHASMA01",
@@ -4598,6 +6366,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "turnMeterPercent": 50
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -4610,7 +6381,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "leaderskill_PHASMA",
@@ -4627,6 +6405,9 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 6,
+          "combat": {
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 20
         }
       ]
@@ -4651,6 +6432,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_wreckers3_captainrex"
       ],
+      "simulationStats": {
+        "health": 16455,
+        "protection": 62219,
+        "speed": 173,
+        "offense": 1791,
+        "defense": 113,
+        "penetration": 250,
+        "criticalChance": 39,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CAPTAINREX",
@@ -4665,7 +6456,15 @@ window.ForgeData.synergyModel = {
             "cleanses allies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            },
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "specialskill_CAPTAINREX01",
@@ -4682,6 +6481,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "all",
+              "healthPercent": 15,
+              "protectionPercent": 15
+            }
+          },
           "maximumAlliedBenefitPercent": 15
         },
         {
@@ -4700,6 +6511,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "turnMeterPercent": 5,
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "all"
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -4724,6 +6547,15 @@ window.ForgeData.synergyModel = {
             "gac-3v3"
           ],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 35,
+              "protectionPercent": 35
+            },
+            "turnMeterPercent": 5,
+            "assistTrigger": "ally-special"
+          },
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -4750,6 +6582,16 @@ window.ForgeData.synergyModel = {
         "teamup_silvo_brutus",
         "teamup_silvo_vane"
       ],
+      "simulationStats": {
+        "health": 19455,
+        "protection": 62219,
+        "speed": 180,
+        "offense": 1456,
+        "defense": 132,
+        "penetration": 168,
+        "criticalChance": 37,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CAPTAINSILVO",
@@ -4768,6 +6610,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 10
+            }
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -4787,7 +6641,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_CAPTAINSILVO02",
@@ -4807,6 +6668,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -4825,6 +6687,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 25,
+              "protectionPercent": 25
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -4850,6 +6719,13 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 10
+            }
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -4867,6 +6743,16 @@ window.ForgeData.synergyModel = {
         "conq_captain"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 10155,
+        "protection": 57732,
+        "speed": 173,
+        "offense": 1995,
+        "defense": 368,
+        "penetration": 139,
+        "criticalChance": 39,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CAPTAINTARPALS",
@@ -4878,7 +6764,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_CAPTAINTARPALS01",
@@ -4892,7 +6785,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_CAPTAINTARPALS02",
@@ -4909,6 +6809,19 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 25
+            },
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -4929,6 +6842,15 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 10
+            },
+            "turnMeterPercent": 1,
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -4951,6 +6873,16 @@ window.ForgeData.synergyModel = {
         "gac_therescue"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18940,
+        "protection": 59130,
+        "speed": 177,
+        "offense": 1616,
+        "defense": 193,
+        "penetration": 188,
+        "criticalChance": 70,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CARADUNE",
@@ -4965,7 +6897,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_CARADUNE01",
@@ -4978,7 +6917,14 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_CARADUNE01",
@@ -4991,7 +6937,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_CARADUNE02",
@@ -5005,7 +6952,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {}
         }
       ]
     },
@@ -5023,6 +6971,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 15580,
+        "protection": 40831,
+        "speed": 179,
+        "offense": 2145,
+        "defense": 27,
+        "penetration": 339,
+        "criticalChance": 65,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_carthonasi",
@@ -5034,7 +6992,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_carthonasi",
@@ -5047,7 +7012,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "turnMeterPercent": 15
+          }
         },
         {
           "skillId": "leaderskill_carthonasi",
@@ -5065,6 +7038,14 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 3,
+              "protectionPercent": 3
+            },
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 80
         },
         {
@@ -5079,6 +7060,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {},
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -5102,6 +7084,16 @@ window.ForgeData.synergyModel = {
         "conq_intheshadow"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 15838,
+        "protection": 41250,
+        "speed": 154,
+        "offense": 871,
+        "defense": 225,
+        "penetration": 110,
+        "criticalChance": 34,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CASSIANANDOR",
@@ -5111,7 +7103,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_CASSIANANDOR01",
@@ -5131,7 +7130,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 8
+          "impact": 8,
+          "combat": {
+            "turnMeterPercent": 20,
+            "assist": "one",
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_CASSIANANDOR02",
@@ -5141,7 +7148,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_CASSIANANDOR01",
@@ -5163,6 +7177,7 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 20
         }
       ]
@@ -5182,6 +7197,16 @@ window.ForgeData.synergyModel = {
         "release_era_07_andor_excluded"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18305,
+        "protection": 62219,
+        "speed": 171,
+        "offense": 1391,
+        "defense": 188,
+        "penetration": 123,
+        "criticalChance": 33,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CASSIANUNDERCOVER",
@@ -5196,7 +7221,15 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.72
+            },
+            "assist": "all"
+          }
         },
         {
           "skillId": "specialskill_CASSIANUNDERCOVER01",
@@ -5212,6 +7245,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -5231,6 +7272,18 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "all",
+              "healthPercent": 20,
+              "protectionPercent": 20
+            }
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -5254,6 +7307,10 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 10,
+          "combat": {
+            "turnMeterPercent": 20,
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -5272,7 +7329,10 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "turnMeterPercent": 10
+          }
         }
       ]
     },
@@ -5298,6 +7358,16 @@ window.ForgeData.synergyModel = {
         "teamup_appo_jkanakin",
         "teamup_appo_arctrooper"
       ],
+      "simulationStats": {
+        "health": 9380,
+        "protection": 62219,
+        "speed": 188,
+        "offense": 1194,
+        "defense": 303,
+        "penetration": 87,
+        "criticalChance": 29,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_APPO",
@@ -5312,7 +7382,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_APPO01",
@@ -5331,7 +7408,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_APPO02",
@@ -5346,7 +7431,14 @@ window.ForgeData.synergyModel = {
             "revives allies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_APPO01",
@@ -5371,6 +7463,15 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 100,
+              "protectionPercent": 100
+            },
+            "summon": true,
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -5396,6 +7497,16 @@ window.ForgeData.synergyModel = {
         "conq_princesszody"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17998,
+        "protection": 35260,
+        "speed": 135,
+        "offense": 955,
+        "defense": 45,
+        "penetration": 170,
+        "criticalChance": 53,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CC2224",
@@ -5407,7 +7518,15 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 20
+          }
         },
         {
           "skillId": "specialskill_CC222401",
@@ -5419,7 +7538,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_CC222402",
@@ -5432,7 +7562,16 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "all",
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "leaderskill_CC2224",
@@ -5446,6 +7585,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 60
         }
       ]
@@ -5468,6 +7608,16 @@ window.ForgeData.synergyModel = {
         "conq_wetrustyou"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 8185,
+        "protection": 57732,
+        "speed": 132,
+        "offense": 1270,
+        "defense": 329,
+        "penetration": 131,
+        "criticalChance": 29,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CEREJUNDA",
@@ -5477,7 +7627,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_CEREJUNDA01",
@@ -5494,6 +7651,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {},
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -5511,6 +7669,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 50,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -5532,6 +7702,9 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 9,
+          "combat": {
+            "turnMeterPercent": 5
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -5550,6 +7723,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 20
         }
       ]
@@ -5580,6 +7754,16 @@ window.ForgeData.synergyModel = {
         "conq_fuzzball"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 9690,
+        "protection": 52140,
+        "speed": 157,
+        "offense": 2305,
+        "defense": 57,
+        "penetration": 215,
+        "criticalChance": 75,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CHEWBACCALEGENDARY",
@@ -5589,7 +7773,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_CHEWBACCALEGENDARY01",
@@ -5603,7 +7794,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_CHEWBACCALEGENDARY02",
@@ -5616,7 +7815,14 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_CHEWBACCALEGENDARY01",
@@ -5636,6 +7842,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 3,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 3
         },
         {
@@ -5653,7 +7866,10 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 7
+          "impact": 7,
+          "combat": {
+            "cooldownReduction": 1
+          }
         }
       ]
     },
@@ -5672,6 +7888,16 @@ window.ForgeData.synergyModel = {
         "conq_chirpatine"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 11137,
+        "protection": 37550,
+        "speed": 136,
+        "offense": 1563,
+        "defense": 204,
+        "penetration": 123,
+        "criticalChance": 48,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CHIEFCHIRPA",
@@ -5683,7 +7909,15 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 35
+          }
         },
         {
           "skillId": "specialskill_CHIEFCHIRPA01",
@@ -5699,6 +7933,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -5714,7 +7949,10 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "assist": "all"
+          }
         },
         {
           "skillId": "leaderskill_CHIEFCHIRPA",
@@ -5733,6 +7971,10 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 8,
+          "combat": {
+            "turnMeterPercent": 20,
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 20
         }
       ]
@@ -5752,6 +7994,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 11994,
+        "protection": 51325,
+        "speed": 135,
+        "offense": 1407,
+        "defense": 315,
+        "penetration": 69,
+        "criticalChance": 41,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CHIEFNEBIT",
@@ -5764,6 +8016,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -5783,7 +8042,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {}
         },
         {
           "skillId": "specialskill_CHIEFNEBIT02",
@@ -5800,7 +8060,15 @@ window.ForgeData.synergyModel = {
             "calls assists"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "leaderskill_CHIEFNEBIT",
@@ -5818,6 +8086,7 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -5841,6 +8110,16 @@ window.ForgeData.synergyModel = {
         "conq_againstallodds"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 8566,
+        "protection": 31082,
+        "speed": 173,
+        "offense": 1546,
+        "defense": 238,
+        "penetration": 197,
+        "criticalChance": 49,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CHIRRUTIMWE",
@@ -5852,7 +8131,14 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_CHIRRUTIMWE01",
@@ -5865,7 +8151,10 @@ window.ForgeData.synergyModel = {
             "cleanses allies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "cleanse": "all"
+          }
         },
         {
           "skillId": "specialskill_CHIRRUTIMWE02",
@@ -5880,7 +8169,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "uniqueskill_CHIRRUTIMWE01",
@@ -5890,7 +8187,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_CHIRRUTIMWE02",
@@ -5906,6 +8204,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 5
         }
       ]
@@ -5939,6 +8238,16 @@ window.ForgeData.synergyModel = {
         "teamup_gensyndulla_chopper",
         "teamup_herasyndulla_chopper"
       ],
+      "simulationStats": {
+        "health": 17688,
+        "protection": 46975,
+        "speed": 172,
+        "offense": 838,
+        "defense": 385,
+        "penetration": 63,
+        "criticalChance": 27,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CHOPPERS3",
@@ -5955,7 +8264,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_CHOPPERS301",
@@ -5967,7 +8284,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         },
         {
           "skillId": "specialskill_CHOPPERS302",
@@ -5982,7 +8300,15 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 25
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "uniqueskill_CHOPPERS301",
@@ -5998,7 +8324,14 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 15,
+              "protectionPercent": 0
+            }
+          }
         }
       ]
     },
@@ -6015,6 +8348,16 @@ window.ForgeData.synergyModel = {
         "release_era_07_andor"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 13290,
+        "protection": 57732,
+        "speed": 192,
+        "offense": 950,
+        "defense": 121,
+        "penetration": 154,
+        "criticalChance": 40,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CINTA",
@@ -6026,7 +8369,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_CINTA01",
@@ -6038,7 +8388,14 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_CINTA01",
@@ -6059,7 +8416,11 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 8
+          "impact": 8,
+          "combat": {
+            "assistTrigger": "ally-special",
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "uniqueskill_CINTA02",
@@ -6076,6 +8437,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            },
+            "turnMeterPercent": 10,
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -6098,6 +8468,16 @@ window.ForgeData.synergyModel = {
         "conq_princesszody"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17031,
+        "protection": 40094,
+        "speed": 127,
+        "offense": 1321,
+        "defense": 73,
+        "penetration": 143,
+        "criticalChance": 56,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CLONESERGEANTPHASEI",
@@ -6109,7 +8489,15 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 50
+          }
         },
         {
           "skillId": "specialskill_CLONESERGEANTPHASEI01",
@@ -6121,7 +8509,14 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_CLONESERGEANTPHASEI01",
@@ -6133,7 +8528,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -6155,6 +8551,16 @@ window.ForgeData.synergyModel = {
         "non_viable_leader"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18648,
+        "protection": 52371,
+        "speed": 126,
+        "offense": 1337,
+        "defense": 388,
+        "penetration": 101,
+        "criticalChance": 28,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CLONEWARSCHEWBACCA",
@@ -6166,7 +8572,14 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_CLONEWARSCHEWBACCA02",
@@ -6180,7 +8593,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         },
         {
           "skillId": "specialskill_CLONEWARSCHEWBACCA01",
@@ -6197,7 +8611,11 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "turnMeterPercent": 25,
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "leaderskill_CLONEWARSCHEWBACCA",
@@ -6210,6 +8628,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -6227,6 +8646,16 @@ window.ForgeData.synergyModel = {
         "conquest_reward_unit"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 13265,
+        "protection": 57469,
+        "speed": 174,
+        "offense": 1569,
+        "defense": 272,
+        "penetration": 173,
+        "criticalChance": 42,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_COBBVANTH",
@@ -6243,7 +8672,16 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "cleanse": "self",
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_COBBVANTH01",
@@ -6258,7 +8696,14 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_COBBVANTH02",
@@ -6280,6 +8725,13 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -6306,6 +8758,9 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 10,
+          "combat": {
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -6335,6 +8790,10 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 10,
+          "combat": {
+            "turnMeterPercent": 25,
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 25
         }
       ]
@@ -6359,6 +8818,16 @@ window.ForgeData.synergyModel = {
         "quest_imperialofficer"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 13725,
+        "protection": 41850,
+        "speed": 175,
+        "offense": 1206,
+        "defense": 80,
+        "penetration": 161,
+        "criticalChance": 55,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_COLONELSTARCK",
@@ -6370,7 +8839,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_COLONELSTARCK01",
@@ -6386,6 +8862,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "turnMeterPercent": 5
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -6402,7 +8881,16 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all",
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "uniqueskill_COLONELSTARCK01",
@@ -6418,6 +8906,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 7,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 7
         }
       ]
@@ -6433,6 +8928,16 @@ window.ForgeData.synergyModel = {
         "affiliation_newrepublic"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 19255,
+        "protection": 74594,
+        "speed": 162,
+        "offense": 1650,
+        "defense": 141,
+        "penetration": 242,
+        "criticalChance": 36,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BISHOP",
@@ -6444,7 +8949,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_BISHOP01",
@@ -6457,7 +8969,10 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "specialskill_BISHOP02",
@@ -6469,7 +8984,14 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_BISHOP01",
@@ -6491,6 +9013,7 @@ window.ForgeData.synergyModel = {
             "raid"
           ],
           "impact": 8,
+          "combat": {},
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -6515,6 +9038,16 @@ window.ForgeData.synergyModel = {
         "conq_lightsideunaligned"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18605,
+        "protection": 57732,
+        "speed": 190,
+        "offense": 1363,
+        "defense": 314,
+        "penetration": 353,
+        "criticalChance": 66,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_COMMANDERAHSOKA",
@@ -6526,7 +9059,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_COMMANDERAHSOKA01",
@@ -6545,7 +9085,15 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "specialskill_COMMANDERAHSOKA02",
@@ -6567,6 +9115,16 @@ window.ForgeData.synergyModel = {
             "raid"
           ],
           "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "turnMeterPercent": 35,
+            "assist": "all",
+            "cooldownReduction": 4
+          },
           "maximumAlliedBenefitPercent": 35
         },
         {
@@ -6585,6 +9143,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -6620,6 +9179,16 @@ window.ForgeData.synergyModel = {
         "conq_againstallodds"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14566,
+        "protection": 37634,
+        "speed": 172,
+        "offense": 1521,
+        "defense": 151,
+        "penetration": 251,
+        "criticalChance": 45,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_COMMANDERLUKESKYWALKER",
@@ -6634,7 +9203,18 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_COMMANDERLUKESKYWALKER01",
@@ -6648,7 +9228,16 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "dispel": "target",
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_COMMANDERLUKESKYWALKER02",
@@ -6664,7 +9253,16 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 40,
+              "protectionPercent": 40
+            },
+            "turnMeterPercent": 100,
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "leaderskill_COMMANDERLUKESKYWALKER",
@@ -6681,6 +9279,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "turnMeterPercent": 5
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -6697,6 +9298,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -6711,6 +9315,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -6729,6 +9341,16 @@ window.ForgeData.synergyModel = {
         "any_obtainable"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 19072,
+        "protection": 41825,
+        "speed": 132,
+        "offense": 1223,
+        "defense": 270,
+        "penetration": 241,
+        "criticalChance": 47,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CORUSCANTUNDERWORLDPOLICE",
@@ -6740,7 +9362,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_CORUSCANTUNDERWORLDPOLICE01",
@@ -6752,7 +9385,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_CORUSCANTUNDERWORLDPOLICE01",
@@ -6764,7 +9404,10 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "turnMeterPercent": 20
+          }
         }
       ]
     },
@@ -6792,6 +9435,16 @@ window.ForgeData.synergyModel = {
         "conq_intheshadow"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17003,
+        "protection": 28785,
+        "speed": 187,
+        "offense": 968,
+        "defense": 223,
+        "penetration": 165,
+        "criticalChance": 32,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_COUNTDOOKU",
@@ -6803,7 +9456,19 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "stun",
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_COUNTDOOKU01",
@@ -6815,7 +9480,14 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_COUNTDOOKU02",
@@ -6832,6 +9504,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "turnMeterPercent": 15,
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 15
         },
         {
@@ -6846,7 +9522,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 15
+            },
+            "turnMeterPercent": 15
+          }
         },
         {
           "skillId": "leaderskill_COUNTDOOKU",
@@ -6863,6 +9547,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -6884,6 +9569,16 @@ window.ForgeData.synergyModel = {
         "teamup_crosshairs3_omegas3",
         "teamup_crosshairs3_tech"
       ],
+      "simulationStats": {
+        "health": 12115,
+        "protection": 57550,
+        "speed": 162,
+        "offense": 1892,
+        "defense": 322,
+        "penetration": 187,
+        "criticalChance": 50,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CROSSHAIRS3",
@@ -6895,7 +9590,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 3,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_CROSSHAIRS301",
@@ -6912,7 +9614,20 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "one",
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single",
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_CROSSHAIRS302",
@@ -6926,7 +9641,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_CROSSHAIRS301",
@@ -6942,7 +9664,11 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "turnMeterPercent": 15,
+            "cleanse": "self"
+          }
         }
       ]
     },
@@ -6972,6 +9698,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_echo_kix"
       ],
+      "simulationStats": {
+        "health": 18052,
+        "protection": 43241,
+        "speed": 149,
+        "offense": 971,
+        "defense": 34,
+        "penetration": 187,
+        "criticalChance": 30,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CT210408",
@@ -6987,6 +9723,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          },
           "maximumAlliedBenefitPercent": 15
         },
         {
@@ -7000,7 +9743,19 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "all",
+            "dispel": "all"
+          }
         },
         {
           "skillId": "uniqueskill_ct21040801",
@@ -7010,7 +9765,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_ct21040802",
@@ -7020,7 +9776,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         }
       ]
     },
@@ -7046,6 +9803,16 @@ window.ForgeData.synergyModel = {
         "conq_princesszody"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 8322,
+        "protection": 50593,
+        "speed": 135,
+        "offense": 977,
+        "defense": 500,
+        "penetration": 80,
+        "criticalChance": 36,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_CT5555",
@@ -7057,7 +9824,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_CT555501",
@@ -7074,7 +9848,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "uniqueskill_CT555501",
@@ -7096,6 +9878,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "turnMeterPercent": 15
+          },
           "maximumAlliedBenefitPercent": 15
         },
         {
@@ -7117,6 +9902,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 100,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -7133,6 +9925,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -7166,6 +9959,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_appo_ct7567"
       ],
+      "simulationStats": {
+        "health": 19469,
+        "protection": 31235,
+        "speed": 160,
+        "offense": 1300,
+        "defense": 144,
+        "penetration": 103,
+        "criticalChance": 69,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_REX",
@@ -7180,7 +9983,14 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_REX01",
@@ -7196,6 +10006,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "turnMeterPercent": 60,
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 60
         },
         {
@@ -7211,7 +10025,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "leaderskill_REX",
@@ -7229,6 +10050,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 15
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -7251,6 +10075,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -7271,6 +10098,16 @@ window.ForgeData.synergyModel = {
         "ds_clonetrooper"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18765,
+        "protection": 62219,
+        "speed": 166,
+        "offense": 1410,
+        "defense": 348,
+        "penetration": 118,
+        "criticalChance": 39,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_OPERATIVE",
@@ -7285,6 +10122,19 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -7301,6 +10151,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -7321,6 +10178,7 @@ window.ForgeData.synergyModel = {
             "gac-3v3"
           ],
           "impact": 4,
+          "combat": {},
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -7341,6 +10199,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 15,
+              "protectionPercent": 15
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -7366,6 +10231,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_gideon_darktrooper"
       ],
+      "simulationStats": {
+        "health": 7415,
+        "protection": 44822,
+        "speed": 179,
+        "offense": 1862,
+        "defense": 211,
+        "penetration": 299,
+        "criticalChance": 41,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DARKTROOPER",
@@ -7375,7 +10250,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_DARKTROOPER01",
@@ -7387,7 +10269,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_DARKTROOPER02",
@@ -7404,6 +10293,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -7419,7 +10311,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 100,
+              "protectionPercent": 100
+            },
+            "cleanse": "self"
+          }
         }
       ]
     },
@@ -7438,6 +10338,16 @@ window.ForgeData.synergyModel = {
         "quest_imperialofficer"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 28230,
+        "protection": 62219,
+        "speed": 153,
+        "offense": 1406,
+        "defense": 364,
+        "penetration": 65,
+        "criticalChance": 35,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_MOFFGIDEONS3",
@@ -7450,7 +10360,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_MOFFGIDEONS301",
@@ -7467,7 +10384,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_MOFFGIDEONS302",
@@ -7491,6 +10415,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 30,
+              "protectionPercent": 30
+            },
+            "assist": "one",
+            "revivePercent": 100
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -7515,6 +10448,9 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 10,
+          "combat": {
+            "turnMeterPercent": 100
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -7538,6 +10474,13 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 100,
+              "protectionPercent": 30
+            }
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -7556,6 +10499,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 13855,
+        "protection": 57157,
+        "speed": 140,
+        "offense": 2402,
+        "defense": 57,
+        "penetration": 205,
+        "criticalChance": 40,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DARTHBANE",
@@ -7568,7 +10521,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_DARTHBANE01",
@@ -7590,6 +10550,14 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 2,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          },
           "maximumAlliedBenefitPercent": 1
         },
         {
@@ -7608,7 +10576,14 @@ window.ForgeData.synergyModel = {
             "gac",
             "raid"
           ],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "leaderskill_DARTHBANE",
@@ -7630,6 +10605,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 50,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 50
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -7655,6 +10638,15 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 35
+            },
+            "cleanse": "self",
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 350
         }
       ]
@@ -7674,6 +10666,16 @@ window.ForgeData.synergyModel = {
         "journey_guide_unit"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18905,
+        "protection": 57469,
+        "speed": 169,
+        "offense": 1072,
+        "defense": 358,
+        "penetration": 124,
+        "criticalChance": 26,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DARTHJARJAR",
@@ -7687,7 +10689,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.72
+            }
+          }
         },
         {
           "skillId": "specialskill_DARTHJARJAR01",
@@ -7702,6 +10711,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -7719,7 +10735,14 @@ window.ForgeData.synergyModel = {
             "gac",
             "raid"
           ],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "leaderskill_DARTHJARJAR",
@@ -7741,7 +10764,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 8
+          "impact": 8,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_DARTHJARJAR01",
@@ -7758,7 +10782,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -7778,6 +10803,16 @@ window.ForgeData.synergyModel = {
         "conq_sustainedbyrage"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 11090,
+        "protection": 68690,
+        "speed": 173,
+        "offense": 1457,
+        "defense": 411,
+        "penetration": 189,
+        "criticalChance": 34,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DARTHMALAK",
@@ -7787,7 +10822,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_DARTHMALAK01",
@@ -7800,7 +10842,15 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_DARTHMALAK02",
@@ -7815,7 +10865,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_DARTHMALAK01",
@@ -7831,7 +10888,13 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "control": [
+              "fear"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "uniqueskill_DARTHMALAK02",
@@ -7845,7 +10908,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {}
         }
       ]
     },
@@ -7864,6 +10928,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 16375,
+        "protection": 62219,
+        "speed": 162,
+        "offense": 955,
+        "defense": 462,
+        "penetration": 40,
+        "criticalChance": 33,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DARTHMALGUS",
@@ -7878,7 +10952,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_DARTHMALGUS01",
@@ -7893,7 +10974,18 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "specialskill_DARTHMALGUS02",
@@ -7911,6 +11003,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -7935,6 +11034,13 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 10,
+          "combat": {
+            "control": [
+              "fear"
+            ],
+            "controlTarget": "all",
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -7955,6 +11061,12 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 6,
+          "combat": {
+            "control": [
+              "fear"
+            ],
+            "controlTarget": "single"
+          },
           "maximumAlliedBenefitPercent": 5
         }
       ]
@@ -7988,6 +11100,16 @@ window.ForgeData.synergyModel = {
         "raid_naboo_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14325,
+        "protection": 39128,
+        "speed": 120,
+        "offense": 2227,
+        "defense": 206,
+        "penetration": 199,
+        "criticalChance": 66,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_MAUL",
@@ -8000,7 +11122,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 100
+          }
         },
         {
           "skillId": "specialskill_MAUL01",
@@ -8012,7 +11142,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "uniqueskill_MAUL01",
@@ -8026,7 +11167,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_MAUL",
@@ -8042,6 +11184,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 20
+          },
           "maximumAlliedBenefitPercent": 20
         }
       ]
@@ -8063,6 +11208,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 13795,
+        "protection": 51619,
+        "speed": 140,
+        "offense": 1466,
+        "defense": 201,
+        "penetration": 157,
+        "criticalChance": 64,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DARTHNIHILUS",
@@ -8075,7 +11230,16 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "dispel": "target",
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_DARTHNIHILUS01",
@@ -8087,7 +11251,15 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_DARTHNIHILUS02",
@@ -8101,7 +11273,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_DARTHNIHILUS",
@@ -8118,6 +11291,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {},
           "maximumAlliedBenefitPercent": 60
         },
         {
@@ -8134,7 +11308,10 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "turnMeterPercent": 10
+          }
         }
       ]
     },
@@ -8157,6 +11334,16 @@ window.ForgeData.synergyModel = {
         "character_fleetcommander"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17350,
+        "protection": 34834,
+        "speed": 174,
+        "offense": 874,
+        "defense": 274,
+        "penetration": 202,
+        "criticalChance": 30,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DARTHREVAN",
@@ -8168,7 +11355,15 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_DARTHREVAN01",
@@ -8183,7 +11378,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_DARTHREVAN02",
@@ -8196,7 +11398,18 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "fear"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "leaderskill_DARTHREVAN",
@@ -8217,6 +11430,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -8235,7 +11451,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "control": [
+              "stun",
+              "ability block"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "uniqueskill_DARTHREVAN02",
@@ -8248,7 +11471,14 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "control": [
+              "fear"
+            ],
+            "controlTarget": "single",
+            "dispel": "target"
+          }
         }
       ]
     },
@@ -8274,6 +11504,16 @@ window.ForgeData.synergyModel = {
         "raid_naboo_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 21813,
+        "protection": 35002,
+        "speed": 181,
+        "offense": 1382,
+        "defense": 77,
+        "penetration": 139,
+        "criticalChance": 45,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DARTHSIDIOUS",
@@ -8286,7 +11526,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_DARTHSIDIOUS01",
@@ -8296,7 +11543,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_DARTHSIDIOUS01",
@@ -8312,7 +11566,10 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "turnMeterPercent": 50
+          }
         },
         {
           "skillId": "leaderskill_DARTHSIDIOUS",
@@ -8327,6 +11584,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 15
         }
       ]
@@ -8346,6 +11604,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 9250,
+        "protection": 49634,
+        "speed": 157,
+        "offense": 1192,
+        "defense": 290,
+        "penetration": 34,
+        "criticalChance": 29,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DARTHSION",
@@ -8357,7 +11625,15 @@ window.ForgeData.synergyModel = {
             "cleanses allies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "specialskill_DARTHSION01",
@@ -8370,7 +11646,16 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all",
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_DARTHSION02",
@@ -8383,7 +11668,19 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 35
+            }
+          }
         },
         {
           "skillId": "specialskill_DARTHSION03",
@@ -8401,7 +11698,17 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 8
+          "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 100,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 100,
+            "cleanse": "self",
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "uniqueskill_DARTHSION01",
@@ -8417,7 +11724,10 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "cooldownReduction": 1
+          }
         }
       ]
     },
@@ -8434,6 +11744,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 10265,
+        "protection": 46459,
+        "speed": 160,
+        "offense": 1348,
+        "defense": 229,
+        "penetration": 231,
+        "criticalChance": 29,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DARTHTALON",
@@ -8446,7 +11766,19 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single",
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_DARTHTALON01",
@@ -8458,7 +11790,15 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "turnMeterPercent": 100
+          }
         },
         {
           "skillId": "specialskill_DARTHTALON02",
@@ -8472,7 +11812,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_DARTHTALON01",
@@ -8492,6 +11839,16 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 100,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 100,
+            "cleanse": "all",
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -8511,6 +11868,7 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -8530,6 +11888,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 21030,
+        "protection": 47507,
+        "speed": 154,
+        "offense": 1566,
+        "defense": 84,
+        "penetration": 182,
+        "criticalChance": 55,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DARTHTRAYA",
@@ -8542,7 +11910,15 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_DARTHTRAYA01",
@@ -8555,7 +11931,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_DARTHTRAYA02",
@@ -8572,6 +11959,10 @@ window.ForgeData.synergyModel = {
             "raid"
           ],
           "impact": 6,
+          "combat": {
+            "dispel": "target",
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -8589,6 +11980,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 40
         },
         {
@@ -8611,6 +12009,9 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 6,
+          "combat": {
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -8650,6 +12051,16 @@ window.ForgeData.synergyModel = {
         "conq_dotsdots"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 5120,
+        "protection": 47828,
+        "speed": 141,
+        "offense": 1345,
+        "defense": 241,
+        "penetration": 175,
+        "criticalChance": 49,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_VADER",
@@ -8661,7 +12072,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_VADER02",
@@ -8673,7 +12095,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_VADER01",
@@ -8689,7 +12118,15 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "leaderskill_VADER",
@@ -8706,6 +12143,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -8720,7 +12158,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 0
+            }
+          }
         },
         {
           "skillId": "specialskill_VADER03",
@@ -8735,7 +12180,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {}
         }
       ]
     },
@@ -8758,6 +12204,16 @@ window.ForgeData.synergyModel = {
         "teamup_vaderduelsend_royalguard",
         "teamup_vaderduelsend_emperorpalpatine"
       ],
+      "simulationStats": {
+        "health": 17785,
+        "protection": 62219,
+        "speed": 159,
+        "offense": 1618,
+        "defense": 224,
+        "penetration": 147,
+        "criticalChance": 42,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_VADERDUELSEND",
@@ -8771,7 +12227,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_VADERDUELSEND01",
@@ -8785,7 +12249,15 @@ window.ForgeData.synergyModel = {
             "calls assists"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.2
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "specialskill_VADERDUELSEND02",
@@ -8802,7 +12274,15 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "uniqueskill_VADERDUELSEND01",
@@ -8827,6 +12307,9 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 9,
+          "combat": {
+            "revivePercent": 30
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -8847,6 +12330,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -8866,6 +12350,16 @@ window.ForgeData.synergyModel = {
         "conq_underworld"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 21155,
+        "protection": 35968,
+        "speed": 190,
+        "offense": 1173,
+        "defense": 105,
+        "penetration": 121,
+        "criticalChance": 53,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DASHRENDAR",
@@ -8877,7 +12371,15 @@ window.ForgeData.synergyModel = {
             "calls assists"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 3,
+              "multiplier": 1.0
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "specialskill_DASHRENDAR01",
@@ -8891,7 +12393,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_DASHRENDAR02",
@@ -8905,7 +12415,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 3,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_DASHRENDAR",
@@ -8922,6 +12439,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 2
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -8941,7 +12461,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 7
+          "impact": 7,
+          "combat": {}
         }
       ]
     },
@@ -8959,6 +12480,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14678,
+        "protection": 35900,
+        "speed": 157,
+        "offense": 1146,
+        "defense": 82,
+        "penetration": 245,
+        "criticalChance": 42,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DATHCHA",
@@ -8968,7 +12499,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_DATHCHA01",
@@ -8980,7 +12518,19 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "stun",
+              "ability block"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "uniqueskill_DATHCHA01",
@@ -8996,7 +12546,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_DATHCHA",
@@ -9012,6 +12563,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {},
           "maximumAlliedBenefitPercent": 80
         }
       ]
@@ -9036,6 +12588,16 @@ window.ForgeData.synergyModel = {
         "conq_againstallodds"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 6482,
+        "protection": 43944,
+        "speed": 144,
+        "offense": 1315,
+        "defense": 110,
+        "penetration": 190,
+        "criticalChance": 75,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DEATHTROOPER",
@@ -9047,7 +12609,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_DEATHTROOPER01",
@@ -9061,7 +12634,15 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_DEATHTROOPER02",
@@ -9073,7 +12654,14 @@ window.ForgeData.synergyModel = {
             "revives allies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_DEATHTROOPER01",
@@ -9091,6 +12679,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 20,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 100
+          },
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -9111,6 +12707,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_zombies"
       ],
+      "simulationStats": {
+        "health": 12165,
+        "protection": 57732,
+        "speed": 163,
+        "offense": 1847,
+        "defense": 181,
+        "penetration": 177,
+        "criticalChance": 49,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DEATHTROOPERPERIDEA",
@@ -9126,7 +12732,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_DEATHTROOPERPERIDEA01",
@@ -9143,7 +12756,14 @@ window.ForgeData.synergyModel = {
             "tw",
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 3,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_DEATHTROOPERPERIDEA02",
@@ -9161,7 +12781,15 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "uniqueskill_DEATHTROOPERPERIDEA01",
@@ -9185,6 +12813,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "turnMeterPercent": 5
+          },
           "maximumAlliedBenefitPercent": 35
         }
       ]
@@ -9202,6 +12833,16 @@ window.ForgeData.synergyModel = {
         "release_era_07_andor"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 19500,
+        "protection": 57732,
+        "speed": 177,
+        "offense": 1221,
+        "defense": 287,
+        "penetration": 123,
+        "criticalChance": 28,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DEDRAMEERO",
@@ -9211,7 +12852,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_DEDRAMEERO01",
@@ -9232,6 +12880,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 15
         },
         {
@@ -9249,6 +12900,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -9269,6 +12921,9 @@ window.ForgeData.synergyModel = {
             "gac-3v3"
           ],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 35
         },
         {
@@ -9279,7 +12934,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         }
       ]
     },
@@ -9306,6 +12962,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_zuckuss_dengar"
       ],
+      "simulationStats": {
+        "health": 7020,
+        "protection": 43677,
+        "speed": 129,
+        "offense": 1824,
+        "defense": 164,
+        "penetration": 210,
+        "criticalChance": 68,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DENGAR",
@@ -9319,7 +12985,15 @@ window.ForgeData.synergyModel = {
             "calls assists"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "specialskill_DENGAR01",
@@ -9333,7 +13007,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_DENGAR02",
@@ -9346,6 +13027,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 2,
+              "multiplier": 0.86
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -9359,7 +13047,14 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 3,
+              "protectionPercent": 3
+            }
+          }
         },
         {
           "skillId": "leaderskill_DENGAR",
@@ -9377,6 +13072,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -9387,7 +13083,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         }
       ]
     },
@@ -9414,6 +13111,16 @@ window.ForgeData.synergyModel = {
         "teamup_depabillaba_masterquigon",
         "teamup_depabillaba_kananjarruss3"
       ],
+      "simulationStats": {
+        "health": 11685,
+        "protection": 62219,
+        "speed": 171,
+        "offense": 1690,
+        "defense": 229,
+        "penetration": 116,
+        "criticalChance": 41,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DEPABILLABA",
@@ -9427,7 +13134,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_DEPABILLABA01",
@@ -9444,7 +13158,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.2
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "specialskill_DEPABILLABA02",
@@ -9466,7 +13188,16 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "turnMeterPercent": 100,
+            "dispel": "all"
+          }
         },
         {
           "skillId": "uniqueskill_DEPABILLABA01",
@@ -9488,7 +13219,15 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tb"
           ],
-          "impact": 7
+          "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 15,
+              "protectionPercent": 15
+            },
+            "turnMeterPercent": 30
+          }
         }
       ]
     },
@@ -9514,6 +13253,16 @@ window.ForgeData.synergyModel = {
         "affiliation_imperialsecuritybureau"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 23198,
+        "protection": 36647,
+        "speed": 149,
+        "offense": 1158,
+        "defense": 103,
+        "penetration": 217,
+        "criticalChance": 50,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DIRECTORKRENNIC",
@@ -9523,7 +13272,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_DIRECTORKRENNIC01",
@@ -9538,7 +13294,15 @@ window.ForgeData.synergyModel = {
             "revives allies"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "assist": "all"
+          }
         },
         {
           "skillId": "specialskill_DIRECTORKRENNIC02",
@@ -9553,7 +13317,18 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "leaderskill_DIRECTORKRENNIC",
@@ -9569,6 +13344,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 10
+            }
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -9588,6 +13370,7 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 4,
+          "combat": {},
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -9607,7 +13390,11 @@ window.ForgeData.synergyModel = {
             "dispels enemy buffs"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "dispel": "all",
+            "summon": true
+          }
         }
       ]
     },
@@ -9626,6 +13413,16 @@ window.ForgeData.synergyModel = {
         "ds_clonetrooper"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 20495,
+        "protection": 57522,
+        "speed": 191,
+        "offense": 487,
+        "defense": 309,
+        "penetration": 70,
+        "criticalChance": 30,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DISGUISEDCLONETROOPER",
@@ -9641,7 +13438,15 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_DISGUISEDCLONETROOPER01",
@@ -9658,7 +13463,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_DISGUISEDCLONETROOPER01",
@@ -9675,7 +13487,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 15,
+              "protectionPercent": 15
+            }
+          }
         },
         {
           "skillId": "uniqueskill_DISGUISEDCLONETROOPER02",
@@ -9687,7 +13506,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -9707,6 +13527,16 @@ window.ForgeData.synergyModel = {
         "territory_tb3_hero"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14470,
+        "protection": 57550,
+        "speed": 174,
+        "offense": 574,
+        "defense": 242,
+        "penetration": 105,
+        "criticalChance": 32,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DOCTORAPHRA",
@@ -9719,7 +13549,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_DOCTORAPHRA01",
@@ -9746,6 +13583,21 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "all",
+              "healthPercent": 30,
+              "protectionPercent": 30
+            },
+            "assist": "one",
+            "revivePercent": 30,
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -9762,7 +13614,14 @@ window.ForgeData.synergyModel = {
             "gac-5v5",
             "raid"
           ],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "leaderskill_DOCTORAPHRA",
@@ -9790,6 +13649,9 @@ window.ForgeData.synergyModel = {
             "gac-5v5"
           ],
           "impact": 10,
+          "combat": {
+            "turnMeterPercent": 50
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -9818,6 +13680,7 @@ window.ForgeData.synergyModel = {
             "gac-5v5"
           ],
           "impact": 8,
+          "combat": {},
           "maximumAlliedBenefitPercent": 60
         }
       ]
@@ -9838,6 +13701,16 @@ window.ForgeData.synergyModel = {
         "raid_naboo_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 9920,
+        "protection": 51375,
+        "speed": 103,
+        "offense": 2135,
+        "defense": 65,
+        "penetration": 308,
+        "criticalChance": 75,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DROIDEKA",
@@ -9850,7 +13723,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_DROIDEKA01",
@@ -9862,7 +13742,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_DROIDEKA02",
@@ -9876,7 +13763,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 10
+            },
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "uniqueskill_DROIDEKA01",
@@ -9897,7 +13792,15 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 9
+          "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 10
+            },
+            "turnMeterPercent": 10
+          }
         }
       ]
     },
@@ -9918,6 +13821,16 @@ window.ForgeData.synergyModel = {
         "gac_riskymission"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 22925,
+        "protection": 42670,
+        "speed": 198,
+        "offense": 189,
+        "defense": 351,
+        "penetration": 85,
+        "criticalChance": 19,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BADBATCHECHO",
@@ -9931,7 +13844,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_BADBATCHECHO01",
@@ -9948,7 +13868,11 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "assist": "one",
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "specialskill_BADBATCHECHO02",
@@ -9968,6 +13892,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 5,
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "all",
+            "dispel": "all"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -9986,6 +13918,13 @@ window.ForgeData.synergyModel = {
             "raid"
           ],
           "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 4,
+              "protectionPercent": 4
+            }
+          },
           "maximumAlliedBenefitPercent": 4
         }
       ]
@@ -10013,6 +13952,16 @@ window.ForgeData.synergyModel = {
         "raid_order66_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 15877,
+        "protection": 38865,
+        "speed": 164,
+        "offense": 824,
+        "defense": 132,
+        "penetration": 227,
+        "criticalChance": 34,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_EETHKOTH",
@@ -10024,7 +13973,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_EETHKOTH01",
@@ -10036,7 +13992,19 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "stun",
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "uniqueskill_EETHKOTH01",
@@ -10048,7 +14016,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_EETHKOTH",
@@ -10062,7 +14031,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {}
         }
       ]
     },
@@ -10083,6 +14053,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 19135,
+        "protection": 57469,
+        "speed": 186,
+        "offense": 1723,
+        "defense": 232,
+        "penetration": 99,
+        "criticalChance": 39,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_EIGHTHBROTHER",
@@ -10092,7 +14072,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_EIGHTHBROTHER01",
@@ -10102,7 +14089,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_EIGHTHBROTHER02",
@@ -10116,7 +14110,18 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "leaderskill_EIGHTHBROTHER",
@@ -10132,6 +14137,7 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -10144,7 +14150,14 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 20,
+              "protectionPercent": 0
+            }
+          }
         },
         {
           "skillId": "uniqueskill_INQUISITOR01_EIGHTHBROTHER",
@@ -10154,7 +14167,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         }
       ]
     },
@@ -10180,6 +14194,16 @@ window.ForgeData.synergyModel = {
         "conq_toppled"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14626,
+        "protection": 41231,
+        "speed": 160,
+        "offense": 1483,
+        "defense": 121,
+        "penetration": 164,
+        "criticalChance": 61,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_EMBO",
@@ -10191,7 +14215,15 @@ window.ForgeData.synergyModel = {
             "dispels enemy buffs"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_EMBO01",
@@ -10203,7 +14235,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "leaderskill_EMBO",
@@ -10222,6 +14261,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -10236,7 +14276,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "contractskill_EMBO01",
@@ -10246,7 +14287,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         }
       ]
     },
@@ -10275,6 +14317,16 @@ window.ForgeData.synergyModel = {
         "conq_chirpatine"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17395,
+        "protection": 36719,
+        "speed": 142,
+        "offense": 2124,
+        "defense": 130,
+        "penetration": 217,
+        "criticalChance": 62,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_EMPERORPALPATINE",
@@ -10286,7 +14338,15 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 15
+          }
         },
         {
           "skillId": "specialskill_EMPERORPALPATINE01",
@@ -10299,7 +14359,18 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "specialskill_EMPERORPALPATINE02",
@@ -10312,7 +14383,15 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 100,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 50
+          }
         },
         {
           "skillId": "uniqueskill_EMPERORPALPATINE01",
@@ -10324,7 +14403,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_EMPERORPALPATINE",
@@ -10342,6 +14422,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 20,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 20
+          },
           "maximumAlliedBenefitPercent": 35
         }
       ]
@@ -10366,6 +14454,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_ithano_enfysnest"
       ],
+      "simulationStats": {
+        "health": 18820,
+        "protection": 40831,
+        "speed": 179,
+        "offense": 1465,
+        "defense": 49,
+        "penetration": 329,
+        "criticalChance": 44,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_ENFYSNEST",
@@ -10378,7 +14476,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_ENFYSNEST01",
@@ -10391,7 +14496,18 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_ENFYSNEST02",
@@ -10404,7 +14520,15 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "turnMeterPercent": 40
+          }
         },
         {
           "skillId": "uniqueskill_ENFYSNEST01",
@@ -10417,7 +14541,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -10434,6 +14559,16 @@ window.ForgeData.synergyModel = {
         "raid_speeder_bike_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 19193,
+        "protection": 37419,
+        "speed": 142,
+        "offense": 1255,
+        "defense": 175,
+        "penetration": 120,
+        "criticalChance": 42,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_EWOKELDER",
@@ -10448,6 +14583,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 50
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -10464,6 +14607,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 30,
+              "protectionPercent": 0
+            },
+            "cleanse": "all",
+            "revivePercent": 15
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -10482,6 +14634,12 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 45,
+            "assist": "one",
+            "revivePercent": 40,
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 45
         }
       ]
@@ -10500,6 +14658,16 @@ window.ForgeData.synergyModel = {
         "raid_speeder_bike_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14673,
+        "protection": 38191,
+        "speed": 160,
+        "offense": 1253,
+        "defense": 54,
+        "penetration": 226,
+        "criticalChance": 50,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_EWOKSCOUT",
@@ -10511,7 +14679,14 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_EWOKSCOUT01",
@@ -10523,7 +14698,15 @@ window.ForgeData.synergyModel = {
             "calls assists"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "uniqueskill_EWOKSCOUT01",
@@ -10538,6 +14721,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 30
+          },
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -10562,6 +14748,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 10016,
+        "protection": 36160,
+        "speed": 163,
+        "offense": 1245,
+        "defense": 177,
+        "penetration": 225,
+        "criticalChance": 39,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_EZRABRIDGERS3",
@@ -10571,7 +14767,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_EZRABRIDGERS301",
@@ -10586,7 +14789,16 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "turnMeterPercent": 75,
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_EZRABRIDGERS302",
@@ -10601,7 +14813,14 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_EZRABRIDGERS301",
@@ -10613,7 +14832,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -10631,6 +14851,16 @@ window.ForgeData.synergyModel = {
         "affiliation_ezras"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 19275,
+        "protection": 55856,
+        "speed": 195,
+        "offense": 1400,
+        "defense": 198,
+        "penetration": 128,
+        "criticalChance": 53,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_EZRAEXILE",
@@ -10647,7 +14877,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_EZRAEXILE01",
@@ -10675,6 +14912,20 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 10,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "all",
+              "healthPercent": 40,
+              "protectionPercent": 40
+            },
+            "cleanse": "all",
+            "dispel": "target"
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -10695,6 +14946,13 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 3,
+              "multiplier": 1.2
+            }
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -10718,6 +14976,9 @@ window.ForgeData.synergyModel = {
             "raid"
           ],
           "impact": 8,
+          "combat": {
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -10736,7 +14997,18 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 8
+          "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 100,
+              "protectionPercent": 0
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "all"
+          }
         }
       ]
     },
@@ -10758,6 +15030,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_hunters3_fennec"
       ],
+      "simulationStats": {
+        "health": 18985,
+        "protection": 54640,
+        "speed": 149,
+        "offense": 815,
+        "defense": 173,
+        "penetration": 60,
+        "criticalChance": 35,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_FENNECSHAND",
@@ -10770,7 +15052,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_FENNECSHAND01",
@@ -10787,7 +15076,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "leaderskill_FENNECSHAND01",
@@ -10797,7 +15093,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_FENNECSHAND01",
@@ -10821,6 +15118,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "turnMeterPercent": 20
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -10831,7 +15131,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         }
       ]
     },
@@ -10851,6 +15152,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 21655,
+        "protection": 62219,
+        "speed": 186,
+        "offense": 1084,
+        "defense": 267,
+        "penetration": 60,
+        "criticalChance": 28,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_FIFTHBROTHER",
@@ -10860,7 +15171,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_FIFTHBROTHER01",
@@ -10873,7 +15191,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_FIFTHBROTHER02",
@@ -10889,6 +15215,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "stun",
+              "fear"
+            ],
+            "controlTarget": "single"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -10908,6 +15246,7 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -10924,7 +15263,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            }
+          }
         },
         {
           "skillId": "uniqueskill_INQUISITOR01_SUPPORT",
@@ -10934,7 +15280,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         }
       ]
     },
@@ -10965,6 +15312,16 @@ window.ForgeData.synergyModel = {
         "teamup_quiggold_finn",
         "teamup_finn_phasma"
       ],
+      "simulationStats": {
+        "health": 14280,
+        "protection": 48836,
+        "speed": 139,
+        "offense": 727,
+        "defense": 452,
+        "penetration": 100,
+        "criticalChance": 29,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_FINN",
@@ -10976,7 +15333,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_FINN01",
@@ -10993,6 +15357,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 20,
+              "protectionPercent": 20
+            },
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -11006,7 +15378,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "leaderskill_FINN",
@@ -11026,6 +15405,9 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 10,
+          "combat": {
+            "turnMeterPercent": 3
+          },
           "maximumAlliedBenefitPercent": 60
         }
       ]
@@ -11045,6 +15427,16 @@ window.ForgeData.synergyModel = {
         "gac_fostormtrooper"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 10660,
+        "protection": 43709,
+        "speed": 131,
+        "offense": 1934,
+        "defense": 176,
+        "penetration": 146,
+        "criticalChance": 62,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_FIRSTORDEREXECUTIONER",
@@ -11054,7 +15446,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_FIRSTORDEREXECUTIONER01",
@@ -11069,7 +15468,16 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "turnMeterPercent": 80,
+            "dispel": "target"
+          }
         },
         {
           "skillId": "uniqueskill_FIRSTORDEREXECUTIONER01",
@@ -11086,6 +15494,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -11104,6 +15515,16 @@ window.ForgeData.synergyModel = {
         "affiliation_fomilitary"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 20775,
+        "protection": 41450,
+        "speed": 165,
+        "offense": 797,
+        "defense": 164,
+        "penetration": 136,
+        "criticalChance": 43,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_FIRSTORDEROFFICERMALE",
@@ -11115,7 +15536,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_FIRSTORDEROFFICERMALE01",
@@ -11132,6 +15560,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 100,
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -11148,6 +15580,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "turnMeterPercent": 15
+          },
           "maximumAlliedBenefitPercent": 15
         }
       ]
@@ -11168,6 +15608,16 @@ window.ForgeData.synergyModel = {
         "gac_tiepilot"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 12302,
+        "protection": 41043,
+        "speed": 150,
+        "offense": 1092,
+        "defense": 92,
+        "penetration": 170,
+        "criticalChance": 28,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_FIRSTORDERSPECIALFORCESPILOT",
@@ -11179,7 +15629,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_FIRSTORDERSPECIALFORCESPILOT01",
@@ -11192,7 +15649,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_FIRSTORDERSPECIALFORCESPILOT02",
@@ -11207,7 +15671,19 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "one",
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         }
       ]
     },
@@ -11230,6 +15706,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_rey_firstordertrooper"
       ],
+      "simulationStats": {
+        "health": 14510,
+        "protection": 49399,
+        "speed": 136,
+        "offense": 898,
+        "defense": 462,
+        "penetration": 41,
+        "criticalChance": 23,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_FIRSTORDERTROOPER",
@@ -11244,7 +15730,15 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_FIRSTORDERTROOPER01",
@@ -11261,6 +15755,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 25,
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -11277,7 +15775,10 @@ window.ForgeData.synergyModel = {
             "calls assists"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "assist": "one"
+          }
         }
       ]
     },
@@ -11296,6 +15797,16 @@ window.ForgeData.synergyModel = {
         "gac_tiepilot"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17633,
+        "protection": 35571,
+        "speed": 148,
+        "offense": 1208,
+        "defense": 39,
+        "penetration": 225,
+        "criticalChance": 50,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_FIRSTORDERTIEPILOT",
@@ -11305,7 +15816,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_FIRSTORDERTIEPILOT01",
@@ -11317,7 +15835,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_FIRSTORDERTIEPILOT01",
@@ -11331,7 +15856,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -11349,6 +15875,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17020,
+        "protection": 55344,
+        "speed": 138,
+        "offense": 1102,
+        "defense": 538,
+        "penetration": 194,
+        "criticalChance": 15,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GAMORREANGUARD",
@@ -11358,7 +15894,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_GAMORREANGUARD01",
@@ -11370,7 +15913,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         },
         {
           "skillId": "specialskill_GAMORREANGUARD02",
@@ -11380,7 +15924,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_GAMORREANGUARD01",
@@ -11401,6 +15952,13 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 20,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -11426,6 +15984,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 6363,
+        "protection": 38084,
+        "speed": 147,
+        "offense": 1775,
+        "defense": 268,
+        "penetration": 247,
+        "criticalChance": 42,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GARSAXON",
@@ -11438,7 +16006,15 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_GARSAXON01",
@@ -11450,7 +16026,14 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_GARSAXON01",
@@ -11462,7 +16045,8 @@ window.ForgeData.synergyModel = {
             "calls assists"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_GARSAXON",
@@ -11478,6 +16062,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -11499,6 +16090,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_gensyndulla_zeb"
       ],
+      "simulationStats": {
+        "health": 14161,
+        "protection": 41440,
+        "speed": 135,
+        "offense": 1446,
+        "defense": 201,
+        "penetration": 115,
+        "criticalChance": 69,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_ZEBS3",
@@ -11511,7 +16112,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_ZEBS301",
@@ -11528,6 +16136,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -11539,6 +16155,7 @@ window.ForgeData.synergyModel = {
           "signals": [],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -11552,7 +16169,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 15
+            }
+          }
         }
       ]
     },
@@ -11576,6 +16200,16 @@ window.ForgeData.synergyModel = {
         "gac_sepondathomir"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 43185,
+        "protection": 48053,
+        "speed": 129,
+        "offense": 1186,
+        "defense": 207,
+        "penetration": 205,
+        "criticalChance": 37,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GRIEVOUS",
@@ -11589,7 +16223,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_GRIEVOUS01",
@@ -11602,7 +16243,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_GRIEVOUS02",
@@ -11617,7 +16265,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_GRIEVOUS01",
@@ -11636,6 +16291,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -11654,6 +16312,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "turnMeterPercent": 2
+          },
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -11675,6 +16336,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_kylorenunmasked_generalhux"
       ],
+      "simulationStats": {
+        "health": 25885,
+        "protection": 42670,
+        "speed": 161,
+        "offense": 947,
+        "defense": 103,
+        "penetration": 130,
+        "criticalChance": 24,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GENERALHUX",
@@ -11686,7 +16357,15 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 25
+          }
         },
         {
           "skillId": "specialskill_GENERALHUX01",
@@ -11702,7 +16381,17 @@ window.ForgeData.synergyModel = {
             "dispels enemy buffs"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "turnMeterPercent": 10,
+            "assist": "all",
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_GENERALHUX02",
@@ -11718,7 +16407,10 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "leaderskill_GENERALHUX",
@@ -11734,6 +16426,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -11744,7 +16439,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         }
       ]
     },
@@ -11782,6 +16478,16 @@ window.ForgeData.synergyModel = {
         "conq_ls_admiral"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 9690,
+        "protection": 50319,
+        "speed": 147,
+        "offense": 1057,
+        "defense": 405,
+        "penetration": 89,
+        "criticalChance": 25,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GENERALKENOBI",
@@ -11791,7 +16497,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_GENERALKENOBI01",
@@ -11804,7 +16517,11 @@ window.ForgeData.synergyModel = {
             "cleanses allies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "turnMeterPercent": 60,
+            "cleanse": "all"
+          }
         },
         {
           "skillId": "specialskill_GENERALKENOBI02",
@@ -11821,7 +16538,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "all"
+          }
         },
         {
           "skillId": "leaderskill_GENERALKENOBI",
@@ -11838,6 +16563,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 35
         },
         {
@@ -11852,7 +16580,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -11882,6 +16611,16 @@ window.ForgeData.synergyModel = {
         "affiliation_anakins"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 19960,
+        "protection": 64188,
+        "speed": 157,
+        "offense": 1799,
+        "defense": 229,
+        "penetration": 196,
+        "criticalChance": 56,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GENERALSKYWALKER",
@@ -11897,7 +16636,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_GENERALSKYWALKER01",
@@ -11910,7 +16657,14 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_GENERALSKYWALKER02",
@@ -11923,7 +16677,14 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "leaderskill_GENERALSKYWALKER",
@@ -11944,6 +16705,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 100
+            }
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -11960,7 +16728,10 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "uniqueskill_GENERALSKYWALKER02",
@@ -11977,6 +16748,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 35
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -12002,6 +16776,16 @@ window.ForgeData.synergyModel = {
         "teamup_gensyndulla_mothma",
         "teamup_gensyndulla_zeb"
       ],
+      "simulationStats": {
+        "health": 18305,
+        "protection": 57732,
+        "speed": 179,
+        "offense": 861,
+        "defense": 375,
+        "penetration": 38,
+        "criticalChance": 19,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GENERALSYNDULLA",
@@ -12017,7 +16801,16 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "assist": "one",
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_GENERALSYNDULLA01",
@@ -12035,6 +16828,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -12052,6 +16848,17 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "fracture"
+            ],
+            "controlTarget": "all"
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -12075,6 +16882,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 50,
+              "protectionPercent": 50
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -12097,6 +16912,9 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 8,
+          "combat": {
+            "turnMeterPercent": 15
+          },
           "maximumAlliedBenefitPercent": 40
         }
       ]
@@ -12126,6 +16944,16 @@ window.ForgeData.synergyModel = {
         "quest_imperialofficer"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 21467,
+        "protection": 38565,
+        "speed": 157,
+        "offense": 794,
+        "defense": 107,
+        "penetration": 219,
+        "criticalChance": 28,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_VEERS",
@@ -12139,7 +16967,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_VEERS01",
@@ -12153,7 +16988,19 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "assist": "all",
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "uniqueskill_VEERS01",
@@ -12170,6 +17017,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 10
+            },
+            "turnMeterPercent": 50
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -12188,6 +17043,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -12207,6 +17065,16 @@ window.ForgeData.synergyModel = {
         "SOE_summoner"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 22905,
+        "protection": 67158,
+        "speed": 160,
+        "offense": 873,
+        "defense": 143,
+        "penetration": 161,
+        "criticalChance": 31,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GEONOSIANBROODALPHA",
@@ -12218,7 +17086,15 @@ window.ForgeData.synergyModel = {
             "dispels enemy buffs"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_GEONOSIANBROODALPHA01",
@@ -12231,7 +17107,15 @@ window.ForgeData.synergyModel = {
             "dispels enemy buffs"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_GEONOSIANBROODALPHA02",
@@ -12250,6 +17134,16 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 35,
+              "protectionPercent": 35
+            },
+            "turnMeterPercent": 15,
+            "cleanse": "self",
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 35
         },
         {
@@ -12267,6 +17161,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 3
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -12284,7 +17185,11 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 7
+          "impact": 7,
+          "combat": {
+            "summon": true,
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "uniqueskill_GEONOSIANBROODALPHA02",
@@ -12302,7 +17207,11 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 8
+          "impact": 8,
+          "combat": {
+            "assist": "all",
+            "summon": true
+          }
         }
       ]
     },
@@ -12319,6 +17228,16 @@ window.ForgeData.synergyModel = {
         "territory_dark_platoon"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17773,
+        "protection": 20664,
+        "speed": 174,
+        "offense": 1361,
+        "defense": 148,
+        "penetration": 207,
+        "criticalChance": 35,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GEONOSIANSOLDIER",
@@ -12328,7 +17247,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_GEONOSIANSOLDIER01",
@@ -12343,7 +17269,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "uniqueskill_GEONOSIANSOLDIER01",
@@ -12359,6 +17293,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "turnMeterPercent": 25
+          },
           "maximumAlliedBenefitPercent": 35
         }
       ]
@@ -12377,6 +17314,16 @@ window.ForgeData.synergyModel = {
         "longitudinally_implemented"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18290,
+        "protection": 22691,
+        "speed": 147,
+        "offense": 1479,
+        "defense": 146,
+        "penetration": 189,
+        "criticalChance": 52,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GEONOSIANSPY",
@@ -12386,7 +17333,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_GEONOSIANSPY01",
@@ -12398,7 +17352,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_GEONOSIANSPY02",
@@ -12412,7 +17373,10 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "uniqueskill_GEONOSIANSPY01",
@@ -12425,6 +17389,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "turnMeterPercent": 35
+          },
           "maximumAlliedBenefitPercent": 35
         }
       ]
@@ -12449,6 +17416,16 @@ window.ForgeData.synergyModel = {
         "conq_supreme"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 10905,
+        "protection": 42670,
+        "speed": 170,
+        "offense": 733,
+        "defense": 149,
+        "penetration": 230,
+        "criticalChance": 59,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GRANDADMIRALTHRAWN",
@@ -12464,7 +17441,19 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "stun",
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_GRANDADMIRALTHRAWN01",
@@ -12481,7 +17470,19 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "fracture"
+            ],
+            "controlTarget": "single",
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_GRANDADMIRALTHRAWN02",
@@ -12496,6 +17497,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 40
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 40
         },
         {
@@ -12516,6 +17525,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 2
+            },
+            "turnMeterPercent": 50,
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -12533,6 +17551,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "turnMeterPercent": 3
+          },
           "maximumAlliedBenefitPercent": 3
         }
       ]
@@ -12557,6 +17578,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 11255,
+        "protection": 62219,
+        "speed": 183,
+        "offense": 1937,
+        "defense": 223,
+        "penetration": 217,
+        "criticalChance": 43,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GRANDINQUISITOR",
@@ -12568,7 +17599,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_GRANDINQUISITOR01",
@@ -12586,6 +17624,23 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 4,
+              "protectionPercent": 0
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "all",
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 4
         },
         {
@@ -12605,7 +17660,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "leaderskill_GRANDINQUISITOR",
@@ -12626,6 +17688,7 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 9,
+          "combat": {},
           "maximumAlliedBenefitPercent": 46
         },
         {
@@ -12644,6 +17707,7 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -12654,7 +17718,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         }
       ]
     },
@@ -12680,6 +17745,16 @@ window.ForgeData.synergyModel = {
         "raid_naboo_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17661,
+        "protection": 18937,
+        "speed": 177,
+        "offense": 1034,
+        "defense": 125,
+        "penetration": 130,
+        "criticalChance": 41,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GRANDMASTERYODA",
@@ -12693,7 +17768,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 40
+          }
         },
         {
           "skillId": "specialskill_GRANDMASTERYODA01",
@@ -12707,7 +17790,14 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_GRANDMASTERYODA02",
@@ -12720,7 +17810,14 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "leaderskill_GRANDMASTERYODA",
@@ -12736,6 +17833,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -12752,6 +17850,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 35
         }
       ]
@@ -12775,6 +17874,16 @@ window.ForgeData.synergyModel = {
         "raid_order66_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 15140,
+        "protection": 37419,
+        "speed": 154,
+        "offense": 825,
+        "defense": 139,
+        "penetration": 230,
+        "criticalChance": 40,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GRANDMOFFTARKIN",
@@ -12789,7 +17898,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_GRANDMOFFTARKIN01",
@@ -12804,7 +17920,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_GRANDMOFFTARKIN02",
@@ -12819,7 +17942,10 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "turnMeterPercent": 15
+          }
         },
         {
           "skillId": "leaderskill_GRANDMOFFTARKIN",
@@ -12838,6 +17964,7 @@ window.ForgeData.synergyModel = {
             "gac-3v3"
           ],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -12854,6 +17981,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -12871,6 +18005,16 @@ window.ForgeData.synergyModel = {
         "big_character"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14695,
+        "protection": 61487,
+        "speed": 176,
+        "offense": 624,
+        "defense": 280,
+        "penetration": 105,
+        "criticalChance": 38,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GREATMOTHERS",
@@ -12888,7 +18032,18 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_GREATMOTHERS01",
@@ -12902,7 +18057,16 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 3,
+              "multiplier": 0.86
+            },
+            "cleanse": "self",
+            "dispel": "all"
+          }
         },
         {
           "skillId": "uniqueskill_GREATMOTHERS01",
@@ -12925,6 +18089,14 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 2
+            },
+            "turnMeterPercent": 25
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -12949,6 +18121,12 @@ window.ForgeData.synergyModel = {
             "raid"
           ],
           "impact": 10,
+          "combat": {
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single"
+          },
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -12974,6 +18152,16 @@ window.ForgeData.synergyModel = {
         "conq_toppled"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14163,
+        "protection": 37344,
+        "speed": 154,
+        "offense": 1693,
+        "defense": 64,
+        "penetration": 230,
+        "criticalChance": 57,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GREEDO",
@@ -12985,7 +18173,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_GREEDO01",
@@ -12997,7 +18192,10 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "turnMeterPercent": 25
+          }
         },
         {
           "skillId": "specialskill_GREEDO02",
@@ -13013,7 +18211,10 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "dispel": "target"
+          }
         },
         {
           "skillId": "uniqueskill_GREEDO01",
@@ -13023,7 +18224,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         },
         {
           "skillId": "contractskill_GREEDO01",
@@ -13033,7 +18235,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_GREEDO",
@@ -13049,6 +18252,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "turnMeterPercent": 20
+          },
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -13069,6 +18275,16 @@ window.ForgeData.synergyModel = {
         "gac_daringplan"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 12405,
+        "protection": 49774,
+        "speed": 172,
+        "offense": 1551,
+        "defense": 218,
+        "penetration": 128,
+        "criticalChance": 40,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GREEFKARGA",
@@ -13082,6 +18298,22 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "all",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            },
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "single"
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -13101,7 +18333,16 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "all",
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_GREEFKARGA02",
@@ -13120,6 +18361,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 25,
+              "protectionPercent": 25
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -13140,6 +18389,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 5
+            }
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -13155,7 +18411,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         },
         {
           "skillId": "contractskill_GREEFKARGA01",
@@ -13165,7 +18422,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         }
       ]
     },
@@ -13184,6 +18442,16 @@ window.ForgeData.synergyModel = {
         "ls_unaligned_force_user"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 21600,
+        "protection": 58469,
+        "speed": 143,
+        "offense": 710,
+        "defense": 373,
+        "penetration": 25,
+        "criticalChance": 27,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GOPHERANTS",
@@ -13197,7 +18465,14 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_GOPHERANTS01",
@@ -13216,6 +18491,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -13234,7 +18510,15 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "uniqueskill_GOPHERANTS01",
@@ -13256,6 +18540,14 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 20,
+              "protectionPercent": 0
+            },
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -13272,7 +18564,8 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -13288,6 +18581,16 @@ window.ForgeData.synergyModel = {
         "raid_naboo_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 9905,
+        "protection": 64219,
+        "speed": 172,
+        "offense": 2221,
+        "defense": 167,
+        "penetration": 208,
+        "criticalChance": 54,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BOOMADIER",
@@ -13299,7 +18602,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_BOOMADIER01",
@@ -13314,7 +18624,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_BOOMADIER02",
@@ -13329,7 +18646,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "uniqueskill_BOOMADIER01",
@@ -13346,6 +18674,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 5
         }
       ]
@@ -13362,6 +18691,16 @@ window.ForgeData.synergyModel = {
         "raid_naboo_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14625,
+        "protection": 49715,
+        "speed": 159,
+        "offense": 1104,
+        "defense": 452,
+        "penetration": 30,
+        "criticalChance": 32,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GUNGANPHALANX",
@@ -13374,7 +18713,18 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_GUNGANPHALANX01",
@@ -13387,7 +18737,19 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 20
+            }
+          }
         },
         {
           "skillId": "specialskill_GUNGANPHALANX02",
@@ -13403,6 +18765,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -13423,6 +18793,14 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 50
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -13457,6 +18835,16 @@ window.ForgeData.synergyModel = {
         "affiliation_hans"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18465,
+        "protection": 38628,
+        "speed": 156,
+        "offense": 2189,
+        "defense": 100,
+        "penetration": 204,
+        "criticalChance": 75,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_HANSOLO",
@@ -13469,7 +18857,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_HANSOLO01",
@@ -13482,7 +18877,14 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_HANSOLO02",
@@ -13495,7 +18897,10 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "turnMeterPercent": 50
+          }
         },
         {
           "skillId": "uniqueskill_HANSOLO01",
@@ -13509,7 +18914,13 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         }
       ]
     },
@@ -13534,6 +18945,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_herasyndulla_chopper"
       ],
+      "simulationStats": {
+        "health": 15588,
+        "protection": 34153,
+        "speed": 152,
+        "offense": 862,
+        "defense": 336,
+        "penetration": 225,
+        "criticalChance": 14,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_HERASYNDULLAS3",
@@ -13543,7 +18964,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_HERASYNDULLAS301",
@@ -13562,6 +18990,16 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "one",
+            "cleanse": "self",
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -13576,7 +19014,14 @@ window.ForgeData.synergyModel = {
             "revives allies"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            }
+          }
         },
         {
           "skillId": "leaderskill_HERASYNDULLAS3",
@@ -13594,6 +19039,9 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 20
+          },
           "maximumAlliedBenefitPercent": 20
         }
       ]
@@ -13616,6 +19064,16 @@ window.ForgeData.synergyModel = {
         "conq_supreme"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 25135,
+        "protection": 51532,
+        "speed": 180,
+        "offense": 445,
+        "defense": 343,
+        "penetration": 35,
+        "criticalChance": 16,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_HERMITYODA",
@@ -13631,6 +19089,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 5
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -13646,7 +19112,11 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "assist": "all",
+            "cleanse": "all"
+          }
         },
         {
           "skillId": "specialskill_HERMITYODA02",
@@ -13661,6 +19131,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 20,
+              "protectionPercent": 20
+            }
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -13671,7 +19148,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_HERMITYODA02",
@@ -13685,6 +19163,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "turnMeterPercent": 100
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -13711,6 +19192,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_ig90_hk47"
       ],
+      "simulationStats": {
+        "health": 6664,
+        "protection": 42185,
+        "speed": 123,
+        "offense": 2012,
+        "defense": 161,
+        "penetration": 309,
+        "criticalChance": 39,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_HK47",
@@ -13722,7 +19213,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_HK4701",
@@ -13735,7 +19233,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_HK4702",
@@ -13750,7 +19255,19 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "fear"
+            ],
+            "controlTarget": "single",
+            "dispel": "target"
+          }
         },
         {
           "skillId": "leaderskill_HK47",
@@ -13766,6 +19283,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -13780,7 +19300,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 0
+            }
+          }
         },
         {
           "skillId": "uniqueskill_HK4702",
@@ -13797,7 +19324,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {}
         }
       ]
     },
@@ -13822,6 +19350,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_brutus_hondo"
       ],
+      "simulationStats": {
+        "health": 15325,
+        "protection": 57732,
+        "speed": 139,
+        "offense": 1990,
+        "defense": 193,
+        "penetration": 110,
+        "criticalChance": 34,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_HONDO",
@@ -13834,7 +19372,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 10
+          }
         },
         {
           "skillId": "specialskill_HONDO01",
@@ -13851,7 +19397,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 5
+          "impact": 5,
+          "combat": {}
         },
         {
           "skillId": "specialskill_HONDO02",
@@ -13874,6 +19421,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "assist": "one",
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "all",
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -13891,7 +19446,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 20,
+              "protectionPercent": 20
+            }
+          }
         },
         {
           "skillId": "uniqueskill_HONDO02",
@@ -13907,6 +19469,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 5
+            },
+            "turnMeterPercent": 100
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -13929,6 +19499,16 @@ window.ForgeData.synergyModel = {
         "gac_hothsoldscout"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 19952,
+        "protection": 36541,
+        "speed": 175,
+        "offense": 1124,
+        "defense": 99,
+        "penetration": 152,
+        "criticalChance": 44,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_HOTHREBELSCOUT",
@@ -13941,6 +19521,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 25
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -13954,7 +19542,19 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "turnMeterPercent": 100,
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "uniqueskill_HOTHREBELSCOUT01",
@@ -13966,7 +19566,10 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "turnMeterPercent": 45
+          }
         }
       ]
     },
@@ -13988,6 +19591,16 @@ window.ForgeData.synergyModel = {
         "gac_hothsoldscout"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 19009,
+        "protection": 53941,
+        "speed": 118,
+        "offense": 840,
+        "defense": 407,
+        "penetration": 42,
+        "criticalChance": 21,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_HOTHREBELSOLDIER",
@@ -13999,7 +19612,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_HOTHREBELSOLDIER01",
@@ -14013,7 +19633,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_HOTHREBELSOLDIER01",
@@ -14026,7 +19647,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 20,
+              "protectionPercent": 0
+            }
+          }
         }
       ]
     },
@@ -14051,6 +19679,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_batcher_hunter"
       ],
+      "simulationStats": {
+        "health": 19847,
+        "protection": 49527,
+        "speed": 138,
+        "offense": 1318,
+        "defense": 166,
+        "penetration": 334,
+        "criticalChance": 75,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BADBATCHHUNTER",
@@ -14060,7 +19698,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_BADBATCHHUNTER01",
@@ -14075,7 +19720,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_BADBATCHHUNTER02",
@@ -14092,7 +19744,13 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "leaderskill_BADBATCHHUNTER",
@@ -14110,6 +19768,7 @@ window.ForgeData.synergyModel = {
             "raid"
           ],
           "impact": 8,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -14132,6 +19791,16 @@ window.ForgeData.synergyModel = {
         "teamup_hunters3_fennec",
         "teamup_hunters3_wrecker"
       ],
+      "simulationStats": {
+        "health": 17175,
+        "protection": 54063,
+        "speed": 192,
+        "offense": 1074,
+        "defense": 204,
+        "penetration": 186,
+        "criticalChance": 47,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_HUNTERS3",
@@ -14152,6 +19821,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -14169,6 +19846,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "all"
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -14185,6 +19870,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -14210,6 +19902,14 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 7,
+              "protectionPercent": 0
+            },
+            "cooldownReduction": 5
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -14225,6 +19925,7 @@ window.ForgeData.synergyModel = {
           "signals": [],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {},
           "maximumAlliedBenefitPercent": 3
         }
       ]
@@ -14248,6 +19949,16 @@ window.ForgeData.synergyModel = {
         "teamup_huyang_kanan",
         "teamup_huyang_snips"
       ],
+      "simulationStats": {
+        "health": 20905,
+        "protection": 57550,
+        "speed": 177,
+        "offense": 1436,
+        "defense": 223,
+        "penetration": 178,
+        "criticalChance": 38,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_HUYANG",
@@ -14259,7 +19970,14 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_HUYANG01",
@@ -14276,6 +19994,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -14299,6 +20024,14 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 100,
+              "protectionPercent": 100
+            },
+            "assist": "all"
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -14325,6 +20058,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {},
           "maximumAlliedBenefitPercent": 55
         }
       ]
@@ -14344,6 +20078,16 @@ window.ForgeData.synergyModel = {
         "conq_idenshore"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18215,
+        "protection": 57732,
+        "speed": 155,
+        "offense": 1369,
+        "defense": 183,
+        "penetration": 244,
+        "criticalChance": 60,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_IDENVERSIOEMPIRE",
@@ -14355,7 +20099,19 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            }
+          }
         },
         {
           "skillId": "specialskill_IDENVERSIOEMPIRE01",
@@ -14374,7 +20130,20 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "assist": "all",
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "all",
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_IDENVERSIOEMPIRE02",
@@ -14396,6 +20165,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 80,
+              "protectionPercent": 35
+            },
+            "turnMeterPercent": 80,
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -14416,6 +20194,7 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 8,
+          "combat": {},
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -14435,6 +20214,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "turnMeterPercent": 100
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -14456,6 +20238,16 @@ window.ForgeData.synergyModel = {
         "raid_naboo_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 19127,
+        "protection": 56112,
+        "speed": 119,
+        "offense": 1395,
+        "defense": 271,
+        "penetration": 84,
+        "criticalChance": 36,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_MAGNAGUARD",
@@ -14469,7 +20261,15 @@ window.ForgeData.synergyModel = {
             "cleanses allies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "specialskill_MAGNAGUARD01",
@@ -14486,7 +20286,15 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "specialskill_MAGNAGUARD02",
@@ -14500,7 +20308,15 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "uniqueskill_MAGNAGUARD01",
@@ -14516,7 +20332,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {}
         }
       ]
     },
@@ -14541,6 +20358,16 @@ window.ForgeData.synergyModel = {
         "conq_igdroids"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 22855,
+        "protection": 53271,
+        "speed": 177,
+        "offense": 1321,
+        "defense": 380,
+        "penetration": 190,
+        "criticalChance": 30,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_IG11",
@@ -14552,7 +20379,19 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.72
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 20
+            }
+          }
         },
         {
           "skillId": "specialskill_IG1101",
@@ -14564,7 +20403,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_IG1102",
@@ -14581,6 +20427,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "one",
+              "healthPercent": 30,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -14601,6 +20454,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 40
         }
       ]
@@ -14623,6 +20479,16 @@ window.ForgeData.synergyModel = {
         "quest_grogu_characters"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 33520,
+        "protection": 53000,
+        "speed": 171,
+        "offense": 564,
+        "defense": 262,
+        "penetration": 23,
+        "criticalChance": 21,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_IG12",
@@ -14639,7 +20505,19 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "assist": "one",
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_IG1201",
@@ -14654,6 +20532,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 30,
+              "protectionPercent": 0
+            },
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -14668,7 +20554,16 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "assist": "one",
+            "control": [
+              "stun",
+              "daze"
+            ],
+            "controlTarget": "all",
+            "dispel": "all"
+          }
         },
         {
           "skillId": "uniqueskill_IG1201",
@@ -14697,6 +20592,10 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 10,
+          "combat": {
+            "summon": true,
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 20
         }
       ]
@@ -14716,6 +20615,16 @@ window.ForgeData.synergyModel = {
         "conq_igdroids"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 20063,
+        "protection": 36500,
+        "speed": 139,
+        "offense": 1458,
+        "defense": 56,
+        "penetration": 177,
+        "criticalChance": 62,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_IG86SENTINELDROID",
@@ -14725,7 +20634,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_IG86SENTINELDROID01",
@@ -14741,6 +20657,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 75
         },
         {
@@ -14755,7 +20679,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -14785,6 +20710,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_4lom_ig88"
       ],
+      "simulationStats": {
+        "health": 20068,
+        "protection": 34991,
+        "speed": 147,
+        "offense": 1453,
+        "defense": 98,
+        "penetration": 142,
+        "criticalChance": 51,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_IG88",
@@ -14796,7 +20731,14 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_IG8801",
@@ -14809,7 +20751,18 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "uniqueskill_IG8801",
@@ -14822,7 +20775,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 50,
+              "protectionPercent": 0
+            }
+          }
         },
         {
           "skillId": "leaderskill_IG88",
@@ -14840,6 +20800,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -14850,7 +20811,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         }
       ]
     },
@@ -14874,6 +20836,16 @@ window.ForgeData.synergyModel = {
         "teamup_ig90_hk47",
         "teamup_ig90_bt1"
       ],
+      "simulationStats": {
+        "health": 17480,
+        "protection": 62219,
+        "speed": 179,
+        "offense": 1092,
+        "defense": 328,
+        "penetration": 82,
+        "criticalChance": 21,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_IG90",
@@ -14890,7 +20862,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_IG9001",
@@ -14912,6 +20891,19 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "recovery": {
+              "target": "all",
+              "healthPercent": 20,
+              "protectionPercent": 20
+            },
+            "assist": "all"
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -14932,6 +20924,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -14955,6 +20948,13 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            }
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -14965,7 +20965,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         }
       ]
     },
@@ -14988,6 +20989,16 @@ window.ForgeData.synergyModel = {
         "raid_order66_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 13853,
+        "protection": 51200,
+        "speed": 145,
+        "offense": 1525,
+        "defense": 175,
+        "penetration": 206,
+        "criticalChance": 73,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_IMAGUNDI",
@@ -15000,7 +21011,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_IMAGUNDI01",
@@ -15012,7 +21030,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_IMAGUNDI01",
@@ -15025,7 +21050,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_IMAGUNDI",
@@ -15040,6 +21066,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 35
         }
       ]
@@ -15067,6 +21094,16 @@ window.ForgeData.synergyModel = {
         "affiliation_imperialsecuritybureau"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18450,
+        "protection": 40215,
+        "speed": 152,
+        "offense": 667,
+        "defense": 325,
+        "penetration": 255,
+        "criticalChance": 26,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_IMPERIALPROBEDROID",
@@ -15076,7 +21113,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_IMPERIALPROBEDROID01",
@@ -15089,7 +21133,10 @@ window.ForgeData.synergyModel = {
             "dispels enemy buffs"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_IMPERIALPROBEDROID02",
@@ -15104,7 +21151,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_IMPERIALPROBEDROID01",
@@ -15123,6 +21177,9 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 3
+          },
           "maximumAlliedBenefitPercent": 3
         },
         {
@@ -15142,7 +21199,10 @@ window.ForgeData.synergyModel = {
             "revives allies"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "revivePercent": 30
+          }
         }
       ]
     },
@@ -15162,6 +21222,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 6083,
+        "protection": 38752,
+        "speed": 141,
+        "offense": 1618,
+        "defense": 260,
+        "penetration": 161,
+        "criticalChance": 68,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_IMPERIALSUPERCOMMANDO",
@@ -15174,7 +21244,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_IMPERIALSUPERCOMMANDO01",
@@ -15186,7 +21263,15 @@ window.ForgeData.synergyModel = {
             "dispels enemy buffs"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "uniqueskill_IMPERIALSUPERCOMMANDO01",
@@ -15205,6 +21290,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 0,
+              "protectionPercent": 10
+            }
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -15219,7 +21311,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -15246,6 +21339,16 @@ window.ForgeData.synergyModel = {
         "teamup_inquisitorbarriss_secondsister",
         "teamup_inquisitorbarriss_ninthsister"
       ],
+      "simulationStats": {
+        "health": 20455,
+        "protection": 57732,
+        "speed": 159,
+        "offense": 864,
+        "defense": 237,
+        "penetration": 60,
+        "criticalChance": 40,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_INQUISITORBARRISS",
@@ -15258,6 +21361,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            }
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -15274,7 +21389,15 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_INQUISITORBARRISS02",
@@ -15289,6 +21412,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 10
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -15309,6 +21440,13 @@ window.ForgeData.synergyModel = {
             "gac-3v3"
           ],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 8,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -15331,6 +21469,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 10
+            },
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -15341,7 +21487,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         }
       ]
     },
@@ -15365,6 +21512,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 52855,
+        "protection": 57732,
+        "speed": 365,
+        "offense": 1497,
+        "defense": 279,
+        "penetration": 187,
+        "criticalChance": 44,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_JABBATHEHUTT",
@@ -15384,6 +21541,19 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 30
+            },
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -15406,6 +21576,19 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 10
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -15425,6 +21608,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          },
           "maximumAlliedBenefitPercent": 2
         },
         {
@@ -15447,6 +21638,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 20
+            }
+          },
           "maximumAlliedBenefitPercent": 55
         },
         {
@@ -15471,6 +21669,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 60,
+              "protectionPercent": 60
+            },
+            "revivePercent": 30
+          },
           "maximumAlliedBenefitPercent": 60
         },
         {
@@ -15486,7 +21692,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         },
         {
           "skillId": "contractskill_JABBATHEHUTT01",
@@ -15496,7 +21703,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         }
       ]
     },
@@ -15526,6 +21734,16 @@ window.ForgeData.synergyModel = {
         "conq_fetts"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18653,
+        "protection": 38100,
+        "speed": 178,
+        "offense": 1735,
+        "defense": 80,
+        "penetration": 178,
+        "criticalChance": 58,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_JANGOFETT",
@@ -15537,7 +21755,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_JANGOFETT01",
@@ -15549,7 +21774,14 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_JANGOFETT02",
@@ -15563,7 +21795,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "leaderskill_JANGOFETT",
@@ -15583,6 +21822,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {},
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -15599,7 +21839,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 100
+            }
+          }
         },
         {
           "skillId": "contractskill_JANGOFETT01",
@@ -15609,7 +21856,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         }
       ]
     },
@@ -15626,6 +21874,16 @@ window.ForgeData.synergyModel = {
         "raid_naboo_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 20755,
+        "protection": 57469,
+        "speed": 167,
+        "offense": 1198,
+        "defense": 293,
+        "penetration": 103,
+        "criticalChance": 29,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_JARJARBINKS",
@@ -15639,7 +21897,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.72
+            }
+          }
         },
         {
           "skillId": "specialskill_JARJARBINKS01",
@@ -15654,7 +21919,18 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "fear"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "specialskill_JARJARBINKS02",
@@ -15672,6 +21948,20 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "recovery": {
+              "target": "all",
+              "healthPercent": 100,
+              "protectionPercent": 100
+            },
+            "turnMeterPercent": 100,
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -15690,7 +21980,10 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 7
+          "impact": 7,
+          "combat": {
+            "assist": "one"
+          }
         },
         {
           "skillId": "uniqueskill_JARJARBINKS02",
@@ -15709,6 +22002,7 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 8,
+          "combat": {},
           "maximumAlliedBenefitPercent": 75
         }
       ]
@@ -15727,6 +22021,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17103,
+        "protection": 39515,
+        "speed": 153,
+        "offense": 1006,
+        "defense": 121,
+        "penetration": 210,
+        "criticalChance": 51,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_JAWA",
@@ -15739,7 +22043,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_JAWA01",
@@ -15751,7 +22062,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "uniqueskill_JAWA01",
@@ -15766,6 +22088,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 30
+          },
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -15783,6 +22108,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17025,
+        "protection": 36625,
+        "speed": 173,
+        "offense": 1081,
+        "defense": 440,
+        "penetration": 70,
+        "criticalChance": 14,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_JAWAENGINEER",
@@ -15792,7 +22127,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_JAWAENGINEER01",
@@ -15812,6 +22154,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "revivePercent": 1
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -15830,6 +22175,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "turnMeterPercent": 45
+          },
           "maximumAlliedBenefitPercent": 45
         },
         {
@@ -15847,7 +22195,8 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -15864,6 +22213,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 22451,
+        "protection": 39343,
+        "speed": 139,
+        "offense": 1185,
+        "defense": 143,
+        "penetration": 125,
+        "criticalChance": 44,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_JAWASCAVENGER",
@@ -15875,7 +22234,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_JAWASCAVENGER01",
@@ -15888,7 +22254,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_JAWASCAVENGER01",
@@ -15902,7 +22275,8 @@ window.ForgeData.synergyModel = {
           ],
           "signals": [],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_JAWASCAVENGER02",
@@ -15917,7 +22291,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -15934,6 +22309,16 @@ window.ForgeData.synergyModel = {
         "release_era_09_myths"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 9925,
+        "protection": 57732,
+        "speed": 171,
+        "offense": 2070,
+        "defense": 177,
+        "penetration": 128,
+        "criticalChance": 59,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_JAXXON",
@@ -15946,6 +22331,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 25
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -15958,7 +22351,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_JAXXON02",
@@ -15972,7 +22376,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_JAXXON01",
@@ -15994,6 +22405,15 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 100,
+              "protectionPercent": 100
+            },
+            "turnMeterPercent": 10,
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -16017,6 +22437,16 @@ window.ForgeData.synergyModel = {
         "raid_order66_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17693,
+        "protection": 35447,
+        "speed": 139,
+        "offense": 844,
+        "defense": 139,
+        "penetration": 142,
+        "criticalChance": 28,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_JEDIKNIGHTCONSULAR",
@@ -16028,7 +22458,15 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_JEDIKNIGHTCONSULAR01",
@@ -16043,6 +22481,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 40,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 40
         },
         {
@@ -16055,7 +22500,19 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 30,
+              "protectionPercent": 0
+            }
+          }
         }
       ]
     },
@@ -16093,6 +22550,16 @@ window.ForgeData.synergyModel = {
         "teamup_jkanakin_snips",
         "teamup_appo_jkanakin"
       ],
+      "simulationStats": {
+        "health": 12607,
+        "protection": 38207,
+        "speed": 164,
+        "offense": 1806,
+        "defense": 100,
+        "penetration": 200,
+        "criticalChance": 75,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_ANAKINKNIGHT",
@@ -16104,7 +22571,14 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_ANAKINKNIGHT01",
@@ -16122,6 +22596,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -16139,7 +22621,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_ANAKINKNIGHT",
@@ -16154,6 +22637,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -16176,6 +22660,16 @@ window.ForgeData.synergyModel = {
         "conq_wetrustyou"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 25105,
+        "protection": 57547,
+        "speed": 149,
+        "offense": 1677,
+        "defense": 195,
+        "penetration": 13,
+        "criticalChance": 60,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_JEDIKNIGHTCAL",
@@ -16191,7 +22685,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_JEDIKNIGHTCAL01",
@@ -16209,7 +22711,19 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tb"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "stun",
+              "daze"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "specialskill_JEDIKNIGHTCAL02",
@@ -16230,6 +22744,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "assist": "one",
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -16249,7 +22767,18 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tb"
           ],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "leaderskill_JEDIKNIGHTCAL",
@@ -16267,6 +22796,7 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 8,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -16289,6 +22819,17 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            },
+            "control": [
+              "fear"
+            ],
+            "controlTarget": "single"
+          },
           "maximumAlliedBenefitPercent": 60
         }
       ]
@@ -16317,6 +22858,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_vanguardtempleguard_jediknightguardian"
       ],
+      "simulationStats": {
+        "health": 12272,
+        "protection": 45926,
+        "speed": 117,
+        "offense": 1649,
+        "defense": 194,
+        "penetration": 220,
+        "criticalChance": 57,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_JEDIKNIGHTGUARDIAN",
@@ -16328,7 +22879,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_JEDIKNIGHTGUARDIAN01",
@@ -16341,7 +22899,18 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "uniqueskill_JEDIKNIGHTGUARDIAN01",
@@ -16354,7 +22923,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -16377,6 +22947,16 @@ window.ForgeData.synergyModel = {
         "raid_speeder_bike_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 12930,
+        "protection": 77159,
+        "speed": 112,
+        "offense": 2117,
+        "defense": 233,
+        "penetration": 200,
+        "criticalChance": 41,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_JEDIKNIGHTLUKE",
@@ -16392,7 +22972,15 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_JEDIKNIGHTLUKE01",
@@ -16409,7 +22997,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "specialskill_JEDIKNIGHTLUKE02",
@@ -16424,7 +23020,18 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 3,
+              "multiplier": 0.86
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "leaderskill_JEDIKNIGHTLUKE",
@@ -16450,6 +23057,15 @@ window.ForgeData.synergyModel = {
             "raid"
           ],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 25,
+              "protectionPercent": 25
+            },
+            "assist": "all",
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -16469,6 +23085,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -16494,6 +23113,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 15396,
+        "protection": 29331,
+        "speed": 168,
+        "offense": 930,
+        "defense": 59,
+        "penetration": 230,
+        "criticalChance": 49,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_JEDIKNIGHTREVAN",
@@ -16506,7 +23135,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 20
+          }
         },
         {
           "skillId": "specialskill_JEDIKNIGHTREVAN01",
@@ -16524,7 +23161,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "specialskill_JEDIKNIGHTREVAN02",
@@ -16541,7 +23186,15 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "assist": "all"
+          }
         },
         {
           "skillId": "leaderskill_JEDIKNIGHTREVAN",
@@ -16563,6 +23216,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "cleanse": "self",
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 3
         },
         {
@@ -16582,6 +23239,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -16599,7 +23259,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {}
         }
       ]
     },
@@ -16623,6 +23284,16 @@ window.ForgeData.synergyModel = {
         "conq_redemption"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 40200,
+        "protection": 45710,
+        "speed": 385,
+        "offense": 2649,
+        "defense": 70,
+        "penetration": 352,
+        "criticalChance": 55,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_JEDIMASTERKENOBI",
@@ -16637,7 +23308,18 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_JEDIMASTERKENOBI01",
@@ -16653,7 +23335,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "specialskill_JEDIMASTERKENOBI02",
@@ -16671,6 +23361,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 40,
+              "protectionPercent": 40
+            }
+          },
           "maximumAlliedBenefitPercent": 40
         },
         {
@@ -16695,6 +23392,15 @@ window.ForgeData.synergyModel = {
             "raid"
           ],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 50,
+              "protectionPercent": 50
+            },
+            "assist": "one",
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 75
         },
         {
@@ -16715,6 +23421,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 2,
+              "protectionPercent": 2
+            },
+            "assist": "one",
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -16730,7 +23445,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -16750,6 +23466,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 65245,
+        "protection": 40000,
+        "speed": 376,
+        "offense": 2286,
+        "defense": 575,
+        "penetration": 157,
+        "criticalChance": 36,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GRANDMASTERLUKE",
@@ -16761,7 +23487,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_GRANDMASTERLUKE01",
@@ -16781,7 +23514,10 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "assist": "one"
+          }
         },
         {
           "skillId": "specialskill_GRANDMASTERLUKE02",
@@ -16798,6 +23534,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "turnMeterPercent": 15,
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "all"
+          },
           "maximumAlliedBenefitPercent": 15
         },
         {
@@ -16823,6 +23571,16 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 0,
+              "protectionPercent": 5
+            },
+            "assist": "one",
+            "cleanse": "all",
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -16840,6 +23598,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 25,
+              "protectionPercent": 25
+            }
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -16855,7 +23620,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -16878,6 +23644,16 @@ window.ForgeData.synergyModel = {
         "raid_order66_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 23855,
+        "protection": 62219,
+        "speed": 168,
+        "offense": 2046,
+        "defense": 187,
+        "penetration": 117,
+        "criticalChance": 48,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_JEDIMASTERMACEWINDU",
@@ -16894,7 +23670,15 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_JEDIMASTERMACEWINDU01",
@@ -16904,7 +23688,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_JEDIMASTERMACEWINDU02",
@@ -16924,7 +23715,16 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "assist": "all",
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "leaderskill_JEDIMASTERMACEWINDU",
@@ -16948,6 +23748,9 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 10,
+          "combat": {
+            "dispel": "target"
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -16972,6 +23775,9 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 9,
+          "combat": {
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -16994,6 +23800,16 @@ window.ForgeData.synergyModel = {
         "raid_order66_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 21300,
+        "protection": 57469,
+        "speed": 171,
+        "offense": 1472,
+        "defense": 176,
+        "penetration": 217,
+        "criticalChance": 49,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_JOCASTANU",
@@ -17006,7 +23822,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.72
+            }
+          }
         },
         {
           "skillId": "specialskill_JOCASTANU01",
@@ -17020,7 +23843,16 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all",
+            "cooldownReduction": 10
+          }
         },
         {
           "skillId": "specialskill_JOCASTANU02",
@@ -17037,7 +23869,13 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "uniqueskill_JOCASTANU01",
@@ -17060,7 +23898,17 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 10
+          "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 100,
+              "protectionPercent": 20
+            },
+            "turnMeterPercent": 20,
+            "cleanse": "all",
+            "cooldownReduction": 1
+          }
         }
       ]
     },
@@ -17081,6 +23929,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14115,
+        "protection": 37448,
+        "speed": 131,
+        "offense": 870,
+        "defense": 291,
+        "penetration": 85,
+        "criticalChance": 54,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_JOLEEBINDO",
@@ -17093,7 +23951,20 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 30,
+              "protectionPercent": 0
+            },
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_JOLEEBINDO01",
@@ -17109,7 +23980,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {}
         },
         {
           "skillId": "specialskill_JOLEEBINDO02",
@@ -17126,6 +23998,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "one",
+              "healthPercent": 40,
+              "protectionPercent": 0
+            },
+            "cleanse": "self",
+            "revivePercent": 80
+          },
           "maximumAlliedBenefitPercent": 40
         },
         {
@@ -17138,7 +24019,8 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_JOLEEBINDO02",
@@ -17151,6 +24033,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -17172,6 +24055,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 5395,
+        "protection": 50250,
+        "speed": 132,
+        "offense": 1356,
+        "defense": 284,
+        "penetration": 60,
+        "criticalChance": 56,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_juhani",
@@ -17183,7 +24076,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_juhani01",
@@ -17200,7 +24100,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single",
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "specialskill_juhani02",
@@ -17212,7 +24119,19 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 10
+            }
+          }
         },
         {
           "skillId": "uniqueskill_juhani01",
@@ -17232,6 +24151,13 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 5
+            }
+          },
           "maximumAlliedBenefitPercent": 5
         }
       ]
@@ -17257,6 +24183,16 @@ window.ForgeData.synergyModel = {
         "conq_prayingforstealth"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14092,
+        "protection": 32234,
+        "speed": 183,
+        "offense": 1729,
+        "defense": 70,
+        "penetration": 201,
+        "criticalChance": 51,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_JYNERSO",
@@ -17266,7 +24202,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_JYNERSO01",
@@ -17283,6 +24226,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "revivePercent": 20
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -17296,7 +24247,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "leaderskill_JYNERSO",
@@ -17311,6 +24273,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 5
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -17327,7 +24296,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -17359,6 +24329,16 @@ window.ForgeData.synergyModel = {
         "conq_nonsepdroid"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 13787,
+        "protection": 47731,
+        "speed": 149,
+        "offense": 1093,
+        "defense": 370,
+        "penetration": 106,
+        "criticalChance": 21,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_K2SO",
@@ -17370,7 +24350,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_K2SO01",
@@ -17385,7 +24372,15 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "uniqueskill_K2SO01",
@@ -17397,7 +24392,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_K2SO02",
@@ -17409,7 +24405,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -17437,6 +24434,16 @@ window.ForgeData.synergyModel = {
         "teamup_huyang_kanan",
         "teamup_depabillaba_kananjarruss3"
       ],
+      "simulationStats": {
+        "health": 19175,
+        "protection": 44500,
+        "speed": 115,
+        "offense": 834,
+        "defense": 287,
+        "penetration": 90,
+        "criticalChance": 58,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_KANANJARRUSS3",
@@ -17449,6 +24456,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          },
           "maximumAlliedBenefitPercent": 15
         },
         {
@@ -17462,7 +24476,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "specialskill_KANANJARRUSS302",
@@ -17479,6 +24501,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 100,
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -17491,7 +24517,14 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 25,
+              "protectionPercent": 0
+            }
+          }
         }
       ]
     },
@@ -17517,6 +24550,16 @@ window.ForgeData.synergyModel = {
         "raid_order66_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14007,
+        "protection": 64452,
+        "speed": 160,
+        "offense": 1453,
+        "defense": 105,
+        "penetration": 200,
+        "criticalChance": 59,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_KELLERANBEQ",
@@ -17526,7 +24569,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_KELLERANBEQ01",
@@ -17544,6 +24594,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "all"
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -17557,7 +24615,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "cleanse": "all"
+          }
         },
         {
           "skillId": "uniqueskill_KELLERANBEQ01",
@@ -17577,6 +24643,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 100,
+              "protectionPercent": 100
+            }
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -17596,6 +24669,7 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 8,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -17619,6 +24693,16 @@ window.ForgeData.synergyModel = {
         "raid_naboo_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 10780,
+        "protection": 47590,
+        "speed": 154,
+        "offense": 2203,
+        "defense": 166,
+        "penetration": 188,
+        "criticalChance": 32,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_kiadimundi",
@@ -17631,7 +24715,20 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 10
+            },
+            "turnMeterPercent": 15
+          }
         },
         {
           "skillId": "specialskill_kiadimundi01",
@@ -17648,7 +24745,11 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 7
+          "impact": 7,
+          "combat": {
+            "turnMeterPercent": 100,
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "specialskill_kiadimundi02",
@@ -17666,6 +24767,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "turnMeterPercent": 25,
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -17686,6 +24796,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 40
         },
         {
@@ -17699,7 +24810,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 10
+            },
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "all"
+          }
         }
       ]
     },
@@ -17725,6 +24847,16 @@ window.ForgeData.synergyModel = {
         "raid_order66_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 6965,
+        "protection": 44768,
+        "speed": 140,
+        "offense": 1533,
+        "defense": 162,
+        "penetration": 300,
+        "criticalChance": 72,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_KITFISTO",
@@ -17736,7 +24868,15 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 15
+          }
         },
         {
           "skillId": "specialskill_KITFISTO01",
@@ -17746,7 +24886,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_KITFISTO01",
@@ -17758,7 +24905,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_KITFISTO",
@@ -17773,6 +24921,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 25
         }
       ]
@@ -17800,6 +24949,16 @@ window.ForgeData.synergyModel = {
         "teamup_echo_kix",
         "teamup_brutus_kix"
       ],
+      "simulationStats": {
+        "health": 22730,
+        "protection": 55253,
+        "speed": 178,
+        "offense": 592,
+        "defense": 248,
+        "penetration": 120,
+        "criticalChance": 24,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_KIX",
@@ -17815,6 +24974,19 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -17833,7 +25005,16 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 7
+          "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "assist": "one",
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "specialskill_KIX02",
@@ -17852,6 +25033,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 30,
+              "protectionPercent": 30
+            },
+            "revivePercent": 50,
+            "cooldownReduction": 2
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -17880,6 +25070,15 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 1,
+              "protectionPercent": 0
+            },
+            "cleanse": "self",
+            "revivePercent": 30
+          },
           "maximumAlliedBenefitPercent": 20
         }
       ]
@@ -17896,6 +25095,16 @@ window.ForgeData.synergyModel = {
         "release_era_07_andor"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 20680,
+        "protection": 57340,
+        "speed": 211,
+        "offense": 1518,
+        "defense": 125,
+        "penetration": 110,
+        "criticalChance": 32,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_KLEYA",
@@ -17909,7 +25118,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_KLEYA01",
@@ -17929,7 +25145,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {}
         },
         {
           "skillId": "specialskill_KLEYA02",
@@ -17953,6 +25170,23 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "recovery": {
+              "target": "all",
+              "healthPercent": 100,
+              "protectionPercent": 100
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "all",
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -17978,6 +25212,11 @@ window.ForgeData.synergyModel = {
             "gac-3v3"
           ],
           "impact": 8,
+          "combat": {
+            "turnMeterPercent": 10,
+            "cleanse": "self",
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 25
         }
       ]
@@ -17999,6 +25238,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 15755,
+        "protection": 62219,
+        "speed": 165,
+        "offense": 1442,
+        "defense": 295,
+        "penetration": 50,
+        "criticalChance": 35,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_KRRSANTAN",
@@ -18012,7 +25261,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_KRRSANTAN01",
@@ -18029,6 +25285,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 10
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -18046,7 +25314,18 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "leaderskill_KRRSANTAN",
@@ -18067,6 +25346,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -18089,6 +25369,13 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 10,
+              "protectionPercent": 60
+            }
+          },
           "maximumAlliedBenefitPercent": 60
         },
         {
@@ -18099,7 +25386,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         }
       ]
     },
@@ -18116,6 +25404,16 @@ window.ForgeData.synergyModel = {
         "gac_daringplan"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 22560,
+        "protection": 40000,
+        "speed": 182,
+        "offense": 2160,
+        "defense": 236,
+        "penetration": 109,
+        "criticalChance": 36,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_KUIIL",
@@ -18125,7 +25423,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_KUIIL01",
@@ -18138,7 +25443,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_KUIIL02",
@@ -18159,6 +25471,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 20,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 25,
+            "revivePercent": 80
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -18180,6 +25501,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 20
+            }
+          },
           "maximumAlliedBenefitPercent": 40
         }
       ]
@@ -18200,6 +25528,16 @@ window.ForgeData.synergyModel = {
         "release_era_07_andor"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 16505,
+        "protection": 62272,
+        "speed": 163,
+        "offense": 1741,
+        "defense": 325,
+        "penetration": 63,
+        "criticalChance": 28,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_KXSECURITYDROID",
@@ -18211,7 +25549,19 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 20,
+              "protectionPercent": 20
+            }
+          }
         },
         {
           "skillId": "specialskill_KXSECURITYDROID01",
@@ -18228,6 +25578,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -18246,6 +25604,7 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -18258,7 +25617,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -18278,6 +25638,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 10735,
+        "protection": 62219,
+        "speed": 161,
+        "offense": 2024,
+        "defense": 232,
+        "penetration": 225,
+        "criticalChance": 42,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_KYLEKATARN",
@@ -18289,7 +25659,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_KYLEKATARN01",
@@ -18305,6 +25686,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "all",
+              "healthPercent": 50,
+              "protectionPercent": 50
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -18325,7 +25718,15 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "uniqueskill_KYLEKATARN01",
@@ -18347,6 +25748,9 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 9,
+          "combat": {
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -18377,6 +25781,16 @@ window.ForgeData.synergyModel = {
         "teamup_poe_kyloren",
         "teamup_kylorenunmasked_kyloren"
       ],
+      "simulationStats": {
+        "health": 11698,
+        "protection": 43880,
+        "speed": 148,
+        "offense": 1645,
+        "defense": 219,
+        "penetration": 278,
+        "criticalChance": 62,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_KYLOREN",
@@ -18388,7 +25802,14 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_KYLOREN01",
@@ -18405,6 +25826,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "turnMeterPercent": 25
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -18415,7 +25844,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         },
         {
           "skillId": "specialskill_KYLOREN02",
@@ -18429,7 +25859,18 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         }
       ]
     },
@@ -18464,6 +25905,16 @@ window.ForgeData.synergyModel = {
         "teamup_kylorenunmasked_generalhux",
         "teamup_kylorenunmasked_kyloren"
       ],
+      "simulationStats": {
+        "health": 12070,
+        "protection": 45475,
+        "speed": 152,
+        "offense": 1233,
+        "defense": 419,
+        "penetration": 59,
+        "criticalChance": 35,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_KYLORENUNMASKED",
@@ -18475,7 +25926,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_KYLORENUNMASKED01",
@@ -18490,7 +25948,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_KYLORENUNMASKED02",
@@ -18503,7 +25969,14 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "leaderskill_KYLORENUNMASKED",
@@ -18521,6 +25994,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 20
+          },
           "maximumAlliedBenefitPercent": 40
         },
         {
@@ -18537,6 +26018,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 8,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 8
         }
       ]
@@ -18564,6 +26052,16 @@ window.ForgeData.synergyModel = {
         "conq_nonsepdroid"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 11490,
+        "protection": 48093,
+        "speed": 117,
+        "offense": 1278,
+        "defense": 344,
+        "penetration": 48,
+        "criticalChance": 26,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_l3_37",
@@ -18575,7 +26073,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_l3_37_01",
@@ -18592,7 +26097,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "uniqueskill_l3_37_01",
@@ -18609,6 +26122,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 15,
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 15
         },
         {
@@ -18621,7 +26138,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -18652,6 +26170,16 @@ window.ForgeData.synergyModel = {
         "conq_underworld"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17853,
+        "protection": 34900,
+        "speed": 135,
+        "offense": 882,
+        "defense": 146,
+        "penetration": 241,
+        "criticalChance": 46,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_ADMINISTRATORLANDO",
@@ -18661,7 +26189,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_ADMINISTRATORLANDO01",
@@ -18674,7 +26209,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_ADMINISTRATORLANDO01",
@@ -18684,7 +26226,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_ADMINISTRATORLANDO",
@@ -18701,6 +26244,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 33
         }
       ]
@@ -18717,6 +26261,16 @@ window.ForgeData.synergyModel = {
         "conquest_reward_unit"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 12905,
+        "protection": 57732,
+        "speed": 164,
+        "offense": 1528,
+        "defense": 197,
+        "penetration": 128,
+        "criticalChance": 46,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_LEIAJEDITRAINING",
@@ -18729,7 +26283,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_LEIAJEDITRAINING01",
@@ -18747,7 +26308,20 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.2
+            },
+            "control": [
+              "daze",
+              "ability block"
+            ],
+            "controlTarget": "single",
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_LEIAJEDITRAINING02",
@@ -18774,6 +26348,16 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 10,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "assist": "all",
+            "cleanse": "self",
+            "dispel": "all"
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -18798,6 +26382,14 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 100,
+              "protectionPercent": 100
+            },
+            "revivePercent": 100
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -18821,6 +26413,13 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 10
+            }
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -18841,6 +26440,16 @@ window.ForgeData.synergyModel = {
         "raid_speeder_bike_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 43545,
+        "protection": 57550,
+        "speed": 372,
+        "offense": 1402,
+        "defense": 480,
+        "penetration": 107,
+        "criticalChance": 26,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GLLEIA",
@@ -18860,6 +26469,21 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 20,
+              "protectionPercent": 20
+            },
+            "assist": "all",
+            "cleanse": "self",
+            "dispel": "target"
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -18878,6 +26502,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -18897,6 +26528,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "turnMeterPercent": 50,
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -18918,6 +26558,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 50,
+              "protectionPercent": 50
+            },
+            "turnMeterPercent": 10,
+            "revivePercent": 30
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -18942,6 +26591,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 100,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -18957,7 +26613,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -18980,6 +26637,16 @@ window.ForgeData.synergyModel = {
         "gac_alltooeasy"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 20605,
+        "protection": 41909,
+        "speed": 140,
+        "offense": 952,
+        "defense": 302,
+        "penetration": 56,
+        "criticalChance": 25,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_LOBOT",
@@ -18995,7 +26662,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_LOBOT01",
@@ -19012,6 +26686,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 7,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 8,
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 8
         },
         {
@@ -19029,7 +26712,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_LOBOT02",
@@ -19048,6 +26732,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -19063,6 +26748,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 20
         }
       ]
@@ -19080,6 +26766,16 @@ window.ForgeData.synergyModel = {
         "raid_speeder_bike_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 15925,
+        "protection": 37565,
+        "speed": 147,
+        "offense": 678,
+        "defense": 144,
+        "penetration": 139,
+        "criticalChance": 39,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_LOGRAY",
@@ -19093,7 +26789,15 @@ window.ForgeData.synergyModel = {
             "calls assists"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "specialskill_LOGRAY01",
@@ -19107,7 +26811,14 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "all",
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_LOGRAY02",
@@ -19123,6 +26834,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 20
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -19139,6 +26853,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 5
+          },
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -19164,6 +26886,16 @@ window.ForgeData.synergyModel = {
         "territory_tb3_hero"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 43400,
+        "protection": 107765,
+        "speed": 390,
+        "offense": 2935,
+        "defense": 85,
+        "penetration": 367,
+        "criticalChance": 75,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_LORDVADER",
@@ -19175,7 +26907,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_LORDVADER01",
@@ -19191,6 +26930,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          },
           "maximumAlliedBenefitPercent": 1
         },
         {
@@ -19208,6 +26954,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "daze",
+              "ability block"
+            ],
+            "controlTarget": "all"
+          },
           "maximumAlliedBenefitPercent": 1
         },
         {
@@ -19228,6 +26986,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {},
           "maximumAlliedBenefitPercent": 35
         },
         {
@@ -19244,7 +27003,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_GALACTICLEGEND01",
@@ -19259,7 +27019,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -19287,6 +27048,16 @@ window.ForgeData.synergyModel = {
         "conq_newhope"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18790,
+        "protection": 36975,
+        "speed": 145,
+        "offense": 2051,
+        "defense": 57,
+        "penetration": 214,
+        "criticalChance": 60,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_LUKESKYWALKER",
@@ -19298,7 +27069,15 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 40
+          }
         },
         {
           "skillId": "specialskill_LUKESKYWALKER01",
@@ -19313,7 +27092,19 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single",
+            "dispel": "target"
+          }
         },
         {
           "skillId": "uniqueskill_LUKESKYWALKER01",
@@ -19327,7 +27118,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_LUKESKYWALKER",
@@ -19338,6 +27130,7 @@ window.ForgeData.synergyModel = {
           "signals": [],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -19364,6 +27157,16 @@ window.ForgeData.synergyModel = {
         "raid_order66_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 21491,
+        "protection": 34190,
+        "speed": 144,
+        "offense": 1024,
+        "defense": 172,
+        "penetration": 148,
+        "criticalChance": 35,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_LUMINARAUNDULI",
@@ -19373,7 +27176,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_LUMINARAUNDULI01",
@@ -19385,7 +27195,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_LUMINARAUNDULI02",
@@ -19399,6 +27220,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 30,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -19412,6 +27240,7 @@ window.ForgeData.synergyModel = {
           "signals": [],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {},
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -19429,6 +27258,16 @@ window.ForgeData.synergyModel = {
         "affiliation_rebelfighter"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14525,
+        "protection": 53746,
+        "speed": 198,
+        "offense": 534,
+        "defense": 248,
+        "penetration": 120,
+        "criticalChance": 21,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_LUTHENRAEL",
@@ -19445,7 +27284,20 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "assist": "one",
+            "control": [
+              "fear"
+            ],
+            "controlTarget": "single",
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_LUTHENRAEL01",
@@ -19469,6 +27321,15 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 50,
+              "protectionPercent": 50
+            },
+            "cleanse": "self",
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -19489,6 +27350,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "turnMeterPercent": 10,
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -19517,7 +27382,11 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 10
+          "impact": 10,
+          "combat": {
+            "turnMeterPercent": 20,
+            "summon": true
+          }
         }
       ]
     },
@@ -19549,6 +27418,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_depabillaba_macewindu"
       ],
+      "simulationStats": {
+        "health": 21118,
+        "protection": 39209,
+        "speed": 143,
+        "offense": 609,
+        "defense": 318,
+        "penetration": 140,
+        "criticalChance": 30,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_MACEWINDU",
@@ -19563,7 +27442,24 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 100,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 15,
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_MACEWINDU01",
@@ -19577,7 +27473,16 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "turnMeterPercent": 50,
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_MACEWINDU02",
@@ -19596,6 +27501,19 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "one",
+              "healthPercent": 0,
+              "protectionPercent": 30
+            },
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -19608,7 +27526,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_MACEWINDU02",
@@ -19618,7 +27537,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_MACEWINDU",
@@ -19635,6 +27555,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {},
           "maximumAlliedBenefitPercent": 20
         }
       ]
@@ -19657,6 +27578,16 @@ window.ForgeData.synergyModel = {
         "raid_speeder_bike_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 5890,
+        "protection": 43654,
+        "speed": 139,
+        "offense": 2214,
+        "defense": 154,
+        "penetration": 149,
+        "criticalChance": 53,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_MAGMATROOPER",
@@ -19666,7 +27597,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_MAGMATROOPER01",
@@ -19678,7 +27616,14 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_MAGMATROOPER01",
@@ -19693,6 +27638,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 70
+          },
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -19711,6 +27659,16 @@ window.ForgeData.synergyModel = {
         "release_era_07_andor"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 24475,
+        "protection": 54540,
+        "speed": 144,
+        "offense": 905,
+        "defense": 290,
+        "penetration": 61,
+        "criticalChance": 30,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "leaderskill_MAJORPARTAGAZ",
@@ -19730,6 +27688,13 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -19746,7 +27711,19 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "assist": "one",
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_MAJORPARTAGAZ01",
@@ -19763,6 +27740,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 20,
+              "protectionPercent": 20
+            }
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -19780,6 +27764,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -19793,6 +27778,7 @@ window.ForgeData.synergyModel = {
           "signals": [],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {},
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -19810,6 +27796,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 16270,
+        "protection": 57609,
+        "speed": 195,
+        "offense": 1072,
+        "defense": 154,
+        "penetration": 116,
+        "criticalChance": 26,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_MARAJADESKYWALKER",
@@ -19830,6 +27826,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 25
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -19851,7 +27855,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "cooldownReduction": 2
+          }
         },
         {
           "skillId": "specialskill_MARAJADESKYWALKER02",
@@ -19873,7 +27885,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "turnMeterPercent": 100
+          }
         },
         {
           "skillId": "uniqueskill_MARAJADESKYWALKER01",
@@ -19898,7 +27918,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 9
+          "impact": 9,
+          "combat": {}
         }
       ]
     },
@@ -19916,6 +27937,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 23755,
+        "protection": 57732,
+        "speed": 192,
+        "offense": 1190,
+        "defense": 168,
+        "penetration": 37,
+        "criticalChance": 34,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_MARAJADE",
@@ -19930,7 +27961,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            },
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_MARAJADE01",
@@ -19943,7 +27985,19 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "all",
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_MARAJADE02",
@@ -19958,7 +28012,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_MARAJADE01",
@@ -19980,6 +28041,7 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 20
         }
       ]
@@ -20004,6 +28066,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_vanguardtempleguard_marrok"
       ],
+      "simulationStats": {
+        "health": 20005,
+        "protection": 57732,
+        "speed": 175,
+        "offense": 1377,
+        "defense": 258,
+        "penetration": 123,
+        "criticalChance": 39,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_MARROK",
@@ -20017,7 +28089,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_MARROK01",
@@ -20032,7 +28111,18 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "uniqueskill_MARROK01",
@@ -20052,6 +28142,10 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 10,
+            "assistTrigger": "ally-special"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -20068,6 +28162,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            }
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -20078,7 +28179,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         }
       ]
     },
@@ -20103,6 +28205,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_depabillaba_masterquigon"
       ],
+      "simulationStats": {
+        "health": 20000,
+        "protection": 57732,
+        "speed": 185,
+        "offense": 725,
+        "defense": 178,
+        "penetration": 195,
+        "criticalChance": 34,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_MASTERQUIGON",
@@ -20118,6 +28230,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 10
+            }
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -20139,7 +28263,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 7
+          "impact": 7,
+          "combat": {
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "all",
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_MASTERQUIGON02",
@@ -20160,6 +28291,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -20190,6 +28329,16 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 25,
+            "cleanse": "self",
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -20212,6 +28361,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 13333,
+        "protection": 57732,
+        "speed": 189,
+        "offense": 1709,
+        "defense": 190,
+        "penetration": 190,
+        "criticalChance": 65,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_MAULS7",
@@ -20224,7 +28383,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_MAULS701",
@@ -20237,7 +28403,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_MAULS702",
@@ -20253,7 +28427,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_MAULS701",
@@ -20267,7 +28448,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_MAULS7",
@@ -20288,6 +28470,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -20307,6 +28492,16 @@ window.ForgeData.synergyModel = {
         "release_era_06_10thanniversary_excluded"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 24105,
+        "protection": 62219,
+        "speed": 168,
+        "offense": 1576,
+        "defense": 262,
+        "penetration": 257,
+        "criticalChance": 35,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_MAULHATEFUELED",
@@ -20318,7 +28513,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "fracture"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_MAULHATEFUELED01",
@@ -20335,7 +28541,15 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_MAULHATEFUELED02",
@@ -20356,6 +28570,19 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 8,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "turnMeterPercent": 60,
+            "assist": "all",
+            "control": [
+              "fear"
+            ],
+            "controlTarget": "all"
+          },
           "maximumAlliedBenefitPercent": 60
         },
         {
@@ -20376,7 +28603,10 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 7
+          "impact": 7,
+          "combat": {
+            "turnMeterPercent": 75
+          }
         },
         {
           "skillId": "uniqueskill_MAULHATEFUELED02",
@@ -20396,6 +28626,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -20422,6 +28653,16 @@ window.ForgeData.synergyModel = {
         "event_era_pirates"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 22575,
+        "protection": 57732,
+        "speed": 181,
+        "offense": 1101,
+        "defense": 536,
+        "penetration": 125,
+        "criticalChance": 29,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_MAZKANATA",
@@ -20433,7 +28674,14 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_MAZKANATA01",
@@ -20452,6 +28700,16 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "turnMeterPercent": 50,
+            "assist": "all",
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -20469,7 +28727,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_MAZKANATA",
@@ -20489,6 +28748,9 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 5
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -20505,6 +28767,7 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -20521,6 +28784,16 @@ window.ForgeData.synergyModel = {
         "conq_wetrustyou"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 22575,
+        "protection": 39132,
+        "speed": 151,
+        "offense": 895,
+        "defense": 207,
+        "penetration": 130,
+        "criticalChance": 36,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_MERRIN",
@@ -20530,7 +28803,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_MERRIN01",
@@ -20550,6 +28830,16 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 10,
+              "protectionPercent": 10
+            },
+            "cleanse": "all",
+            "dispel": "all",
+            "revivePercent": 50
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -20563,7 +28853,15 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "uniqueskill_MERRIN01",
@@ -20582,6 +28880,10 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 8,
+          "combat": {
+            "turnMeterPercent": 100,
+            "revivePercent": 30
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -20600,6 +28902,16 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 0,
+              "protectionPercent": 5
+            },
+            "turnMeterPercent": 25,
+            "cleanse": "all",
+            "revivePercent": 30
+          },
           "maximumAlliedBenefitPercent": 25
         }
       ]
@@ -20619,6 +28931,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14247,
+        "protection": 41959,
+        "speed": 154,
+        "offense": 1266,
+        "defense": 106,
+        "penetration": 112,
+        "criticalChance": 56,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_MISSIONVAO",
@@ -20631,7 +28953,19 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 10,
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_MISSIONVAO01",
@@ -20646,7 +28980,11 @@ window.ForgeData.synergyModel = {
             "cleanses allies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "turnMeterPercent": 50,
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "uniqueskill_MISSIONVAO01",
@@ -20656,7 +28994,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_MISSIONVAO02",
@@ -20674,7 +29013,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            }
+          }
         }
       ]
     },
@@ -20692,6 +29038,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 11195,
+        "protection": 41129,
+        "speed": 152,
+        "offense": 1820,
+        "defense": 193,
+        "penetration": 120,
+        "criticalChance": 24,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_HUMANTHUG",
@@ -20707,7 +29063,18 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_HUMANTHUG01",
@@ -20719,7 +29086,14 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_HUMANTHUG01",
@@ -20741,6 +29115,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {},
           "maximumAlliedBenefitPercent": 25
         }
       ]
@@ -20767,6 +29142,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_gideon_darktrooper"
       ],
+      "simulationStats": {
+        "health": 21210,
+        "protection": 45451,
+        "speed": 198,
+        "offense": 2409,
+        "defense": 305,
+        "penetration": 113,
+        "criticalChance": 43,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_MOFFGIDEONS1",
@@ -20778,7 +29163,14 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.72
+            }
+          }
         },
         {
           "skillId": "specialskill_MOFFGIDEONS101",
@@ -20788,7 +29180,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_MOFFGIDEONS102",
@@ -20809,6 +29208,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "turnMeterPercent": 25,
+            "assist": "all"
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -20833,6 +29241,10 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 9,
+          "combat": {
+            "revivePercent": 50,
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -20847,7 +29259,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -20869,6 +29282,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_gensyndulla_mothma"
       ],
+      "simulationStats": {
+        "health": 24340,
+        "protection": 43865,
+        "speed": 111,
+        "offense": 1423,
+        "defense": 224,
+        "penetration": 22,
+        "criticalChance": 20,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_MONMOTHMA",
@@ -20884,6 +29307,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 6,
+              "protectionPercent": 6
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 6
         },
         {
@@ -20901,7 +29332,10 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "revivePercent": 40
+          }
         },
         {
           "skillId": "specialskill_MONMOTHMA02",
@@ -20922,6 +29356,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 25,
+              "protectionPercent": 25
+            },
+            "cleanse": "all",
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -20935,7 +29378,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_MONMOTHMA",
@@ -20955,6 +29399,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -20971,6 +29418,16 @@ window.ForgeData.synergyModel = {
         "territory_dark_platoon"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18965,
+        "protection": 62219,
+        "speed": 185,
+        "offense": 1631,
+        "defense": 296,
+        "penetration": 48,
+        "criticalChance": 48,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_MORGANELSBETH",
@@ -20985,7 +29442,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_MORGANELSBETH01",
@@ -21003,6 +29467,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 50,
+              "protectionPercent": 50
+            },
+            "turnMeterPercent": 20,
+            "dispel": "all"
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -21019,7 +29492,15 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "assist": "all"
+          }
         },
         {
           "skillId": "uniqueskill_MORGANELSBETH01",
@@ -21038,6 +29519,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 100,
+              "protectionPercent": 100
+            },
+            "turnMeterPercent": 30
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -21062,6 +29551,16 @@ window.ForgeData.synergyModel = {
         "conq_ventress"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 29190,
+        "protection": 43865,
+        "speed": 142,
+        "offense": 1493,
+        "defense": 94,
+        "penetration": 172,
+        "criticalChance": 50,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_MOTHERTALZIN",
@@ -21071,7 +29570,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_MOTHERTALZIN01",
@@ -21083,7 +29589,14 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_MOTHERTALZIN02",
@@ -21098,6 +29611,20 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 100,
+              "protectionPercent": 0
+            },
+            "assist": "all",
+            "revivePercent": 30
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -21110,7 +29637,10 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "turnMeterPercent": 35
+          }
         },
         {
           "skillId": "leaderskill_MOTHERTALZIN",
@@ -21128,6 +29658,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "turnMeterPercent": 5,
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -21149,6 +29683,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_zombies"
       ],
+      "simulationStats": {
+        "health": 23305,
+        "protection": 62219,
+        "speed": 177,
+        "offense": 1846,
+        "defense": 173,
+        "penetration": 128,
+        "criticalChance": 50,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_NIGHTTROOPER",
@@ -21162,7 +29706,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_NIGHTTROOPER01",
@@ -21177,6 +29728,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "turnMeterPercent": 10,
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -21189,7 +29749,14 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_NIGHTTROOPER01",
@@ -21206,7 +29773,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 100,
+              "protectionPercent": 0
+            }
+          }
         }
       ]
     },
@@ -21223,6 +29797,16 @@ window.ForgeData.synergyModel = {
         "gac_dathomirnative"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18142,
+        "protection": 34750,
+        "speed": 167,
+        "offense": 1386,
+        "defense": 2,
+        "penetration": 170,
+        "criticalChance": 60,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_NIGHTSISTERACOLYTE",
@@ -21232,7 +29816,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_NIGHTSISTERACOLYTE01",
@@ -21250,6 +29841,16 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "turnMeterPercent": 30,
+            "cleanse": "self",
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -21263,7 +29864,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 40,
+              "protectionPercent": 0
+            }
+          }
         }
       ]
     },
@@ -21281,6 +29889,16 @@ window.ForgeData.synergyModel = {
         "conq_swordofajuntapall"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 8758,
+        "protection": 53007,
+        "speed": 132,
+        "offense": 1668,
+        "defense": 135,
+        "penetration": 99,
+        "criticalChance": 75,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_NIGHTSISTERINITIATE",
@@ -21290,7 +29908,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_NIGHTSISTERINITIATE01",
@@ -21300,7 +29925,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_NIGHTSISTERINITIATE02",
@@ -21310,7 +29942,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_NIGHTSISTERINITIATE01",
@@ -21322,7 +29961,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -21341,6 +29981,16 @@ window.ForgeData.synergyModel = {
         "gac_nszomspi"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 19085,
+        "protection": 35759,
+        "speed": 173,
+        "offense": 1613,
+        "defense": 46,
+        "penetration": 333,
+        "criticalChance": 29,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_NIGHTSISTERSPIRIT",
@@ -21353,7 +30003,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_NIGHTSISTERSPIRIT01",
@@ -21366,7 +30023,19 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single",
+            "dispel": "target"
+          }
         },
         {
           "skillId": "uniqueskill_NIGHTSISTERSPIRIT01",
@@ -21378,7 +30047,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -21401,6 +30071,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_zombies"
       ],
+      "simulationStats": {
+        "health": 19533,
+        "protection": 48035,
+        "speed": 140,
+        "offense": 971,
+        "defense": 323,
+        "penetration": 61,
+        "criticalChance": 29,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_NIGHTSISTERZOMBIE",
@@ -21410,7 +30090,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_NIGHTSISTERZOMBIE01",
@@ -21427,6 +30114,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -21443,7 +30138,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_NIGHTSISTERZOMBIE02",
@@ -21463,6 +30159,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "revivePercent": 50
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -21483,6 +30182,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 15975,
+        "protection": 67950,
+        "speed": 167,
+        "offense": 1519,
+        "defense": 297,
+        "penetration": 50,
+        "criticalChance": 34,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_NINTHSISTER",
@@ -21494,7 +30203,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_NINTHSISTER01",
@@ -21506,7 +30222,14 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_NINTHSISTER02",
@@ -21519,7 +30242,18 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "leaderskill_NINTHSISTER",
@@ -21535,6 +30269,7 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 2
         },
         {
@@ -21552,6 +30287,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -21562,7 +30304,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         }
       ]
     },
@@ -21582,6 +30325,16 @@ window.ForgeData.synergyModel = {
         "raid_naboo_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 24815,
+        "protection": 39559,
+        "speed": 176,
+        "offense": 1312,
+        "defense": 64,
+        "penetration": 224,
+        "criticalChance": 50,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_NUTEGUNRAY",
@@ -21591,7 +30344,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_NUTEGUNRAY01",
@@ -21606,7 +30366,19 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            }
+          }
         },
         {
           "skillId": "specialskill_NUTEGUNRAY02",
@@ -21622,7 +30394,11 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "assist": "all",
+            "dispel": "target"
+          }
         },
         {
           "skillId": "uniqueskill_NUTEGUNRAY01",
@@ -21641,6 +30417,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -21656,6 +30433,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 15
         }
       ]
@@ -21686,6 +30464,16 @@ window.ForgeData.synergyModel = {
         "conq_survivedorder66"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 11454,
+        "protection": 43378,
+        "speed": 138,
+        "offense": 719,
+        "defense": 513,
+        "penetration": 20,
+        "criticalChance": 32,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_OLDBENKENOBI",
@@ -21695,7 +30483,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_OLDBENKENOBI01",
@@ -21713,6 +30508,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 3,
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "all"
+          },
           "maximumAlliedBenefitPercent": 3
         },
         {
@@ -21725,7 +30527,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_OLDBENKENOBI01",
@@ -21744,6 +30547,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 1
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -21757,6 +30568,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 30
+          },
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -21776,6 +30590,16 @@ window.ForgeData.synergyModel = {
         "conq_ventress"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 26153,
+        "protection": 42281,
+        "speed": 156,
+        "offense": 1134,
+        "defense": 142,
+        "penetration": 49,
+        "criticalChance": 25,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DAKA",
@@ -21787,7 +30611,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_DAKA01",
@@ -21804,6 +30639,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 50,
+              "protectionPercent": 0
+            },
+            "revivePercent": 30
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -21821,6 +30664,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "turnMeterPercent": 50,
+            "revivePercent": 30
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -21836,6 +30683,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -21856,6 +30704,16 @@ window.ForgeData.synergyModel = {
         "territory_tb3_hero"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 15365,
+        "protection": 57732,
+        "speed": 150,
+        "offense": 1549,
+        "defense": 289,
+        "penetration": 413,
+        "criticalChance": 57,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BADBATCHOMEGA",
@@ -21867,7 +30725,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_BADBATCHOMEGA01",
@@ -21881,7 +30750,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_BADBATCHOMEGA02",
@@ -21899,6 +30775,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 40
         },
         {
@@ -21920,6 +30799,9 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 7,
+          "combat": {
+            "assistTrigger": "ally-special"
+          },
           "maximumAlliedBenefitPercent": 2
         }
       ]
@@ -21949,6 +30831,16 @@ window.ForgeData.synergyModel = {
         "teamup_wreckers3_omegas3",
         "teamup_crosshairs3_omegas3"
       ],
+      "simulationStats": {
+        "health": 22525,
+        "protection": 57469,
+        "speed": 137,
+        "offense": 456,
+        "defense": 310,
+        "penetration": 70,
+        "criticalChance": 28,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_OMEGAS3",
@@ -21960,7 +30852,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_OMEGAS301",
@@ -21979,6 +30878,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "one",
+              "healthPercent": 1,
+              "protectionPercent": 100
+            },
+            "cleanse": "self",
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -21996,7 +30904,10 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "turnMeterPercent": 10
+          }
         },
         {
           "skillId": "leaderskill_OMEGAS3",
@@ -22016,6 +30927,7 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -22043,6 +30955,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 100,
+              "protectionPercent": 100
+            }
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -22064,6 +30983,16 @@ window.ForgeData.synergyModel = {
         "raid_naboo_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 11685,
+        "protection": 57732,
+        "speed": 171,
+        "offense": 1690,
+        "defense": 229,
+        "penetration": 116,
+        "criticalChance": 41,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_PADAWANOBIWAN",
@@ -22080,7 +31009,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 20
+          }
         },
         {
           "skillId": "specialskill_PADAWANOBIWAN01",
@@ -22094,7 +31031,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_PADAWANOBIWAN02",
@@ -22112,7 +31056,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_PADAWANOBIWAN01",
@@ -22135,6 +31086,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 75,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 75
         }
       ]
@@ -22157,6 +31115,16 @@ window.ForgeData.synergyModel = {
         "conq_spectre_attacker"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 7685,
+        "protection": 57469,
+        "speed": 159,
+        "offense": 1416,
+        "defense": 228,
+        "penetration": 121,
+        "criticalChance": 30,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_PADAWANSABINE",
@@ -22167,6 +31135,13 @@ window.ForgeData.synergyModel = {
           "signals": [],
           "modeBonuses": [],
           "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          },
           "maximumAlliedBenefitPercent": 15
         },
         {
@@ -22179,7 +31154,14 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_PADAWANSABINE02",
@@ -22196,6 +31178,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.2
+            }
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -22219,7 +31208,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -22239,6 +31229,16 @@ window.ForgeData.synergyModel = {
         "gac_dontlookback"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 10400,
+        "protection": 54690,
+        "speed": 178,
+        "offense": 2085,
+        "defense": 120,
+        "penetration": 321,
+        "criticalChance": 70,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_PADMEAMIDALA",
@@ -22249,6 +31249,13 @@ window.ForgeData.synergyModel = {
           "signals": [],
           "modeBonuses": [],
           "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -22266,6 +31273,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 50,
+              "protectionPercent": 0
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -22284,7 +31299,14 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "leaderskill_PADMEAMIDALA",
@@ -22300,6 +31322,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -22318,6 +31341,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -22340,6 +31370,16 @@ window.ForgeData.synergyModel = {
         "conq_againstallodds"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17276,
+        "protection": 33875,
+        "speed": 165,
+        "offense": 1160,
+        "defense": 164,
+        "penetration": 98,
+        "criticalChance": 42,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_PAO",
@@ -22349,7 +31389,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_PAO01",
@@ -22362,7 +31409,10 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "turnMeterPercent": 40
+          }
         },
         {
           "skillId": "specialskill_PAO02",
@@ -22374,7 +31424,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_PAO01",
@@ -22390,6 +31447,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 5,
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 5
         }
       ]
@@ -22408,6 +31469,16 @@ window.ForgeData.synergyModel = {
         "conq_fuzzball"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 13613,
+        "protection": 48059,
+        "speed": 128,
+        "offense": 1049,
+        "defense": 282,
+        "penetration": 180,
+        "criticalChance": 40,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_PAPLOO",
@@ -22423,7 +31494,16 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "assist": "one",
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_PAPLOO01",
@@ -22436,7 +31516,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_PAPLOO02",
@@ -22453,6 +31540,11 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 10,
+            "assist": "one",
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -22467,7 +31559,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            }
+          }
         }
       ]
     },
@@ -22483,6 +31582,16 @@ window.ForgeData.synergyModel = {
         "affiliation_ls_mandalorian"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 16020,
+        "protection": 62219,
+        "speed": 157,
+        "offense": 1522,
+        "defense": 297,
+        "penetration": 50,
+        "criticalChance": 34,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_PAZVIZSLA",
@@ -22494,7 +31603,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 3,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_PAZVIZSLA01",
@@ -22515,6 +31631,22 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 10
+            },
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "all"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -22527,7 +31659,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_PAZVIZSLA01",
@@ -22553,6 +31692,15 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 100,
+              "protectionPercent": 100
+            },
+            "turnMeterPercent": 10,
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -22575,6 +31723,16 @@ window.ForgeData.synergyModel = {
         "release_era_04_piracy_excluded"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 51790,
+        "protection": 57732,
+        "speed": 408,
+        "offense": 1978,
+        "defense": 720,
+        "penetration": 105,
+        "criticalChance": 31,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GLHONDO",
@@ -22593,7 +31751,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_GLHONDO01",
@@ -22610,7 +31775,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         },
         {
           "skillId": "specialskill_GLHONDO02",
@@ -22631,6 +31797,16 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 30,
+              "protectionPercent": 30
+            },
+            "turnMeterPercent": 75,
+            "assist": "all",
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 75
         },
         {
@@ -22657,6 +31833,7 @@ window.ForgeData.synergyModel = {
             "raid"
           ],
           "impact": 10,
+          "combat": {},
           "maximumAlliedBenefitPercent": 35
         },
         {
@@ -22675,6 +31852,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -22690,7 +31870,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -22719,6 +31900,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_vanguardtempleguard_plokoon"
       ],
+      "simulationStats": {
+        "health": 23196,
+        "protection": 38394,
+        "speed": 134,
+        "offense": 1187,
+        "defense": 137,
+        "penetration": 204,
+        "criticalChance": 24,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_PLOKOON",
@@ -22731,7 +31922,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_PLOKOON01",
@@ -22743,7 +31942,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_PLOKOON02",
@@ -22759,6 +31965,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "turnMeterPercent": 50
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -22771,7 +31980,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -22796,6 +32006,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_poe_kyloren"
       ],
+      "simulationStats": {
+        "health": 17285,
+        "protection": 39658,
+        "speed": 170,
+        "offense": 829,
+        "defense": 404,
+        "penetration": 92,
+        "criticalChance": 31,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_POE",
@@ -22807,7 +32027,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_POE01",
@@ -22820,7 +32047,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_POE",
@@ -22835,6 +32063,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -22850,7 +32079,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -22870,6 +32100,16 @@ window.ForgeData.synergyModel = {
         "non_viable_leader"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 26137,
+        "protection": 23999,
+        "speed": 164,
+        "offense": 1061,
+        "defense": 183,
+        "penetration": 70,
+        "criticalChance": 24,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_POGGLETHELESSER",
@@ -22882,7 +32122,18 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_POGGLETHELESSER01",
@@ -22899,7 +32150,12 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "turnMeterPercent": 1,
+            "assist": "one",
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "uniqueskill_POGGLETHELESSER01",
@@ -22918,6 +32174,7 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -22935,6 +32192,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -22952,6 +32216,16 @@ window.ForgeData.synergyModel = {
         "conq_royality"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 11465,
+        "protection": 57732,
+        "speed": 178,
+        "offense": 1808,
+        "defense": 252,
+        "penetration": 163,
+        "criticalChance": 42,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_PRINCESSKNEESAA",
@@ -22964,7 +32238,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_PRINCESSKNEESAA01",
@@ -22982,6 +32263,20 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            },
+            "assist": "one",
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -22996,7 +32291,18 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "uniqueskill_PRINCESSKNEESAA01",
@@ -23018,6 +32324,14 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 0
+            },
+            "assistTrigger": "ally-special"
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -23045,6 +32359,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_stormtrooperluke_princessleia"
       ],
+      "simulationStats": {
+        "health": 17411,
+        "protection": 37066,
+        "speed": 184,
+        "offense": 1318,
+        "defense": 55,
+        "penetration": 224,
+        "criticalChance": 39,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_PRINCESSLEIA",
@@ -23056,7 +32380,14 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_PRINCESSLEIA01",
@@ -23069,7 +32400,10 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "turnMeterPercent": 50
+          }
         },
         {
           "skillId": "uniqueskill_PRINCESSLEIA01",
@@ -23084,6 +32418,13 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 3,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 5,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -23097,6 +32438,7 @@ window.ForgeData.synergyModel = {
           "signals": [],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 20
         }
       ]
@@ -23122,6 +32464,16 @@ window.ForgeData.synergyModel = {
         "gac_workingclosely"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14250,
+        "protection": 41175,
+        "speed": 162,
+        "offense": 1822,
+        "defense": 53,
+        "penetration": 300,
+        "criticalChance": 56,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_QIRA",
@@ -23135,7 +32487,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_QIRA01",
@@ -23148,7 +32507,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_QIRA02",
@@ -23165,7 +32532,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "uniqueskill_QIRA01",
@@ -23181,7 +32556,10 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "turnMeterPercent": 15
+          }
         },
         {
           "skillId": "leaderskill_QIRA",
@@ -23198,6 +32576,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 10
+            }
+          },
           "maximumAlliedBenefitPercent": 20
         }
       ]
@@ -23217,6 +32602,16 @@ window.ForgeData.synergyModel = {
         "raid_naboo_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 16485,
+        "protection": 57732,
+        "speed": 182,
+        "offense": 1518,
+        "defense": 428,
+        "penetration": 70,
+        "criticalChance": 23,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_QUEENAMIDALA",
@@ -23231,6 +32626,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            }
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -23249,7 +32656,15 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_QUEENAMIDALA02",
@@ -23272,6 +32687,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 20,
+              "protectionPercent": 20
+            },
+            "cleanse": "all",
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -23292,6 +32716,7 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 9,
+          "combat": {},
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -23315,6 +32740,14 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            },
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 5
         }
       ]
@@ -23346,6 +32779,16 @@ window.ForgeData.synergyModel = {
         "conq_prayingforstealth"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 15950,
+        "protection": 33235,
+        "speed": 165,
+        "offense": 1105,
+        "defense": 60,
+        "penetration": 242,
+        "criticalChance": 46,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "specialskill_QUIGONJINN01",
@@ -23360,6 +32803,19 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 20,
+              "protectionPercent": 0
+            },
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -23373,7 +32829,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "basicskill_QUIGONJINN",
@@ -23385,7 +32849,15 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 30
+          }
         },
         {
           "skillId": "leaderskill_QUIGONJINN",
@@ -23402,7 +32874,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 6
+          "impact": 6,
+          "combat": {}
         }
       ]
     },
@@ -23428,6 +32901,16 @@ window.ForgeData.synergyModel = {
         "teamup_quiggold_finn",
         "teamup_kix_quiggold"
       ],
+      "simulationStats": {
+        "health": 19905,
+        "protection": 74428,
+        "speed": 168,
+        "offense": 1078,
+        "defense": 430,
+        "penetration": 55,
+        "criticalChance": 31,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_QUIGGOLD",
@@ -23439,7 +32922,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.72
+            }
+          }
         },
         {
           "skillId": "specialskill_QUIGGOLD01",
@@ -23455,6 +32945,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -23474,6 +32971,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -23493,6 +32991,13 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 50,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -23530,6 +33035,16 @@ window.ForgeData.synergyModel = {
         "conq_exposetrain"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 23495,
+        "protection": 36950,
+        "speed": 177,
+        "offense": 585,
+        "defense": 52,
+        "penetration": 250,
+        "criticalChance": 30,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_R2D2_LEGENDARY",
@@ -23542,7 +33057,18 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_R2D2_LEGENDARY01",
@@ -23554,7 +33080,10 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "turnMeterPercent": 40
+          }
         },
         {
           "skillId": "specialskill_R2D2_LEGENDARY02",
@@ -23564,7 +33093,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_R2D2_LEGENDARY01",
@@ -23579,6 +33115,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -23599,6 +33138,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "revivePercent": 30
+          },
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -23617,6 +33159,16 @@ window.ForgeData.synergyModel = {
         "release_era_08_newrepublic"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 22660,
+        "protection": 57550,
+        "speed": 190,
+        "offense": 1006,
+        "defense": 166,
+        "penetration": 140,
+        "criticalChance": 27,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_R5D4",
@@ -23626,7 +33178,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_R5D401",
@@ -23643,6 +33202,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 75
         },
         {
@@ -23658,7 +33220,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_R5D401",
@@ -23683,6 +33252,10 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 9,
+          "combat": {
+            "assistTrigger": "ally-special",
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 25
         }
       ]
@@ -23702,6 +33275,16 @@ window.ForgeData.synergyModel = {
         "raid_speeder_bike_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 9300,
+        "protection": 41700,
+        "speed": 147,
+        "offense": 1512,
+        "defense": 155,
+        "penetration": 219,
+        "criticalChance": 57,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_RANGETROOPER",
@@ -23713,7 +33296,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_RANGETROOPER01",
@@ -23730,6 +33320,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 30
+            }
+          },
           "maximumAlliedBenefitPercent": 40
         },
         {
@@ -23745,6 +33342,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -23765,6 +33365,16 @@ window.ForgeData.synergyModel = {
         "ds_clonetrooper"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14505,
+        "protection": 62219,
+        "speed": 169,
+        "offense": 1452,
+        "defense": 398,
+        "penetration": 118,
+        "criticalChance": 33,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SCORCH",
@@ -23779,7 +33389,15 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "specialskill_SCORCH01",
@@ -23789,7 +33407,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_SCORCH02",
@@ -23810,6 +33435,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 25,
+              "protectionPercent": 25
+            }
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -23831,6 +33463,13 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 50,
+              "protectionPercent": 50
+            }
+          },
           "maximumAlliedBenefitPercent": 200
         }
       ]
@@ -23858,6 +33497,16 @@ window.ForgeData.synergyModel = {
         "gac_alltooeasy"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 13570,
+        "protection": 45835,
+        "speed": 172,
+        "offense": 1191,
+        "defense": 131,
+        "penetration": 164,
+        "criticalChance": 33,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_HOTHLEIA",
@@ -23869,7 +33518,15 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 10
+          }
         },
         {
           "skillId": "specialskill_HOTHLEIA01",
@@ -23882,7 +33539,14 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "leaderskill_HOTHLEIA",
@@ -23899,6 +33563,9 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 30
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -23912,7 +33579,10 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "turnMeterPercent": 15
+          }
         }
       ]
     },
@@ -23927,6 +33597,16 @@ window.ForgeData.synergyModel = {
         "selftag_epixfinn"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 23746,
+        "protection": 29331,
+        "speed": 183,
+        "offense": 1045,
+        "defense": 84,
+        "penetration": 230,
+        "criticalChance": 51,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_EPIXFINN",
@@ -23942,6 +33622,19 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 10
+            },
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -23961,7 +33654,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_EPIXFINN02",
@@ -23975,7 +33675,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "cleanse": "all"
+          }
         },
         {
           "skillId": "uniqueskill_EPIXFINN01",
@@ -23994,6 +33702,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 40,
+              "protectionPercent": 40
+            },
+            "turnMeterPercent": 40
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -24010,6 +33726,16 @@ window.ForgeData.synergyModel = {
         "affiliation_resfalconcrew"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 27196,
+        "protection": 29331,
+        "speed": 174,
+        "offense": 1350,
+        "defense": 174,
+        "penetration": 230,
+        "criticalChance": 33,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_EPIXPOE",
@@ -24019,7 +33745,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_EPIXPOE01",
@@ -24031,7 +33764,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_EPIXPOE02",
@@ -24044,7 +33788,15 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "uniqueskill_EPIXPOE01",
@@ -24058,7 +33810,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -24076,6 +33829,16 @@ window.ForgeData.synergyModel = {
         "conq_exposetrain"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 16432,
+        "protection": 34693,
+        "speed": 140,
+        "offense": 1320,
+        "defense": 61,
+        "penetration": 210,
+        "criticalChance": 45,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_RESISTANCEPILOT",
@@ -24087,7 +33850,15 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 35
+          }
         },
         {
           "skillId": "specialskill_RESISTANCEPILOT01",
@@ -24097,7 +33868,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_RESISTANCEPILOT01",
@@ -24109,7 +33887,10 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "turnMeterPercent": 30
+          }
         }
       ]
     },
@@ -24128,6 +33909,16 @@ window.ForgeData.synergyModel = {
         "conq_exposetrain"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 13160,
+        "protection": 36378,
+        "speed": 154,
+        "offense": 1076,
+        "defense": 197,
+        "penetration": 137,
+        "criticalChance": 50,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_RESISTANCETROOPER",
@@ -24137,7 +33928,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_RESISTANCETROOPER01",
@@ -24151,7 +33949,15 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "uniqueskill_RESISTANCETROOPER01",
@@ -24163,7 +33969,10 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "turnMeterPercent": 55
+          }
         }
       ]
     },
@@ -24188,6 +33997,16 @@ window.ForgeData.synergyModel = {
         "conq_lightsideunaligned"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 85635,
+        "protection": 20186,
+        "speed": 398,
+        "offense": 1665,
+        "defense": 170,
+        "penetration": 552,
+        "criticalChance": 23,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_GLREY",
@@ -24197,7 +34016,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_GLREY01",
@@ -24210,7 +34036,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         },
         {
           "skillId": "specialskill_GLREY02",
@@ -24226,6 +34053,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          },
           "maximumAlliedBenefitPercent": 60
         },
         {
@@ -24244,6 +34078,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 50,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -24260,7 +34101,10 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "uniqueskill_GALACTICLEGEND01",
@@ -24275,7 +34119,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -24295,6 +34140,16 @@ window.ForgeData.synergyModel = {
         "conq_dyadintheforce"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 22505,
+        "protection": 57550,
+        "speed": 174,
+        "offense": 1406,
+        "defense": 233,
+        "penetration": 128,
+        "criticalChance": 36,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_DARKREY",
@@ -24306,7 +34161,14 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_DARKREY01",
@@ -24323,6 +34185,13 @@ window.ForgeData.synergyModel = {
           "signals": [],
           "modeBonuses": [],
           "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -24347,6 +34216,14 @@ window.ForgeData.synergyModel = {
             "raid"
           ],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -24368,7 +34245,11 @@ window.ForgeData.synergyModel = {
             "gac",
             "raid"
           ],
-          "impact": 9
+          "impact": 9,
+          "combat": {
+            "revivePercent": 100,
+            "summon": true
+          }
         },
         {
           "skillId": "uniqueskill_DARKREY02",
@@ -24391,6 +34272,9 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 9,
+          "combat": {
+            "dispel": "all"
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -24417,6 +34301,16 @@ window.ForgeData.synergyModel = {
         "conq_lightsideunaligned"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 10650,
+        "protection": 42491,
+        "speed": 160,
+        "offense": 1207,
+        "defense": 166,
+        "penetration": 164,
+        "criticalChance": 59,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_REYJEDITRAINING",
@@ -24426,7 +34320,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_REYJEDITRAINING01",
@@ -24441,7 +34342,15 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "specialskill_REYJEDITRAINING02",
@@ -24460,6 +34369,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 15,
+            "control": [
+              "daze",
+              "ability block"
+            ],
+            "controlTarget": "single",
+            "dispel": "target"
+          },
           "maximumAlliedBenefitPercent": 15
         },
         {
@@ -24477,6 +34395,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "turnMeterPercent": 10,
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -24494,6 +34416,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 8,
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 8
         },
         {
@@ -24507,7 +34433,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 0
+            }
+          }
         }
       ]
     },
@@ -24536,6 +34469,16 @@ window.ForgeData.synergyModel = {
         "teamup_kru_scavrey",
         "teamup_rey_firstordertrooper"
       ],
+      "simulationStats": {
+        "health": 18130,
+        "protection": 34360,
+        "speed": 184,
+        "offense": 1305,
+        "defense": 167,
+        "penetration": 204,
+        "criticalChance": 48,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_REY",
@@ -24545,7 +34488,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_REY01",
@@ -24557,7 +34507,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_REY02",
@@ -24567,7 +34524,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_REY01",
@@ -24580,7 +34544,13 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "single"
+          }
         }
       ]
     },
@@ -24596,6 +34566,16 @@ window.ForgeData.synergyModel = {
         "territory_light_platoon"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 13890,
+        "protection": 36103,
+        "speed": 161,
+        "offense": 1216,
+        "defense": 89,
+        "penetration": 205,
+        "criticalChance": 34,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_ROSETICO",
@@ -24607,7 +34587,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_ROSETICO01",
@@ -24623,6 +34610,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -24635,7 +34625,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "uniqueskill_ROSETICO01",
@@ -24651,6 +34652,9 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 4,
+          "combat": {
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -24669,6 +34673,16 @@ window.ForgeData.synergyModel = {
         "journey_guide_unit"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 24705,
+        "protection": 62219,
+        "speed": 196,
+        "offense": 2233,
+        "defense": 156,
+        "penetration": 343,
+        "criticalChance": 39,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_RACCOON",
@@ -24682,7 +34696,19 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 10
+            }
+          }
         },
         {
           "skillId": "specialskill_RACCOON01",
@@ -24703,7 +34729,15 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 7
+          "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_RACCOON02",
@@ -24722,6 +34756,14 @@ window.ForgeData.synergyModel = {
             "raid"
           ],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "turnMeterPercent": 20
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -24743,6 +34785,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 20,
+              "protectionPercent": 20
+            },
+            "turnMeterPercent": 5
+          },
           "maximumAlliedBenefitPercent": 250
         },
         {
@@ -24764,6 +34814,13 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -24785,6 +34842,16 @@ window.ForgeData.synergyModel = {
         "conq_chirpatine"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 15160,
+        "protection": 53065,
+        "speed": 130,
+        "offense": 811,
+        "defense": 534,
+        "penetration": 34,
+        "criticalChance": 21,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_ROYALGUARD",
@@ -24797,7 +34864,18 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_ROYALGUARD01",
@@ -24812,7 +34890,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_ROYALGUARD01",
@@ -24828,6 +34907,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 6,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 6
         }
       ]
@@ -24852,6 +34938,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 15264,
+        "protection": 35300,
+        "speed": 171,
+        "offense": 1314,
+        "defense": 147,
+        "penetration": 127,
+        "criticalChance": 44,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SABINEWRENS3",
@@ -24863,7 +34959,14 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_SABINEWRENS301",
@@ -24873,7 +34976,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_SABINEWRENS302",
@@ -24888,7 +34998,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "cooldownReduction": 2
+          }
         },
         {
           "skillId": "uniqueskill_SABINEWRENS301",
@@ -24900,7 +35018,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -24920,6 +35039,16 @@ window.ForgeData.synergyModel = {
         "raid_order66_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 22755,
+        "protection": 57469,
+        "speed": 183,
+        "offense": 1446,
+        "defense": 258,
+        "penetration": 143,
+        "criticalChance": 40,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SANASTARROS",
@@ -24929,7 +35058,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.72
+            }
+          }
         },
         {
           "skillId": "specialskill_SANASTARROS01",
@@ -24947,7 +35083,16 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 6
+          "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 20
+            },
+            "assist": "all",
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "specialskill_SANASTARROS02",
@@ -24957,7 +35102,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "leaderskill_SANASTARROS",
@@ -24978,6 +35130,10 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 10,
+          "combat": {
+            "turnMeterPercent": 15,
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -24997,6 +35153,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 20
+            },
+            "turnMeterPercent": 5
+          },
           "maximumAlliedBenefitPercent": 20
         }
       ]
@@ -25016,6 +35180,16 @@ window.ForgeData.synergyModel = {
         "conquest_reward_unit"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18375,
+        "protection": 62219,
+        "speed": 161,
+        "offense": 1424,
+        "defense": 717,
+        "penetration": 45,
+        "criticalChance": 34,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SATELESHAN",
@@ -25029,7 +35203,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_SATELESHAN01",
@@ -25051,6 +35232,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -25073,6 +35261,23 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 8,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "recovery": {
+              "target": "all",
+              "healthPercent": 0,
+              "protectionPercent": 50
+            },
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "all",
+            "dispel": "all"
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -25099,6 +35304,9 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 10,
+          "combat": {
+            "cooldownReduction": 2
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -25122,6 +35330,13 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 100,
+              "protectionPercent": 100
+            }
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -25150,6 +35365,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 7475,
+        "protection": 45129,
+        "speed": 143,
+        "offense": 1819,
+        "defense": 147,
+        "penetration": 192,
+        "criticalChance": 70,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SAVAGEOPRESS",
@@ -25161,7 +35386,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_SAVAGEOPRESS01",
@@ -25173,7 +35405,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_SAVAGEOPRESS01",
@@ -25193,7 +35432,11 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 8
+          "impact": 8,
+          "combat": {
+            "turnMeterPercent": 30,
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "leaderskill_SAVAGEOPRESS",
@@ -25208,6 +35451,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 75
         }
       ]
@@ -25225,6 +35469,16 @@ window.ForgeData.synergyModel = {
         "any_obtainable"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14600,
+        "protection": 48900,
+        "speed": 181,
+        "offense": 897,
+        "defense": 387,
+        "penetration": 130,
+        "criticalChance": 22,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SAWGERRERA",
@@ -25239,7 +35493,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_SAWGERRERA01",
@@ -25255,6 +35516,19 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "recovery": {
+              "target": "all",
+              "healthPercent": 20,
+              "protectionPercent": 0
+            },
+            "dispel": "all"
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -25280,6 +35554,11 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 10,
+          "combat": {
+            "turnMeterPercent": 25,
+            "revivePercent": 30,
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -25299,7 +35578,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 7
+          "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 0,
+              "protectionPercent": 100
+            },
+            "cleanse": "all"
+          }
         }
       ]
     },
@@ -25320,6 +35607,16 @@ window.ForgeData.synergyModel = {
         "any_obtainable"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17138,
+        "protection": 52253,
+        "speed": 141,
+        "offense": 640,
+        "defense": 594,
+        "penetration": 34,
+        "criticalChance": 14,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SCARIFREBEL",
@@ -25331,7 +35628,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_SCARIFREBEL01",
@@ -25344,7 +35648,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_SCARIFREBEL01",
@@ -25361,7 +35672,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 7
+          "impact": 7,
+          "combat": {}
         }
       ]
     },
@@ -25380,6 +35692,16 @@ window.ForgeData.synergyModel = {
         "raid_speeder_bike_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 8535,
+        "protection": 50738,
+        "speed": 185,
+        "offense": 1032,
+        "defense": 265,
+        "penetration": 140,
+        "criticalChance": 29,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SCOUTTROOPER_V3",
@@ -25394,7 +35716,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_SCOUTTROOPER_V301",
@@ -25407,7 +35736,15 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_SCOUTTROOPER_V302",
@@ -25428,6 +35765,19 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "assist": "one",
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "all",
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 40
         },
         {
@@ -25449,6 +35799,14 @@ window.ForgeData.synergyModel = {
             "raid"
           ],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            },
+            "turnMeterPercent": 25
+          },
           "maximumAlliedBenefitPercent": 25
         }
       ]
@@ -25472,6 +35830,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 26155,
+        "protection": 56950,
+        "speed": 186,
+        "offense": 568,
+        "defense": 313,
+        "penetration": 158,
+        "criticalChance": 22,
+        "criticalDamage": 125
+      },
       "abilities": [
         {
           "skillId": "basicskill_SECONDSISTER",
@@ -25481,7 +35849,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_SECONDSISTER01",
@@ -25494,7 +35869,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_SECONDSISTER02",
@@ -25508,7 +35890,19 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "turnMeterPercent": 10,
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "leaderskill_SECONDSISTER",
@@ -25526,6 +35920,7 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -25540,7 +35935,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_INQUISITOR01_SECONDSISTER",
@@ -25550,7 +35946,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         }
       ]
     },
@@ -25571,6 +35968,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17445,
+        "protection": 45975,
+        "speed": 186,
+        "offense": 1608,
+        "defense": 286,
+        "penetration": 253,
+        "criticalChance": 31,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SEVENTHSISTER",
@@ -25582,7 +35989,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_SEVENTHSISTER01",
@@ -25596,7 +36010,20 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "daze",
+              "ability block"
+            ],
+            "controlTarget": "single",
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_SEVENTHSISTER02",
@@ -25612,6 +36039,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 30,
+              "protectionPercent": 30
+            },
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -25630,6 +36065,13 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            }
+          },
           "maximumAlliedBenefitPercent": 16
         },
         {
@@ -25648,6 +36090,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -25658,7 +36107,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         }
       ]
     },
@@ -25683,6 +36133,16 @@ window.ForgeData.synergyModel = {
         "raid_order66_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 21010,
+        "protection": 47590,
+        "speed": 187,
+        "offense": 1439,
+        "defense": 198,
+        "penetration": 120,
+        "criticalChance": 42,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SHAAKTI",
@@ -25695,7 +36155,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_SHAAKTI01",
@@ -25714,6 +36182,11 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "turnMeterPercent": 100,
+            "assist": "all",
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -25733,6 +36206,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 35
         },
         {
@@ -25753,6 +36229,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            },
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 15
         },
         {
@@ -25763,7 +36247,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         }
       ]
     },
@@ -25782,6 +36267,16 @@ window.ForgeData.synergyModel = {
         "conq_fiercefight"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 11685,
+        "protection": 57732,
+        "speed": 176,
+        "offense": 1651,
+        "defense": 229,
+        "penetration": 116,
+        "criticalChance": 44,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SHINHATI",
@@ -25795,7 +36290,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.72
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "specialskill_SHINHATI01",
@@ -25812,6 +36315,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "turnMeterPercent": 25
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -25826,7 +36337,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_SHINHATI01",
@@ -25848,7 +36366,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 9
+          "impact": 9,
+          "combat": {
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "all",
+            "dispel": "all"
+          }
         },
         {
           "skillId": "uniqueskill_SHINHATI02",
@@ -25863,6 +36388,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {},
           "maximumAlliedBenefitPercent": 5
         }
       ]
@@ -25885,6 +36411,16 @@ window.ForgeData.synergyModel = {
         "conq_idenshore"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14488,
+        "protection": 54131,
+        "speed": 137,
+        "offense": 912,
+        "defense": 490,
+        "penetration": 90,
+        "criticalChance": 22,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SHORETROOPER",
@@ -25894,7 +36430,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_SHORETROOPER01",
@@ -25909,6 +36452,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 24,
+              "protectionPercent": 0
+            },
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 24
         },
         {
@@ -25926,6 +36477,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 15
+          },
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -25948,6 +36507,16 @@ window.ForgeData.synergyModel = {
         "conq_sithinitiates"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 13931,
+        "protection": 31465,
+        "speed": 171,
+        "offense": 1478,
+        "defense": 110,
+        "penetration": 122,
+        "criticalChance": 48,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SITHASSASSIN",
@@ -25959,7 +36528,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_SITHASSASSIN01",
@@ -25976,6 +36552,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 12,
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 12
         },
         {
@@ -25992,7 +36572,19 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single",
+            "dispel": "target"
+          }
         }
       ]
     },
@@ -26010,6 +36602,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 12171,
+        "protection": 49215,
+        "speed": 115,
+        "offense": 1167,
+        "defense": 401,
+        "penetration": 59,
+        "criticalChance": 46,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SITHTROOPER",
@@ -26021,7 +36623,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_SITHTROOPER01",
@@ -26033,7 +36642,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_SITHTROOPER01",
@@ -26047,7 +36663,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -26068,6 +36685,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 56330,
+        "protection": 45710,
+        "speed": 365,
+        "offense": 1638,
+        "defense": 139,
+        "penetration": 182,
+        "criticalChance": 75,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SITHPALPATINE",
@@ -26079,7 +36706,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_SITHPALPATINE01",
@@ -26095,6 +36729,19 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 50
+            },
+            "assist": "all"
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -26112,7 +36759,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_SITHPALPATINE",
@@ -26133,6 +36781,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 100,
+              "protectionPercent": 100
+            },
+            "turnMeterPercent": 5,
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -26150,6 +36807,13 @@ window.ForgeData.synergyModel = {
             "raid"
           ],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 2
+            }
+          },
           "maximumAlliedBenefitPercent": 2
         },
         {
@@ -26165,7 +36829,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -26184,6 +36849,16 @@ window.ForgeData.synergyModel = {
         "conq_sithinitiates"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 12950,
+        "protection": 43715,
+        "speed": 162,
+        "offense": 2079,
+        "defense": 110,
+        "penetration": 180,
+        "criticalChance": 50,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SITHMARAUDER",
@@ -26195,7 +36870,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_SITHMARAUDER01",
@@ -26209,7 +36891,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_SITHMARAUDER01",
@@ -26223,7 +36912,10 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "turnMeterPercent": 20
+          }
         }
       ]
     },
@@ -26242,6 +36934,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 20560,
+        "protection": 43709,
+        "speed": 156,
+        "offense": 2538,
+        "defense": 157,
+        "penetration": 128,
+        "criticalChance": 40,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_FOSITHTROOPER",
@@ -26251,7 +36953,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_FOSITHTROOPER01",
@@ -26266,7 +36975,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_FOSITHTROOPER02",
@@ -26282,7 +36998,11 @@ window.ForgeData.synergyModel = {
             "cleanses allies"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "assist": "one",
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "uniqueskill_FOSITHTROOPER01",
@@ -26301,7 +37021,10 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 8
+          "impact": 8,
+          "combat": {
+            "assist": "one"
+          }
         }
       ]
     },
@@ -26319,6 +37042,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 5555,
+        "protection": 62194,
+        "speed": 158,
+        "offense": 2086,
+        "defense": 298,
+        "penetration": 128,
+        "criticalChance": 47,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_UNDERCOVERLANDO",
@@ -26330,7 +37063,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_UNDERCOVERLANDO01",
@@ -26346,7 +37086,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_UNDERCOVERLANDO02",
@@ -26368,7 +37115,11 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 7
+          "impact": 7,
+          "combat": {
+            "assist": "one",
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "uniqueskill_UNDERCOVERLANDO01",
@@ -26388,6 +37139,7 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 15
         }
       ]
@@ -26409,6 +37161,16 @@ window.ForgeData.synergyModel = {
         "event_era_pirates"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14035,
+        "protection": 37235,
+        "speed": 145,
+        "offense": 2067,
+        "defense": 323,
+        "penetration": 176,
+        "criticalChance": 44,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SM33",
@@ -26422,7 +37184,19 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "daze",
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_SM3301",
@@ -26437,7 +37211,14 @@ window.ForgeData.synergyModel = {
             "tw",
             "raid"
           ],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_SM3302",
@@ -26453,7 +37234,20 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 50,
+              "protectionPercent": 50
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "uniqueskill_SM3301",
@@ -26474,6 +37268,9 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 15
+          },
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -26501,6 +37298,16 @@ window.ForgeData.synergyModel = {
         "gac_impstormtroopers"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 10055,
+        "protection": 39549,
+        "speed": 138,
+        "offense": 1982,
+        "defense": 177,
+        "penetration": 152,
+        "criticalChance": 75,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SNOWTROOPER",
@@ -26512,7 +37319,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_SNOWTROOPER01",
@@ -26525,7 +37343,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "uniqueskill_SNOWTROOPER",
@@ -26535,7 +37361,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         }
       ]
     },
@@ -26556,6 +37383,16 @@ window.ForgeData.synergyModel = {
         "quest_snowtroopercommander"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 25545,
+        "protection": 62219,
+        "speed": 153,
+        "offense": 401,
+        "defense": 540,
+        "penetration": 50,
+        "criticalChance": 16,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_REMNANTSNOWCOMMANDER",
@@ -26570,7 +37407,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_REMNANTSNOWCOMMANDER01",
@@ -26590,6 +37434,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 30,
+              "protectionPercent": 30
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -26610,7 +37462,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "leaderskill_REMNANTSNOWCOMMANDER",
@@ -26633,6 +37492,13 @@ window.ForgeData.synergyModel = {
             "gac-3v3"
           ],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 30,
+              "protectionPercent": 30
+            }
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -26652,6 +37518,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 10
+            },
+            "turnMeterPercent": 30
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -26671,6 +37545,16 @@ window.ForgeData.synergyModel = {
         "raid_naboo_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 11475,
+        "protection": 55309,
+        "speed": 208,
+        "offense": 2331,
+        "defense": 157,
+        "penetration": 192,
+        "criticalChance": 54,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_STAP",
@@ -26683,7 +37567,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_STAP01",
@@ -26693,7 +37584,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_STAP02",
@@ -26706,7 +37604,14 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 20,
+              "protectionPercent": 20
+            }
+          }
         },
         {
           "skillId": "uniqueskill_STAP01",
@@ -26724,7 +37629,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 6
+          "impact": 6,
+          "combat": {}
         }
       ]
     },
@@ -26743,6 +37649,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 22495,
+        "protection": 57732,
+        "speed": 162,
+        "offense": 1599,
+        "defense": 129,
+        "penetration": 312,
+        "criticalChance": 57,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_STARKILLER",
@@ -26754,7 +37670,15 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            },
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_STARKILLER01",
@@ -26769,7 +37693,18 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_STARKILLER02",
@@ -26784,7 +37719,15 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "uniqueskill_STARKILLER01",
@@ -26803,6 +37746,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 100,
+              "protectionPercent": 100
+            },
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -26824,6 +37775,7 @@ window.ForgeData.synergyModel = {
             "gac-3v3"
           ],
           "impact": 9,
+          "combat": {},
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -26841,6 +37793,16 @@ window.ForgeData.synergyModel = {
         "affiliation_lukes"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 10600,
+        "protection": 57732,
+        "speed": 182,
+        "offense": 1679,
+        "defense": 295,
+        "penetration": 271,
+        "criticalChance": 54,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_LUKESTARKILLER",
@@ -26857,6 +37819,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 20,
+            "dispel": "target"
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -26875,7 +37846,14 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_LUKESTARKILLER02",
@@ -26898,6 +37876,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -26922,6 +37908,7 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 15
         }
       ]
@@ -26946,6 +37933,16 @@ window.ForgeData.synergyModel = {
         "raid_speeder_bike_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17080,
+        "protection": 48340,
+        "speed": 145,
+        "offense": 1080,
+        "defense": 467,
+        "penetration": 121,
+        "criticalChance": 37,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_STORMTROOPER01",
@@ -26955,7 +37952,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         },
         {
           "skillId": "specialskill_STORMTROOPER01",
@@ -26969,7 +37967,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_STORMTROOPER01",
@@ -26985,6 +37984,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -27002,6 +38002,16 @@ window.ForgeData.synergyModel = {
         "release_era_09_myths"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 25445,
+        "protection": 62219,
+        "speed": 147,
+        "offense": 419,
+        "defense": 555,
+        "penetration": 40,
+        "criticalChance": 20,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_STORMTROOPERCONCEPT",
@@ -27016,7 +38026,19 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 15,
+              "protectionPercent": 15
+            }
+          }
         },
         {
           "skillId": "specialskill_STORMTROOPERCONCEPT01",
@@ -27036,6 +38058,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 25
+            }
+          },
           "maximumAlliedBenefitPercent": 40
         },
         {
@@ -27055,6 +38089,7 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -27083,6 +38118,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_stormtrooperluke_stormtrooperhan"
       ],
+      "simulationStats": {
+        "health": 16530,
+        "protection": 45294,
+        "speed": 146,
+        "offense": 882,
+        "defense": 367,
+        "penetration": 60,
+        "criticalChance": 54,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_STORMTROOPERHAN",
@@ -27094,7 +38139,15 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 35
+          }
         },
         {
           "skillId": "specialskill_STORMTROOPERHAN01",
@@ -27108,6 +38161,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "turnMeterPercent": 30
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -27121,7 +38177,14 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 5
+            }
+          }
         },
         {
           "skillId": "leaderskill_STORMTROOPERHAN",
@@ -27135,6 +38198,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -27157,6 +38221,16 @@ window.ForgeData.synergyModel = {
         "teamup_stormtrooperluke_stormtrooperhan",
         "teamup_stormtrooperluke_princessleia"
       ],
+      "simulationStats": {
+        "health": 16225,
+        "protection": 58947,
+        "speed": 194,
+        "offense": 913,
+        "defense": 613,
+        "penetration": 70,
+        "criticalChance": 27,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_STORMTROOPERLUKE",
@@ -27168,7 +38242,14 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_STORMTROOPERLUKE01",
@@ -27189,6 +38270,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "dispel": "all"
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -27205,7 +38289,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "assist": "all"
+          }
         },
         {
           "skillId": "leaderskill_STORMTROOPERLUKE",
@@ -27229,6 +38321,7 @@ window.ForgeData.synergyModel = {
             "gac-3v3"
           ],
           "impact": 9,
+          "combat": {},
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -27252,6 +38345,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 10
+            }
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -27270,6 +38370,16 @@ window.ForgeData.synergyModel = {
         "conq_chirpatine"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17710,
+        "protection": 53894,
+        "speed": 129,
+        "offense": 928,
+        "defense": 448,
+        "penetration": 100,
+        "criticalChance": 43,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SUNFAC",
@@ -27283,7 +38393,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_SUNFAC01",
@@ -27297,7 +38415,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         },
         {
           "skillId": "specialskill_SUNFAC02",
@@ -27309,7 +38428,14 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_SUNFAC01",
@@ -27323,7 +38449,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -27349,6 +38476,16 @@ window.ForgeData.synergyModel = {
         "conq_supreme"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 53810,
+        "protection": 45710,
+        "speed": 393,
+        "offense": 2546,
+        "defense": 46,
+        "penetration": 338,
+        "criticalChance": 75,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SUPREMELEADERKYLOREN",
@@ -27360,7 +38497,14 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_SUPREMELEADERKYLOREN01",
@@ -27373,7 +38517,19 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "all",
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_SUPREMELEADERKYLOREN02",
@@ -27390,7 +38546,15 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "leaderskill_SUPREMELEADERKYLOREN",
@@ -27408,6 +38572,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {
+            "turnMeterPercent": 20
+          },
           "maximumAlliedBenefitPercent": 40
         },
         {
@@ -27427,6 +38594,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -27442,7 +38610,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         }
       ]
     },
@@ -27466,6 +38635,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17285,
+        "protection": 46418,
+        "speed": 146,
+        "offense": 1325,
+        "defense": 55,
+        "penetration": 249,
+        "criticalChance": 58,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_t3_m4",
@@ -27477,7 +38656,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_t3_m4_01",
@@ -27494,6 +38684,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "one",
+              "healthPercent": 50,
+              "protectionPercent": 0
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -27508,7 +38706,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "uniqueskill_t3_m4_01",
@@ -27523,6 +38729,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {},
           "maximumAlliedBenefitPercent": 8
         },
         {
@@ -27540,6 +38747,7 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -27560,6 +38768,16 @@ window.ForgeData.synergyModel = {
         "conq_ventress"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 21186,
+        "protection": 39435,
+        "speed": 135,
+        "offense": 728,
+        "defense": 146,
+        "penetration": 130,
+        "criticalChance": 52,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_TALIA",
@@ -27573,7 +38791,14 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_TALIA01",
@@ -27591,6 +38816,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 50,
+              "protectionPercent": 0
+            },
+            "turnMeterPercent": 30,
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -27603,7 +38837,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "leaderskill_TALIA",
@@ -27619,6 +38860,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 16
         }
       ]
@@ -27637,6 +38879,16 @@ window.ForgeData.synergyModel = {
         "conq_fuzzball"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 21285,
+        "protection": 62219,
+        "speed": 189,
+        "offense": 1617,
+        "defense": 293,
+        "penetration": 113,
+        "criticalChance": 32,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_TARFFUL",
@@ -27651,7 +38903,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "specialskill_TARFFUL01",
@@ -27670,6 +38930,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "assist": "all",
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -27687,6 +38954,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -27707,6 +38977,13 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 25,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -27733,6 +39010,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 50,
+              "protectionPercent": 50
+            },
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 50
         }
       ]
@@ -27751,6 +39036,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 11455,
+        "protection": 62219,
+        "speed": 140,
+        "offense": 1855,
+        "defense": 57,
+        "penetration": 215,
+        "criticalChance": 75,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_TARONMALICOS",
@@ -27762,7 +39057,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_TARONMALICOS01",
@@ -27782,7 +39084,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_TARONMALICOS02",
@@ -27798,7 +39107,18 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "uniqueskill_TARONMALICOS01",
@@ -27816,6 +39136,17 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 30,
+              "protectionPercent": 30
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -27838,7 +39169,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 8
+          "impact": 8,
+          "combat": {
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "single",
+            "cooldownReduction": 1
+          }
         }
       ]
     },
@@ -27862,6 +39200,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_crosshairs3_tech"
       ],
+      "simulationStats": {
+        "health": 14655,
+        "protection": 57732,
+        "speed": 160,
+        "offense": 1867,
+        "defense": 245,
+        "penetration": 135,
+        "criticalChance": 36,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BADBATCHTECH",
@@ -27871,7 +39219,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_BADBATCHTECH01",
@@ -27888,6 +39243,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 40
         },
         {
@@ -27904,7 +39260,19 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "all",
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "uniqueskill_BADBATCHTECH01",
@@ -27922,6 +39290,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -27941,6 +39310,16 @@ window.ForgeData.synergyModel = {
         "conq_prayingforstealth"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 11515,
+        "protection": 46707,
+        "speed": 138,
+        "offense": 1977,
+        "defense": 186,
+        "penetration": 107,
+        "criticalChance": 32,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_TEEBO",
@@ -27952,7 +39331,14 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_TEEBO01",
@@ -27967,6 +39353,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 100
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -27980,7 +39369,15 @@ window.ForgeData.synergyModel = {
             "dispels enemy buffs"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "dispel": "target"
+          }
         },
         {
           "skillId": "leaderskill_TEEBO",
@@ -27993,6 +39390,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "turnMeterPercent": 25
+          },
           "maximumAlliedBenefitPercent": 55
         }
       ]
@@ -28019,6 +39419,16 @@ window.ForgeData.synergyModel = {
         "teamup_vanguardtempleguard_plokoon",
         "teamup_vanguardtempleguard_marrok"
       ],
+      "simulationStats": {
+        "health": 8615,
+        "protection": 62219,
+        "speed": 153,
+        "offense": 1523,
+        "defense": 368,
+        "penetration": 97,
+        "criticalChance": 36,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_VANGUARDTEMPLEGUARD",
@@ -28030,7 +39440,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_VANGUARDTEMPLEGUARD01",
@@ -28046,6 +39463,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            }
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -28061,7 +39490,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_VANGUARDTEMPLEGUARD01",
@@ -28081,6 +39511,7 @@ window.ForgeData.synergyModel = {
             "raid"
           ],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 40
         }
       ]
@@ -28101,6 +39532,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 16515,
+        "protection": 59130,
+        "speed": 186,
+        "offense": 1033,
+        "defense": 386,
+        "penetration": 130,
+        "criticalChance": 23,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_ARMORER",
@@ -28110,7 +39551,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_ARMORER01",
@@ -28123,7 +39571,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 30
+            }
+          }
         },
         {
           "skillId": "specialskill_ARMORER02",
@@ -28137,7 +39592,14 @@ window.ForgeData.synergyModel = {
             "calls assists"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "leaderskill_ARMORER",
@@ -28150,6 +39612,7 @@ window.ForgeData.synergyModel = {
           "signals": [],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 200
         },
         {
@@ -28163,6 +39626,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 40
+            }
+          },
           "maximumAlliedBenefitPercent": 40
         }
       ]
@@ -28188,6 +39658,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 19593,
+        "protection": 38100,
+        "speed": 164,
+        "offense": 1598,
+        "defense": 44,
+        "penetration": 312,
+        "criticalChance": 57,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_THEMANDALORIAN",
@@ -28201,7 +39681,14 @@ window.ForgeData.synergyModel = {
           ],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_THEMANDALORIAN01",
@@ -28218,7 +39705,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "leaderskill_THEMANDALORIAN",
@@ -28239,6 +39734,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {},
           "maximumAlliedBenefitPercent": 35
         },
         {
@@ -28256,6 +39752,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 30
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -28266,7 +39765,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         }
       ]
     },
@@ -28293,6 +39793,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 11740,
+        "protection": 52140,
+        "speed": 144,
+        "offense": 2252,
+        "defense": 132,
+        "penetration": 210,
+        "criticalChance": 66,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_THEMANDALORIANBESKARARMOR",
@@ -28302,7 +39812,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_THEMANDALORIANBESKARARMOR01",
@@ -28317,7 +39834,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_THEMANDALORIANBESKARARMOR02",
@@ -28336,6 +39860,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 20
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -28356,7 +39888,10 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 7
+          "impact": 7,
+          "combat": {
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "leaderskill_THEMANDALORIANBESKARARMOR",
@@ -28374,6 +39909,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "turnMeterPercent": 2,
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 5
         }
       ]
@@ -28391,6 +39930,16 @@ window.ForgeData.synergyModel = {
         "conq_hokey_religion"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 9905,
+        "protection": 68635,
+        "speed": 168,
+        "offense": 1656,
+        "defense": 223,
+        "penetration": 233,
+        "criticalChance": 36,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_THERONIN",
@@ -28406,7 +39955,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_THERONIN01",
@@ -28421,7 +39977,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "raid"
           ],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_THERONIN01",
@@ -28444,6 +40007,10 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 9,
+          "combat": {
+            "turnMeterPercent": 10,
+            "summon": true
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -28462,6 +40029,16 @@ window.ForgeData.synergyModel = {
         "conquest_reward_unit"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18240,
+        "protection": 57469,
+        "speed": 174,
+        "offense": 1116,
+        "defense": 250,
+        "penetration": 173,
+        "criticalChance": 42,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_STRANGER",
@@ -28474,7 +40051,15 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "specialskill_STRANGER01",
@@ -28491,7 +40076,14 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "specialskill_STRANGER02",
@@ -28506,6 +40098,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "turnMeterPercent": 10,
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "all"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -28530,6 +40134,11 @@ window.ForgeData.synergyModel = {
             "gac-3v3"
           ],
           "impact": 10,
+          "combat": {
+            "turnMeterPercent": 10,
+            "cleanse": "all",
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -28549,7 +40158,12 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 8
+          "impact": 8,
+          "combat": {
+            "turnMeterPercent": 100,
+            "assist": "one",
+            "summon": true
+          }
         }
       ]
     },
@@ -28573,6 +40187,16 @@ window.ForgeData.synergyModel = {
         "territory_tb3_darkside"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 12825,
+        "protection": 66601,
+        "speed": 168,
+        "offense": 1890,
+        "defense": 314,
+        "penetration": 87,
+        "criticalChance": 32,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_THIRDSISTER",
@@ -28585,7 +40209,19 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single",
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "specialskill_THIRDSISTER01",
@@ -28598,7 +40234,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_THIRDSISTER02",
@@ -28617,6 +40260,14 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "turnMeterPercent": 20
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -28638,6 +40289,7 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 10,
+          "combat": {},
           "maximumAlliedBenefitPercent": 40
         },
         {
@@ -28655,7 +40307,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 6
+          "impact": 6,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_INQUISITOR01_THIRDSISTER",
@@ -28665,7 +40318,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         }
       ]
     },
@@ -28691,6 +40345,16 @@ window.ForgeData.synergyModel = {
         "conq_nonsepdroid"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 20505,
+        "protection": 43709,
+        "speed": 168,
+        "offense": 2521,
+        "defense": 136,
+        "penetration": 128,
+        "criticalChance": 39,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_C3POCHEWBACCA",
@@ -28700,7 +40364,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_C3POCHEWBACCA01",
@@ -28717,6 +40388,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 15
+            },
+            "cleanse": "self",
+            "dispel": "all"
+          },
           "maximumAlliedBenefitPercent": 15
         },
         {
@@ -28729,7 +40409,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_C3POCHEWBACCA",
@@ -28747,6 +40434,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "assist": "one",
+            "revivePercent": 50
+          },
           "maximumAlliedBenefitPercent": 40
         }
       ]
@@ -28767,6 +40458,16 @@ window.ForgeData.synergyModel = {
         "conq_prayingforstealth"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18303,
+        "protection": 37159,
+        "speed": 190,
+        "offense": 1704,
+        "defense": 80,
+        "penetration": 228,
+        "criticalChance": 36,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_TIEFIGHTERPILOT",
@@ -28778,7 +40479,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_TIEFIGHTERPILOT01",
@@ -28790,7 +40498,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "uniqueskill_TIEFIGHTERPILOT01",
@@ -28802,7 +40521,10 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "turnMeterPercent": 10
+          }
         }
       ]
     },
@@ -28819,6 +40541,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 32365,
+        "protection": 57550,
+        "speed": 204,
+        "offense": 680,
+        "defense": 368,
+        "penetration": 35,
+        "criticalChance": 10,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_TUSKENCHIEFTAIN",
@@ -28832,7 +40564,15 @@ window.ForgeData.synergyModel = {
             "calls assists"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "specialskill_TUSKENCHIEFTAIN01",
@@ -28848,6 +40588,10 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "cleanse": "self",
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 60
         },
         {
@@ -28868,6 +40612,12 @@ window.ForgeData.synergyModel = {
             "gac-3v3"
           ],
           "impact": 8,
+          "combat": {
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -28883,6 +40633,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -28902,6 +40659,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 7190,
+        "protection": 48500,
+        "speed": 141,
+        "offense": 2089,
+        "defense": 192,
+        "penetration": 264,
+        "criticalChance": 38,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_TUSKENRAIDER",
@@ -28913,7 +40680,14 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_TUSKENRAIDER01",
@@ -28928,7 +40702,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "uniqueskill_TUSKENRAIDER01",
@@ -28947,6 +40729,7 @@ window.ForgeData.synergyModel = {
             "gac-3v3"
           ],
           "impact": 4,
+          "combat": {},
           "maximumAlliedBenefitPercent": 15
         }
       ]
@@ -28964,6 +40747,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17879,
+        "protection": 47119,
+        "speed": 151,
+        "offense": 1426,
+        "defense": 113,
+        "penetration": 61,
+        "criticalChance": 51,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_TUSKENSHAMAN",
@@ -28973,7 +40766,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_TUSKENSHAMAN01",
@@ -28988,6 +40788,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 20,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -29005,6 +40812,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 25
+          },
           "maximumAlliedBenefitPercent": 25
         }
       ]
@@ -29021,6 +40831,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 8135,
+        "protection": 45500,
+        "speed": 171,
+        "offense": 1279,
+        "defense": 343,
+        "penetration": 131,
+        "criticalChance": 28,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_TUSKENHUNTRESS",
@@ -29030,7 +40850,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_TUSKENHUNTRESS01",
@@ -29046,7 +40873,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_TUSKENHUNTRESS02",
@@ -29058,7 +40893,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_TUSKENHUNTRESS01",
@@ -29072,7 +40914,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "tw"
           ],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -29089,6 +40932,16 @@ window.ForgeData.synergyModel = {
         "gac_impdroid"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 23005,
+        "protection": 41700,
+        "speed": 150,
+        "offense": 1084,
+        "defense": 89,
+        "penetration": 142,
+        "criticalChance": 30,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_UGNAUGHT",
@@ -29101,7 +40954,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_UGNAUGHT01",
@@ -29113,7 +40973,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "uniqueskill_UGNAUGHT01",
@@ -29125,7 +40996,10 @@ window.ForgeData.synergyModel = {
             "grants bonus turns or Turn Meter"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "turnMeterPercent": 30
+          }
         }
       ]
     },
@@ -29144,6 +41018,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 20890,
+        "protection": 44897,
+        "speed": 167,
+        "offense": 1665,
+        "defense": 131,
+        "penetration": 63,
+        "criticalChance": 48,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_URORRURRR",
@@ -29155,7 +41039,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_URORRURRR01",
@@ -29171,6 +41066,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "turnMeterPercent": 100
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -29184,7 +41082,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_URORRURRR",
@@ -29198,7 +41097,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {}
         }
       ]
     },
@@ -29222,6 +41122,16 @@ window.ForgeData.synergyModel = {
         "gac_workingclosely"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 5560,
+        "protection": 40265,
+        "speed": 151,
+        "offense": 2182,
+        "defense": 300,
+        "penetration": 280,
+        "criticalChance": 51,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_YOUNGCHEWBACCA",
@@ -29233,7 +41143,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_YOUNGCHEWBACCA01",
@@ -29252,6 +41169,19 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 50,
+              "protectionPercent": 0
+            },
+            "cooldownReduction": 2
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -29266,7 +41196,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_YOUNGCHEWBACCA02",
@@ -29287,6 +41218,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 10
+            },
+            "revivePercent": 60
+          },
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -29311,6 +41250,16 @@ window.ForgeData.synergyModel = {
         "teamup_vane_brutus",
         "teamup_silvo_vane"
       ],
+      "simulationStats": {
+        "health": 18085,
+        "protection": 62219,
+        "speed": 154,
+        "offense": 1275,
+        "defense": 413,
+        "penetration": 93,
+        "criticalChance": 28,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_VANE",
@@ -29324,7 +41273,18 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_VANE01",
@@ -29338,7 +41298,19 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 25,
+              "protectionPercent": 0
+            }
+          }
         },
         {
           "skillId": "specialskill_VANE02",
@@ -29356,7 +41328,10 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "uniqueskill_VANE01",
@@ -29381,6 +41356,14 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 50,
+              "protectionPercent": 50
+            },
+            "cleanse": "all"
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -29398,6 +41381,16 @@ window.ForgeData.synergyModel = {
         "release_era_07_andor"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 16955,
+        "protection": 62219,
+        "speed": 155,
+        "offense": 1455,
+        "defense": 204,
+        "penetration": 202,
+        "criticalChance": 50,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_VEL",
@@ -29411,6 +41404,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.72
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -29426,6 +41426,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 5,
+              "protectionPercent": 5
+            }
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -29445,6 +41457,7 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 8
         },
         {
@@ -29461,7 +41474,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 7
+          "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 10
+            },
+            "turnMeterPercent": 10
+          }
         }
       ]
     },
@@ -29488,6 +41509,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_smugglerhan_smugglerchewbacca"
       ],
+      "simulationStats": {
+        "health": 9620,
+        "protection": 49800,
+        "speed": 122,
+        "offense": 1705,
+        "defense": 183,
+        "penetration": 232,
+        "criticalChance": 37,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SMUGGLERCHEWBACCA",
@@ -29499,7 +41530,18 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "control": [
+              "daze"
+            ],
+            "controlTarget": "single"
+          }
         },
         {
           "skillId": "specialskill_SMUGGLERCHEWBACCA01",
@@ -29513,7 +41555,15 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "uniqueskill_SMUGGLERCHEWBACCA02",
@@ -29537,6 +41587,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "turnMeterPercent": 100
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -29549,7 +41602,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -29577,6 +41631,16 @@ window.ForgeData.synergyModel = {
         "teamup_kylorenunmasked_smugglerhan",
         "teamup_smugglerhan_smugglerchewbacca"
       ],
+      "simulationStats": {
+        "health": 19200,
+        "protection": 38940,
+        "speed": 165,
+        "offense": 1207,
+        "defense": 161,
+        "penetration": 177,
+        "criticalChance": 49,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_SMUGGLERHAN",
@@ -29586,7 +41650,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_SMUGGLERHAN01",
@@ -29598,7 +41669,19 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "stun",
+              "ability block"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "uniqueskill_SMUGGLERHAN02",
@@ -29621,6 +41704,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 8,
+          "combat": {
+            "turnMeterPercent": 100
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -29633,7 +41719,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -29652,6 +41739,16 @@ window.ForgeData.synergyModel = {
         "conq_lightsideunaligned"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14100,
+        "protection": 41609,
+        "speed": 146,
+        "offense": 1111,
+        "defense": 110,
+        "penetration": 146,
+        "criticalChance": 54,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_VISASMARR",
@@ -29669,6 +41766,20 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 25,
+              "protectionPercent": 0
+            },
+            "cleanse": "self",
+            "cooldownReduction": 1
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -29684,6 +41795,19 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "recovery": {
+              "target": "all",
+              "healthPercent": 35,
+              "protectionPercent": 0
+            },
+            "revivePercent": 50
+          },
           "maximumAlliedBenefitPercent": 35
         },
         {
@@ -29696,7 +41820,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "uniqueskill_VISASMARR01",
@@ -29708,7 +41839,8 @@ window.ForgeData.synergyModel = {
             "calls assists"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -29726,6 +41858,16 @@ window.ForgeData.synergyModel = {
         "conq_dotsdots"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 8870,
+        "protection": 43747,
+        "speed": 147,
+        "offense": 2263,
+        "defense": 174,
+        "penetration": 257,
+        "criticalChance": 32,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_WAMPA",
@@ -29739,7 +41881,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 20
+          }
         },
         {
           "skillId": "specialskill_WAMPA01",
@@ -29752,7 +41902,15 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "specialskill_WAMPA02",
@@ -29768,6 +41926,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 15
+          },
           "maximumAlliedBenefitPercent": 15
         },
         {
@@ -29780,7 +41941,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_WAMPA02",
@@ -29794,7 +41956,8 @@ window.ForgeData.synergyModel = {
           "modeBonuses": [
             "gac"
           ],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -29813,6 +41976,16 @@ window.ForgeData.synergyModel = {
         "gac_algorithm"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 27075,
+        "protection": 51532,
+        "speed": 186,
+        "offense": 590,
+        "defense": 486,
+        "penetration": 25,
+        "criticalChance": 12,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_WATTAMBOR",
@@ -29826,7 +41999,10 @@ window.ForgeData.synergyModel = {
             "cleanses allies"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "cleanse": "all"
+          }
         },
         {
           "skillId": "specialskill_WATTAMBOR01",
@@ -29844,6 +42020,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "revivePercent": 100
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -29862,7 +42041,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 7
+          "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 5,
+              "protectionPercent": 30
+            },
+            "turnMeterPercent": 15
+          }
         },
         {
           "skillId": "uniqueskill_WATTAMBOR01",
@@ -29883,6 +42070,9 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 7,
+          "combat": {
+            "assist": "one"
+          },
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -29908,6 +42098,16 @@ window.ForgeData.synergyModel = {
         "raid_speeder_bike_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 11880,
+        "protection": 30534,
+        "speed": 130,
+        "offense": 1069,
+        "defense": 233,
+        "penetration": 134,
+        "criticalChance": 50,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_WEDGEANTILLES",
@@ -29920,7 +42120,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_WEDGEANTILLES01",
@@ -29932,7 +42139,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_WEDGEANTILLES01",
@@ -29947,7 +42161,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {}
         },
         {
           "skillId": "leaderskill_WEDGEANTILLES",
@@ -29965,6 +42180,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 9,
+          "combat": {},
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -29983,6 +42199,16 @@ window.ForgeData.synergyModel = {
         "conq_fuzzball"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 16077,
+        "protection": 38734,
+        "speed": 166,
+        "offense": 1270,
+        "defense": 162,
+        "penetration": 233,
+        "criticalChance": 74,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_WICKET",
@@ -29996,7 +42222,15 @@ window.ForgeData.synergyModel = {
             "calls assists"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "specialskill_WICKET01",
@@ -30009,6 +42243,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -30024,7 +42266,15 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "assist": "one"
+          }
         },
         {
           "skillId": "uniqueskill_WICKET01",
@@ -30040,6 +42290,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 4,
+              "protectionPercent": 0
+            }
+          },
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -30063,6 +42320,16 @@ window.ForgeData.synergyModel = {
       "teamUpTags": [
         "teamup_hunters3_wrecker"
       ],
+      "simulationStats": {
+        "health": 16040,
+        "protection": 49215,
+        "speed": 152,
+        "offense": 1522,
+        "defense": 297,
+        "penetration": 50,
+        "criticalChance": 34,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_BADBATCHWRECKER",
@@ -30074,7 +42341,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_BADBATCHWRECKER01",
@@ -30092,6 +42366,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 20
+            },
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -30107,7 +42389,18 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "control": [
+              "stun"
+            ],
+            "controlTarget": "all"
+          }
         },
         {
           "skillId": "uniqueskill_BADBATCHWRECKER01",
@@ -30123,6 +42416,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 5,
+          "combat": {},
           "maximumAlliedBenefitPercent": 20
         }
       ]
@@ -30145,6 +42439,16 @@ window.ForgeData.synergyModel = {
         "teamup_wreckers3_captainrex",
         "teamup_wreckers3_omegas3"
       ],
+      "simulationStats": {
+        "health": 11485,
+        "protection": 62219,
+        "speed": 158,
+        "offense": 1329,
+        "defense": 473,
+        "penetration": 94,
+        "criticalChance": 24,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_WRECKERS3",
@@ -30160,6 +42464,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 10,
+            "dispel": "target"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -30181,6 +42494,14 @@ window.ForgeData.synergyModel = {
             "raid"
           ],
           "impact": 7,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "turnMeterPercent": 50
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -30199,7 +42520,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "uniqueskill_WRECKERS301",
@@ -30221,6 +42550,14 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 9,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 25,
+              "protectionPercent": 25
+            },
+            "turnMeterPercent": 15
+          },
           "maximumAlliedBenefitPercent": 75
         },
         {
@@ -30239,6 +42576,7 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {},
           "maximumAlliedBenefitPercent": 5
         }
       ]
@@ -30260,6 +42598,16 @@ window.ForgeData.synergyModel = {
         "affiliation_galactic_republic_jedi"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 17850,
+        "protection": 57732,
+        "speed": 186,
+        "offense": 966,
+        "defense": 572,
+        "penetration": 199,
+        "criticalChance": 35,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_YODACHEWBACCA",
@@ -30271,7 +42619,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 3,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_YODACHEWBACCA01",
@@ -30291,6 +42646,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 20,
+              "protectionPercent": 20
+            }
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -30307,7 +42669,15 @@ window.ForgeData.synergyModel = {
             "dispels enemy buffs"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "uniqueskill_YODACHEWBACCA01",
@@ -30325,6 +42695,9 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 5,
+          "combat": {
+            "turnMeterPercent": 5
+          },
           "maximumAlliedBenefitPercent": 10
         }
       ]
@@ -30341,6 +42714,16 @@ window.ForgeData.synergyModel = {
         "profession_sith"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 22665,
+        "protection": 57732,
+        "speed": 178,
+        "offense": 1009,
+        "defense": 279,
+        "penetration": 100,
+        "criticalChance": 32,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_YODADSV",
@@ -30356,6 +42739,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "all",
+              "healthPercent": 10,
+              "protectionPercent": 10
+            }
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -30375,6 +42770,19 @@ window.ForgeData.synergyModel = {
             "raid"
           ],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 25,
+              "protectionPercent": 25
+            },
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -30392,7 +42800,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_YODADSV01",
@@ -30408,6 +42823,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 15
+            },
+            "dispel": "target"
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -30429,6 +42852,9 @@ window.ForgeData.synergyModel = {
             "tb"
           ],
           "impact": 8,
+          "combat": {
+            "turnMeterPercent": 7
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -30454,6 +42880,16 @@ window.ForgeData.synergyModel = {
         "affiliation_hans"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18100,
+        "protection": 36759,
+        "speed": 145,
+        "offense": 1368,
+        "defense": 131,
+        "penetration": 237,
+        "criticalChance": 48,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_YOUNGHAN",
@@ -30466,7 +42902,14 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_YOUNGHAN01",
@@ -30478,7 +42921,8 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         },
         {
           "skillId": "specialskill_YOUNGHAN02",
@@ -30496,6 +42940,18 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 50
+            }
+          },
           "maximumAlliedBenefitPercent": 50
         },
         {
@@ -30511,7 +42967,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {}
         }
       ]
     },
@@ -30533,6 +42990,16 @@ window.ForgeData.synergyModel = {
         "gac_workingclosely"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 14900,
+        "protection": 36344,
+        "speed": 161,
+        "offense": 1367,
+        "defense": 29,
+        "penetration": 287,
+        "criticalChance": 50,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_YOUNGLANDO",
@@ -30545,7 +43012,14 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_YOUNGLANDO_01",
@@ -30558,7 +43032,19 @@ window.ForgeData.synergyModel = {
             "manipulates cooldowns"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            },
+            "control": [
+              "ability block"
+            ],
+            "controlTarget": "single",
+            "cooldownReduction": 1
+          }
         },
         {
           "skillId": "specialskill_YOUNGLANDO_02",
@@ -30575,7 +43061,11 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "turnMeterPercent": 50,
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "uniqueskill_YOUNGLANDO_01",
@@ -30589,7 +43079,8 @@ window.ForgeData.synergyModel = {
             "improves offense"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         }
       ]
     },
@@ -30611,6 +43102,16 @@ window.ForgeData.synergyModel = {
         "raid_krayt_dragon_allowed"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 16790,
+        "protection": 59316,
+        "speed": 126,
+        "offense": 1236,
+        "defense": 490,
+        "penetration": 34,
+        "criticalChance": 33,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_ZAALBAR",
@@ -30622,7 +43123,19 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            }
+          }
         },
         {
           "skillId": "specialskill_ZAALBAR01",
@@ -30634,7 +43147,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_ZAALBAR01",
@@ -30646,7 +43166,8 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {}
         },
         {
           "skillId": "uniqueskill_ZAALBAR02",
@@ -30665,7 +43186,14 @@ window.ForgeData.synergyModel = {
             "gac-5v5",
             "gac-3v3"
           ],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 10
+            }
+          }
         }
       ]
     },
@@ -30688,6 +43216,16 @@ window.ForgeData.synergyModel = {
         "gac_revenge"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18494,
+        "protection": 38672,
+        "speed": 183,
+        "offense": 1803,
+        "defense": 112,
+        "penetration": 206,
+        "criticalChance": 40,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_ZAMWESELL",
@@ -30702,6 +43240,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "turnMeterPercent": 20
+          },
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -30714,7 +43260,8 @@ window.ForgeData.synergyModel = {
             "improves Speed"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {}
         },
         {
           "skillId": "specialskill_ZAMWESELL02",
@@ -30727,7 +43274,15 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 10
+            },
+            "turnMeterPercent": 50
+          }
         },
         {
           "skillId": "leaderskill_ZAMWESELL",
@@ -30745,6 +43300,13 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 4,
+              "protectionPercent": 4
+            }
+          },
           "maximumAlliedBenefitPercent": 25
         },
         {
@@ -30767,6 +43329,7 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 6,
+          "combat": {},
           "maximumAlliedBenefitPercent": 20
         },
         {
@@ -30777,7 +43340,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         }
       ]
     },
@@ -30792,6 +43356,16 @@ window.ForgeData.synergyModel = {
         "release_era_08_newrepublic"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 18735,
+        "protection": 62219,
+        "speed": 180,
+        "offense": 1143,
+        "defense": 420,
+        "penetration": 50,
+        "criticalChance": 31,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_RANGERZEB",
@@ -30801,7 +43375,14 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            }
+          }
         },
         {
           "skillId": "specialskill_RANGERZEB01",
@@ -30813,7 +43394,15 @@ window.ForgeData.synergyModel = {
             "dispels enemy buffs"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            },
+            "dispel": "all"
+          }
         },
         {
           "skillId": "specialskill_RANGERZEB02",
@@ -30832,7 +43421,14 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 4
+          "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_RANGERZEB01",
@@ -30852,6 +43448,9 @@ window.ForgeData.synergyModel = {
             "gac-3v3"
           ],
           "impact": 7,
+          "combat": {
+            "turnMeterPercent": 30
+          },
           "maximumAlliedBenefitPercent": 30
         }
       ]
@@ -30869,6 +43468,16 @@ window.ForgeData.synergyModel = {
         "profession_smuggler"
       ],
       "teamUpTags": [],
+      "simulationStats": {
+        "health": 20005,
+        "protection": 62219,
+        "speed": 170,
+        "offense": 1730,
+        "defense": 233,
+        "penetration": 128,
+        "criticalChance": 36,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_ZORIIBLISS_V2",
@@ -30884,6 +43493,19 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 4,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 2,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 10,
+              "protectionPercent": 0
+            },
+            "dispel": "target"
+          },
           "maximumAlliedBenefitPercent": 10
         },
         {
@@ -30902,6 +43524,11 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 6,
+          "combat": {
+            "turnMeterPercent": 5,
+            "assist": "all",
+            "cleanse": "self"
+          },
           "maximumAlliedBenefitPercent": 5
         },
         {
@@ -30915,7 +43542,14 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "all",
+              "hits": 1,
+              "multiplier": 0.86
+            }
+          }
         },
         {
           "skillId": "uniqueskill_ZORIIBLISS_V201",
@@ -30939,6 +43573,13 @@ window.ForgeData.synergyModel = {
             "gac"
           ],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 15
+            }
+          },
           "maximumAlliedBenefitPercent": 100
         },
         {
@@ -30960,6 +43601,14 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 0,
+              "protectionPercent": 100
+            },
+            "turnMeterPercent": 100
+          },
           "maximumAlliedBenefitPercent": 100
         }
       ]
@@ -30986,6 +43635,16 @@ window.ForgeData.synergyModel = {
         "teamup_zuckuss_4lom",
         "teamup_zuckuss_dengar"
       ],
+      "simulationStats": {
+        "health": 10310,
+        "protection": 62219,
+        "speed": 172,
+        "offense": 2043,
+        "defense": 214,
+        "penetration": 223,
+        "criticalChance": 36,
+        "criticalDamage": 150
+      },
       "abilities": [
         {
           "skillId": "basicskill_ZUCKUSS",
@@ -30997,7 +43656,19 @@ window.ForgeData.synergyModel = {
             "recovers Health or Protection"
           ],
           "modeBonuses": [],
-          "impact": 2
+          "impact": 2,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.0
+            },
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 10
+            }
+          }
         },
         {
           "skillId": "specialskill_ZUCKUSS01",
@@ -31010,7 +43681,14 @@ window.ForgeData.synergyModel = {
             "controls enemies"
           ],
           "modeBonuses": [],
-          "impact": 3
+          "impact": 3,
+          "combat": {
+            "damage": {
+              "target": "single",
+              "hits": 1,
+              "multiplier": 1.2
+            }
+          }
         },
         {
           "skillId": "specialskill_ZUCKUSS02",
@@ -31028,7 +43706,15 @@ window.ForgeData.synergyModel = {
             "improves durability"
           ],
           "modeBonuses": [],
-          "impact": 5
+          "impact": 5,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 30
+            },
+            "cleanse": "self"
+          }
         },
         {
           "skillId": "leaderskill_ZUCKUSS",
@@ -31053,6 +43739,15 @@ window.ForgeData.synergyModel = {
           ],
           "modeBonuses": [],
           "impact": 10,
+          "combat": {
+            "recovery": {
+              "target": "self",
+              "healthPercent": 0,
+              "protectionPercent": 10
+            },
+            "turnMeterPercent": 10,
+            "assistTrigger": "ally-special"
+          },
           "maximumAlliedBenefitPercent": 80
         },
         {
@@ -31075,6 +43770,14 @@ window.ForgeData.synergyModel = {
             "tw"
           ],
           "impact": 7,
+          "combat": {
+            "recovery": {
+              "target": "all",
+              "healthPercent": 0,
+              "protectionPercent": 15
+            },
+            "turnMeterPercent": 10
+          },
           "maximumAlliedBenefitPercent": 30
         },
         {
@@ -31085,7 +43788,8 @@ window.ForgeData.synergyModel = {
           "targetUnits": [],
           "signals": [],
           "modeBonuses": [],
-          "impact": 1
+          "impact": 1,
+          "combat": {}
         }
       ]
     }
@@ -31094,6 +43798,9 @@ window.ForgeData.synergyModel = {
   "counts": {
     "unitProfiles": 340,
     "abilities": 1516,
+    "simulationProfiles": 340,
+    "combatAbilities": 1217,
+    "combatMechanicSignals": 2160,
     "explicitAbilitySynergies": 0,
     "officialSquads": 0
   }

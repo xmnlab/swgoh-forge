@@ -23,8 +23,12 @@
     fleetStarters: ["punishing-one", "razor-crest", "hounds-tooth"],
     fleetReinforcements: ["xanadu-blood", "slave-i", "ig-2000", "tie-bomber"],
     counterType: "squad",
+    attackerLeaderId: "hera-syndulla",
+    attackerMembers: ["captain-rex", "chopper", "kanan-jarrus", "sabine-wren"],
     opponentLeaderId: "jabba",
     opponentMembers: ["krrsantan", "boushh-leia", "skiff-lando", "embo"],
+    simulationIterations: 500,
+    simulationResult: null,
     opponentCapitalId: "leviathan",
     opponentStarters: ["sith-fighter", "mark-vi-interceptor", "tie-dagger"],
     opponentReinforcements: [],
@@ -53,6 +57,8 @@
   const pickerConfig = {
     required: { title: "Add required characters", kind: "character", multi: true },
     leader: { title: "Lock required leader", kind: "character", multi: false, leadersOnly: true },
+    "attacker-leader": { title: "Choose Team A leader", kind: "character", multi: false, leadersOnly: true },
+    "attacker-members": { title: "Add Team A characters", kind: "character", multi: true, max: 4 },
     "enemy-leader": { title: "Choose enemy leader", kind: "character", multi: false, leadersOnly: true },
     "enemy-members": { title: "Add enemy units", kind: "character", multi: true, max: 4 },
     "must-use": { title: "Add required attackers", kind: "character", multi: true },
@@ -443,19 +449,26 @@
   }
 
   function renderCounter() {
-    return `<div class="page-shell compact-top"><div class="app-frame">${renderCounterSidebar()}<div class="workspace"><section class="section-hero"><div class="eyebrow">Counter mode</div><h1>What are you fighting?</h1><p>Define the target first. A generally strong formation is not always the right answer for a specific defense.</p></section><section class="panel"><div class="panel-heading"><div><span class="step-index">01 / TARGET TYPE</span><h2>Choose the battlefield</h2></div>${segmented("counter-type", [{ id: "squad", label: "Squad" }, { id: "fleet", label: "Fleet" }], state.counterType)}</div>${state.counterType === "squad" ? renderSquadCounterForm() : renderFleetCounterForm()}</section>${state.loading === "counter" ? renderForging("counter routes", "Simulating opening sequences") : state.results.counter ? renderCounterResults() : ""}</div></div></div>`;
+    const isSquad = state.counterType === "squad";
+    return `<div class="page-shell compact-top"><div class="app-frame">${renderCounterSidebar()}<div class="workspace"><section class="section-hero"><div class="eyebrow">${isSquad ? "Battle simulator" : "Counter mode"}</div><h1>${isSquad ? "How will these teams match up?" : "What fleet are you fighting?"}</h1><p>${isSquad ? "Compare two character squads with a repeatable local simulation built from the current unit snapshot." : "Define the target first. A generally strong formation is not always the right answer for a specific defense."}</p></section><section class="panel"><div class="panel-heading"><div><span class="step-index">01 / BATTLE TYPE</span><h2>Choose the battlefield</h2></div>${segmented("counter-type", [{ id: "squad", label: "Squad simulation" }, { id: "fleet", label: "Fleet counters" }], state.counterType)}</div>${isSquad ? renderSquadCounterForm() : renderFleetCounterForm()}</section>${state.loading === "counter" ? renderForging(isSquad ? "simulated battles" : "counter routes", isSquad ? `Running ${formatNumber(state.simulationIterations)} seeded matchups` : "Simulating opening sequences") : state.results.counter ? renderCounterResults() : ""}</div></div></div>`;
   }
 
   function renderCounterSidebar() {
-    return `<aside class="side-panel" aria-label="Counter workflow"><div class="panel"><h2 class="side-title">Counter sequence</h2><div class="side-nav"><button class="active" type="button" data-scroll-step="1"><span class="nav-number">01</span><span>Target type</span></button><button type="button" data-scroll-step="2"><span class="nav-number">02</span><span>Enemy formation</span></button><button type="button" data-scroll-step="3"><span class="nav-number">03</span><span>Constraints</span></button><button type="button" data-scroll-step="4"><span class="nav-number">04</span><span>Counter routes</span></button></div><div class="side-summary"><span class="micro-label">Target brief</span><dl><dt>Battle</dt><dd>${state.counterType === "squad" ? "Squad" : "Fleet"}</dd><dt>Context</dt><dd>${escapeHtml(currentModeLabel())}</dd><dt>Data</dt><dd>Prototype</dd></dl></div></div></aside>`;
+    const isSquad = state.counterType === "squad";
+    return `<aside class="side-panel" aria-label="${isSquad ? "Simulation" : "Counter"} workflow"><div class="panel"><h2 class="side-title">${isSquad ? "Simulation sequence" : "Counter sequence"}</h2><div class="side-nav"><button class="active" type="button" data-scroll-step="1"><span class="nav-number">01</span><span>Battle type</span></button><button type="button" data-scroll-step="2"><span class="nav-number">02</span><span>${isSquad ? "Both teams" : "Enemy formation"}</span></button><button type="button" data-scroll-step="3"><span class="nav-number">03</span><span>${isSquad ? "Model settings" : "Constraints"}</span></button><button type="button" data-scroll-step="4"><span class="nav-number">04</span><span>${isSquad ? "Outcome" : "Counter routes"}</span></button></div><div class="side-summary"><span class="micro-label">Battle brief</span><dl><dt>Battle</dt><dd>${isSquad ? "Squad simulation" : "Fleet"}</dd><dt>Context</dt><dd>${escapeHtml(currentModeLabel())}</dd><dt>Data</dt><dd>${isSquad ? "Local model" : "Prototype"}</dd></dl></div></div></aside>`;
   }
 
   function renderSquadCounterForm() {
-    const leader = characterMap.get(state.opponentLeaderId);
-    return `<div data-step="2"><span class="field-label">Enemy squad</span><div class="counter-enemy"><div class="unit-row">${leader ? unitToken(leader.id, { leader: true, removeTarget: "enemy-leader" }) : '<button class="add-unit" type="button" data-open-picker="enemy-leader">♛ Choose enemy leader</button>'}${state.opponentMembers.map((id) => unitToken(id, { removeTarget: "enemy-members" })).join("")}${state.opponentMembers.length < 4 ? '<button class="add-unit" type="button" data-open-picker="enemy-members">＋ Add enemy</button>' : ""}</div>${leader ? "" : '<p class="empty-inline">Choose the squad you’re trying to beat. An enemy leader is required.</p>'}</div></div>
-    <div class="form-grid" style="margin-top:18px"><div class="field"><label for="counter-context">Game context</label><select class="select" id="counter-context" data-field="gameMode">${optionsMarkup(data.gameModes.filter((mode) => ["gac-5v5", "gac-3v3", "tw", "arena", "conquest", "tb", "general"].includes(mode.id)), state.gameMode)}</select></div><div class="field"><label for="counter-objective">Priority</label><select class="select" id="counter-objective" data-field="objective">${optionsMarkup(objectiveOptions(), state.objective)}</select></div></div>
-    <div class="constraint-columns" data-step="3">${renderConstraintBox("Must use", "must-use", state.mustUse, "Required attackers")}${renderConstraintBox("Do not use", "counter-excluded", state.counterExcluded, "Exclude from results")}${renderConstraintBox("Preserve", "counter-preserved", state.counterPreserved, "Save for another battle")}</div>
-    <div class="panel-actions"><button class="button button-quiet button-small" type="button" data-action="reset-counter">Reset</button><button class="button button-wide" type="button" data-action="forge-counter" ${leader ? "" : "disabled"}>Find counters <span aria-hidden="true">→</span></button></div>`;
+    const teamSize = state.gameMode === "gac-3v3" ? 3 : 5;
+    const attackerLeader = characterMap.get(state.attackerLeaderId);
+    const opponentLeader = characterMap.get(state.opponentLeaderId);
+    const attackerComplete = Boolean(attackerLeader) && state.attackerMembers.length === teamSize - 1;
+    const opponentComplete = Boolean(opponentLeader) && state.opponentMembers.length === teamSize - 1;
+    const renderTeam = (label, leader, members, leaderPicker, membersPicker, tone) => `<div class="simulator-team ${tone}"><span class="micro-label">${label}</span><div class="simulator-team-head"><h3>${label === "TEAM A · ATTACK" ? "Attacking squad" : "Defending squad"}</h3><span>${leader ? members.length + 1 : members.length} / ${teamSize}</span></div><div class="unit-row">${leader ? unitToken(leader.id, { leader: true, removeTarget: leaderPicker }) : `<button class="add-unit" type="button" data-open-picker="${leaderPicker}">♛ Choose leader</button>`}${members.map((id) => unitToken(id, { removeTarget: membersPicker })).join("")}${members.length < teamSize - 1 ? `<button class="add-unit" type="button" data-open-picker="${membersPicker}">＋ Add character</button>` : ""}</div><p class="field-hint">${leader ? `${escapeHtml(displayName(leader))} applies modeled leadership to matching allies.` : "A leader is required for this team."}</p></div>`;
+    return `<div class="simulator-teams" data-step="2">${renderTeam("TEAM A · ATTACK", attackerLeader, state.attackerMembers, "attacker-leader", "attacker-members", "attacker")}<div class="versus-marker" aria-hidden="true">VS</div>${renderTeam("TEAM B · DEFENSE", opponentLeader, state.opponentMembers, "enemy-leader", "enemy-members", "defender")}</div>
+    <div class="form-grid simulator-settings" data-step="3"><div class="field"><label for="counter-context">Game context</label><select class="select" id="counter-context" data-field="gameMode">${optionsMarkup(data.gameModes.filter((mode) => ["gac-5v5", "gac-3v3", "tw", "arena", "conquest", "tb", "general"].includes(mode.id)), state.gameMode)}</select><p class="field-hint">3v3 changes the required squad size; mode-specific omicrons are disclosed but not yet executed.</p></div><div class="field"><label for="simulation-iterations">Simulation runs</label><select class="select" id="simulation-iterations" data-field="simulationIterations"><option value="200"${state.simulationIterations === 200 ? " selected" : ""}>200 · quick</option><option value="500"${state.simulationIterations === 500 ? " selected" : ""}>500 · balanced</option><option value="1000"${state.simulationIterations === 1000 ? " selected" : ""}>1,000 · smoother estimate</option></select><p class="field-hint">Every run varies targeting, critical hits, control effects, and damage. The matchup seed is repeatable.</p></div></div>
+    <div class="model-notice"><strong>Approximate combat model</strong><span>Uses normalized Gear XIII stats and parsed kit mechanics. It does not use player mods, relics, datacrons, or the proprietary game engine.</span></div>
+    <div class="panel-actions"><button class="button button-quiet button-small" type="button" data-action="reset-counter">Clear teams</button><button class="button button-wide" type="button" data-action="forge-counter" ${attackerComplete && opponentComplete ? "" : "disabled"}>Simulate matchup <span aria-hidden="true">→</span></button></div>`;
   }
 
   function renderConstraintBox(title, picker, ids, hint) {
@@ -468,8 +481,24 @@
   }
 
   function renderCounterResults() {
+    if (state.counterType === "squad") return renderSimulationResults();
     const results = getMockCounterRecommendations();
-    return `<section class="results-zone" id="counter-results" data-step="4"><div class="results-heading"><div><span class="eyebrow">Counter routes</span><h2>${state.counterType === "squad" ? "Recommended attacking squads" : "Recommended attacking fleets"}</h2><p>Performance statistics below are fictional prototype values.</p></div><span class="demo-badge">Demo data</span></div><div class="results-list">${results.map((result, index) => renderCounterResult(result, index)).join("")}</div></section>`;
+    return `<section class="results-zone" id="counter-results" data-step="4"><div class="results-heading"><div><span class="eyebrow">Counter routes</span><h2>Recommended attacking fleets</h2><p>Performance statistics below are fictional prototype values.</p></div><span class="demo-badge">Demo data</span></div><div class="results-list">${results.map((result, index) => renderCounterResult(result, index)).join("")}</div></section>`;
+  }
+
+  function renderSimulationResults() {
+    const result = state.simulationResult;
+    if (!result) return `<section class="results-zone" id="counter-results" data-step="4"><div class="empty-state">The simulator could not produce a result. Review both teams and try again.</div></section>`;
+    const teamA = [state.attackerLeaderId, ...state.attackerMembers];
+    const teamB = [state.opponentLeaderId, ...state.opponentMembers];
+    const coverageTone = result.coverage.percent >= 60 ? "good" : result.coverage.percent >= 35 ? "partial" : "low";
+    const favorite = result.teamAWinPercent === result.teamBWinPercent ? "No clear favorite" : result.teamAWinPercent > result.teamBWinPercent ? "Team A is favored" : "Team B is favored";
+    const quality = result.coverage.quality.replaceAll("-", " ");
+    return `<section class="results-zone simulation-results" id="counter-results" data-step="4"><div class="results-heading"><div><span class="eyebrow">Modeled outcome</span><h2>${favorite}</h2><p>${formatNumber(result.iterations)} deterministic-seed Monte Carlo runs · these are model estimates, not recorded game wins</p></div><span class="context-badge">${escapeHtml(currentModeLabel())}</span></div>
+      <article class="recommendation-card simulation-card"><div class="simulation-matchup"><div class="simulation-side"><span class="micro-label">TEAM A · ATTACK</span><strong>${result.teamAWinPercent}%</strong><span>modeled win rate</span><div class="formation">${teamA.map((id) => formationUnit(id, { leader: id === state.attackerLeaderId })).join("")}</div><small>${result.averageSurvivorsA} average survivors</small></div><div class="simulation-divider"><span>${result.drawPercent}%</span><small>draw</small></div><div class="simulation-side defender"><span class="micro-label">TEAM B · DEFENSE</span><strong>${result.teamBWinPercent}%</strong><span>modeled win rate</span><div class="formation">${teamB.map((id) => formationUnit(id, { leader: id === state.opponentLeaderId })).join("")}</div><small>${result.averageSurvivorsB} average survivors</small></div></div>
+      <div class="simulation-insights"><div class="simulation-stat"><span>Average battle</span><strong>${result.averageActions} actions</strong></div><div class="simulation-stat"><span>Usually moves first</span><strong>${escapeHtml(result.mostFrequentFirstAction?.unit || "—")}</strong><small>${result.mostFrequentFirstAction ? `${result.mostFrequentFirstAction.percent}% of runs` : "No result"}</small></div><div class="simulation-stat"><span>Most modeled damage</span><strong>${escapeHtml(result.topDamageUnit || "—")}</strong></div></div>
+      <div class="coverage-panel"><div><span class="micro-label">MODEL COVERAGE</span><h3>${result.coverage.percent}% of detected mechanics represented</h3><p>${formatNumber(result.coverage.modeledMechanics)} of ${formatNumber(result.coverage.examinedMechanics)} detected mechanic signals · ${escapeHtml(quality)}</p></div><div class="coverage-meter ${coverageTone}" role="meter" aria-label="Model coverage" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${result.coverage.percent}"><span style="width:${result.coverage.percent}%"></span></div></div>
+      <div class="simulation-evidence"><div><span class="micro-label">EXAMPLE RUN</span><ol class="battle-log">${result.exampleLog.map((line) => `<li>${escapeHtml(line)}</li>`).join("") || "<li>No actions were recorded.</li>"}</ol></div><div><span class="micro-label">READ BEFORE USING THIS RESULT</span><ul class="limitations">${result.limitations.map((line) => `<li>${escapeHtml(line)}</li>`).join("")}</ul></div></div></article></section>`;
   }
 
   function getMockCounterRecommendations() {
@@ -560,7 +589,7 @@
 
   function pickerSelectedIds(target) {
     const mapping = {
-      required: state.requiredUnits, leader: state.leaderId ? [state.leaderId] : [], "enemy-leader": state.opponentLeaderId ? [state.opponentLeaderId] : [], "enemy-members": state.opponentMembers,
+      required: state.requiredUnits, leader: state.leaderId ? [state.leaderId] : [], "attacker-leader": state.attackerLeaderId ? [state.attackerLeaderId] : [], "attacker-members": state.attackerMembers, "enemy-leader": state.opponentLeaderId ? [state.opponentLeaderId] : [], "enemy-members": state.opponentMembers,
       "must-use": state.mustUse, "counter-excluded": state.counterExcluded, "counter-preserved": state.counterPreserved, capital: state.capitalShipId ? [state.capitalShipId] : [], starters: state.fleetStarters,
       reinforcements: state.fleetReinforcements, "enemy-capital": state.opponentCapitalId ? [state.opponentCapitalId] : [], "enemy-starters": state.opponentStarters, "enemy-reinforcements": state.opponentReinforcements
     };
@@ -572,7 +601,7 @@
     if (!config) return;
     const units = getPickerUnits(config);
     const selected = pickerSelectedIds(state.picker);
-    const displayedMax = state.picker === "required" ? (state.gameMode === "gac-3v3" ? 3 : 5) : state.picker === "enemy-members" ? (state.gameMode === "gac-3v3" ? 2 : 4) : config.max;
+    const displayedMax = state.picker === "required" ? (state.gameMode === "gac-3v3" ? 3 : 5) : ["attacker-members", "enemy-members"].includes(state.picker) ? (state.gameMode === "gac-3v3" ? 2 : 4) : config.max;
     const allUnits = config.kind === "capital" ? data.capitalShips : config.kind === "ship" ? data.ships : data.characters;
     const factions = [...new Set(allUnits.flatMap((unit) => unit.factions || []))].sort();
     const roles = [...new Set(allUnits.map((unit) => unit.role).filter(Boolean))].sort();
@@ -587,7 +616,7 @@
     if (config.multi) {
       const next = alreadySelected ? selected.filter((selectedId) => selectedId !== id) : [...selected, id];
       const squadLimit = state.gameMode === "gac-3v3" ? 3 : 5;
-      const dynamicMax = target === "required" ? squadLimit : target === "enemy-members" ? squadLimit - 1 : config.max;
+      const dynamicMax = target === "required" ? squadLimit : ["attacker-members", "enemy-members"].includes(target) ? squadLimit - 1 : config.max;
       if (!alreadySelected && dynamicMax && next.length > dynamicMax) {
         showToast(`Choose up to ${dynamicMax} units for this slot in the current context.`);
         return;
@@ -608,8 +637,10 @@
   function assignPickerSelection(target, ids) {
     if (target === "required") state.requiredUnits = ids;
     else if (target === "leader") { state.leaderId = ids[0] || null; if (state.leaderId && !state.requiredUnits.includes(state.leaderId)) state.requiredUnits.push(state.leaderId); }
-    else if (target === "enemy-leader") state.opponentLeaderId = ids[0] || null;
-    else if (target === "enemy-members") state.opponentMembers = ids;
+    else if (target === "attacker-leader") { state.attackerLeaderId = ids[0] || null; state.attackerMembers = state.attackerMembers.filter((id) => id !== state.attackerLeaderId); }
+    else if (target === "attacker-members") state.attackerMembers = ids.filter((id) => id !== state.attackerLeaderId);
+    else if (target === "enemy-leader") { state.opponentLeaderId = ids[0] || null; state.opponentMembers = state.opponentMembers.filter((id) => id !== state.opponentLeaderId); }
+    else if (target === "enemy-members") state.opponentMembers = ids.filter((id) => id !== state.opponentLeaderId);
     else if (target === "must-use") state.mustUse = ids;
     else if (target === "counter-excluded") state.counterExcluded = ids;
     else if (target === "counter-preserved") state.counterPreserved = ids;
@@ -619,6 +650,10 @@
     else if (target === "enemy-capital") state.opponentCapitalId = ids[0] || null;
     else if (target === "enemy-starters") state.opponentStarters = ids.filter((id) => !state.opponentReinforcements.includes(id));
     else if (target === "enemy-reinforcements") state.opponentReinforcements = ids.filter((id) => !state.opponentStarters.includes(id));
+    if (["attacker-leader", "attacker-members", "enemy-leader", "enemy-members"].includes(target)) {
+      state.simulationResult = null;
+      state.results.counter = false;
+    }
   }
 
   function openDrawer(id, kind) {
@@ -651,8 +686,27 @@
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     window.setTimeout(() => {
       if (scope === "build" && state.unitType === "characters") state.generatedSquads = calculateSquadRecommendations();
+      if (scope === "counter" && state.counterType === "squad") {
+        try {
+          const teamSize = state.gameMode === "gac-3v3" ? 3 : 5;
+          const teamA = [state.attackerLeaderId, ...state.attackerMembers].filter(Boolean).slice(0, teamSize);
+          const teamB = [state.opponentLeaderId, ...state.opponentMembers].filter(Boolean).slice(0, teamSize);
+          if (!window.ForgeBattleSimulator) throw new Error("The local battle simulator did not load.");
+          state.simulationResult = window.ForgeBattleSimulator.simulate({
+            teamA: { leaderId: state.attackerLeaderId, members: teamA },
+            teamB: { leaderId: state.opponentLeaderId, members: teamB },
+            characters: data.characters,
+            synergyModel: data.synergyModel,
+            iterations: state.simulationIterations,
+            seed: `${state.gameMode}|${teamA.join(",")}|vs|${teamB.join(",")}`
+          });
+        } catch (error) {
+          state.simulationResult = null;
+          showToast(error.message || "The simulation could not be completed.");
+        }
+      }
       state.loading = null;
-      state.results[scope] = true;
+      state.results[scope] = scope !== "counter" || state.counterType !== "squad" || Boolean(state.simulationResult);
       render();
       const target = document.querySelector(`#${scope === "build" ? "build-results" : scope === "counter" ? "counter-results" : "roster-results"}`);
       target?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
@@ -672,6 +726,8 @@
   }
 
   function resetCounter() {
+    state.attackerLeaderId = null;
+    state.attackerMembers = [];
     state.opponentLeaderId = null;
     state.opponentMembers = [];
     state.opponentCapitalId = null;
@@ -680,6 +736,7 @@
     state.mustUse = [];
     state.counterExcluded = [];
     state.counterPreserved = [];
+    state.simulationResult = null;
     state.results.counter = false;
     state.loading = null;
     render();
@@ -688,6 +745,8 @@
   function removeSelection(target, id) {
     if (target === "required") { state.requiredUnits = state.requiredUnits.filter((unitId) => unitId !== id); if (state.leaderId === id) state.leaderId = null; }
     else if (target === "leader") state.leaderId = null;
+    else if (target === "attacker-leader") state.attackerLeaderId = null;
+    else if (target === "attacker-members") state.attackerMembers = state.attackerMembers.filter((unitId) => unitId !== id);
     else if (target === "enemy-leader") state.opponentLeaderId = null;
     else if (target === "enemy-members") state.opponentMembers = state.opponentMembers.filter((unitId) => unitId !== id);
     else if (target === "must-use") state.mustUse = state.mustUse.filter((unitId) => unitId !== id);
@@ -699,6 +758,10 @@
     else if (target === "enemy-capital") state.opponentCapitalId = null;
     else if (target === "enemy-starters") state.opponentStarters = state.opponentStarters.filter((unitId) => unitId !== id);
     else if (target === "enemy-reinforcements") state.opponentReinforcements = state.opponentReinforcements.filter((unitId) => unitId !== id);
+    if (["attacker-leader", "attacker-members", "enemy-leader", "enemy-members"].includes(target)) {
+      state.simulationResult = null;
+      state.results.counter = false;
+    }
     render();
   }
 
@@ -791,9 +854,20 @@
     const field = event.target.dataset.field;
     if (field) {
       if (field === "compareRoster") state.compareRoster = event.target.checked;
-      else if (field === "rosterTeamCount") state.rosterTeamCount = Number(event.target.value);
+      else if (["rosterTeamCount", "simulationIterations"].includes(field)) state[field] = Number(event.target.value);
       else state[field] = event.target.value;
-      if (field === "gameMode" && !objectiveOptions().some((item) => item.id === state.objective)) state.objective = "best-overall";
+      if (field === "gameMode") {
+        if (!objectiveOptions().some((item) => item.id === state.objective)) state.objective = "best-overall";
+        const memberLimit = state.gameMode === "gac-3v3" ? 2 : 4;
+        state.attackerMembers = state.attackerMembers.slice(0, memberLimit);
+        state.opponentMembers = state.opponentMembers.slice(0, memberLimit);
+        state.simulationResult = null;
+        state.results.counter = false;
+      }
+      if (field === "simulationIterations") {
+        state.simulationResult = null;
+        state.results.counter = false;
+      }
       render();
     }
     const pickerField = event.target.dataset.pickerField;

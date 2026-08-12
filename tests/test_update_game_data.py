@@ -353,6 +353,57 @@ class NormalizeCatalogTests(unittest.TestCase):
         self.assertTrue(ability["zeta"])
         self.assertEqual(["leader", "ally-a", "ally-b"], model["officialSquads"][0]["members"])
 
+    def test_builds_normalized_simulation_stats_from_the_highest_gear_tier(self):
+        unit = {
+            "unitTier": [
+                {"tier": 1, "baseStat": {"stat": [{"unitStatId": 1, "statValueDecimal": "10000000"}]}},
+                {
+                    "tier": 13,
+                    "baseStat": {
+                        "stat": [
+                            {"unitStatId": 1, "statValueDecimal": "234560000"},
+                            {"unitStatId": 28, "statValueDecimal": "345670000"},
+                            {"unitStatId": 5, "statValueDecimal": "1720000"},
+                            {"unitStatId": 6, "statValueDecimal": "18450000"},
+                            {"unitStatId": 7, "statValueDecimal": "1400000"},
+                            {"unitStatId": 8, "statValueDecimal": "2100000"},
+                            {"unitStatId": 9, "statValueDecimal": "3650000"},
+                            {"unitStatId": 10, "statValueDecimal": "2200000"},
+                            {"unitStatId": 14, "statValueDecimal": "2500000"},
+                        ]
+                    },
+                },
+            ]
+        }
+
+        stats = update_game_data.unit_simulation_stats(unit, "Attacker")
+
+        self.assertEqual(23456, stats["health"])
+        self.assertEqual(34567, stats["protection"])
+        self.assertEqual(172, stats["speed"])
+        self.assertEqual(1845, stats["offense"])
+        self.assertEqual(365, stats["defense"])
+        self.assertEqual(220, stats["penetration"])
+        self.assertEqual(35, stats["criticalChance"])
+
+    def test_compacts_combat_text_without_treating_thresholds_as_recovery(self):
+        combat = update_game_data.compact_combat_mechanics(
+            "Deal Physical damage to all enemies twice and inflict Stun on them. All allies recover 20% Health and "
+            "Protection and gain 15% Turn Meter. If an enemy has less than 50% Health, "
+            "call all Phoenix allies to assist.",
+            "special",
+        )
+
+        self.assertEqual({"target": "all", "hits": 2, "multiplier": 0.86}, combat["damage"])
+        self.assertEqual(
+            {"target": "all", "healthPercent": 20, "protectionPercent": 20},
+            combat["recovery"],
+        )
+        self.assertEqual(15, combat["turnMeterPercent"])
+        self.assertEqual("all", combat["assist"])
+        self.assertEqual(["stun"], combat["control"])
+        self.assertEqual("all", combat["controlTarget"])
+
     def test_reads_live_game_data_item_enum_shapes(self):
         fixtures = [
             {
