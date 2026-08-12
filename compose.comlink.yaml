@@ -1,0 +1,8 @@
+services:
+  comlink:
+    image: ghcr.io/swgoh-utils/swgoh-comlink:4.4.1
+    environment:
+      APP_NAME: swgoh-forge-local
+    ports:
+      - "127.0.0.1:${COMLINK_PORT:-3000}:3000"
+    restart: unless-stopped

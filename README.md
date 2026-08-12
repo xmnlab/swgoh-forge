@@ -2,83 +2,152 @@
 
 **Find the right squad for every battle.**
 
-SWGOH Forge is an unofficial, fan-made planning concept for *Star Wars: Galaxy of Heroes*. It is designed to help players build context-aware squads and fleets, evaluate counters, understand minimum viable requirements, and make better use of an entire roster.
+SWGOH Forge is an unofficial, fan-made planning concept for *Star Wars: Galaxy of Heroes*. It is a static frontend prototype with an optional local data pipeline for generating a current character and ship catalog from [SWGOH Comlink](https://github.com/swgoh-utils/swgoh-comlink).
 
-This repository currently contains a high-fidelity static frontend prototype. It is intended for product and interaction feedback; it does not contain a live recommendation engine or connect to any game API.
+The unit catalog can be current game data. Recommendation scores, success rates, battle counts, requirements, account details, and optimization results remain structured mock/demo data; Comlink does not supply that historical strategy dataset.
 
 ## Prototype features
 
 - Squad builder with required-character and required-leader constraints
-- Fleet builder with explicit capital ship, starters, reinforcements, and reinforcement order
+- Fleet builder with capital ship, starters, reinforcements, and reinforcement order
 - Squad and fleet counter flows
-- Context and objective selection for different game modes
 - Searchable, filterable character and ship pickers
 - Minimum, recommended, and safe requirement tiers
-- Demo roster readiness and stat-deficiency comparisons
-- Territory Battle, Conquest, raid, Journey Guide, event, and fleet mission examples
-- Mock whole-roster optimization with non-overlapping teams
+- Demo roster readiness and whole-roster optimization
+- Optional locally generated unit, ship, category, and English-name snapshot
 - Responsive layouts and keyboard-accessible dialogs and drawers
 
-All recommendation scores, success rates, battle counts, requirements, account details, and optimization results are structured mock/demo data. They do not represent live game statistics.
+## Running the site locally
 
-## Running locally
-
-No build step or package installation is required. From the repository root, run:
+No frontend build step is required. From the repository root, run:
 
 ```bash
-python -m http.server
+python3 -m http.server
 ```
 
-Then open [http://localhost:8000](http://localhost:8000).
+Then open [http://localhost:8000](http://localhost:8000). The checked-in catalog is used until you run the optional updater below.
 
-The app uses relative asset paths and can also be served directly from the GitHub Pages project path at `https://xmnlab.github.io/swgoh-forge/`.
+## Updating game data locally
+
+This repository deliberately does not scrape SWGOH.GG or run data collection in GitHub Actions. The updater talks only to a Comlink service you operate and writes a normalized static snapshot that can be reviewed and committed.
+
+Requirements:
+
+- Docker with Compose support
+- Python 3.10 or newer
+
+The simplest option starts Comlink on a currently unused loopback port, waits for it, updates the catalog, and stops it again:
+
+```bash
+./scripts/update-data-full.sh
+```
+
+To manage the service yourself, start the pinned Comlink container on the loopback interface:
+
+```bash
+docker compose -f compose.comlink.yaml up -d
+```
+
+After the service starts, generate the catalog:
+
+```bash
+./scripts/update-data.sh
+```
+
+Port 3000 is the manual default. If another application already uses it, select another port for both commands:
+
+```bash
+COMLINK_PORT=3200 docker compose -f compose.comlink.yaml up -d
+COMLINK_URL=http://127.0.0.1:3200 ./scripts/update-data.sh
+```
+
+The wrapper creates or repairs `.venv-data`, installs the pinned `swgoh_comlink` Python client, and updates:
+
+- `data/characters.js`
+- `data/ships.js`
+- `data/catalog-meta.js`
+
+It requests current metadata, the playable unit/category collections, and one localization locale (`ENG_US` by default). Raw responses are cached under `.cache/comlink/`, which is ignored by Git. Rebuild from that cache without contacting Comlink using:
+
+```bash
+./scripts/update-data.sh --from-cache
+```
+
+Useful checks and overrides:
+
+```bash
+# Fetch and validate without changing generated files
+./scripts/update-data.sh --dry-run
+
+# Use a service at another address
+COMLINK_URL=http://127.0.0.1:3001 ./scripts/update-data.sh
+
+# Select another localization bundle
+COMLINK_LOCALE=FRE_FR ./scripts/update-data.sh
+```
+
+The updater preserves existing human-readable IDs where localized names match, adds stable base-ID aliases, selects the highest-rarity definition for each playable unit, links ships to their crew, and writes files atomically. It refuses an implausibly small response or a snapshot that unexpectedly removes existing IDs. `--allow-missing-seed-units` is available for an intentional removal after reviewing the result.
+
+Stop the local service when finished:
+
+```bash
+docker compose -f compose.comlink.yaml down
+```
+
+The container is bound to `127.0.0.1`, so it is not exposed to other machines. If you configure HMAC on your own Comlink deployment, the updater also accepts `COMLINK_ACCESS_KEY` and `COMLINK_SECRET_KEY`; keep those values out of the repository.
+
+### Data scope and provenance
+
+The generated files contain a compact subset needed by the UI: base ID, localized name, unit type, visible faction categories, alignment, role, leadership, crew relationships, and display metadata. The updater does not request player profiles, guilds, rosters, battle histories, or credentials.
+
+SWGOH Comlink and `comlink-python` are third-party community projects. Their software licenses do not grant rights to Electronic Arts game data. Before redistributing generated snapshots, review the applicable game terms and repository policies yourself. Keeping the collection local reduces operational load and makes every update an explicit, reviewable action; it is not a grant of permission from a rights holder.
 
 ## GitHub Pages deployment
 
-The `Deploy static site to GitHub Pages` workflow publishes the repository root after every push to `main`. It can also be run manually from the repository's **Actions** tab using **Run workflow**.
+The `Deploy static site to GitHub Pages` workflow publishes the repository root after every push to `main`. It can also be run manually from the repository's **Actions** tab. The workflow requests Pages enablement, which handles repositories where the Pages site has not yet been created. Repository administrators can also select **Settings → Pages → Source → GitHub Actions** manually.
 
-Before the first deployment, open **Settings → Pages** in GitHub and set **Source** to **GitHub Actions**. No build command, deployment branch, or repository secret is required.
+The data updater is not part of the deployment workflow. Run it locally, inspect the generated diff, and commit the snapshot when you want the published catalog to change.
 
 ## Project structure
 
 ```text
 swgoh-forge/
-├── index.html                 # Semantic application shell
-├── styles.css                # Responsive visual system
-├── app.js                    # Central state and UI interactions
+├── index.html
+├── styles.css
+├── app.js
+├── compose.comlink.yaml       # Loopback-only local Comlink service
+├── requirements-data.txt     # Pinned Python updater dependency
+├── scripts/
+│   ├── update-data-full.sh    # Start service, update data, and clean up
+│   ├── update-data.sh         # Update using a running Comlink service
+│   └── update_game_data.py    # Fetch, normalize, validate, and generate
 ├── data/
-│   ├── characters.js         # Character records and image paths
-│   ├── ships.js              # Ship and capital-ship records
-│   ├── recommendations.js    # Squad, fleet, counter, and roster demos
-│   ├── encounters.js         # Context, objectives, and mission demos
-│   └── demo-roster.js        # Fictional local roster
-├── assets/
-│   ├── characters/           # Character portraits belong here
-│   ├── ships/                # Standard ship images belong here
-│   ├── capital-ships/        # Capital-ship images belong here
-│   └── ui/                   # Original project UI assets
-└── LICENSE
+│   ├── catalog-meta.js        # Snapshot source, version, date, and counts
+│   ├── characters.js          # Generated or bundled character catalog
+│   ├── ships.js               # Generated or bundled ship catalogs
+│   ├── recommendations.js     # Squad, fleet, counter, and roster demos
+│   ├── encounters.js          # Context, objectives, and mission demos
+│   └── demo-roster.js         # Fictional local roster
+├── tests/
+│   └── test_update_game_data.py
+└── assets/
 ```
 
 ## Unit images
 
-No copyrighted character or ship artwork is bundled with this prototype. Unit records reference predictable local paths such as:
-
-```text
-assets/characters/darth-vader.png
-assets/ships/hounds-tooth.png
-assets/capital-ships/executor.png
-```
-
-When a referenced image is absent, the interface displays an initials-based, unit-colored fallback and never exposes a broken-image placeholder. Image paths are kept in the structured data files so assets can be added or replaced without changing rendering logic.
+No copyrighted character or ship artwork is bundled. Generated records reference predictable local paths such as `assets/characters/darth-vader.png`. When an image is absent, the interface displays an initials-based fallback.
 
 Third-party images placed under `assets/` remain subject to their respective rights and are not automatically covered by this project's MIT license.
 
-## Current status
+## Verification
 
-This is the first static prototype. Recommendation generation, battle statistics, requirements, roster loading, and optimization are simulated locally. There is no scraping, authentication, backend, data upload, or connection to SWGOH.GG or an Electronic Arts service.
+Run the local checks with:
 
-Future implementation can replace the mock recommendation functions with a real engine while preserving the current UI and data boundaries.
+```bash
+python3 -m unittest discover -s tests
+bash -n scripts/update-data.sh
+node --check app.js
+```
 
 ## Disclaimer
 
@@ -88,4 +157,4 @@ STAR WARS, *STAR WARS: Galaxy of Heroes*, related characters, ships, names, trad
 
 ## License
 
-The project's original source code is available under the [MIT License](LICENSE). This license does not grant rights to third-party intellectual property or artwork.
+The project's original source code is available under the [MIT License](LICENSE). This license does not grant rights to third-party intellectual property, artwork, or game data.

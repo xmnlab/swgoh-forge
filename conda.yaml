@@ -4,3 +4,7 @@ channels:
   - nodefaults
 dependencies:
   - nodejs
+  - python>=3.10
+  - pip
+  - pip:
+      - swgoh_comlink==2.3.0

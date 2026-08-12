@@ -65,9 +65,19 @@
     "enemy-reinforcements": { title: "Add enemy reinforcements", kind: "ship", multi: true, max: 4 }
   };
 
-  const characterMap = new Map(data.characters.map((unit) => [unit.id, unit]));
-  const shipMap = new Map(data.ships.map((unit) => [unit.id, unit]));
-  const capitalMap = new Map(data.capitalShips.map((unit) => [unit.id, unit]));
+  function createUnitMap(units) {
+    const map = new Map();
+    units.forEach((unit) => {
+      map.set(unit.id, unit);
+      if (unit.baseId) map.set(unit.baseId, unit);
+      (unit.aliases || []).forEach((alias) => map.set(alias, unit));
+    });
+    return map;
+  }
+
+  const characterMap = createUnitMap(data.characters);
+  const shipMap = createUnitMap(data.ships);
+  const capitalMap = createUnitMap(data.capitalShips);
 
   function getSectionFromHash() {
     const section = location.hash.replace("#", "").split("?")[0];
@@ -162,6 +172,26 @@
     window.setTimeout(() => toast.remove(), 3200);
   }
 
+  function renderCatalogStatus() {
+    const metadata = data.catalogMeta || {};
+    const counts = metadata.counts || {
+      characters: data.characters.length,
+      ships: data.ships.length,
+      capitalShips: data.capitalShips.length
+    };
+    const generated = metadata.status === "generated" && metadata.generatedAt;
+    const generatedDate = generated ? new Date(metadata.generatedAt) : null;
+    const validDate = generatedDate && !Number.isNaN(generatedDate.getTime());
+    const timing = validDate
+      ? `Generated ${generatedDate.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })}`
+      : "Run the local updater for current game data";
+    const totalShips = Number(counts.ships || 0) + Number(counts.capitalShips || 0);
+    return `<div class="catalog-status" aria-label="Unit catalog status">
+      <span class="catalog-status-dot ${generated ? "current" : "seed"}" aria-hidden="true"></span>
+      <span><strong>${escapeHtml(metadata.sourceLabel || "Unit catalog")}</strong><small>${escapeHtml(timing)} · ${formatNumber(counts.characters || 0)} characters · ${formatNumber(totalShips)} ships</small></span>
+    </div>`;
+  }
+
   function render() {
     document.querySelectorAll("[data-nav]").forEach((link) => link.classList.toggle("active", link.dataset.nav === state.section));
     document.querySelector(".primary-nav")?.classList.remove("open");
@@ -182,6 +212,7 @@
           <button class="button" type="button" data-action="scroll-builder">Build a Squad <span aria-hidden="true">→</span></button>
           <button class="button button-secondary" type="button" data-nav="counter">Find a Counter</button>
         </div>
+        ${renderCatalogStatus()}
       </div>
       <div class="hero-demo" aria-label="Example recommendation">
         <div class="demo-head"><span class="demo-label">Formation preview</span><span class="demo-badge">Demo data</span></div>
@@ -204,7 +235,7 @@
           <section class="section-hero">
             <div class="eyebrow">Build mode</div>
             <h1>Forge your strongest formation.</h1>
-            <p>Lock the pieces that matter, leave the rest open, and explore context-aware demo recommendations.</p>
+            <p>Lock the pieces that matter, leave the rest open, and explore demo recommendations using the available unit catalog.</p>
           </section>
           ${renderBuildForm()}
           ${state.loading === "build" ? renderForging("formations", "Evaluating 2,481 viable combinations") : state.results.build ? renderBuildResults() : ""}
@@ -471,7 +502,7 @@
   }
 
   function renderRosterLoader() {
-    return `<section class="panel"><div class="panel-heading"><div><span class="step-index">01 / ROSTER</span><h2>Connect your collection</h2><p>No live API is used in this prototype.</p></div><span class="demo-badge">Demo roster</span></div><div class="roster-load"><div class="field"><label for="ally-code">Ally Code</label><input class="input" id="ally-code" inputmode="numeric" value="${escapeHtml(data.demoRoster.allyCode)}" aria-describedby="ally-code-hint"></div><button class="button" type="button" data-action="load-roster">${state.rosterLoaded ? "Reload demo roster" : "Load demo roster"}</button></div><p class="field-hint" id="ally-code-hint">The entered code is not sent anywhere. This action always loads local mock data.</p>${state.rosterLoaded ? renderRosterProfile() : ""}</section>`;
+    return `<section class="panel"><div class="panel-heading"><div><span class="step-index">01 / ROSTER</span><h2>Connect your collection</h2><p>The optional Comlink snapshot updates unit definitions only; player roster loading is still simulated.</p></div><span class="demo-badge">Demo roster</span></div><div class="roster-load"><div class="field"><label for="ally-code">Ally Code</label><input class="input" id="ally-code" inputmode="numeric" value="${escapeHtml(data.demoRoster.allyCode)}" aria-describedby="ally-code-hint"></div><button class="button" type="button" data-action="load-roster">${state.rosterLoaded ? "Reload demo roster" : "Load demo roster"}</button></div><p class="field-hint" id="ally-code-hint">The entered code is not sent anywhere. This action always loads local mock data.</p>${state.rosterLoaded ? renderRosterProfile() : ""}</section>`;
   }
 
   function renderRosterProfile() {
