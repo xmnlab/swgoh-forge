@@ -2,8 +2,11 @@ import importlib.util
 import json
 import sys
 import tempfile
+import types
 import unittest
+from argparse import Namespace
 from pathlib import Path
+from unittest.mock import patch
 
 
 SCRIPT_PATH = Path(__file__).resolve().parents[1] / "scripts" / "update_game_data.py"
@@ -200,6 +203,54 @@ class NormalizeCatalogTests(unittest.TestCase):
             metadata_js = (output / "catalog-meta.js").read_text()
             self.assertIn('"gameDataVersion": "test-game-version"', metadata_js)
             self.assertIn('"characters": 100', metadata_js)
+
+    def test_fetches_category_and_units_with_individual_item_values(self):
+        class FakeComlink:
+            calls = []
+
+            def __init__(self, **kwargs):
+                self.kwargs = kwargs
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return None
+
+            def get_game_metadata(self):
+                return {
+                    "latestGamedataVersion": "game-version",
+                    "latestLocalizationBundleVersion": "localization-version",
+                }
+
+            def get_game_data(self, **kwargs):
+                self.calls.append(kwargs)
+                if kwargs["items"] == update_game_data.CATEGORY_DATA_ITEMS:
+                    return {"category": [{"id": "affiliation_rebel"}], "units": []}
+                return {"category": [], "units": [{"baseId": "TEST_HERO"}]}
+
+            def get_localization(self, **kwargs):
+                return {"HERO_NAME": "Test Hero"}
+
+        fake_module = types.SimpleNamespace(SwgohComlink=FakeComlink)
+        arguments = Namespace(
+            url="http://127.0.0.1:3000",
+            access_key=None,
+            secret_key=None,
+            locale="ENG_US",
+        )
+        with patch.dict(sys.modules, {"swgoh_comlink": fake_module}):
+            metadata, game_data, localization = update_game_data.fetch_comlink(arguments)
+
+        self.assertEqual("game-version", metadata["latestGamedataVersion"])
+        self.assertEqual([{"id": "affiliation_rebel"}], game_data["category"])
+        self.assertEqual([{"baseId": "TEST_HERO"}], game_data["units"])
+        self.assertEqual("Test Hero", localization["HERO_NAME"])
+        self.assertEqual(
+            [update_game_data.CATEGORY_DATA_ITEMS, update_game_data.UNIT_DATA_ITEMS],
+            [call["items"] for call in FakeComlink.calls],
+        )
+        self.assertTrue(all(call["include_pve_units"] is False for call in FakeComlink.calls))
 
 
 if __name__ == "__main__":

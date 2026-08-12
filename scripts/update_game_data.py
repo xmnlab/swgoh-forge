@@ -21,7 +21,8 @@ from typing import Any
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT_DIR = REPOSITORY_ROOT / "data"
 DEFAULT_CACHE_DIR = REPOSITORY_ROOT / ".cache" / "comlink"
-GAME_DATA_ITEMS = 137_438_953_473  # categories (1) + units (137438953472)
+CATEGORY_DATA_ITEMS = 1
+UNIT_DATA_ITEMS = 137_438_953_472
 
 INTERNAL_CATEGORY_PREFIXES = (
     "alignment_",
@@ -138,6 +139,14 @@ def find_collection(document: Any, *names: str) -> list[Any]:
             if found:
                 return found
     return []
+
+
+def merge_catalog_responses(category_data: Any, unit_data: Any) -> dict[str, list[Any]]:
+    """Extract only the two requested collections from separate Comlink responses."""
+    return {
+        "category": find_collection(category_data, "category", "categories"),
+        "units": find_collection(unit_data, "units", "unit"),
+    }
 
 
 def collect_localization(document: Any) -> dict[str, str]:
@@ -572,12 +581,19 @@ def fetch_comlink(args: argparse.Namespace) -> tuple[dict[str, Any], Any, Any]:
             )
             if not game_version or not localization_version:
                 raise ValueError("Comlink metadata did not include current game-data and localization versions.")
-            game_data = client.get_game_data(
+            category_data = client.get_game_data(
                 version=game_version,
                 include_pve_units=False,
-                items=GAME_DATA_ITEMS,
+                items=CATEGORY_DATA_ITEMS,
                 enums=False,
             )
+            unit_data = client.get_game_data(
+                version=game_version,
+                include_pve_units=False,
+                items=UNIT_DATA_ITEMS,
+                enums=False,
+            )
+            game_data = merge_catalog_responses(category_data, unit_data)
             localization = client.get_localization(
                 localization_id=localization_version,
                 locale=args.locale,

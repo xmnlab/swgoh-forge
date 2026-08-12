@@ -184,11 +184,11 @@
     const validDate = generatedDate && !Number.isNaN(generatedDate.getTime());
     const timing = validDate
       ? `Generated ${generatedDate.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })}`
-      : "Run the local updater for current game data";
+      : "Incomplete sample — run the local updater for the full catalog";
     const totalShips = Number(counts.ships || 0) + Number(counts.capitalShips || 0);
     return `<div class="catalog-status" aria-label="Unit catalog status">
       <span class="catalog-status-dot ${generated ? "current" : "seed"}" aria-hidden="true"></span>
-      <span><strong>${escapeHtml(metadata.sourceLabel || "Unit catalog")}</strong><small>${escapeHtml(timing)} · ${formatNumber(counts.characters || 0)} characters · ${formatNumber(totalShips)} ships</small></span>
+      <span><strong>${escapeHtml(generated ? (metadata.sourceLabel || "Unit catalog") : "Bundled seed catalog (not complete)")}</strong><small>${escapeHtml(timing)} · ${formatNumber(counts.characters || 0)} characters · ${formatNumber(totalShips)} ships</small></span>
     </div>`;
   }
 

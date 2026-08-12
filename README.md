@@ -27,6 +27,8 @@ python3 -m http.server
 
 Then open [http://localhost:8000](http://localhost:8000). The checked-in catalog is used until you run the optional updater below.
 
+The bundled catalog contains only 53 representative characters for the static prototype; it is intentionally incomplete. A successful local update changes the interface label to **Local SWGOH Comlink snapshot** and records a generation date and game-data version. If the interface still says **Bundled seed catalog (not complete)**, the updater did not finish successfully.
+
 ## Updating game data locally
 
 This repository deliberately does not scrape SWGOH.GG or run data collection in GitHub Actions. The updater talks only to a Comlink service you operate and writes a normalized static snapshot that can be reviewed and committed.
@@ -41,6 +43,8 @@ The simplest option starts Comlink on a currently unused loopback port, waits fo
 ```bash
 ./scripts/update-data-full.sh
 ```
+
+The final line must say `The complete Comlink catalog was generated successfully.` If the command exits earlier, the seed files are left unchanged so a partial response cannot replace them.
 
 To manage the service yourself, start the pinned Comlink container on the loopback interface:
 
@@ -67,7 +71,7 @@ The wrapper creates or repairs `.venv-data`, installs the pinned `swgoh_comlink`
 - `data/ships.js`
 - `data/catalog-meta.js`
 
-It requests current metadata, the playable unit/category collections, and one localization locale (`ENG_US` by default). Raw responses are cached under `.cache/comlink/`, which is ignored by Git. Rebuild from that cache without contacting Comlink using:
+It requests current metadata, the playable category and unit collections separately, and one localization locale (`ENG_US` by default). The separate collection requests use values accepted by Comlink 4.4.1 and avoid its rejection of combined item masks. Raw responses are cached under `.cache/comlink/`, which is ignored by Git. Rebuild from that cache without contacting Comlink using:
 
 ```bash
 ./scripts/update-data.sh --from-cache

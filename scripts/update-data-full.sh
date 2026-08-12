@@ -57,3 +57,23 @@ if [[ "${ready}" != true ]]; then
 fi
 
 "${script_dir}/update-data.sh" "$@"
+
+dry_run=false
+for argument in "$@"; do
+  if [[ "${argument}" == "--dry-run" ]]; then
+    dry_run=true
+    break
+  fi
+done
+
+if [[ "${dry_run}" == true ]]; then
+  echo "The complete Comlink catalog was validated successfully; dry run left files unchanged."
+else
+  if ! grep -Eq '"?status"?[[:space:]]*:[[:space:]]*"generated"' \
+    "${repository_root}/data/catalog-meta.js"; then
+    echo "The updater exited without marking data/catalog-meta.js as generated." >&2
+    echo "The bundled 53-character seed catalog is still active; no update was published." >&2
+    exit 1
+  fi
+  echo "The complete Comlink catalog was generated successfully."
+fi
