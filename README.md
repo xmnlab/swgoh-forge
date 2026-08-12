@@ -4,7 +4,7 @@
 
 SWGOH Forge is an unofficial, fan-made planning concept for *Star Wars: Galaxy of Heroes*. It is a static frontend prototype with an optional local data pipeline for generating a current character and ship catalog from [SWGOH Comlink](https://github.com/swgoh-utils/swgoh-comlink).
 
-The unit catalog and general squad-synergy model can be generated from current game data. General squad scores compare leader coverage, kit relationships, assists, recovery/control mechanics, explicit team-up tags, faction cohesion, and role balance. The squad matchup simulator runs seeded Monte Carlo battles over normalized base stats and compact kit mechanics. Both are explainable estimates—not observed win rates or an exact reproduction of the game engine. Fleet results, requirements, account details, and whole-roster optimization remain structured mock/demo data.
+The unit catalog, general squad-synergy model, and selected player roster snapshots can be generated from current game data. General squad scores compare leader coverage, kit relationships, assists, recovery/control mechanics, explicit team-up tags, faction cohesion, and role balance. The squad matchup simulator runs seeded Monte Carlo battles over normalized base stats and compact kit mechanics. Both are explainable estimates—not observed win rates or an exact reproduction of the game engine. Fleet results, requirements, missions, and whole-roster assignments remain structured demonstrations.
 
 ## Prototype features
 
@@ -15,7 +15,9 @@ The unit catalog and general squad-synergy model can be generated from current g
 - Demo fleet counter flow
 - Searchable, filterable character and ship pickers
 - Minimum, recommended, and safe requirement tiers
-- Demo roster readiness and whole-roster optimization
+- Locally generated static roster profiles, readiness comparisons, and owned-unit filtering
+- Automatic exclusion of characters absent from the loaded roster snapshot
+- Demo whole-roster assignments, clearly separated from real roster progression
 - Optional locally generated unit, ship, category, and English-name snapshot
 - Optional localized kit, explicit ability-synergy, and in-game recommended-squad snapshot
 - Responsive layouts and keyboard-accessible dialogs and drawers
@@ -115,6 +117,26 @@ COMLINK_SERVER_VERSION=4.5.0 ./scripts/update-data-full.sh --dry-run
 
 The updater preserves existing human-readable IDs where localized names match, adds stable base-ID aliases, selects the highest-rarity definition for each playable unit, links ships to their crew, and writes files atomically. It also links unit skill IDs to final-tier localized kits, records explicit ability target categories and game-provided squad compositions when available, and reduces kit text to compact relationship signals instead of publishing full descriptions. Comlink encounter clones are excluded using their nonzero `obtainableTime` sentinel; this removes raid, journey, and inherited-event copies without relying on naming suffixes. It refuses an implausibly small response or a snapshot that unexpectedly removes existing IDs. `--allow-missing-seed-units` is available for an intentional removal after reviewing the result.
 
+## Updating player rosters locally
+
+GitHub Pages cannot run a server, so the published site cannot fetch an arbitrary Ally Code on demand. Roster profiles are instead generated locally and stored in `data/rosters.js`. Run:
+
+```bash
+./scripts/update-roster-full.sh 123-456-789
+```
+
+The wrapper starts the pinned Comlink container on an unused loopback port, requests the public `/player` profile, normalizes the useful roster progression, writes the snapshot atomically, and stops Comlink. It uses only Python's standard library and Docker; it does not require the data-updater virtual environment.
+
+The Ally Code is an upsert key. Running the command again replaces that player's existing snapshot, while a new Ally Code is added alongside the existing entries. To validate a profile without writing it:
+
+```bash
+./scripts/update-roster-full.sh 123-456-789 --dry-run
+```
+
+After an update, reload the site and open **Roster**. Loading a saved Ally Code resets previous calculated results and the cached Build exclusions, then excludes every character in the current catalog that is absent from that roster. The Build optimizer therefore recommends only owned characters unless exclusions are manually changed afterward.
+
+The generated file intentionally omits the internal player ID, raw equipped-mod records, datacrons, and other fields the interface does not use. It does include the Ally Code, player name, guild name, unit ownership, and progression. **Committing `data/rosters.js` publishes that information through the static site. Only commit a snapshot when the player expects it to be public.**
+
 ### What the team score means
 
 The Build → Characters flow runs locally in the browser over the generated `data/synergies.js` model. It searches valid leaders and squad combinations while honoring required, excluded, and locked-leader constraints. Leadership coverage carries the largest weight, followed by shared affiliations, directed unique/special relationships, explicit `teamup_*` tags, role balance, and any game-provided recommended-squad overlap. Expanded results name the abilities and relationships that drove the score.
@@ -137,7 +159,7 @@ The container is bound to `127.0.0.1`, so it is not exposed to other machines. I
 
 ### Data scope and provenance
 
-The generated files contain a compact subset needed by the UI: base ID, localized name, unit type, visible faction categories, alignment, role, leadership, crew relationships, display metadata, skill/ability relationship signals, and official recommended-squad membership when present. The updater does not request player profiles, guilds, rosters, battle histories, or credentials.
+The generated catalog files contain a compact subset needed by the UI: base ID, localized name, unit type, visible faction categories, alignment, role, leadership, crew relationships, display metadata, skill/ability relationship signals, and official recommended-squad membership when present. The catalog updater does not request player profiles, guilds, rosters, battle histories, or credentials. The separate roster updater requests only the explicitly supplied public Ally Code through `/player` and saves the normalized fields documented above.
 
 SWGOH Comlink and `comlink-python` are third-party community projects. Their software licenses do not grant rights to Electronic Arts game data. Before redistributing generated snapshots, review the applicable game terms and repository policies yourself. Keeping the collection local reduces operational load and makes every update an explicit, reviewable action; it is not a grant of permission from a rights holder.
 
@@ -145,7 +167,7 @@ SWGOH Comlink and `comlink-python` are third-party community projects. Their sof
 
 The `Deploy static site to GitHub Pages` workflow publishes the repository root after every push to `main`. It can also be run manually from the repository's **Actions** tab. The workflow requests Pages enablement, which handles repositories where the Pages site has not yet been created. Repository administrators can also select **Settings → Pages → Source → GitHub Actions** manually.
 
-The data updater is not part of the deployment workflow. Run it locally, inspect the generated diff, and commit the snapshot when you want the published catalog to change.
+The catalog and roster updaters are not part of the deployment workflow. Run them locally, inspect the generated diff, and commit only the snapshots you want the published site to expose.
 
 ## Project structure
 
@@ -161,8 +183,10 @@ swgoh-forge/
 ├── scripts/
 │   ├── update-data-full.sh    # Start service, update data, and clean up
 │   ├── update-data.sh         # Update using a running Comlink service
+│   ├── update-roster-full.sh  # Fetch and upsert one static player roster
 │   ├── capture_comlink_runtime.py # Save image/runtime/API diagnostics
-│   └── update_game_data.py    # Fetch, normalize, validate, and generate
+│   ├── update_game_data.py    # Fetch, normalize, validate, and generate
+│   └── update_roster_data.py  # Normalize and atomically upsert roster data
 ├── data/
 │   ├── catalog-meta.js        # Snapshot source, version, date, and counts
 │   ├── characters.js          # Generated or bundled character catalog
@@ -170,9 +194,10 @@ swgoh-forge/
 │   ├── synergies.js           # Generated unit-kit and team relationships
 │   ├── recommendations.js     # Squad, fleet, counter, and roster demos
 │   ├── encounters.js          # Context, objectives, and mission demos
-│   └── demo-roster.js         # Fictional local roster
+│   └── rosters.js             # Locally generated static player snapshots
 ├── tests/
 │   ├── test_update_game_data.py
+│   ├── test_update_roster_data.py
 │   ├── test_team_optimizer.js
 │   └── test_battle_simulator.js
 └── assets/
@@ -192,7 +217,7 @@ Run the local checks with:
 python3 -m unittest discover -s tests
 node tests/test_team_optimizer.js
 node tests/test_battle_simulator.js
-bash -n scripts/update-data.sh scripts/update-data-full.sh
+bash -n scripts/update-data.sh scripts/update-data-full.sh scripts/update-roster-full.sh
 for file in app.js battle-simulator.js team-optimizer.js; do node --check "$file"; done
 ```
 

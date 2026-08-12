@@ -2,6 +2,9 @@
   "use strict";
 
   const data = window.ForgeData;
+  const staticRosterStore = data.staticRosters || { schemaVersion: 1, updatedAt: null, rosters: {} };
+  const staticRosters = staticRosterStore.rosters || {};
+  const defaultRosterAllyCode = Object.keys(staticRosters)[0] || "";
   const app = document.querySelector("#app");
   const pickerDialog = document.querySelector("#picker-dialog");
   const pickerContent = document.querySelector("#picker-content");
@@ -47,6 +50,8 @@
     counterExcluded: [],
     counterPreserved: [],
     rosterLoaded: false,
+    rosterAllyCode: defaultRosterAllyCode,
+    activeRosterAllyCode: null,
     compareRoster: false,
     requirementLevel: "recommended",
     results: { build: false, counter: false, roster: false },
@@ -153,6 +158,28 @@
       .replaceAll(">", "&gt;")
       .replaceAll('"', "&quot;")
       .replaceAll("'", "&#039;");
+  }
+
+  function activeRoster() {
+    return state.activeRosterAllyCode ? staticRosters[state.activeRosterAllyCode] || null : null;
+  }
+
+  function normalizeAllyCode(value) {
+    return String(value || "").replace(/[\s-]/g, "");
+  }
+
+  function formatAllyCode(value) {
+    const allyCode = normalizeAllyCode(value);
+    return allyCode.length === 9 ? `${allyCode.slice(0, 3)}-${allyCode.slice(3, 6)}-${allyCode.slice(6)}` : allyCode;
+  }
+
+  function formatPower(value) {
+    return Number.isFinite(Number(value)) && Number(value) > 0 ? `${(Number(value) / 1e6).toFixed(2)}M` : "—";
+  }
+
+  function formatSnapshotDate(value) {
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? "Unknown update time" : new Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeStyle: "short" }).format(date);
   }
 
   function initials(name) {
@@ -450,15 +477,17 @@
   }
 
   function getReadiness(entry) {
-    if (!state.rosterLoaded) return { state: "insufficient", icon: "○", label: "No roster", detail: "Load the demo roster in Roster to compare this target." };
-    const owned = data.demoRoster.units[entry.id];
-    if (!owned) return { state: "insufficient", icon: "!", label: "Insufficient", detail: "No demo roster record for this unit." };
+    const roster = activeRoster();
+    if (!state.rosterLoaded || !roster) return { state: "insufficient", icon: "○", label: "No roster", detail: "Load a saved static roster in Roster to compare this target." };
+    const owned = roster.units[entry.id];
+    if (!owned) return { state: "insufficient", icon: "!", label: "Not owned", detail: "This character is not present in the loaded roster snapshot." };
     let worst = "ready";
     let detail = "All modeled targets are met.";
     entry.metrics.forEach(([metric, target]) => {
       const targetNumber = Number(String(target).match(/[\d,.]+/)?.[0].replaceAll(",", ""));
       if (!targetNumber) return;
-      const key = metric.toLowerCase().includes("relic") ? "relic" : metric.toLowerCase().includes("speed") ? "speed" : metric.toLowerCase().includes("health") ? "health" : metric.toLowerCase().includes("protection") ? "protection" : metric.toLowerCase().includes("offense") ? "offense" : metric.toLowerCase().includes("potency") ? "potency" : metric.toLowerCase().includes("tenacity") ? "tenacity" : null;
+      const metricName = metric.toLowerCase();
+      const key = metricName.includes("relic") ? "relic" : metricName.includes("gear") ? "gear" : metricName.includes("speed") ? "speed" : metricName.includes("health") ? "health" : metricName.includes("protection") ? "protection" : metricName.includes("offense") ? "offense" : metricName.includes("potency") ? "potency" : metricName.includes("tenacity") ? "tenacity" : null;
       if (!key || owned[key] == null) return;
       const deficit = targetNumber - owned[key];
       if (deficit > 0) {
@@ -478,7 +507,8 @@
 
   function renderTurnOrder(requirement) {
     if (!requirement.turnOrder && !requirement.relation) return "";
-    const relationReady = state.rosterLoaded && requirement.turnOrder?.every((id) => data.demoRoster.units[id]);
+    const roster = activeRoster();
+    const relationReady = state.rosterLoaded && roster && requirement.turnOrder?.every((id) => roster.units[id]);
     return `<div class="turn-order"><div class="turn-order-panel"><h4>Critical turn order</h4><div class="turn-order-list">${(requirement.turnOrder || []).map((id, index) => `${index ? '<span class="arrow">→</span>' : ""}<span>${escapeHtml(displayName(characterMap.get(id)))}</span>`).join("")}</div></div><div class="turn-order-panel"><h4>Relative requirement</h4><div class="turn-order-list"><span>${escapeHtml(requirement.relation || "No relative target")}</span>${state.compareRoster ? `<span class="readiness ${relationReady ? "borderline" : "insufficient"}">${relationReady ? "△ Check enemy speed" : "! Missing data"}</span>` : ""}</div></div></div>`;
   }
 
@@ -507,7 +537,7 @@
   function renderFleetDetails(rec) {
     const tab = state.detailTabs[rec.id] || "why";
     const requirement = rec.requirements[state.requirementLevel];
-    return `<div class="recommendation-details"><div class="detail-tabs" role="tablist"><button class="${tab === "why" ? "active" : ""}" type="button" data-rec-tab="why" data-rec-id="${rec.id}">Why this works</button><button class="${tab === "requirements" ? "active" : ""}" type="button" data-rec-tab="requirements" data-rec-id="${rec.id}">Ship & pilot requirements</button></div>${tab === "why" ? `<div class="detail-copy"><p>${escapeHtml(rec.why)}</p><div class="tag-list"><span class="tag">Starter order matters</span><span class="tag">Reinforcement order modeled</span><span class="tag">${escapeHtml(currentModeLabel())}</span></div></div>` : `<div><div class="requirement-toolbar">${segmented("requirement-level", [{ id: "minimum", label: "Minimum" }, { id: "recommended", label: "Recommended" }, { id: "safe", label: "Safe" }], state.requirementLevel)}<label class="check-label"><input type="checkbox" data-field="compareRoster" ${state.compareRoster ? "checked" : ""}> Compare with my roster</label></div><p class="requirement-note">Contextual targets for this fleet formation. Pilot development affects resulting ship stats.</p><div class="requirement-grid"><div class="requirement-unit"><h4>Ship</h4><dl>${requirement.ship.map(([key, value]) => `<dt>${escapeHtml(key)}</dt><dd>${escapeHtml(value)}</dd>`).join("")}</dl></div><div class="requirement-unit"><h4>Pilot</h4><dl>${requirement.pilot.map(([key, value]) => `<dt>${escapeHtml(key)}</dt><dd>${escapeHtml(value)}</dd>`).join("")}</dl><div class="roster-comparison">Bossk <span style="color:var(--teal)">↓</span> Hound's Tooth · pilot stats contribute to ship power.</div></div></div><div class="turn-order"><div class="turn-order-panel"><h4>Critical relationship</h4><div class="turn-order-list">${escapeHtml(requirement.relation)}</div></div><div class="turn-order-panel"><h4>Demo roster</h4><div class="turn-order-list"><span class="readiness ${state.rosterLoaded ? "ready" : "insufficient"}">${state.rosterLoaded ? "✓ Core ship data loaded" : "○ Load roster to compare"}</span></div></div></div></div>`}</div>`;
+    return `<div class="recommendation-details"><div class="detail-tabs" role="tablist"><button class="${tab === "why" ? "active" : ""}" type="button" data-rec-tab="why" data-rec-id="${rec.id}">Why this works</button><button class="${tab === "requirements" ? "active" : ""}" type="button" data-rec-tab="requirements" data-rec-id="${rec.id}">Ship & pilot requirements</button></div>${tab === "why" ? `<div class="detail-copy"><p>${escapeHtml(rec.why)}</p><div class="tag-list"><span class="tag">Starter order matters</span><span class="tag">Reinforcement order modeled</span><span class="tag">${escapeHtml(currentModeLabel())}</span></div></div>` : `<div><div class="requirement-toolbar">${segmented("requirement-level", [{ id: "minimum", label: "Minimum" }, { id: "recommended", label: "Recommended" }, { id: "safe", label: "Safe" }], state.requirementLevel)}<label class="check-label"><input type="checkbox" data-field="compareRoster" ${state.compareRoster ? "checked" : ""}> Compare with my roster</label></div><p class="requirement-note">Contextual targets for this fleet formation. Pilot development affects resulting ship stats.</p><div class="requirement-grid"><div class="requirement-unit"><h4>Ship</h4><dl>${requirement.ship.map(([key, value]) => `<dt>${escapeHtml(key)}</dt><dd>${escapeHtml(value)}</dd>`).join("")}</dl></div><div class="requirement-unit"><h4>Pilot</h4><dl>${requirement.pilot.map(([key, value]) => `<dt>${escapeHtml(key)}</dt><dd>${escapeHtml(value)}</dd>`).join("")}</dl><div class="roster-comparison">Bossk <span style="color:var(--teal)">↓</span> Hound's Tooth · pilot stats contribute to ship power.</div></div></div><div class="turn-order"><div class="turn-order-panel"><h4>Critical relationship</h4><div class="turn-order-list">${escapeHtml(requirement.relation)}</div></div><div class="turn-order-panel"><h4>Loaded roster</h4><div class="turn-order-list"><span class="readiness ${state.rosterLoaded ? "ready" : "insufficient"}">${state.rosterLoaded ? "✓ Static ship data loaded" : "○ Load roster to compare"}</span></div></div></div></div>`}</div>`;
   }
 
   function renderCounter() {
@@ -594,24 +624,46 @@
   function renderMissionDetail(mission) {
     const category = data.missionCategories.find((item) => item.id === state.selectedMission);
     const tier = mission.tierRequirements[state.requirementLevel];
-    return `<section class="panel mission-detail"><div class="panel-heading"><div><span class="step-index">MISSION PATH</span><h2>${escapeHtml(mission.title)}</h2><p>${escapeHtml(category.description)}</p></div><span class="demo-badge">Demo data</span></div><div class="form-grid">${mission.selectors.map((selector, index) => `<div class="field"><label for="mission-selector-${index}">${escapeHtml(selector.label)}</label><select class="select" id="mission-selector-${index}" data-mission-select="${index}">${selector.options.map((option, optionIndex) => `<option value="${optionIndex}"${state.missionSelections[state.selectedMission]?.[index] === optionIndex ? " selected" : ""}>${escapeHtml(option)}</option>`).join("")}</select></div>`).join("")}</div><div class="mission-result"><div><span class="field-label">Recommended formation</span>${mission.type === "fleet" ? `<div class="fleet-formation"><div class="fleet-group"><span class="fleet-group-label">Capital</span>${formationUnit(mission.capitalShipId, { kind: "capital", leader: true })}</div><div class="fleet-group"><span class="fleet-group-label">Start</span>${mission.starters.map((id) => formationUnit(id, { kind: "ship" })).join("")}</div><div class="fleet-group"><span class="fleet-group-label">Reinforce</span>${mission.reinforcements.map((id) => formationUnit(id, { kind: "ship" })).join("")}</div></div>` : `<div class="formation">${mission.formation.map((id) => formationUnit(id, { leader: id === mission.leaderId })).join("")}</div>`}</div><div class="mission-notes"><div class="data-row"><span>Reliability</span><strong>${escapeHtml(mission.reliability)}</strong></div><div class="data-row"><span>Investment</span><strong>${escapeHtml(mission.investment)}</strong></div><div class="data-row"><span>Special requirement</span><strong>${escapeHtml(mission.special)}</strong></div></div></div><div class="detail-copy" style="margin-top:20px"><span class="micro-label">Strategy path</span><p>${escapeHtml(mission.note)}</p></div><div class="requirement-toolbar" style="margin-top:17px">${segmented("requirement-level", [{ id: "minimum", label: "Minimum viable" }, { id: "recommended", label: "Recommended" }, { id: "safe", label: "Safe" }], state.requirementLevel)}<label class="check-label"><input type="checkbox" data-field="compareRoster" ${state.compareRoster ? "checked" : ""}> Compare with my roster</label></div><p class="requirement-note">${state.requirementLevel === "minimum" ? "Lower investment, more retries expected." : state.requirementLevel === "safe" ? "Higher investment, designed to reduce opening variance." : "Balanced target for repeatable mission completion."} ${state.compareRoster ? (state.rosterLoaded ? "Demo roster comparison is active." : "Load the demo roster to see readiness.") : ""}</p><div class="requirement-grid"><div class="requirement-unit"><h4>Contextual targets</h4><dl>${tier.map(([key, value]) => `<dt>${escapeHtml(key)}</dt><dd>${escapeHtml(value)}</dd>`).join("")}</dl></div><div class="requirement-unit"><h4>Critical turn order</h4><p class="requirement-note">${escapeHtml(mission.turnOrder)}</p><div class="roster-comparison"><span class="readiness ${state.compareRoster && state.rosterLoaded ? "borderline" : "insufficient"}">${state.compareRoster && state.rosterLoaded ? "△ Validate against mission speed" : "○ Demo relationship"}</span></div></div></div></section>`;
+    const formation = mission.type === "fleet"
+      ? `<div class="fleet-formation"><div class="fleet-group"><span class="fleet-group-label">Capital</span>${formationUnit(mission.capitalShipId, { kind: "capital", leader: true })}</div><div class="fleet-group"><span class="fleet-group-label">Start</span>${mission.starters.map((id) => formationUnit(id, { kind: "ship" })).join("")}</div><div class="fleet-group"><span class="fleet-group-label">Reinforce</span>${mission.reinforcements.map((id) => formationUnit(id, { kind: "ship" })).join("")}</div></div>`
+      : `<div class="formation">${mission.formation.map((id) => formationUnit(id, { leader: id === mission.leaderId })).join("")}</div>`;
+    const rosterMessage = state.compareRoster
+      ? state.rosterLoaded
+        ? "Static roster comparison is active."
+        : "Load a saved static roster to compare readiness."
+      : "";
+    return `<section class="panel mission-detail">
+      <div class="panel-heading"><div><span class="step-index">MISSION PATH</span><h2>${escapeHtml(mission.title)}</h2><p>${escapeHtml(category.description)}</p></div><span class="demo-badge">Demo data</span></div>
+      <div class="form-grid">${mission.selectors.map((selector, index) => `<div class="field"><label for="mission-selector-${index}">${escapeHtml(selector.label)}</label><select class="select" id="mission-selector-${index}" data-mission-select="${index}">${selector.options.map((option, optionIndex) => `<option value="${optionIndex}"${state.missionSelections[state.selectedMission]?.[index] === optionIndex ? " selected" : ""}>${escapeHtml(option)}</option>`).join("")}</select></div>`).join("")}</div>
+      <div class="mission-result"><div><span class="field-label">Recommended formation</span>${formation}</div><div class="mission-notes"><div class="data-row"><span>Reliability</span><strong>${escapeHtml(mission.reliability)}</strong></div><div class="data-row"><span>Investment</span><strong>${escapeHtml(mission.investment)}</strong></div><div class="data-row"><span>Special requirement</span><strong>${escapeHtml(mission.special)}</strong></div></div></div>
+      <div class="detail-copy" style="margin-top:20px"><span class="micro-label">Strategy path</span><p>${escapeHtml(mission.note)}</p></div>
+      <div class="requirement-toolbar" style="margin-top:17px">${segmented("requirement-level", [{ id: "minimum", label: "Minimum viable" }, { id: "recommended", label: "Recommended" }, { id: "safe", label: "Safe" }], state.requirementLevel)}<label class="check-label"><input type="checkbox" data-field="compareRoster" ${state.compareRoster ? "checked" : ""}> Compare with my roster</label></div>
+      <p class="requirement-note">${state.requirementLevel === "minimum" ? "Lower investment, more retries expected." : state.requirementLevel === "safe" ? "Higher investment, designed to reduce opening variance." : "Balanced target for repeatable mission completion."} ${rosterMessage}</p>
+      <div class="requirement-grid"><div class="requirement-unit"><h4>Contextual targets</h4><dl>${tier.map(([key, value]) => `<dt>${escapeHtml(key)}</dt><dd>${escapeHtml(value)}</dd>`).join("")}</dl></div><div class="requirement-unit"><h4>Critical turn order</h4><p class="requirement-note">${escapeHtml(mission.turnOrder)}</p><div class="roster-comparison"><span class="readiness ${state.compareRoster && state.rosterLoaded ? "borderline" : "insufficient"}">${state.compareRoster && state.rosterLoaded ? "△ Validate against mission speed" : "○ Demo relationship"}</span></div></div></div>
+    </section>`;
   }
 
   function renderRoster() {
-    return `<div class="page-shell"><section class="section-hero"><div class="eyebrow">Whole-roster planning</div><h1>Make the most of your entire roster.</h1><p>Load a fictional account, preserve the pieces you need elsewhere, and preview non-overlapping team assignments.</p></section>${renderRosterLoader()}${state.rosterLoaded ? renderRosterWorkspace() : '<div class="empty-state">No roster loaded. Use the demo account to explore readiness comparisons and lineup optimization.</div>'}</div>`;
+    const emptyMessage = Object.keys(staticRosters).length
+      ? "No roster loaded. Enter one of the locally generated Ally Codes above."
+      : "No static roster snapshots have been generated yet. Run the local roster updater, then reload this page.";
+    return `<div class="page-shell"><section class="section-hero"><div class="eyebrow">Whole-roster planning</div><h1>Make the most of your entire roster.</h1><p>Load a locally generated roster snapshot, compare real unit progression, and keep recommendations limited to characters you own.</p></section>${renderRosterLoader()}${state.rosterLoaded ? renderRosterWorkspace() : `<div class="empty-state">${escapeHtml(emptyMessage)}</div>`}</div>`;
   }
 
   function renderRosterLoader() {
-    return `<section class="panel"><div class="panel-heading"><div><span class="step-index">01 / ROSTER</span><h2>Connect your collection</h2><p>The optional Comlink snapshot updates unit definitions only; player roster loading is still simulated.</p></div><span class="demo-badge">Demo roster</span></div><div class="roster-load"><div class="field"><label for="ally-code">Ally Code</label><input class="input" id="ally-code" inputmode="numeric" value="${escapeHtml(data.demoRoster.allyCode)}" aria-describedby="ally-code-hint"></div><button class="button" type="button" data-action="load-roster">${state.rosterLoaded ? "Reload demo roster" : "Load demo roster"}</button></div><p class="field-hint" id="ally-code-hint">The entered code is not sent anywhere. This action always loads local mock data.</p>${state.rosterLoaded ? renderRosterProfile() : ""}</section>`;
+    const rosterCodes = Object.keys(staticRosters);
+    const rosterOptions = rosterCodes.map((allyCode) => `<option value="${allyCode}">${escapeHtml(staticRosters[allyCode].name || allyCode)}</option>`).join("");
+    return `<section class="panel"><div class="panel-heading"><div><span class="step-index">01 / ROSTER</span><h2>Load a saved collection</h2><p>Choose an Ally Code already generated into this static build.</p></div><span class="status-badge">${rosterCodes.length} static ${rosterCodes.length === 1 ? "roster" : "rosters"}</span></div><div class="roster-load"><div class="field"><label for="ally-code">Ally Code</label><input class="input" id="ally-code" inputmode="numeric" autocomplete="off" pattern="[1-9]{3}-?[1-9]{3}-?[1-9]{3}" value="${escapeHtml(formatAllyCode(state.rosterAllyCode))}" list="saved-roster-codes" aria-describedby="ally-code-hint"><datalist id="saved-roster-codes">${rosterOptions}</datalist></div><button class="button" type="button" data-action="load-roster">${state.rosterLoaded ? "Load roster" : "Load saved roster"}</button></div><p class="field-hint" id="ally-code-hint">No request is made from your browser. Generate or refresh a snapshot locally with <code>./scripts/update-roster-full.sh ALLY_CODE</code>, then reload the page.</p><div class="model-notice roster-hosting-note"><strong>Static version · no live server</strong><span>SWGOH Forge currently cannot fetch a new Ally Code from the website. Financial support would help fund a hosted server so live roster loading can be offered in the future.</span></div>${state.rosterLoaded ? renderRosterProfile() : ""}</section>`;
   }
 
   function renderRosterProfile() {
-    const roster = data.demoRoster;
-    return `<div class="roster-profile"><div class="profile-emblem" aria-hidden="true">FP</div><div><div class="profile-head"><div><h2>${escapeHtml(roster.name)}</h2><p>${escapeHtml(roster.guild)} · ${escapeHtml(roster.allyCode)}</p></div><span class="status-badge">Demo account</span></div><div class="profile-stats"><div class="profile-stat"><strong>${(roster.galacticPower / 1e6).toFixed(2)}M</strong><span>Galactic Power</span></div><div class="profile-stat"><strong>${roster.characterCount}</strong><span>Characters</span></div><div class="profile-stat"><strong>${roster.shipCount}</strong><span>Ships</span></div><div class="profile-stat"><strong>${roster.relicCount}</strong><span>Relic units</span></div><div class="profile-stat"><strong>${roster.galacticLegends}</strong><span>Galactic Legends</span></div></div></div></div>`;
+    const roster = activeRoster();
+    if (!roster) return "";
+    return `<div class="roster-profile"><div class="profile-emblem" aria-hidden="true">${escapeHtml(initials(roster.name))}</div><div><div class="profile-head"><div><h2>${escapeHtml(roster.name)}</h2><p>${escapeHtml(roster.guild)} · ${escapeHtml(formatAllyCode(roster.allyCode))}<br><small>Snapshot updated ${escapeHtml(formatSnapshotDate(roster.updatedAt))}</small></p></div><span class="status-badge">Static snapshot</span></div><div class="profile-stats"><div class="profile-stat"><strong>${formatPower(roster.galacticPower)}</strong><span>Galactic Power</span></div><div class="profile-stat"><strong>${formatNumber(roster.characterCount)}</strong><span>Characters</span></div><div class="profile-stat"><strong>${formatNumber(roster.shipCount)}</strong><span>Ships</span></div><div class="profile-stat"><strong>${formatNumber(roster.relicCount)}</strong><span>Relic units</span></div><div class="profile-stat"><strong>${formatNumber(roster.galacticLegends)}</strong><span>Galactic Legends</span></div></div></div></div>`;
   }
 
   function renderRosterWorkspace() {
-    return `<section class="panel"><div class="panel-heading"><div><span class="step-index">02 / OPTIMIZE</span><h2>Whole-roster optimization</h2><p>Prototype assignments avoid duplicate characters.</p></div></div><div class="form-grid three"><div class="field"><label for="roster-mode">Optimize for</label><select class="select" id="roster-mode" data-field="rosterOptimizeFor"><option value="balanced"${state.rosterOptimizeFor === "balanced" ? " selected" : ""}>Balanced</option><option value="gac-offense"${state.rosterOptimizeFor === "gac-offense" ? " selected" : ""}>GAC offense</option><option value="gac-defense"${state.rosterOptimizeFor === "gac-defense" ? " selected" : ""}>GAC defense</option><option value="tw"${state.rosterOptimizeFor === "tw" ? " selected" : ""}>Territory Wars</option><option value="tb"${state.rosterOptimizeFor === "tb" ? " selected" : ""}>Territory Battles</option><option value="fleets"${state.rosterOptimizeFor === "fleets" ? " selected" : ""}>Fleets</option></select></div><div class="field"><label for="team-count">Number of teams</label><select class="select" id="team-count" data-field="rosterTeamCount">${[4, 6, 8].map((count) => `<option value="${count}"${count === Number(state.rosterTeamCount) ? " selected" : ""}>${count}</option>`).join("")}</select></div><div class="field"><span class="field-label">Preserve</span><button class="add-unit" type="button" data-action="coming-later">＋ Lock existing squad</button><p class="field-hint">Squad presets are coming later.</p></div></div><div class="form-grid" style="margin-top:20px"><div class="preferences"><span class="field-label">Preferences</span><label class="check-label"><input type="checkbox" checked disabled> No duplicate characters</label><label class="check-label"><input type="checkbox" checked> Minimize additional relic investment</label><label class="check-label"><input type="checkbox"> Keep Galactic Legends for offense</label><label class="check-label"><input type="checkbox" checked> Include fleets</label></div><div class="selection-zone"><span class="field-label">Method note</span><p class="field-hint">This static demonstration assigns curated teams and does not run a real optimization algorithm. Every result below is demo data.</p></div></div><div class="panel-actions"><button class="button button-quiet button-small" type="button" data-action="reset-roster-results">Clear results</button><button class="button button-wide" type="button" data-action="optimize-roster">Optimize lineup <span aria-hidden="true">→</span></button></div></section>${state.loading === "roster" ? renderForging("lineup", "Resolving non-overlapping assignments") : state.results.roster ? renderOptimizedLineup() : ""}`;
+    return `<section class="panel"><div class="panel-heading"><div><span class="step-index">02 / OPTIMIZE</span><h2>Whole-roster optimization</h2><p>The loaded collection and Build-mode ownership filtering are real; the assignments below remain a curated prototype.</p></div><span class="demo-badge">Demo optimizer</span></div><div class="form-grid three"><div class="field"><label for="roster-mode">Optimize for</label><select class="select" id="roster-mode" data-field="rosterOptimizeFor"><option value="balanced"${state.rosterOptimizeFor === "balanced" ? " selected" : ""}>Balanced</option><option value="gac-offense"${state.rosterOptimizeFor === "gac-offense" ? " selected" : ""}>GAC offense</option><option value="gac-defense"${state.rosterOptimizeFor === "gac-defense" ? " selected" : ""}>GAC defense</option><option value="tw"${state.rosterOptimizeFor === "tw" ? " selected" : ""}>Territory Wars</option><option value="tb"${state.rosterOptimizeFor === "tb" ? " selected" : ""}>Territory Battles</option><option value="fleets"${state.rosterOptimizeFor === "fleets" ? " selected" : ""}>Fleets</option></select></div><div class="field"><label for="team-count">Number of teams</label><select class="select" id="team-count" data-field="rosterTeamCount">${[4, 6, 8].map((count) => `<option value="${count}"${count === Number(state.rosterTeamCount) ? " selected" : ""}>${count}</option>`).join("")}</select></div><div class="field"><span class="field-label">Preserve</span><button class="add-unit" type="button" data-action="coming-later">＋ Lock existing squad</button><p class="field-hint">Squad presets are coming later.</p></div></div><div class="form-grid" style="margin-top:20px"><div class="preferences"><span class="field-label">Preferences</span><label class="check-label"><input type="checkbox" checked disabled> No duplicate characters</label><label class="check-label"><input type="checkbox" checked> Minimize additional relic investment</label><label class="check-label"><input type="checkbox"> Keep Galactic Legends for offense</label><label class="check-label"><input type="checkbox" checked> Include fleets</label></div><div class="selection-zone"><span class="field-label">Method note</span><p class="field-hint">This demonstration assigns curated teams and does not yet optimize directly from the loaded roster. Every assignment below remains demo data.</p></div></div><div class="panel-actions"><button class="button button-quiet button-small" type="button" data-action="reset-roster-results">Clear results</button><button class="button button-wide" type="button" data-action="optimize-roster">Optimize lineup <span aria-hidden="true">→</span></button></div></section>${state.loading === "roster" ? renderForging("lineup", "Resolving non-overlapping assignments") : state.results.roster ? renderOptimizedLineup() : ""}`;
   }
 
   function renderOptimizedLineup() {
@@ -722,11 +774,32 @@
   function openDrawer(id, kind) {
     const unit = unitById(id, kind);
     if (!unit) return;
-    const owned = kind === "character" ? data.demoRoster.units[id] : kind === "ship" ? data.demoRoster.ships[id] : null;
-    const characterStats = owned || { relic: "—", speed: "—", health: "—", protection: "—", offense: "—", potency: "—", tenacity: "—", zetas: "—", omicrons: "—" };
+    const roster = activeRoster();
+    const owned = kind === "character" ? roster?.units?.[id] : roster?.ships?.[id];
     const pilot = kind === "ship" ? (characterMap.get(unit.pilotId)?.name || unit.pilotName || "Crewless") : null;
     const commander = kind === "capital" ? (characterMap.get(unit.commanderId)?.name || unit.commanderName || "Unknown commander") : null;
-    drawerContent.innerHTML = `<div class="drawer-head"><div><span class="micro-label">Optimization detail</span><h2 id="drawer-title">Unit snapshot</h2></div><button class="icon-button" type="button" data-action="close-drawer" aria-label="Close unit details">×</button></div><div class="drawer-hero">${portrait(unit, kind, "xlarge")}<h3>${escapeHtml(unit.name)}</h3><p>${escapeHtml((unit.factions || []).join(" · "))}${unit.alignment ? ` · ${escapeHtml(unit.alignment)}` : ""}</p>${state.rosterLoaded && owned ? '<span class="readiness ready">✓ In demo roster</span>' : '<span class="readiness borderline">○ Demo detail</span>'}</div>${kind === "character" ? `<div class="drawer-section"><h3>Optimization stats</h3><div class="stat-grid">${[["Relic", characterStats.relic === "—" ? "—" : `R${characterStats.relic}`], ["Speed", characterStats.speed], ["Health", characterStats.health], ["Protection", characterStats.protection], ["Offense", characterStats.offense], ["Potency", characterStats.potency === "—" ? "—" : `${characterStats.potency}%`], ["Tenacity", characterStats.tenacity === "—" ? "—" : `${characterStats.tenacity}%`], ["Zetas / Omicrons", `${characterStats.zetas} / ${characterStats.omicrons}`]].map(([label, value]) => `<div class="stat-box"><span>${escapeHtml(label)}</span><strong>${typeof value === "number" ? formatNumber(value) : escapeHtml(value)}</strong></div>`).join("")}</div></div><div class="drawer-section"><h3>Role & leadership</h3><div class="data-row"><span>Role</span><strong>${escapeHtml(unit.role)}</strong></div><div class="data-row"><span>Can lead</span><strong>${unit.canLead ? "Yes" : "No"}</strong></div></div>` : kind === "ship" ? `<div class="drawer-section"><h3>Pilot relationship</h3><div class="data-row"><span>Pilot</span><strong>${escapeHtml(pilot)}</strong></div><div class="data-row"><span>Ship role</span><strong>${escapeHtml(unit.role)}</strong></div><p class="requirement-note" style="margin-top:13px">${escapeHtml(pilot)} <span style="color:var(--teal)">↓</span> ${escapeHtml(unit.name)}. Pilot gear, relics, abilities, and mods affect resulting ship stats.</p></div><div class="drawer-section"><h3>Demo ship stats</h3><div class="stat-grid">${[["Stars", owned ? `${owned.stars}★` : "—"], ["Level", owned?.level || "—"], ["Speed", owned?.speed || "—"], ["Health", owned?.health || "—"], ["Protection", owned?.protection || "—"], ["Abilities", owned?.abilities || "Demo target"]].map(([label, value]) => `<div class="stat-box"><span>${escapeHtml(label)}</span><strong>${typeof value === "number" ? formatNumber(value) : escapeHtml(value)}</strong></div>`).join("")}</div></div>` : `<div class="drawer-section"><h3>Command</h3><div class="data-row"><span>Commander</span><strong>${escapeHtml(commander)}</strong></div><div class="data-row"><span>Faction</span><strong>${escapeHtml((unit.factions || []).join(", "))}</strong></div></div>`}<div class="drawer-section"><p class="requirement-note">This focused prototype detail supports formation decisions; it is not intended as a complete unit encyclopedia.</p></div>`;
+    const rosterStatus = state.rosterLoaded
+      ? owned
+        ? '<span class="readiness ready">✓ In loaded roster</span>'
+        : '<span class="readiness insufficient">! Not in loaded roster</span>'
+      : '<span class="readiness borderline">○ Catalog data only</span>';
+    const statGrid = (entries) => `<div class="stat-grid">${entries.map(([label, value]) => `<div class="stat-box"><span>${escapeHtml(label)}</span><strong>${typeof value === "number" ? formatNumber(value) : escapeHtml(value ?? "—")}</strong></div>`).join("")}</div>`;
+    const progression = statGrid([
+      ["Stars", owned ? `${owned.stars}★` : "—"],
+      ["Level", owned?.level || "—"],
+      ["Gear", owned?.gear || "—"],
+      ["Relic", owned?.relic > 0 ? `R${owned.relic}` : "—"],
+      ["Speed", owned?.speed || "—"],
+      ["Health", owned?.health || "—"],
+      ["Protection", owned?.protection || "—"],
+      [kind === "character" ? "Equipped mods" : "Upgraded skills", kind === "character" ? (owned?.equippedModCount ?? "—") : (owned?.skillCount ?? "—")]
+    ]);
+    const relationship = kind === "character"
+      ? `<div class="drawer-section"><h3>Role & leadership</h3><div class="data-row"><span>Role</span><strong>${escapeHtml(unit.role)}</strong></div><div class="data-row"><span>Can lead</span><strong>${unit.canLead ? "Yes" : "No"}</strong></div></div>`
+      : kind === "ship"
+        ? `<div class="drawer-section"><h3>Pilot relationship</h3><div class="data-row"><span>Pilot</span><strong>${escapeHtml(pilot)}</strong></div><div class="data-row"><span>Ship role</span><strong>${escapeHtml(unit.role)}</strong></div><p class="requirement-note" style="margin-top:13px">${escapeHtml(pilot)} <span style="color:var(--teal)">↓</span> ${escapeHtml(unit.name)}. Pilot progression affects resulting ship stats.</p></div>`
+        : `<div class="drawer-section"><h3>Command</h3><div class="data-row"><span>Commander</span><strong>${escapeHtml(commander)}</strong></div><div class="data-row"><span>Faction</span><strong>${escapeHtml((unit.factions || []).join(", "))}</strong></div></div>`;
+    drawerContent.innerHTML = `<div class="drawer-head"><div><span class="micro-label">Optimization detail</span><h2 id="drawer-title">Unit snapshot</h2></div><button class="icon-button" type="button" data-action="close-drawer" aria-label="Close unit details">×</button></div><div class="drawer-hero">${portrait(unit, kind, "xlarge")}<h3>${escapeHtml(unit.name)}</h3><p>${escapeHtml((unit.factions || []).join(" · "))}${unit.alignment ? ` · ${escapeHtml(unit.alignment)}` : ""}</p>${rosterStatus}</div><div class="drawer-section"><h3>${owned ? "Loaded roster progression" : "Roster progression"}</h3>${progression}</div>${relationship}<div class="drawer-section"><p class="requirement-note">Roster progression comes from the loaded static Comlink snapshot. Missing values are shown as unavailable rather than estimated.</p></div>`;
     drawer.classList.add("open");
     drawer.setAttribute("aria-hidden", "false");
     drawerScrim.hidden = false;
@@ -774,6 +847,40 @@
       const target = document.querySelector(`#${scope === "build" ? "build-results" : scope === "counter" ? "counter-results" : "roster-results"}`);
       target?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
     }, reducedMotion ? 20 : 540);
+  }
+
+  function loadStaticRoster() {
+    const inputValue = document.querySelector("#ally-code")?.value ?? state.rosterAllyCode;
+    const allyCode = normalizeAllyCode(inputValue);
+    if (!/^[1-9]{9}$/.test(allyCode)) {
+      showToast("Enter a valid nine-digit Ally Code using digits 1 through 9.");
+      return;
+    }
+    const roster = staticRosters[allyCode];
+    if (!roster) {
+      showToast(`No static snapshot exists for ${formatAllyCode(allyCode)}. Run the local roster updater first.`);
+      return;
+    }
+
+    state.rosterAllyCode = allyCode;
+    state.activeRosterAllyCode = allyCode;
+    state.rosterLoaded = true;
+    state.compareRoster = true;
+    state.generatedSquads = null;
+    state.simulationResult = null;
+    state.results = { build: false, counter: false, roster: false };
+    state.loading = null;
+
+    const ownedCharacters = new Set(Object.keys(roster.units || {}));
+    const missingCharacters = data.characters.filter((unit) => !ownedCharacters.has(unit.id)).map((unit) => unit.id);
+    try {
+      window.localStorage.removeItem(EXCLUDED_UNITS_STORAGE_KEY);
+    } catch {
+      // Loading still works when browser storage is unavailable.
+    }
+    setBuildExclusions(missingCharacters, { announceConflicts: false });
+    render();
+    showToast(`${roster.name || formatAllyCode(allyCode)} loaded. ${formatNumber(missingCharacters.length)} unowned characters were excluded.`);
   }
 
   function resetBuild() {
@@ -873,7 +980,7 @@
     else if (action === "reset-build") resetBuild();
     else if (action === "clear-exclusions") { setBuildExclusions([]); render(); showToast("Cached unit exclusions cleared."); }
     else if (action === "reset-counter") resetCounter();
-    else if (action === "load-roster") { state.rosterLoaded = true; render(); showToast("Local demo roster loaded. No network request was made."); }
+    else if (action === "load-roster") loadStaticRoster();
     else if (action === "optimize-roster") startForging("roster");
     else if (action === "reset-roster-results") { state.results.roster = false; state.loading = null; render(); }
     else if (action === "coming-later") showToast("Existing squad presets are coming later. Demo optimization remains available.");
