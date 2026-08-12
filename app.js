@@ -319,7 +319,7 @@
   }
 
   function renderBuildForm() {
-    return `<section class="panel" data-step="1">
+    return `<section class="panel build-panel" data-step="1">
       <div class="panel-heading"><div><span class="step-index">01 / FORMATION</span><h2>What are you building?</h2><p>Squads and fleets use distinct formation rules.</p></div>${segmented("unit-type", [{ id: "characters", label: "Characters" }, { id: "fleets", label: "Fleets" }], state.unitType)}</div>
       ${state.unitType === "characters" ? renderCharacterBuildForm() : renderFleetBuildForm()}
     </section>`;
