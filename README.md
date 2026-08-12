@@ -38,7 +38,7 @@ Requirements:
 - Docker with Compose support
 - Python 3.10 or newer
 
-The simplest option starts Comlink on a currently unused loopback port, waits for it, updates the catalog, and stops it again:
+The simplest option starts the pinned Comlink 4.5.0 server on a currently unused loopback port, waits for its HTTP API, updates the catalog, and stops it again. It creates a stable, installation-specific `APP_NAME` under `.cache/comlink/`; Comlink uses that identity in game API requests and warns that a shared generic name can collide with other installations.
 
 ```bash
 ./scripts/update-data-full.sh
@@ -49,6 +49,7 @@ The final line must say `The complete Comlink catalog was generated successfully
 To manage the service yourself, start the pinned Comlink container on the loopback interface:
 
 ```bash
+export COMLINK_APP_NAME=swgoh-forge-my-installation
 docker compose -f compose.comlink.yaml up -d
 ```
 
@@ -61,7 +62,8 @@ After the service starts, generate the catalog:
 Port 3000 is the manual default. If another application already uses it, select another port for both commands:
 
 ```bash
-COMLINK_PORT=3200 docker compose -f compose.comlink.yaml up -d
+COMLINK_APP_NAME=swgoh-forge-my-installation COMLINK_PORT=3200 \
+  docker compose -f compose.comlink.yaml up -d
 COMLINK_URL=http://127.0.0.1:3200 ./scripts/update-data.sh
 ```
 
@@ -71,7 +73,21 @@ The wrapper creates or repairs `.venv-data`, installs the pinned `swgoh_comlink`
 - `data/ships.js`
 - `data/catalog-meta.js`
 
-It requests current metadata, the playable category and unit collections separately, and one localization locale (`ENG_US` by default). The separate collection requests use values accepted by Comlink 4.4.1 and avoid its rejection of combined item masks. Raw responses are cached under `.cache/comlink/`, which is ignored by Git. Rebuild from that cache without contacting Comlink using:
+It reads `/enums` and uses only values advertised by that running server. The first unit request asks for the minimal `UnitDefinitions` collection; `Segment3` is tried once only if that request fails. This avoids making a large aggregate the first request against a fresh container. `CategoryDefinitions` is requested separately and remains optional because faction labels can be inferred from unit category IDs.
+
+If both unit strategies fail, the updater makes one small `EquipmentDefinitions` request. A successful probe isolates the problem to unit data or response size; a failed probe shows that `/data` is unavailable even for a small live-enum collection. It never invents `ALL=-1` when the live enum does not expose that value.
+
+Metadata, localization, and game data are all requested for Android by default and the returned asset platform is validated. Override the platform consistently with `COMLINK_DEVICE_PLATFORM` only if needed. One localization locale (`ENG_US` by default) is requested before unit data so it is preserved even when `/data` fails.
+
+Each network request is printed with its exact non-secret JSON body and elapsed time. `.cache/comlink/` contains the evidence needed to reproduce a failure:
+
+- `diagnostic.json` — request sequence, bodies, timings, response collection counts, exception chains, and failure classification
+- `runtime.json` — Docker, container, image digest, app identity, and requested server version
+- `openapi.json` — the schema served by that exact Comlink container
+- `container.log` — timestamped server output, on success and failure
+- `enums.json`, `metadata.json`, and `localization.json` — the successful upstream responses before game data
+
+The directory is ignored by Git and the capture redacts environment names that look sensitive. Sentry/error reporting is not enabled. Rebuild a completed raw snapshot without contacting Comlink using:
 
 ```bash
 ./scripts/update-data.sh --from-cache
@@ -88,14 +104,17 @@ COMLINK_URL=http://127.0.0.1:3001 ./scripts/update-data.sh
 
 # Select another localization bundle
 COMLINK_LOCALE=FRE_FR ./scripts/update-data.sh
+
+# Temporarily test another explicitly selected Comlink release
+COMLINK_SERVER_VERSION=4.5.0 ./scripts/update-data-full.sh --dry-run
 ```
 
-The updater preserves existing human-readable IDs where localized names match, adds stable base-ID aliases, selects the highest-rarity definition for each playable unit, links ships to their crew, and writes files atomically. It refuses an implausibly small response or a snapshot that unexpectedly removes existing IDs. `--allow-missing-seed-units` is available for an intentional removal after reviewing the result.
+The updater preserves existing human-readable IDs where localized names match, adds stable base-ID aliases, selects the highest-rarity definition for each playable unit, links ships to their crew, and writes files atomically. Comlink encounter clones are excluded using their nonzero `obtainableTime` sentinel; this removes raid, journey, and inherited-event copies without relying on naming suffixes. It refuses an implausibly small response or a snapshot that unexpectedly removes existing IDs. `--allow-missing-seed-units` is available for an intentional removal after reviewing the result.
 
 Stop the local service when finished:
 
 ```bash
-docker compose -f compose.comlink.yaml down
+COMLINK_APP_NAME=swgoh-forge-my-installation docker compose -f compose.comlink.yaml down
 ```
 
 The container is bound to `127.0.0.1`, so it is not exposed to other machines. If you configure HMAC on your own Comlink deployment, the updater also accepts `COMLINK_ACCESS_KEY` and `COMLINK_SECRET_KEY`; keep those values out of the repository.
@@ -124,6 +143,7 @@ swgoh-forge/
 ├── scripts/
 │   ├── update-data-full.sh    # Start service, update data, and clean up
 │   ├── update-data.sh         # Update using a running Comlink service
+│   ├── capture_comlink_runtime.py # Save image/runtime/API diagnostics
 │   └── update_game_data.py    # Fetch, normalize, validate, and generate
 ├── data/
 │   ├── catalog-meta.js        # Snapshot source, version, date, and counts
@@ -149,7 +169,7 @@ Run the local checks with:
 
 ```bash
 python3 -m unittest discover -s tests
-bash -n scripts/update-data.sh
+bash -n scripts/update-data.sh scripts/update-data-full.sh
 node --check app.js
 ```
 

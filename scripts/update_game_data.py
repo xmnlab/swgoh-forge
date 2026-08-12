@@ -6,24 +6,24 @@ from __future__ import annotations
 import argparse
 import colorsys
 import hashlib
+import importlib.metadata
 import json
 import os
+import platform
 import re
 import sys
 import tempfile
+import time
 import unicodedata
 from collections.abc import Iterable, Mapping
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT_DIR = REPOSITORY_ROOT / "data"
 DEFAULT_CACHE_DIR = REPOSITORY_ROOT / ".cache" / "comlink"
-CATEGORY_DATA_ITEMS = 1
-UNIT_DATA_ITEMS = 137_438_953_472
-
 INTERNAL_CATEGORY_PREFIXES = (
     "alignment_",
     "role_",
@@ -33,6 +33,7 @@ INTERNAL_CATEGORY_PREFIXES = (
     "unittag_",
     "unit_tag_",
     "specialability_",
+    "raid_",
 )
 
 
@@ -49,6 +50,11 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         "--locale",
         default=os.environ.get("COMLINK_LOCALE", "ENG_US"),
         help="Localization locale (default: ENG_US)",
+    )
+    parser.add_argument(
+        "--device-platform",
+        default=os.environ.get("COMLINK_DEVICE_PLATFORM", "Android"),
+        help="Game-data platform used for metadata and data requests (default: Android)",
     )
     parser.add_argument(
         "--access-key",
@@ -149,10 +155,123 @@ def merge_catalog_responses(category_data: Any, unit_data: Any) -> dict[str, lis
     }
 
 
+def normalized_enum_name(value: Any) -> str:
+    return re.sub(r"[^a-z0-9]+", "", str(value).casefold())
+
+
+def enum_integer(value: Any) -> int | None:
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, int):
+        return value
+    if isinstance(value, float) and value.is_integer():
+        return int(value)
+    if isinstance(value, str) and re.fullmatch(r"-?\d+", value.strip()):
+        return int(value)
+    return None
+
+
+def game_data_item_values(document: Any) -> dict[str, int]:
+    """Read GameDataItems from the live `/enums` response across known JSON shapes."""
+    sections: list[Any] = []
+
+    def locate(value: Any) -> None:
+        if isinstance(value, Mapping):
+            for key, child in value.items():
+                if "gamedataitems" in normalized_enum_name(key):
+                    sections.append(child)
+                if normalized_enum_name(key) in {"name", "enumname", "type", "typename"}:
+                    if isinstance(child, str) and "gamedataitems" in normalized_enum_name(child):
+                        sections.append(value)
+                locate(child)
+        elif isinstance(value, list):
+            for child in value:
+                locate(child)
+
+    locate(document)
+    if not sections:
+        raise ValueError("The /enums response does not contain a GameDataItems enum.")
+
+    pairs: dict[str, int] = {}
+    name_fields = {"name", "key", "label", "enumkey", "symbol"}
+    number_fields = {"value", "number", "id", "enumvalue"}
+
+    def collect(value: Any) -> None:
+        if isinstance(value, Mapping):
+            scalar_names: list[str] = []
+            scalar_numbers: list[int] = []
+            for key, child in value.items():
+                number = enum_integer(child)
+                if number is not None and normalized_enum_name(key) not in number_fields:
+                    pairs.setdefault(str(key), number)
+                key_number = enum_integer(key)
+                if key_number is not None and isinstance(child, str):
+                    pairs.setdefault(child, key_number)
+                normalized_key = normalized_enum_name(key)
+                if normalized_key in name_fields and isinstance(child, str) and enum_integer(child) is None:
+                    scalar_names.append(child)
+                if normalized_key in number_fields and number is not None:
+                    scalar_numbers.append(number)
+            if scalar_names and scalar_numbers:
+                for name in scalar_names:
+                    pairs.setdefault(name, scalar_numbers[0])
+            for child in value.values():
+                collect(child)
+        elif isinstance(value, list):
+            for child in value:
+                collect(child)
+
+    for section in sections:
+        collect(section)
+    if not pairs:
+        raise ValueError("The GameDataItems enum was found, but no named numeric values could be read.")
+    return pairs
+
+
+def select_game_data_items(enums: Any) -> dict[str, int]:
+    available = game_data_item_values(enums)
+    normalized = {normalized_enum_name(name): value for name, value in available.items()}
+
+    def choose(*names: str) -> int | None:
+        for expected in names:
+            if expected in normalized:
+                return normalized[expected]
+        for name, value in normalized.items():
+            if any(name.endswith(expected) for expected in names):
+                return value
+        return None
+
+    selected = {
+        "categories": choose("categorydefinitions", "categorydefinition", "categories"),
+        "equipment": choose("equipmentdefinitions", "equipmentdefinition", "equipment"),
+        "units": choose("unitdefinitions", "unitdefinition", "units"),
+        "segment3": choose("segment3", "segmentthree"),
+    }
+    if selected["units"] is None and selected["segment3"] is None:
+        choices = ", ".join(f"{name}={value}" for name, value in sorted(available.items())[:30])
+        raise ValueError(
+            "The live GameDataItems enum has neither UnitDefinitions nor Segment3. "
+            f"Available values: {choices}"
+        )
+    return {key: value for key, value in selected.items() if value is not None}
+
+
 def collect_localization(document: Any) -> dict[str, str]:
     """Accept direct maps, Comlink wrappers, entry lists, and JSON-encoded bundles."""
     translations: dict[str, str] = {}
+    aliases: dict[str, str] = {}
     seen_strings: set[str] = set()
+
+    def parse_text_bundle(filename: str, content: str) -> None:
+        target = aliases if "key_mapping" in filename.casefold() else translations
+        for raw_line in content.splitlines():
+            line = raw_line.removeprefix("\ufeff")
+            if not line or line.lstrip().startswith("#") or "|" not in line:
+                continue
+            key, value = line.split("|", 1)
+            key = key.strip()
+            if key:
+                target[key] = value.replace("\\n", "\n")
 
     def visit(value: Any) -> None:
         if isinstance(value, Mapping):
@@ -164,7 +283,9 @@ def collect_localization(document: Any) -> dict[str, str]:
             for child_key, child in value.items():
                 if isinstance(child_key, str) and isinstance(child, str):
                     stripped = child.lstrip()
-                    if not stripped.startswith(("{", "[")):
+                    if child_key.casefold().endswith(".txt"):
+                        parse_text_bundle(child_key, child)
+                    elif not stripped.startswith(("{", "[")):
                         translations.setdefault(child_key, child)
                 visit(child)
         elif isinstance(value, list):
@@ -180,6 +301,21 @@ def collect_localization(document: Any) -> dict[str, str]:
                     pass
 
     visit(document)
+
+    def resolve_alias(key: str, seen: set[str] | None = None) -> str:
+        seen = set() if seen is None else seen
+        if key in seen:
+            return aliases[key]
+        seen.add(key)
+        target = aliases[key]
+        if target in translations:
+            return translations[target]
+        if target in aliases:
+            return resolve_alias(target, seen)
+        return target
+
+    for alias in aliases:
+        translations.setdefault(alias, resolve_alias(alias))
     return translations
 
 
@@ -249,7 +385,17 @@ def read_previous_catalog(output_dir: Path) -> tuple[dict[str, dict[str, str]], 
                 value = extract_js_string(record, key)
                 if value:
                     previous[key] = value
-            by_name[match_key(name)] = previous
+            name_key = match_key(name)
+            existing = by_name.get(name_key)
+            canonical_id = slugify(name)
+            candidate_rank = (unit_id != canonical_id, len(unit_id), unit_id)
+            existing_rank = (
+                (existing or {}).get("id") != canonical_id,
+                len((existing or {}).get("id", "")),
+                (existing or {}).get("id", ""),
+            )
+            if existing is None or candidate_rank < existing_rank:
+                by_name[name_key] = previous
             if previous.get("baseId"):
                 by_name[f"base:{previous['baseId'].casefold()}"] = previous
             ids.add(unit_id)
@@ -325,6 +471,10 @@ def unit_factions(ids: Iterable[str], categories: Mapping[str, dict[str, Any]]) 
             continue
         category = categories.get(category_id)
         if not category:
+            if lowered.startswith("affiliation_"):
+                label = humanize(category_id[len("affiliation_") :])
+                if label and label not in factions:
+                    factions.append(label)
             continue
         raw = category["raw"]
         if "visible" in raw and not as_bool(raw["visible"]):
@@ -390,6 +540,10 @@ def select_unit_definitions(units: Iterable[Any]) -> list[Mapping[str, Any]]:
         if not base_id or combat_kind(raw) is None:
             continue
         if "obtainable" in raw and not as_bool(raw["obtainable"]):
+            continue
+        # Event, journey, raid, and inherited encounter clones are marked obtainable
+        # but use a far-future sentinel timestamp instead of the roster value 0.
+        if as_int(first_value(raw, "obtainableTime", default=0)) != 0:
             continue
         current = selected.get(base_id)
         rarity = as_int(first_value(raw, "rarity", "currentRarity", default=0))
@@ -502,6 +656,24 @@ def metadata_value(metadata: Mapping[str, Any], *keys: str) -> str:
     return str(value) if value is not None else ""
 
 
+def validate_metadata_platform(metadata: Mapping[str, Any], requested_platform: str) -> None:
+    asset_subpath = metadata_value(metadata, "assetSubpath")
+    if not asset_subpath:
+        return
+    requested = requested_platform.casefold()
+    expected_fragments = {
+        "android": ("android",),
+        "ios": ("ios", "iphone"),
+        "windows": ("windows",),
+        "pc": ("windows", "pc"),
+    }.get(requested, (requested,))
+    if not any(fragment in asset_subpath.casefold() for fragment in expected_fragments):
+        raise ValueError(
+            f"Comlink returned metadata for {asset_subpath!r}, not requested platform "
+            f"{requested_platform!r}; refusing to combine a game version with the wrong platform."
+        )
+
+
 def validate_catalog(
     characters: list[dict[str, Any]],
     ships: list[dict[str, Any]],
@@ -543,6 +715,143 @@ def atomic_text(path: Path, value: str) -> None:
     temporary.replace(path)
 
 
+def utc_timestamp() -> str:
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def exception_details(error: BaseException) -> list[dict[str, str]]:
+    details: list[dict[str, str]] = []
+    seen: set[int] = set()
+    current: BaseException | None = error
+    while current is not None and id(current) not in seen:
+        seen.add(id(current))
+        details.append({"type": type(current).__name__, "message": str(current)})
+        current = current.__cause__ or current.__context__
+    return details
+
+
+def response_summary(value: Any) -> dict[str, Any]:
+    if isinstance(value, Mapping):
+        keys = sorted(str(key) for key in value)
+        collections = {
+            str(key): len(child)
+            for key, child in value.items()
+            if isinstance(child, list) and child
+        }
+        return {
+            "type": "object",
+            "keyCount": len(keys),
+            "keys": keys[:80],
+            "nonEmptyCollectionCounts": collections,
+        }
+    if isinstance(value, list):
+        return {"type": "array", "count": len(value)}
+    if isinstance(value, str):
+        return {"type": "string", "characters": len(value)}
+    return {"type": type(value).__name__}
+
+
+class DiagnosticRecorder:
+    def __init__(self, path: Path | None, context: Mapping[str, Any]) -> None:
+        self.path = path
+        self.document: dict[str, Any] = {
+            "schemaVersion": 1,
+            "status": "running",
+            "startedAt": utc_timestamp(),
+            "context": dict(context),
+            "facts": {},
+            "requests": [],
+            "notes": [],
+        }
+        self._write_warning_reported = False
+        self.flush()
+
+    def flush(self) -> None:
+        if self.path is None:
+            return
+        try:
+            atomic_json(self.path, self.document)
+        except OSError as error:
+            if not self._write_warning_reported:
+                print(f"Warning: could not write diagnostic trace to {self.path}: {error}", file=sys.stderr)
+                self._write_warning_reported = True
+
+    def fact(self, name: str, value: Any) -> None:
+        self.document["facts"][name] = value
+        self.flush()
+
+    def note(self, message: str, **details: Any) -> None:
+        self.document["notes"].append(
+            {"at": utc_timestamp(), "message": message, **details}
+        )
+        self.flush()
+
+    def finish(self, status: str, error: BaseException | None = None) -> None:
+        self.document["status"] = status
+        self.document["finishedAt"] = utc_timestamp()
+        if error is not None:
+            self.document["failure"] = {"chain": exception_details(error)}
+        self.flush()
+
+
+def traced_request(
+    recorder: DiagnosticRecorder,
+    operation: str,
+    method: str,
+    path: str,
+    body: Mapping[str, Any] | None,
+    action: Callable[[], Any],
+) -> Any:
+    entry: dict[str, Any] = {
+        "operation": operation,
+        "startedAt": utc_timestamp(),
+        "request": {"method": method, "path": path},
+        "status": "running",
+    }
+    if body is not None:
+        entry["request"]["body"] = dict(body)
+    recorder.document["requests"].append(entry)
+    recorder.flush()
+
+    serialized_body = "" if body is None else f" body={json.dumps(body, separators=(',', ':'))}"
+    print(f"[comlink] -> {operation}: {method} {path}{serialized_body}")
+    started = time.monotonic()
+    try:
+        result = action()
+    except Exception as error:
+        elapsed = round((time.monotonic() - started) * 1000)
+        entry.update(
+            {
+                "status": "failed",
+                "finishedAt": utc_timestamp(),
+                "elapsedMs": elapsed,
+                "error": {"chain": exception_details(error)},
+            }
+        )
+        recorder.flush()
+        print(
+            f"[comlink] <- {operation}: failed after {elapsed} ms: {type(error).__name__}: {error}",
+            file=sys.stderr,
+        )
+        raise
+
+    elapsed = round((time.monotonic() - started) * 1000)
+    summary = response_summary(result)
+    entry.update(
+        {
+            "status": "succeeded",
+            "finishedAt": utc_timestamp(),
+            "elapsedMs": elapsed,
+            "response": summary,
+        }
+    )
+    recorder.flush()
+    counts = summary.get("nonEmptyCollectionCounts", {})
+    count_text = f"; non-empty collections={counts}" if counts else ""
+    print(f"[comlink] <- {operation}: HTTP success in {elapsed} ms{count_text}")
+    return result
+
+
 def load_cache(cache_dir: Path) -> tuple[dict[str, Any], Any, Any]:
     paths = {
         "metadata": cache_dir / "metadata.json",
@@ -559,9 +868,31 @@ def load_cache(cache_dir: Path) -> tuple[dict[str, Any], Any, Any]:
 
 
 def fetch_comlink(args: argparse.Namespace) -> tuple[dict[str, Any], Any, Any]:
+    cache_dir = getattr(args, "cache_dir", None)
+    save_cache = not getattr(args, "no_cache", False) and cache_dir is not None
+    diagnostic_path = cache_dir / "diagnostic.json" if save_cache else None
+    try:
+        client_version = importlib.metadata.version("swgoh_comlink")
+    except importlib.metadata.PackageNotFoundError:
+        client_version = "not installed"
+    recorder = DiagnosticRecorder(
+        diagnostic_path,
+        {
+            "comlinkUrl": args.url,
+            "comlinkServerVersionRequested": os.environ.get("COMLINK_SERVER_VERSION", "unknown"),
+            "comlinkAppName": os.environ.get("COMLINK_APP_NAME", "unknown"),
+            "comlinkPythonClientVersion": client_version,
+            "devicePlatform": getattr(args, "device_platform", "Android"),
+            "locale": args.locale,
+            "python": platform.python_version(),
+            "hostPlatform": platform.platform(),
+        },
+    )
+
     try:
         from swgoh_comlink import SwgohComlink
     except ImportError as error:
+        recorder.finish("failed", error)
         raise RuntimeError(
             "swgoh_comlink is not installed. Run ./scripts/update-data.sh so the pinned dependency is installed."
         ) from error
@@ -574,34 +905,230 @@ def fetch_comlink(args: argparse.Namespace) -> tuple[dict[str, Any], Any, Any]:
 
     try:
         with SwgohComlink(**client_kwargs) as client:
-            metadata = client.get_game_metadata()
+            device_platform = getattr(args, "device_platform", "Android")
+            enums = traced_request(
+                recorder,
+                "read live enum values",
+                "GET",
+                "/enums",
+                None,
+                client.get_enums,
+            )
+            if save_cache:
+                atomic_json(cache_dir / "enums.json", enums)
+            data_items = select_game_data_items(enums)
+            selected_values = ", ".join(f"{name}={value}" for name, value in data_items.items())
+            print(f"Resolved live Comlink GameDataItems: {selected_values}")
+            recorder.fact("gameDataItems", data_items)
+
+            metadata_body = {
+                "payload": {"clientSpecs": {"platform": device_platform}},
+                "enums": False,
+            }
+            metadata = traced_request(
+                recorder,
+                "read current game versions",
+                "POST",
+                "/metadata",
+                metadata_body,
+                lambda: client.get_game_metadata(client_specs={"platform": device_platform}),
+            )
+            if save_cache:
+                atomic_json(cache_dir / "metadata.json", metadata)
+            validate_metadata_platform(metadata, device_platform)
             game_version = metadata_value(metadata, "latestGamedataVersion", "latestGameDataVersion")
             localization_version = metadata_value(
                 metadata, "latestLocalizationBundleVersion", "latestLocalizationVersion"
             )
             if not game_version or not localization_version:
                 raise ValueError("Comlink metadata did not include current game-data and localization versions.")
-            category_data = client.get_game_data(
-                version=game_version,
-                include_pve_units=False,
-                items=CATEGORY_DATA_ITEMS,
-                enums=False,
+            recorder.fact(
+                "metadata",
+                {
+                    "gameDataVersion": game_version,
+                    "localizationVersion": localization_version,
+                    "assetSubpath": metadata_value(metadata, "assetSubpath"),
+                    "gameDataRevision": metadata_value(metadata, "gamedataRevision"),
+                    "serverVersion": metadata_value(metadata, "serverVersion"),
+                },
             )
-            unit_data = client.get_game_data(
-                version=game_version,
-                include_pve_units=False,
-                items=UNIT_DATA_ITEMS,
-                enums=False,
+
+            localization_body = {
+                "payload": {"id": f"{localization_version}:{args.locale.upper()}"},
+                "unzip": True,
+                "enums": False,
+            }
+            localization = traced_request(
+                recorder,
+                "read localization bundle",
+                "POST",
+                "/localization",
+                localization_body,
+                lambda: client.get_localization(
+                    localization_id=localization_version,
+                    locale=args.locale,
+                    unzip=True,
+                    enums=False,
+                ),
             )
+            if save_cache:
+                atomic_json(cache_dir / "localization.json", localization)
+
+            def request_game_data(item_value: int, required_collection: str) -> Any:
+                result = client.get_game_data(
+                    version=game_version,
+                    include_pve_units=False,
+                    items=item_value,
+                    enums=False,
+                    device_platform=device_platform,
+                )
+                if not find_collection(result, required_collection):
+                    raise ValueError(
+                        f"Comlink returned HTTP success but the {required_collection!r} collection was empty."
+                    )
+                return result
+
+            unit_strategies: list[tuple[str, int]] = []
+            if "units" in data_items:
+                unit_strategies.append(("UnitDefinitions", data_items["units"]))
+            if "segment3" in data_items and data_items["segment3"] != data_items.get("units"):
+                unit_strategies.append(("Segment3", data_items["segment3"]))
+
+            unit_data: Any = None
+            unit_failures: list[tuple[str, Exception]] = []
+            for strategy_index, (strategy_name, item_value) in enumerate(unit_strategies):
+                data_body = {
+                    "payload": {
+                        "version": game_version,
+                        "devicePlatform": device_platform,
+                        "includePveUnits": False,
+                        "items": str(item_value),
+                    },
+                    "enums": False,
+                }
+                try:
+                    unit_data = traced_request(
+                        recorder,
+                        f"read units with {strategy_name}",
+                        "POST",
+                        "/data",
+                        data_body,
+                        lambda item_value=item_value: request_game_data(item_value, "units"),
+                    )
+                    recorder.fact(
+                        "successfulUnitRequest",
+                        {"strategy": strategy_name, "items": item_value},
+                    )
+                    break
+                except Exception as unit_error:
+                    unit_failures.append((strategy_name, unit_error))
+                    if strategy_index + 1 < len(unit_strategies):
+                        next_strategy = unit_strategies[strategy_index + 1][0]
+                        print(
+                            f"Unit request with {strategy_name} failed; trying the live {next_strategy} "
+                            "value once.",
+                            file=sys.stderr,
+                        )
+
+            if unit_data is None:
+                probe_status: dict[str, Any] = {"status": "not available in live enum"}
+                if "equipment" in data_items:
+                    equipment_value = data_items["equipment"]
+                    equipment_body = {
+                        "payload": {
+                            "version": game_version,
+                            "devicePlatform": device_platform,
+                            "includePveUnits": False,
+                            "items": str(equipment_value),
+                        },
+                        "enums": False,
+                    }
+                    try:
+                        traced_request(
+                            recorder,
+                            "probe data endpoint with EquipmentDefinitions",
+                            "POST",
+                            "/data",
+                            equipment_body,
+                            lambda: request_game_data(equipment_value, "equipment"),
+                        )
+                    except Exception as probe_error:
+                        probe_status = {
+                            "status": "failed",
+                            "items": equipment_value,
+                            "error": exception_details(probe_error),
+                        }
+                    else:
+                        probe_status = {"status": "succeeded", "items": equipment_value}
+
+                recorder.fact("smallDataEndpointProbe", probe_status)
+                if probe_status.get("status") == "succeeded":
+                    classification = (
+                        "The /data endpoint works for a small live-enum collection, but both unit "
+                        "collection strategies failed. This isolates the problem to the unit payload size, "
+                        "unit filters, or the current upstream unit-data response."
+                    )
+                elif probe_status.get("status") == "failed":
+                    classification = (
+                        "The /data endpoint failed for both unit strategies and for the small official "
+                        "EquipmentDefinitions probe. The failure is not specific to Segment3 or unit size."
+                    )
+                else:
+                    classification = "All live-enum strategies capable of returning units failed."
+                recorder.note(classification, classification="data-request-failure")
+                failures = "; ".join(f"{name}: {error}" for name, error in unit_failures)
+                raise RuntimeError(f"{classification} Unit failures: {failures}")
+
+            category_data: Any = {"category": []}
+            if "categories" in data_items:
+                category_value = data_items["categories"]
+                category_body = {
+                    "payload": {
+                        "version": game_version,
+                        "devicePlatform": device_platform,
+                        "includePveUnits": False,
+                        "items": str(category_value),
+                    },
+                    "enums": False,
+                }
+                try:
+                    category_data = traced_request(
+                        recorder,
+                        "read category definitions",
+                        "POST",
+                        "/data",
+                        category_body,
+                        lambda: request_game_data(category_value, "category"),
+                    )
+                except Exception as category_error:
+                    warning = (
+                        "Category definitions were unavailable; faction labels were inferred from unit "
+                        f"category IDs. Comlink reported: {category_error}"
+                    )
+                    print(f"Warning: {warning}", file=sys.stderr)
+                    metadata.setdefault("_forgeCatalogWarnings", []).append(warning)
+                    recorder.note(warning, classification="optional-category-request-failure")
+            else:
+                warning = (
+                    "The live enum did not expose CategoryDefinitions; faction labels were inferred "
+                    "from unit category IDs."
+                )
+                metadata.setdefault("_forgeCatalogWarnings", []).append(warning)
+                recorder.note(warning, classification="optional-category-item-missing")
             game_data = merge_catalog_responses(category_data, unit_data)
-            localization = client.get_localization(
-                localization_id=localization_version,
-                locale=args.locale,
-                unzip=True,
-                enums=False,
-            )
     except Exception as error:
-        raise RuntimeError(f"Comlink request to {args.url} failed: {error}") from error
+        recorder.finish("failed", error)
+        diagnostic = ""
+        if cache_dir:
+            available = [
+                str(cache_dir / name)
+                for name in ("diagnostic.json", "enums.json", "metadata.json", "localization.json")
+                if (cache_dir / name).exists()
+            ]
+            if available:
+                diagnostic = " Diagnostic files: " + ", ".join(available) + "."
+        raise RuntimeError(f"Comlink request to {args.url} failed: {error}{diagnostic}") from error
+    recorder.finish("succeeded")
     return metadata, game_data, localization
 
 
@@ -664,6 +1191,8 @@ def main(argv: list[str] | None = None) -> int:
                 metadata, "latestLocalizationBundleVersion", "latestLocalizationVersion"
             ),
             "locale": args.locale,
+            "devicePlatform": args.device_platform,
+            "warnings": metadata.get("_forgeCatalogWarnings", []),
             "counts": {
                 "characters": len(characters),
                 "ships": len(ships),

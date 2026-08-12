@@ -81,6 +81,15 @@ class NormalizeCatalogTests(unittest.TestCase):
                     "rarity": 7,
                     "obtainable": False,
                 },
+                {
+                    "baseId": "TEST_HERO_EVENT_CLONE",
+                    "nameKey": "HERO_NAME",
+                    "combatType": 1,
+                    "rarity": 7,
+                    "obtainable": True,
+                    "obtainableTime": "2396822400000",
+                    "categoryId": ["alignment_light", "role_attacker", "affiliation_rebel"],
+                },
             ],
         }
         self.localization = {
@@ -121,6 +130,30 @@ class NormalizeCatalogTests(unittest.TestCase):
         self.assertEqual("test-villain", capitals[0]["commanderId"])
         self.assertEqual("Test Villain", capitals[0]["commanderName"])
 
+    def test_parses_comlink_localization_text_bundles(self):
+        localization = {
+            "Loc_ENG_US.txt": (
+                "# Start Category: Star_Wars_Strategy_RPG\n"
+                "UNIT_REY_NAME_V2|Rey (Scavenger)\n"
+                "UNIT_VADER_NAME|Darth Vader\n"
+                "VALUE_WITH_PIPE|Text with | a pipe and\\nnewline\n"
+            ),
+            "Loc_Key_Mapping.txt": (
+                "# aliases\n"
+                "LEGACY_VADER_NAME|UNIT_VADER_NAME\n"
+                "LEGACY_VADER_NAME_2|LEGACY_VADER_NAME\n"
+            ),
+        }
+
+        translations = update_game_data.collect_localization(localization)
+
+        self.assertEqual("Rey (Scavenger)", translations["UNIT_REY_NAME_V2"])
+        self.assertEqual("Darth Vader", translations["UNIT_VADER_NAME"])
+        self.assertEqual("Darth Vader", translations["LEGACY_VADER_NAME"])
+        self.assertEqual("Darth Vader", translations["LEGACY_VADER_NAME_2"])
+        self.assertEqual("Text with | a pipe and\nnewline", translations["VALUE_WITH_PIPE"])
+        self.assertNotIn("Loc_ENG_US.txt", translations)
+
     def test_reads_both_seed_and_generated_js_records(self):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory)
@@ -129,15 +162,19 @@ class NormalizeCatalogTests(unittest.TestCase):
                 encoding="utf-8",
             )
             (output / "ships.js").write_text(
-                'window.ForgeData.ships = [{\n  "id": "new-id",\n  "baseId": "NEW_ID",\n  "name": "New Name"\n}];',
+                'window.ForgeData.ships = [{\n'
+                '  "id": "new-id",\n  "baseId": "NEW_ID",\n  "name": "New Name"\n}, {\n'
+                '  "id": "new-name-event-clone",\n  "baseId": "NEW_ID_EVENT",\n'
+                '  "name": "New Name"\n}];',
                 encoding="utf-8",
             )
             by_name, ids = update_game_data.read_previous_catalog(output)
 
-        self.assertEqual({"old-id", "new-id"}, ids)
+        self.assertEqual({"old-id", "new-id", "new-name-event-clone"}, ids)
         self.assertEqual("#abcdef", by_name["oldname"]["color"])
         self.assertEqual("NEW_ID", by_name["newname"]["baseId"])
         self.assertEqual("new-id", by_name["base:new_id"]["id"])
+        self.assertEqual("new-name-event-clone", by_name["base:new_id_event"]["id"])
 
     def test_cli_builds_valid_javascript_from_cached_responses(self):
         units = []
@@ -204,9 +241,61 @@ class NormalizeCatalogTests(unittest.TestCase):
             self.assertIn('"gameDataVersion": "test-game-version"', metadata_js)
             self.assertIn('"characters": 100', metadata_js)
 
-    def test_fetches_category_and_units_with_individual_item_values(self):
+    def test_reads_live_game_data_item_enum_shapes(self):
+        fixtures = [
+            {
+                "GameDataItems": {
+                    "CategoryDefinitions": "1",
+                    "EquipmentDefinitions": 8,
+                    "UnitDefinitions": 137,
+                    "SEGMENT1": "101",
+                    "SEGMENT3": 303,
+                    "ALL": -1,
+                }
+            },
+            {
+                "enums": [
+                    {
+                        "name": "GameDataItemsEnum",
+                        "values": [
+                            {"name": "CATEGORY_DEFINITIONS", "number": 2},
+                            {"name": "EQUIPMENT_DEFINITIONS", "number": 9},
+                            {"name": "UNIT_DEFINITIONS", "number": 138},
+                            {"name": "SEGMENT_1", "number": 111},
+                            {"name": "SEGMENT_3", "number": 333},
+                            {"name": "ALL", "number": -1},
+                        ],
+                    }
+                ]
+            },
+            {
+                "GameDataItemsEnum": {
+                    "3": "CATEGORY_DEFINITION",
+                    "10": "EQUIPMENT_DEFINITION",
+                    "139": "UNIT_DEFINITION",
+                    "121": "SEGMENT_ONE",
+                    "323": "SEGMENT_THREE",
+                    "-1": "EVERYTHING",
+                }
+            },
+        ]
+        self.assertEqual(
+            {"categories": 1, "equipment": 8, "units": 137, "segment3": 303},
+            update_game_data.select_game_data_items(fixtures[0]),
+        )
+        self.assertEqual(
+            {"categories": 2, "equipment": 9, "units": 138, "segment3": 333},
+            update_game_data.select_game_data_items(fixtures[1]),
+        )
+        self.assertEqual(
+            {"categories": 3, "equipment": 10, "units": 139, "segment3": 323},
+            update_game_data.select_game_data_items(fixtures[2]),
+        )
+
+    def test_fetches_minimal_category_and_unit_collections_first(self):
         class FakeComlink:
             calls = []
+            metadata_specs = None
 
             def __init__(self, **kwargs):
                 self.kwargs = kwargs
@@ -217,15 +306,29 @@ class NormalizeCatalogTests(unittest.TestCase):
             def __exit__(self, *args):
                 return None
 
-            def get_game_metadata(self):
+            def get_enums(self):
+                return {
+                    "GameDataItems": {
+                        "CategoryDefinitions": 101,
+                        "EquipmentDefinitions": 808,
+                        "UnitDefinitions": 313,
+                        "SEGMENT1": 1_111,
+                        "SEGMENT3": 3_333,
+                        "ALL": -1,
+                    }
+                }
+
+            def get_game_metadata(self, client_specs=None):
+                self.__class__.metadata_specs = client_specs
                 return {
                     "latestGamedataVersion": "game-version",
                     "latestLocalizationBundleVersion": "localization-version",
+                    "assetSubpath": "100044/Android/ETC2",
                 }
 
             def get_game_data(self, **kwargs):
                 self.calls.append(kwargs)
-                if kwargs["items"] == update_game_data.CATEGORY_DATA_ITEMS:
+                if kwargs["items"] == 101:
                     return {"category": [{"id": "affiliation_rebel"}], "units": []}
                 return {"category": [], "units": [{"baseId": "TEST_HERO"}]}
 
@@ -243,14 +346,164 @@ class NormalizeCatalogTests(unittest.TestCase):
             metadata, game_data, localization = update_game_data.fetch_comlink(arguments)
 
         self.assertEqual("game-version", metadata["latestGamedataVersion"])
+        self.assertEqual({"platform": "Android"}, FakeComlink.metadata_specs)
         self.assertEqual([{"id": "affiliation_rebel"}], game_data["category"])
         self.assertEqual([{"baseId": "TEST_HERO"}], game_data["units"])
         self.assertEqual("Test Hero", localization["HERO_NAME"])
         self.assertEqual(
-            [update_game_data.CATEGORY_DATA_ITEMS, update_game_data.UNIT_DATA_ITEMS],
+            [313, 101],
             [call["items"] for call in FakeComlink.calls],
         )
+        self.assertTrue(all("request_segment" not in call for call in FakeComlink.calls))
         self.assertTrue(all(call["include_pve_units"] is False for call in FakeComlink.calls))
+        self.assertTrue(all(call["device_platform"] == "Android" for call in FakeComlink.calls))
+
+    def test_fetch_falls_back_from_unit_collection_to_live_segment(self):
+        class FakeComlink:
+            calls = []
+
+            def __init__(self, **kwargs):
+                pass
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return None
+
+            def get_enums(self):
+                return {
+                    "GameDataItems": {
+                        "CategoryDefinitions": 11,
+                        "EquipmentDefinitions": 8,
+                        "UnitDefinitions": 13,
+                        "SEGMENT1": 111,
+                        "SEGMENT3": 33,
+                        "ALL": 99,
+                    }
+                }
+
+            def get_game_metadata(self, client_specs=None):
+                return {
+                    "latestGamedataVersion": "game-version",
+                    "latestLocalizationBundleVersion": "localization-version",
+                    "assetSubpath": "100044/Android/ETC2",
+                }
+
+            def get_game_data(self, **kwargs):
+                self.calls.append(kwargs["items"])
+                if kwargs["items"] == 13:
+                    raise RuntimeError("single unit collection rejected")
+                if kwargs["items"] == 11:
+                    return {"category": [{"id": "affiliation_rebel"}], "units": []}
+                if kwargs["items"] == 33:
+                    return {"category": [], "units": [{"baseId": "TEST_HERO"}]}
+                raise AssertionError(f"unsupported fallback was used: {kwargs['items']}")
+
+            def get_localization(self, **kwargs):
+                return {}
+
+        fake_module = types.SimpleNamespace(SwgohComlink=FakeComlink)
+        arguments = Namespace(
+            url="http://127.0.0.1:3000",
+            access_key=None,
+            secret_key=None,
+            locale="ENG_US",
+        )
+        with patch.dict(sys.modules, {"swgoh_comlink": fake_module}):
+            _, game_data, _ = update_game_data.fetch_comlink(arguments)
+
+        self.assertEqual([13, 33, 11], FakeComlink.calls)
+        self.assertEqual(1, len(game_data["category"]))
+        self.assertEqual(1, len(game_data["units"]))
+
+    def test_failure_trace_uses_small_probe_and_never_invents_all(self):
+        class FakeComlink:
+            def __init__(self, **kwargs):
+                pass
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return None
+
+            def get_enums(self):
+                return {
+                    "GameDataItemsEnum": {
+                        "EquipmentDefinitions": 8,
+                        "UnitDefinitions": 13,
+                        "Segment3": 33,
+                    }
+                }
+
+            def get_game_metadata(self, client_specs=None):
+                return {
+                    "latestGamedataVersion": "game-version",
+                    "latestLocalizationBundleVersion": "localization-version",
+                    "assetSubpath": "100044/Android/ETC2",
+                }
+
+            def get_game_data(self, **kwargs):
+                if kwargs["items"] == 8:
+                    return {"equipment": [{"id": "test-equipment"}], "units": []}
+                raise RuntimeError(f"no upstream response for {kwargs['items']}")
+
+            def get_localization(self, **kwargs):
+                return {}
+
+        fake_module = types.SimpleNamespace(SwgohComlink=FakeComlink)
+        with tempfile.TemporaryDirectory() as directory:
+            cache_dir = Path(directory)
+            arguments = Namespace(
+                url="http://127.0.0.1:3000",
+                access_key=None,
+                secret_key=None,
+                locale="ENG_US",
+                cache_dir=cache_dir,
+                no_cache=False,
+            )
+            with patch.dict(sys.modules, {"swgoh_comlink": fake_module}):
+                with self.assertRaisesRegex(RuntimeError, "small live-enum collection"):
+                    update_game_data.fetch_comlink(arguments)
+
+            diagnostic = json.loads((cache_dir / "diagnostic.json").read_text())
+
+        self.assertEqual("failed", diagnostic["status"])
+        self.assertEqual("succeeded", diagnostic["facts"]["smallDataEndpointProbe"]["status"])
+        data_bodies = [
+            request["request"]["body"]
+            for request in diagnostic["requests"]
+            if request["request"]["path"] == "/data"
+        ]
+        self.assertEqual(["13", "33", "8"], [body["payload"]["items"] for body in data_bodies])
+        self.assertNotIn("-1", [body["payload"]["items"] for body in data_bodies])
+
+    def test_rejects_metadata_for_a_different_platform(self):
+        with self.assertRaisesRegex(ValueError, "not requested platform"):
+            update_game_data.validate_metadata_platform(
+                {"assetSubpath": "100044/Windows/ETC"}, "Android"
+            )
+
+    def test_infers_visible_affiliations_without_category_definitions(self):
+        game_data = {
+            "category": [],
+            "units": [
+                {
+                    "baseId": "TEST_HERO",
+                    "name": "Test Hero",
+                    "combatType": 1,
+                    "rarity": 7,
+                    "obtainable": True,
+                    "categoryId": ["alignment_light", "role_attacker", "affiliation_jedi"],
+                }
+            ],
+        }
+        characters, _, _ = update_game_data.normalize_catalog(game_data, {})
+
+        self.assertEqual(["Jedi"], characters[0]["factions"])
+        self.assertEqual("Light Side", characters[0]["alignment"])
+        self.assertEqual("Attacker", characters[0]["role"])
 
 
 if __name__ == "__main__":

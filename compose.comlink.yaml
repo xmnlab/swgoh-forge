@@ -1,8 +1,9 @@
 services:
   comlink:
-    image: ghcr.io/swgoh-utils/swgoh-comlink:4.4.1
+    image: ghcr.io/swgoh-utils/swgoh-comlink:${COMLINK_SERVER_VERSION:-4.5.0}
     environment:
-      APP_NAME: swgoh-forge-local
+      APP_NAME: ${COMLINK_APP_NAME:?Run scripts/update-data-full.sh or set COMLINK_APP_NAME}
+      LOG_LEVEL: debug
     ports:
       - "127.0.0.1:${COMLINK_PORT:-3000}:3000"
     restart: unless-stopped
