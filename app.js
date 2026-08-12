@@ -205,15 +205,58 @@
     </span>`;
   }
 
+  function rosterUnitProgression(id, kind) {
+    const roster = activeRoster();
+    if (!state.rosterLoaded || !roster) return null;
+    return kind === "character" ? roster.units?.[id] || null : roster.ships?.[id] || null;
+  }
+
+  function catalogAbilities(id, kind) {
+    return kind === "character" ? (data.synergyModel?.units?.[id]?.abilities || []) : [];
+  }
+
+  function countLabel(value) {
+    return value !== null && value !== undefined && value !== "" && Number.isFinite(Number(value)) ? String(Number(value)) : "—";
+  }
+
+  function progressionAriaLabel(unit, owned, id, kind) {
+    if (!owned) return `View ${unit.name} details`;
+    const abilityCount = catalogAbilities(id, kind).length || owned.skillCount || 0;
+    const tier = owned.relic > 0 ? `Relic ${owned.relic}` : `Gear ${owned.gear || 0}`;
+    const zetas = countLabel(owned.zetaCount) !== "—" ? `${owned.zetaCount} zeta power-ups` : "zeta data unavailable";
+    const omicrons = countLabel(owned.omicronCount) !== "—" ? `${owned.omicronCount} omicron power-ups` : "omicron data unavailable";
+    return `View ${unit.name} details. ${owned.stars || 0} stars, level ${owned.level || 0}, ${tier}, ${abilityCount} abilities, ${zetas}, ${omicrons}`;
+  }
+
+  function rosterAvatar(unit, id, kind, size, owned) {
+    if (!owned) return portrait(unit, kind, size);
+    const abilityCount = catalogAbilities(id, kind).length || owned.skillCount || 0;
+    const tierLabel = owned.relic > 0 ? `R${owned.relic}` : `G${owned.gear || 0}`;
+    const tierTitle = owned.relic > 0 ? `Relic level ${owned.relic}` : `Gear level ${owned.gear || 0}`;
+    const stars = Math.max(0, Math.min(7, Number(owned.stars) || 0));
+    return `<span class="roster-avatar-shell">
+      ${portrait(unit, kind, size)}
+      <span class="roster-tier-badge${owned.relic > 0 ? " relic" : ""}" title="${tierTitle}">${tierLabel}</span>
+      <span class="roster-level-badge" title="Training level ${owned.level || 0}">L${owned.level || 0}</span>
+      <span class="roster-stars" title="${stars} stars" aria-hidden="true">${"★".repeat(stars) || "☆"}</span>
+    </span>
+    <span class="roster-ability-strip" aria-hidden="true">
+      <span title="${abilityCount} abilities">A${abilityCount}</span>
+      <span class="zeta" title="${countLabel(owned.zetaCount)} applied zeta power-ups">Z${countLabel(owned.zetaCount)}</span>
+      <span class="omicron" title="${countLabel(owned.omicronCount)} applied omicron power-ups">O${countLabel(owned.omicronCount)}</span>
+    </span>`;
+  }
+
   function formationUnit(id, options = {}) {
     const kind = options.kind || "character";
     const unit = unitById(id, kind);
     if (!unit) return "";
     const canExclude = options.excludable && kind === "character";
-    return `<div class="formation-unit${options.leader ? " leader" : ""}${canExclude ? " excludable" : ""}">
+    const owned = rosterUnitProgression(id, kind);
+    return `<div class="formation-unit${options.leader ? " leader" : ""}${canExclude ? " excludable" : ""}${owned ? " roster-enhanced" : ""}">
       ${options.leader ? '<span class="crown" aria-label="Leader">♛</span>' : ""}
-      <button class="unit-detail-button" type="button" data-unit-id="${id}" data-unit-kind="${kind}" aria-label="View ${escapeHtml(unit.name)} details">
-        ${portrait(unit, kind, options.size || "large", "")}
+      <button class="unit-detail-button" type="button" data-unit-id="${id}" data-unit-kind="${kind}" aria-label="${escapeHtml(progressionAriaLabel(unit, owned, id, kind))}">
+        ${rosterAvatar(unit, id, kind, options.size || "large", owned)}
       </button>
       ${canExclude ? `<button class="result-exclude-button" type="button" data-exclude-result-unit="${id}" aria-label="Exclude ${escapeHtml(unit.name)} from recommendations" title="Exclude from recommendations"><span aria-hidden="true">×</span></button>` : ""}
       <span class="unit-name">${escapeHtml(displayName(unit))}</span>
@@ -659,7 +702,7 @@
   function renderRosterProfile() {
     const roster = activeRoster();
     if (!roster) return "";
-    return `<div class="roster-profile"><div class="profile-emblem" aria-hidden="true">${escapeHtml(initials(roster.name))}</div><div><div class="profile-head"><div><h2>${escapeHtml(roster.name)}</h2><p>${escapeHtml(roster.guild)} · ${escapeHtml(formatAllyCode(roster.allyCode))}<br><small>Snapshot updated ${escapeHtml(formatSnapshotDate(roster.updatedAt))}</small></p></div><span class="status-badge">Static snapshot</span></div><div class="profile-stats"><div class="profile-stat"><strong>${formatPower(roster.galacticPower)}</strong><span>Galactic Power</span></div><div class="profile-stat"><strong>${formatNumber(roster.characterCount)}</strong><span>Characters</span></div><div class="profile-stat"><strong>${formatNumber(roster.shipCount)}</strong><span>Ships</span></div><div class="profile-stat"><strong>${formatNumber(roster.relicCount)}</strong><span>Relic units</span></div><div class="profile-stat"><strong>${formatNumber(roster.galacticLegends)}</strong><span>Galactic Legends</span></div></div></div></div>`;
+    return `<div class="roster-profile"><div class="profile-emblem" aria-hidden="true">${escapeHtml(initials(roster.name))}</div><div><div class="profile-head"><div><h2>${escapeHtml(roster.name)}</h2><p>${escapeHtml(roster.guild)} · ${escapeHtml(formatAllyCode(roster.allyCode))}<br><small>Snapshot updated ${escapeHtml(formatSnapshotDate(roster.updatedAt))}</small></p></div><span class="status-badge">Static snapshot</span></div><div class="profile-stats"><div class="profile-stat"><strong>${formatPower(roster.galacticPower)}</strong><span>Galactic Power</span></div><div class="profile-stat"><strong>${formatNumber(roster.characterCount)}</strong><span>Characters</span></div><div class="profile-stat"><strong>${formatNumber(roster.shipCount)}</strong><span>Ships</span></div><div class="profile-stat"><strong>${formatNumber(roster.relicCount)}</strong><span>Relic units</span></div><div class="profile-stat"><strong>${formatNumber(roster.galacticLegends)}</strong><span>Galactic Legends</span></div></div><div class="roster-badge-legend" aria-label="Roster avatar badge legend"><span><strong>G / R</strong>Gear or relic</span><span><strong>A</strong>Abilities</span><span><strong>Z</strong>Zetas</span><span><strong>O</strong>Omicrons</span></div></div></div>`;
   }
 
   function renderRosterWorkspace() {
@@ -771,6 +814,102 @@
     }
   }
 
+  function humanizeSkillId(value) {
+    return String(value || "Unknown ability")
+      .replace(/^(basic|special|unique|leader)skill_/i, "")
+      .replace(/[_-]+/g, " ")
+      .replace(/\b\w/g, (letter) => letter.toUpperCase());
+  }
+
+  function abilityKindLabel(kind) {
+    return ({ basic: "Basic", special: "Special", unique: "Unique", leader: "Leader" })[kind] || "Ability";
+  }
+
+  function omicronModeLabel(value) {
+    const numericModes = {
+      1: "ALLOMICRON",
+      2: "PVEOMICRON",
+      3: "PVPOMICRON",
+      4: "GUILDRAIDOMICRON",
+      5: "TERRITORYSTRIKEOMICRON",
+      6: "TERRITORYCOVERTOMICRON",
+      7: "TERRITORYBATTLEBOTHOMICRON",
+      8: "TERRITORYWAROMICRON",
+      9: "TERRITORYTOURNAMENTOMICRON",
+      10: "WAROMICRON",
+      11: "CONQUESTOMICRON",
+      12: "GALACTICCHALLENGEOMICRON",
+      13: "PVEEVENTOMICRON",
+      14: "TERRITORYTOURNAMENT3OMICRON",
+      15: "TERRITORYTOURNAMENT5OMICRON",
+      16: "GALACTICCHALLENGE3OMICRON",
+      17: "GALACTICCHALLENGE5OMICRON"
+    };
+    const key = numericModes[Number(value)] || String(value || "").replace(/^OmicronMode_?/i, "").toUpperCase();
+    return ({
+      ALLOMICRON: "All modes",
+      PVEOMICRON: "PvE",
+      PVPOMICRON: "PvP",
+      GUILDRAIDOMICRON: "Raids",
+      TERRITORYSTRIKEOMICRON: "TB combat",
+      TERRITORYCOVERTOMICRON: "TB special",
+      TERRITORYBATTLEBOTHOMICRON: "Territory Battles",
+      TERRITORYWAROMICRON: "Territory Wars",
+      TERRITORYTOURNAMENTOMICRON: "Grand Arena",
+      TERRITORYTOURNAMENT3OMICRON: "Grand Arena 3v3",
+      TERRITORYTOURNAMENT5OMICRON: "Grand Arena 5v5",
+      WAROMICRON: "Galactic War",
+      CONQUESTOMICRON: "Conquest",
+      GALACTICCHALLENGEOMICRON: "Galactic Challenges",
+      GALACTICCHALLENGE3OMICRON: "Galactic Challenges 3v3",
+      GALACTICCHALLENGE5OMICRON: "Galactic Challenges 5v5",
+      PVEEVENTOMICRON: "PvE events"
+    })[key] || "Mode-specific";
+  }
+
+  function renderAbilityProgression(id, kind, owned) {
+    if (!owned) return "";
+    const rosterAbilities = Array.isArray(owned.abilities) ? owned.abilities : [];
+    const rosterById = new Map(rosterAbilities.map((ability) => [ability.id, ability]));
+    const definitions = catalogAbilities(id, kind).map((ability) => ({
+      id: ability.skillId,
+      kind: ability.kind,
+      name: ability.name
+    }));
+    const definitionIds = new Set(definitions.map((ability) => ability.id));
+    rosterAbilities.forEach((ability) => {
+      if (!definitionIds.has(ability.id)) definitions.push({ id: ability.id, kind: "other", name: humanizeSkillId(ability.id) });
+    });
+    const levelsKnown = Array.isArray(owned.abilities);
+    const rows = definitions.map((definition) => {
+      const progression = rosterById.get(definition.id);
+      const level = progression?.level ?? (levelsKnown ? 1 : null);
+      const maximum = progression?.maxLevel;
+      const levelLabel = level == null ? "Level —" : `Level ${level}${maximum ? ` / ${maximum}` : ""}`;
+      const powerUps = [
+        progression?.zeta ? '<span class="ability-power-badge zeta">Zeta applied</span>' : "",
+        progression?.omicron ? `<span class="ability-power-badge omicron">Omicron · ${escapeHtml(omicronModeLabel(progression.omicronMode))}</span>` : ""
+      ].filter(Boolean).join("");
+      return `<li class="ability-progress-row">
+        <span class="ability-kind-icon ${escapeHtml(definition.kind)}" aria-hidden="true">${escapeHtml(abilityKindLabel(definition.kind)[0])}</span>
+        <span class="ability-progress-name"><strong>${escapeHtml(definition.name || humanizeSkillId(definition.id))}</strong><small>${escapeHtml(abilityKindLabel(definition.kind))}</small></span>
+        <span class="ability-progress-level">${escapeHtml(levelLabel)}${powerUps ? `<span class="ability-power-ups">${powerUps}</span>` : ""}</span>
+      </li>`;
+    }).join("");
+    const note = owned.abilityProgressionComplete
+      ? "Levels and applied power-ups were matched against the live skill definitions used by this roster snapshot."
+      : "Refresh this Ally Code with the current roster updater to calculate zeta and omicron details.";
+    return `<div class="drawer-section"><h3>Ability progression</h3>
+      <div class="ability-power-summary">
+        <span><strong>${countLabel(owned.zetaCount)}</strong>Zeta power-ups</span>
+        <span><strong>${countLabel(owned.omicronCount)}</strong>Omicron power-ups</span>
+        <span><strong>${owned.purchasedAbilityCount ?? "—"}</strong>Purchased abilities</span>
+      </div>
+      ${rows ? `<ul class="ability-progress-list">${rows}</ul>` : '<p class="requirement-note">No ability progression is available for this unit.</p>'}
+      <p class="requirement-note ability-source-note">${escapeHtml(note)}</p>
+    </div>`;
+  }
+
   function openDrawer(id, kind) {
     const unit = unitById(id, kind);
     if (!unit) return;
@@ -792,14 +931,18 @@
       ["Speed", owned?.speed || "—"],
       ["Health", owned?.health || "—"],
       ["Protection", owned?.protection || "—"],
-      [kind === "character" ? "Equipped mods" : "Upgraded skills", kind === "character" ? (owned?.equippedModCount ?? "—") : (owned?.skillCount ?? "—")]
+      ["Abilities", catalogAbilities(id, kind).length || owned?.skillCount || "—"],
+      ["Zetas", owned ? countLabel(owned.zetaCount) : "—"],
+      ["Omicrons", owned ? countLabel(owned.omicronCount) : "—"],
+      [kind === "character" ? "Equipped mods" : "Purchased abilities", kind === "character" ? (owned?.equippedModCount ?? "—") : (owned?.purchasedAbilityCount ?? "—")]
     ]);
     const relationship = kind === "character"
       ? `<div class="drawer-section"><h3>Role & leadership</h3><div class="data-row"><span>Role</span><strong>${escapeHtml(unit.role)}</strong></div><div class="data-row"><span>Can lead</span><strong>${unit.canLead ? "Yes" : "No"}</strong></div></div>`
       : kind === "ship"
         ? `<div class="drawer-section"><h3>Pilot relationship</h3><div class="data-row"><span>Pilot</span><strong>${escapeHtml(pilot)}</strong></div><div class="data-row"><span>Ship role</span><strong>${escapeHtml(unit.role)}</strong></div><p class="requirement-note" style="margin-top:13px">${escapeHtml(pilot)} <span style="color:var(--teal)">↓</span> ${escapeHtml(unit.name)}. Pilot progression affects resulting ship stats.</p></div>`
         : `<div class="drawer-section"><h3>Command</h3><div class="data-row"><span>Commander</span><strong>${escapeHtml(commander)}</strong></div><div class="data-row"><span>Faction</span><strong>${escapeHtml((unit.factions || []).join(", "))}</strong></div></div>`;
-    drawerContent.innerHTML = `<div class="drawer-head"><div><span class="micro-label">Optimization detail</span><h2 id="drawer-title">Unit snapshot</h2></div><button class="icon-button" type="button" data-action="close-drawer" aria-label="Close unit details">×</button></div><div class="drawer-hero">${portrait(unit, kind, "xlarge")}<h3>${escapeHtml(unit.name)}</h3><p>${escapeHtml((unit.factions || []).join(" · "))}${unit.alignment ? ` · ${escapeHtml(unit.alignment)}` : ""}</p>${rosterStatus}</div><div class="drawer-section"><h3>${owned ? "Loaded roster progression" : "Roster progression"}</h3>${progression}</div>${relationship}<div class="drawer-section"><p class="requirement-note">Roster progression comes from the loaded static Comlink snapshot. Missing values are shown as unavailable rather than estimated.</p></div>`;
+    const abilityProgression = renderAbilityProgression(id, kind, owned);
+    drawerContent.innerHTML = `<div class="drawer-head"><div><span class="micro-label">Optimization detail</span><h2 id="drawer-title">Unit snapshot</h2></div><button class="icon-button" type="button" data-action="close-drawer" aria-label="Close unit details">×</button></div><div class="drawer-hero">${portrait(unit, kind, "xlarge")}<h3>${escapeHtml(unit.name)}</h3><p>${escapeHtml((unit.factions || []).join(" · "))}${unit.alignment ? ` · ${escapeHtml(unit.alignment)}` : ""}</p>${rosterStatus}</div><div class="drawer-section"><h3>${owned ? "Loaded roster progression" : "Roster progression"}</h3>${progression}</div>${abilityProgression}${relationship}<div class="drawer-section"><p class="requirement-note">Roster progression comes from the loaded static Comlink snapshot. Missing values are shown as unavailable rather than estimated.</p></div>`;
     drawer.classList.add("open");
     drawer.setAttribute("aria-hidden", "false");
     drawerScrim.hidden = false;

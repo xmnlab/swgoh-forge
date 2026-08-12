@@ -16,6 +16,7 @@ The unit catalog, general squad-synergy model, and selected player roster snapsh
 - Searchable, filterable character and ship pickers
 - Minimum, recommended, and safe requirement tiers
 - Locally generated static roster profiles, readiness comparisons, and owned-unit filtering
+- Roster-aware unit badges for stars, training level, gear/relic tier, abilities, zetas, and omicrons
 - Automatic exclusion of characters absent from the loaded roster snapshot
 - Demo whole-roster assignments, clearly separated from real roster progression
 - Optional locally generated unit, ship, category, and English-name snapshot
@@ -125,7 +126,7 @@ GitHub Pages cannot run a server, so the published site cannot fetch an arbitrar
 ./scripts/update-roster-full.sh 123-456-789
 ```
 
-The wrapper starts the pinned Comlink container on an unused loopback port, requests the public `/player` profile, normalizes the useful roster progression, writes the snapshot atomically, and stops Comlink. It uses only Python's standard library and Docker; it does not require the data-updater virtual environment.
+The wrapper starts the pinned Comlink container on an unused loopback port, requests the public `/player` profile, then reads the current `SkillDefinitions` from `/data`. The updater uses those definitions to convert raw roster skill tiers to displayed ability levels and to count applied zeta and omicron tiers without inferring them from names. It writes the normalized snapshot atomically and stops Comlink. It uses only Python's standard library and Docker; it does not require the data-updater virtual environment.
 
 The Ally Code is an upsert key. Running the command again replaces that player's existing snapshot, while a new Ally Code is added alongside the existing entries. To validate a profile without writing it:
 
@@ -133,9 +134,9 @@ The Ally Code is an upsert key. Running the command again replaces that player's
 ./scripts/update-roster-full.sh 123-456-789 --dry-run
 ```
 
-After an update, reload the site and open **Roster**. Loading a saved Ally Code resets previous calculated results and the cached Build exclusions, then excludes every character in the current catalog that is absent from that roster. The Build optimizer therefore recommends only owned characters unless exclusions are manually changed afterward.
+After an update, reload the site and open **Roster**. Loading a saved Ally Code resets previous calculated results and the cached Build exclusions, then excludes every character in the current catalog that is absent from that roster. The Build optimizer therefore recommends only owned characters unless exclusions are manually changed afterward. Owned-unit avatars then show stars, level, gear or relic tier, and ability/zeta/omicron counts; selecting an avatar opens the full ability-level breakdown.
 
-The generated file intentionally omits the internal player ID, raw equipped-mod records, datacrons, and other fields the interface does not use. It does include the Ally Code, player name, guild name, unit ownership, and progression. **Committing `data/rosters.js` publishes that information through the static site. Only commit a snapshot when the player expects it to be public.**
+The generated file intentionally omits the internal player ID, raw equipped-mod records, datacrons, and other fields the interface does not use. It does include the Ally Code, player name, guild name, unit ownership, progression, normalized ability levels, and applied power-up counts. Snapshots created by an older updater remain readable, but show dashes for zeta and omicron counts until that Ally Code is refreshed. **Committing `data/rosters.js` publishes that information through the static site. Only commit a snapshot when the player expects it to be public.**
 
 ### What the team score means
 

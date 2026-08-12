@@ -9,6 +9,7 @@ import os
 import re
 import sys
 import tempfile
+import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -22,6 +23,7 @@ DEFAULT_CHARACTERS = REPOSITORY_ROOT / "data" / "characters.js"
 DEFAULT_SHIPS = REPOSITORY_ROOT / "data" / "ships.js"
 ALLY_CODE_PATTERN = re.compile(r"^[1-9]{9}$")
 STORE_VARIABLE = "window.ForgeData.staticRosters"
+SCHEMA_VERSION = 2
 STAT_FIELDS = {
     1: "health",
     5: "speed",
@@ -142,16 +144,91 @@ def roster_stats(unit: dict[str, Any]) -> dict[str, int]:
     return result
 
 
-def normalize_unit(unit: dict[str, Any], catalog_unit: dict[str, Any]) -> dict[str, Any]:
+def bool_value(value: Any) -> bool:
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, str):
+        return value.strip().casefold() in {"1", "true", "yes"}
+    return bool(value)
+
+
+def skill_progression(
+    unit: dict[str, Any],
+    skill_by_id: dict[str, dict[str, Any]],
+) -> tuple[list[dict[str, Any]], int | None, int | None, bool]:
+    """Expand roster skill tiers using the matching live game-data definitions.
+
+    Comlink's player-data documentation specifies that a roster skill tier needs
+    +2 for its displayed level, while flagged game-data tier indexes are compared
+    as index + 1 against the unmodified roster tier.
+    """
+    abilities: list[dict[str, Any]] = []
+    zeta_count = 0
+    omicron_count = 0
+    complete = bool(skill_by_id)
+    for roster_skill in unit.get("skill") or []:
+        skill_id = str(roster_skill.get("id") or roster_skill.get("skillId") or "")
+        if not skill_id:
+            continue
+        raw_tier = enum_number(roster_skill.get("tier"))
+        definition = skill_by_id.get(skill_id)
+        record: dict[str, Any] = {"id": skill_id, "level": raw_tier + 2}
+        if not definition:
+            complete = False
+            abilities.append(record)
+            continue
+
+        tiers = definition.get("tier") or []
+        record["maxLevel"] = len(tiers) + 1
+        zeta_tier = next(
+            (index + 1 for index, tier in enumerate(tiers) if bool_value(tier.get("isZetaTier"))),
+            None,
+        )
+        omicron_tier = next(
+            (index + 1 for index, tier in enumerate(tiers) if bool_value(tier.get("isOmicronTier"))),
+            None,
+        )
+        if zeta_tier is not None:
+            record["zetaAvailable"] = True
+            if raw_tier >= zeta_tier:
+                record["zeta"] = True
+                zeta_count += 1
+        if omicron_tier is not None:
+            record["omicronAvailable"] = True
+            omicron_mode = definition.get("omicronMode")
+            if omicron_mode not in (None, "", 0, "0", "OmicronMode_DEFAULT"):
+                record["omicronMode"] = omicron_mode
+            if raw_tier >= omicron_tier:
+                record["omicron"] = True
+                omicron_count += 1
+        abilities.append(record)
+    return abilities, (zeta_count if complete else None), (omicron_count if complete else None), complete
+
+
+def normalize_unit(
+    unit: dict[str, Any],
+    catalog_unit: dict[str, Any],
+    skill_by_id: dict[str, dict[str, Any]] | None = None,
+) -> dict[str, Any]:
     definition_id = str(unit.get("definitionId") or "")
     base_id = definition_id.split(":", 1)[0].upper()
+    raw_skills = unit.get("skill") or []
+    abilities, zeta_count, omicron_count, ability_progression_complete = skill_progression(
+        unit,
+        skill_by_id or {},
+    )
     record: dict[str, Any] = {
         "baseId": base_id,
         "level": int(unit.get("currentLevel") or 0),
         "stars": rarity_level(unit.get("currentRarity")),
         "gear": enum_number(unit.get("currentTier"), "TIER_"),
         "relic": relic_level((unit.get("relic") or {}).get("currentTier")),
-        "skillCount": len(unit.get("skill") or []),
+        "skillCount": len(raw_skills),
+        "abilities": abilities,
+        "zetaCount": zeta_count,
+        "omicronCount": omicron_count,
+        "abilityProgressionComplete": ability_progression_complete,
+        "purchasedAbilityCount": len(unit.get("purchasedAbilityId") or []),
         "equippedModCount": len(unit.get("equippedStatMod") or []),
     }
     record.update(roster_stats(unit))
@@ -177,6 +254,7 @@ def normalize_player(
     character_by_base: dict[str, dict[str, Any]],
     ship_by_base: dict[str, dict[str, Any]],
     updated_at: str | None = None,
+    skill_definitions: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     response_ally_code = normalize_ally_code(str(player.get("allyCode") or requested_ally_code))
     if response_ally_code != requested_ally_code:
@@ -185,14 +263,19 @@ def normalize_player(
     characters: dict[str, dict[str, Any]] = {}
     ships: dict[str, dict[str, Any]] = {}
     unmatched: list[str] = []
+    skill_by_id = {
+        str(skill["id"]): skill
+        for skill in (skill_definitions or [])
+        if isinstance(skill, dict) and skill.get("id")
+    }
     for unit in player.get("rosterUnit") or []:
         base_id = str(unit.get("definitionId") or "").split(":", 1)[0].upper()
         if base_id in character_by_base:
             catalog_unit = character_by_base[base_id]
-            characters[catalog_unit["id"]] = normalize_unit(unit, catalog_unit)
+            characters[catalog_unit["id"]] = normalize_unit(unit, catalog_unit, skill_by_id)
         elif base_id in ship_by_base:
             catalog_unit = ship_by_base[base_id]
-            ships[catalog_unit["id"]] = normalize_unit(unit, catalog_unit)
+            ships[catalog_unit["id"]] = normalize_unit(unit, catalog_unit, skill_by_id)
         elif base_id:
             unmatched.append(base_id)
 
@@ -227,30 +310,174 @@ def normalize_player(
     }
 
 
-def fetch_player(url: str, ally_code: str, timeout: float = 45) -> dict[str, Any]:
-    body = json.dumps({"payload": {"allyCode": ally_code}, "enums": False}).encode("utf-8")
+def request_json(
+    url: str,
+    path: str,
+    payload: dict[str, Any] | None,
+    label: str,
+    timeout: float = 90,
+) -> dict[str, Any]:
+    body = json.dumps(payload).encode("utf-8") if payload is not None else None
     request = urllib.request.Request(
-        f"{url.rstrip('/')}/player",
+        f"{url.rstrip('/')}{path}",
         data=body,
         headers={"Content-Type": "application/json", "Accept": "application/json"},
-        method="POST",
+        method="POST" if body is not None else "GET",
     )
+    started = time.monotonic()
+    print(f"[roster] -> {label}: {request.method} {path}", file=sys.stderr)
     try:
         with urllib.request.urlopen(request, timeout=timeout) as response:
             document = json.load(response)
     except urllib.error.HTTPError as error:
         detail = error.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"Comlink /player returned HTTP {error.code}: {detail}") from error
+        raise RuntimeError(f"Comlink {path} returned HTTP {error.code}: {detail}") from error
     except urllib.error.URLError as error:
         raise RuntimeError(f"Could not reach Comlink at {url}: {error.reason}") from error
     if not isinstance(document, dict):
-        raise RuntimeError("Comlink /player returned an unexpected non-object response.")
+        raise RuntimeError(f"Comlink {path} returned an unexpected non-object response.")
+    elapsed = round((time.monotonic() - started) * 1000)
+    print(f"[roster] <- {label}: HTTP success in {elapsed} ms", file=sys.stderr)
     return document
+
+
+def fetch_player(url: str, ally_code: str, timeout: float = 45) -> dict[str, Any]:
+    return request_json(
+        url,
+        "/player",
+        {"payload": {"allyCode": ally_code}, "enums": False},
+        "read public player roster",
+        timeout,
+    )
+
+
+def normalized_enum_name(value: Any) -> str:
+    return re.sub(r"[^a-z0-9]+", "", str(value).casefold())
+
+
+def enum_integer(value: Any) -> int | None:
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, int):
+        return value
+    if isinstance(value, float) and value.is_integer():
+        return int(value)
+    if isinstance(value, str) and re.fullmatch(r"-?\d+", value.strip()):
+        return int(value)
+    return None
+
+
+def game_data_item_value(document: Any, expected_name: str) -> int:
+    sections: list[Any] = []
+
+    def locate(value: Any) -> None:
+        if isinstance(value, dict):
+            for key, child in value.items():
+                if "gamedataitems" in normalized_enum_name(key):
+                    sections.append(child)
+                if normalized_enum_name(key) in {"name", "enumname", "type", "typename"}:
+                    if isinstance(child, str) and "gamedataitems" in normalized_enum_name(child):
+                        sections.append(value)
+                locate(child)
+        elif isinstance(value, list):
+            for child in value:
+                locate(child)
+
+    locate(document)
+    wanted = normalized_enum_name(expected_name)
+    name_fields = {"name", "key", "label", "enumkey", "symbol"}
+    number_fields = {"value", "number", "id", "enumvalue"}
+
+    def collect(value: Any) -> int | None:
+        if isinstance(value, dict):
+            for key, child in value.items():
+                if normalized_enum_name(key) == wanted:
+                    number = enum_integer(child)
+                    if number is not None:
+                        return number
+                if normalized_enum_name(str(child)) == wanted:
+                    key_number = enum_integer(key)
+                    if key_number is not None:
+                        return key_number
+            names = [
+                child
+                for key, child in value.items()
+                if normalized_enum_name(key) in name_fields and isinstance(child, str)
+            ]
+            numbers = [
+                enum_integer(child)
+                for key, child in value.items()
+                if normalized_enum_name(key) in number_fields and enum_integer(child) is not None
+            ]
+            if any(normalized_enum_name(name) == wanted for name in names) and numbers:
+                return numbers[0]
+            for child in value.values():
+                found = collect(child)
+                if found is not None:
+                    return found
+        elif isinstance(value, list):
+            for child in value:
+                found = collect(child)
+                if found is not None:
+                    return found
+        return None
+
+    for section in sections:
+        result = collect(section)
+        if result is not None:
+            return result
+    raise RuntimeError(f"Comlink /enums did not expose {expected_name}.")
+
+
+def find_collection(document: Any, *names: str) -> list[dict[str, Any]]:
+    wanted = {name.casefold() for name in names}
+    if isinstance(document, dict):
+        for key, value in document.items():
+            if str(key).casefold() in wanted and isinstance(value, list):
+                return [item for item in value if isinstance(item, dict)]
+        for value in document.values():
+            found = find_collection(value, *names)
+            if found:
+                return found
+    return []
+
+
+def fetch_skill_definitions(url: str) -> list[dict[str, Any]]:
+    enums = request_json(url, "/enums", None, "read GameDataItems enum")
+    skill_items = game_data_item_value(enums, "SkillDefinitions")
+    metadata = request_json(
+        url,
+        "/metadata",
+        {"payload": {"clientSpecs": {"platform": "Android"}}, "enums": False},
+        "read current game-data version",
+    )
+    version = str(metadata.get("latestGamedataVersion") or metadata.get("latestGameDataVersion") or "")
+    if not version:
+        raise RuntimeError("Comlink /metadata did not include latestGamedataVersion.")
+    response = request_json(
+        url,
+        "/data",
+        {
+            "payload": {
+                "version": version,
+                "devicePlatform": "Android",
+                "includePveUnits": False,
+                "items": str(skill_items),
+            },
+            "enums": False,
+        },
+        f"read SkillDefinitions ({skill_items})",
+    )
+    skills = find_collection(response, "skill", "skills")
+    if not skills:
+        raise RuntimeError("Comlink /data returned no skill definitions.")
+    print(f"[roster] linked {len(skills)} skill definitions", file=sys.stderr)
+    return skills
 
 
 def load_store(path: Path) -> dict[str, Any]:
     if not path.exists():
-        return {"schemaVersion": 1, "updatedAt": None, "rosters": {}}
+        return {"schemaVersion": SCHEMA_VERSION, "updatedAt": None, "rosters": {}}
     store = read_javascript_value(path, STORE_VARIABLE)
     if not isinstance(store, dict) or not isinstance(store.get("rosters"), dict):
         raise ValueError(f"{path} does not contain a valid static roster store.")
@@ -274,7 +501,7 @@ def upsert_roster(path: Path, roster: dict[str, Any]) -> tuple[dict[str, Any], b
     store = load_store(path)
     ally_code = roster["allyCode"]
     replaced = ally_code in store["rosters"]
-    store["schemaVersion"] = 1
+    store["schemaVersion"] = SCHEMA_VERSION
     store["updatedAt"] = roster["updatedAt"]
     store["rosters"][ally_code] = roster
     store["rosters"] = dict(sorted(store["rosters"].items()))
@@ -301,7 +528,14 @@ def main(argv: list[str] | None = None) -> int:
         print("Do not commit a snapshot unless the player expects it to be published with the site.", file=sys.stderr)
         character_by_base, ship_by_base = load_catalog(arguments.characters, arguments.ships)
         player = fetch_player(arguments.url, ally_code)
-        roster = normalize_player(player, ally_code, character_by_base, ship_by_base)
+        skill_definitions = fetch_skill_definitions(arguments.url)
+        roster = normalize_player(
+            player,
+            ally_code,
+            character_by_base,
+            ship_by_base,
+            skill_definitions=skill_definitions,
+        )
         if arguments.dry_run:
             print(
                 f"Validated {roster['name']} ({ally_code}): {roster['characterCount']} characters, "

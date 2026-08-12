@@ -1,8 +1,10 @@
 import importlib.util
+import copy
 import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 
 MODULE_PATH = Path(__file__).resolve().parents[1] / "scripts" / "update_roster_data.py"
@@ -117,6 +119,94 @@ class UpdateRosterDataTests(unittest.TestCase):
             self.assertEqual("Updated Tester", store["rosters"]["123456789"]["name"])
             parsed = update_roster_data.read_javascript_value(output, update_roster_data.STORE_VARIABLE)
             self.assertEqual(store, parsed)
+            self.assertEqual(update_roster_data.SCHEMA_VERSION, parsed["schemaVersion"])
+
+    def test_expands_ability_levels_and_counts_applied_power_ups(self):
+        player = copy.deepcopy(self.player)
+        player["rosterUnit"][0]["skill"] = [
+            {"id": "basicskill_TEST", "tier": 6},
+            {"id": "uniqueskill_TEST", "tier": 7},
+        ]
+        skill_definitions = [
+            {
+                "id": "basicskill_TEST",
+                "tier": [{}, {}, {}, {}, {}, {"isZetaTier": True}, {}],
+            },
+            {
+                "id": "uniqueskill_TEST",
+                "omicronMode": 9,
+                "tier": [{}, {}, {}, {}, {}, {}, {"isOmicronTier": True}, {}],
+            },
+        ]
+
+        roster = update_roster_data.normalize_player(
+            player,
+            "123456789",
+            self.characters,
+            self.ships,
+            updated_at="2026-08-12T00:00:00Z",
+            skill_definitions=skill_definitions,
+        )
+
+        hero = roster["units"]["test-hero"]
+        self.assertTrue(hero["abilityProgressionComplete"])
+        self.assertEqual(1, hero["zetaCount"])
+        self.assertEqual(1, hero["omicronCount"])
+        self.assertEqual(
+            [
+                {
+                    "id": "basicskill_TEST",
+                    "level": 8,
+                    "maxLevel": 8,
+                    "zetaAvailable": True,
+                    "zeta": True,
+                },
+                {
+                    "id": "uniqueskill_TEST",
+                    "level": 9,
+                    "maxLevel": 9,
+                    "omicronAvailable": True,
+                    "omicronMode": 9,
+                    "omicron": True,
+                },
+            ],
+            hero["abilities"],
+        )
+
+    def test_marks_power_up_counts_unknown_without_complete_skill_data(self):
+        roster = update_roster_data.normalize_player(
+            self.player,
+            "123456789",
+            self.characters,
+            self.ships,
+            updated_at="2026-08-12T00:00:00Z",
+        )
+        hero = roster["units"]["test-hero"]
+        self.assertFalse(hero["abilityProgressionComplete"])
+        self.assertIsNone(hero["zetaCount"])
+        self.assertIsNone(hero["omicronCount"])
+        self.assertEqual(8, hero["abilities"][0]["level"])
+
+    def test_reads_skill_definitions_from_live_enum_shape(self):
+        enums = {"wrapper": {"GameDataItemsEnum": {"SkillDefinitions": 4}}}
+        self.assertEqual(4, update_roster_data.game_data_item_value(enums, "SkillDefinitions"))
+
+    def test_fetches_live_skill_definitions_with_current_version(self):
+        with mock.patch.object(
+            update_roster_data,
+            "request_json",
+            side_effect=[
+                {"GameDataItemsEnum": {"SkillDefinitions": 4}},
+                {"latestGamedataVersion": "test-version"},
+                {"skill": [{"id": "basicskill_TEST", "tier": []}]},
+            ],
+        ) as request_json:
+            skills = update_roster_data.fetch_skill_definitions("http://127.0.0.1:3000")
+
+        self.assertEqual("basicskill_TEST", skills[0]["id"])
+        data_payload = request_json.call_args_list[2].args[2]
+        self.assertEqual("test-version", data_payload["payload"]["version"])
+        self.assertEqual("4", data_payload["payload"]["items"])
 
     def test_ally_code_validation_accepts_hyphens_but_rejects_zero(self):
         self.assertEqual("123456789", update_roster_data.normalize_ally_code("123-456-789"))
