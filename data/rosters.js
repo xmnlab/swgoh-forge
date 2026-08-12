@@ -2,22 +2,22 @@
 window.ForgeData = window.ForgeData || {};
 
 window.ForgeData.staticRosters = {
-  "schemaVersion": 1,
-  "updatedAt": "2026-08-12T22:31:51Z",
+  "schemaVersion": 2,
+  "updatedAt": "2026-08-12T23:58:49Z",
   "rosters": {
     "885583128": {
       "allyCode": "885583128",
       "name": "XMN",
       "guild": "Mustafar's nightmare",
       "level": 85,
-      "galacticPower": 5971319,
-      "characterGP": 3864672,
+      "galacticPower": 5972366,
+      "characterGP": 3865719,
       "shipGP": 2106647,
       "characterCount": 264,
       "shipCount": 46,
       "relicCount": 74,
       "galacticLegends": 0,
-      "updatedAt": "2026-08-12T22:31:51Z",
+      "updatedAt": "2026-08-12T23:58:49Z",
       "source": "comlink-static",
       "units": {
         "0-0-0": {
@@ -27,6 +27,22 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 2,
+          "abilities": [
+            {
+              "id": "basicskill_TRIPLEZERO",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_TRIPLEZERO01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "aayla-secura": {
@@ -36,6 +52,27 @@ window.ForgeData.staticRosters = {
           "gear": 3,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_AAYLASECURA",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_AAYLASECURA01",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_AAYLASECURA",
+              "level": 4,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "admiral-ackbar": {
@@ -45,6 +82,34 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_ADMIRALACKBAR",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_ADMIRALACKBAR01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_ADMIRALACKBAR02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_ADMIRALACKBAR",
+              "level": 7,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "admiral-piett": {
@@ -54,6 +119,39 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_ADMIRALPIETT",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_ADMIRALPIETT01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_ADMIRALPIETT02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "leaderskill_ADMIRALPIETT",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_ADMIRALPIETT01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "admiral-raddus": {
@@ -63,6 +161,22 @@ window.ForgeData.staticRosters = {
           "gear": 2,
           "relic": 0,
           "skillCount": 2,
+          "abilities": [
+            {
+              "id": "basicskill_ADMIRALRADDUS",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_ADMIRALRADDUS02",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "ahsoka-tano-fulcrum": {
@@ -72,6 +186,35 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_FULCRUMAHSOKA",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_FULCRUMAHSOKA01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_FULCRUMAHSOKA01",
+              "level": 3,
+              "maxLevel": 9,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "specialskill_FULCRUMAHSOKA02",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "ahsoka-tano-snips": {
@@ -81,6 +224,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_AHSOKATANO01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_AHSOKATANO",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_AHSOKATANO",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_AHSOKATANO01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "amilyn-holdo": {
@@ -90,6 +260,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_AMILYNHOLDO",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_AMILYNHOLDO01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_AMILYNHOLDO02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_AMILYNHOLDO01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "arc-trooper": {
@@ -99,6 +296,28 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_ARCTROOPER501ST",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_ARCTROOPER501ST01",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_ARCTROOPER501ST01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "asajj-ventress": {
@@ -108,6 +327,42 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 3,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "specialskill_ASAJVENTRESS01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_ASAJVENTRESS02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_ASAJVENTRESS",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "basicskill_ASAJVENTRESS",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_ASAJVENTRESS01",
+              "level": 9,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "zeta": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            }
+          ],
+          "zetaCount": 1,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "aurra-sing": {
@@ -117,6 +372,34 @@ window.ForgeData.staticRosters = {
           "gear": 4,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_AURRA_SING",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_AURRA_SING01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_AURRA_SING02",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "leaderskill_AURRA_SING",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 3
         },
         "b1-battle-droid": {
@@ -126,6 +409,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 3,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_b1battledroidv2",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_b1battledroidv2_01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_b1battledroidv2_02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_b1battledroidv2_01",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "b2-super-battle-droid": {
@@ -135,6 +445,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 2,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "uniqueskill_B2SUPERBATTLEDROID01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_B2SUPERBATTLEDROID02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "basicskill_B2SUPERBATTLEDROID",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_B2SUPERBATTLEDROID01",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "barriss-offee": {
@@ -144,6 +481,33 @@ window.ForgeData.staticRosters = {
           "gear": 10,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_BARRISSOFFEE01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_BARRISSOFFEE",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_BARRISSOFFEE01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "leaderskill_BARRISSOFFEE",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "bastila-fallen": {
@@ -153,6 +517,43 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 4,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_BASTILASHANDARK",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BASTILASHANDARK01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BASTILASHANDARK02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_BASTILASHANDARK01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_BASTILASHANDARK02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_BASTILASHANDARK03",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "bastila-shan": {
@@ -162,6 +563,43 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_BASTILASHAN",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BASTILASHAN01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BASTILASHAN02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_BASTILASHAN",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_BASTILASHAN01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_BASTILASHAN02",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "baze-malbus": {
@@ -171,6 +609,37 @@ window.ForgeData.staticRosters = {
           "gear": 6,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_BAZEMALBUS",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BAZEMALBUS01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BAZEMALBUS02",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_BAZEMALBUS01",
+              "level": 4,
+              "maxLevel": 7
+            },
+            {
+              "id": "uniqueskill_BAZEMALBUS02",
+              "level": 3,
+              "maxLevel": 7
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 5
         },
         "bb-8": {
@@ -180,6 +649,39 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_BB8",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BB801",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BB802",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_BB801",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_BB802",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "biggs-darklighter": {
@@ -189,6 +691,27 @@ window.ForgeData.staticRosters = {
           "gear": 6,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_BIGGSDARKLIGHTER",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BIGGSDARKLIGHTER01",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_BIGGSDARKLIGHTER01",
+              "level": 4,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "bistan": {
@@ -198,15 +721,63 @@ window.ForgeData.staticRosters = {
           "gear": 3,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_BISTAN",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BISTAN01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BISTAN02",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "bo-katan-kryze": {
           "baseId": "BOKATAN",
-          "level": 70,
+          "level": 85,
           "stars": 3,
           "gear": 8,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "uniqueskill_BOKATAN01",
+              "level": 4,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "basicskill_BOKATAN",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BOKATAN01",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_BOKATAN",
+              "level": 5,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "boba-fett": {
@@ -216,6 +787,43 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_BOBAFETT",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BOBAFETT01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_BOBAFETT",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_BOBAFETT01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_BOBAFETT02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "contractskill_BOBAFETT01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "bodhi-rook": {
@@ -225,6 +833,33 @@ window.ForgeData.staticRosters = {
           "gear": 9,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_BODHIROOK",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BODHIROOK01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BODHIROOK02",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_BODHIROOK01",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "boss-nass": {
@@ -234,6 +869,41 @@ window.ForgeData.staticRosters = {
           "gear": 6,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_BOSSNASS",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BOSSNASS01",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BOSSNASS02",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_BOSSNASS",
+              "level": 4,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "uniqueskill_BOSSNASS01",
+              "level": 4,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "bossk": {
@@ -243,6 +913,44 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_BOSSK",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BOSSK01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BOSSK02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_BOSSK",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_BOSSK01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "contractskill_BOSSK01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "boushh-leia": {
@@ -252,6 +960,22 @@ window.ForgeData.staticRosters = {
           "gear": 4,
           "relic": 0,
           "skillCount": 2,
+          "abilities": [
+            {
+              "id": "basicskill_BOUSHH",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BOUSHH01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "bt-1": {
@@ -261,6 +985,25 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 2,
+          "abilities": [
+            {
+              "id": "basicskill_BT1",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_BT101",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 14
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "c-3po": {
@@ -270,6 +1013,49 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 7,
+          "abilities": [
+            {
+              "id": "basicskill_C3POLEGENDARY",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_C3POLEGENDARY01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_C3POLEGENDARY01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_C3POLEGENDARY02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_C3POLEGENDARY03",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_C3POLEGENDARY04",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_C3POLEGENDARY05",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "cad-bane": {
@@ -279,6 +1065,37 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_CADBANE",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CADBANE01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CADBANE01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_CADBANE",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "contractskill_CADBANE01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "cal-kestis": {
@@ -288,6 +1105,37 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 6,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_CALKESTIS",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CALKESTIS01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CALKESTIS02",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_CALKESTIS01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "zeta": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            }
+          ],
+          "zetaCount": 1,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "canderous-ordo": {
@@ -297,6 +1145,33 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_CANDEROUSORDO",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CANDEROUSORDO01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CANDEROUSORDO02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CANDEROUSORDO01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "captain-carson-teva": {
@@ -306,6 +1181,35 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "leaderskill_CARSONTEVA",
+              "level": 7,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 7
+            },
+            {
+              "id": "specialskill_CARSONTEVA01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_CARSONTEVA",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CARSONTEVA01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "captain-drogan": {
@@ -315,6 +1219,11 @@ window.ForgeData.staticRosters = {
           "gear": 2,
           "relic": 0,
           "skillCount": 0,
+          "abilities": [],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "captain-enoch": {
@@ -324,6 +1233,36 @@ window.ForgeData.staticRosters = {
           "gear": 8,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_CAPTAINENOCH01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_CAPTAINENOCH",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "basicskill_CAPTAINENOCH",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CAPTAINENOCH01",
+              "level": 6,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 7
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "captain-han-solo": {
@@ -333,6 +1272,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 4,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_HOTHHAN",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_HOTHHAN01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_HOTHHAN02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_HOTHHAN01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "captain-phasma": {
@@ -342,6 +1308,35 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_PHASMA",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_PHASMA01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_PHASMA02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_PHASMA",
+              "level": 7,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "captain-rex": {
@@ -351,6 +1346,36 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 2,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_CAPTAINREX",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CAPTAINREX01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            },
+            {
+              "id": "specialskill_CAPTAINREX01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_CAPTAINREX02",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "captain-tarpals": {
@@ -360,6 +1385,35 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_CAPTAINTARPALS",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CAPTAINTARPALS01",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CAPTAINTARPALS02",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CAPTAINTARPALS01",
+              "level": 4,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 7
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "cara-dune": {
@@ -369,6 +1423,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_CARADUNE",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CARADUNE01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CARADUNE01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CARADUNE02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "carth-onasi": {
@@ -378,6 +1459,35 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_carthonasi",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_carthonasi",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_carthonasi",
+              "level": 8,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 7
+            },
+            {
+              "id": "uniqueskill_carthonasi",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "cassian-andor": {
@@ -387,6 +1497,35 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_CASSIANANDOR",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CASSIANANDOR01",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CASSIANANDOR02",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CASSIANANDOR01",
+              "level": 4,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 7
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "cc-1119-appo": {
@@ -396,6 +1535,36 @@ window.ForgeData.staticRosters = {
           "gear": 9,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_APPO",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_APPO01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_APPO02",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_APPO01",
+              "level": 6,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 7
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "cc-2224-cody": {
@@ -405,6 +1574,33 @@ window.ForgeData.staticRosters = {
           "gear": 8,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_CC2224",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CC222401",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CC222402",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_CC2224",
+              "level": 4,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "cere-junda": {
@@ -414,6 +1610,41 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_CEREJUNDA",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CEREJUNDA01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CEREJUNDA01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CEREJUNDA02",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "leaderskill_CEREJUNDA",
+              "level": 6,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "chewbacca": {
@@ -423,6 +1654,39 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_CHEWBACCALEGENDARY",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CHEWBACCALEGENDARY01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CHEWBACCALEGENDARY02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CHEWBACCALEGENDARY01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_CHEWBACCALEGENDARY02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "chewpio": {
@@ -432,6 +1696,27 @@ window.ForgeData.staticRosters = {
           "gear": 2,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_C3POCHEWBACCA",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_C3POCHEWBACCA01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_C3POCHEWBACCA",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "chief-chirpa": {
@@ -441,6 +1726,36 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_CHIEFCHIRPA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CHIEFCHIRPA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CHIEFCHIRPA02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_CHIEFCHIRPA",
+              "level": 9,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "zeta": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            }
+          ],
+          "zetaCount": 1,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "chief-nebit": {
@@ -450,6 +1765,34 @@ window.ForgeData.staticRosters = {
           "gear": 5,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_CHIEFNEBIT",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CHIEFNEBIT01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CHIEFNEBIT02",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_CHIEFNEBIT",
+              "level": 3,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "chirrut-imwe": {
@@ -459,6 +1802,37 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_CHIRRUTIMWE",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CHIRRUTIMWE01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CHIRRUTIMWE02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CHIRRUTIMWE01",
+              "level": 7,
+              "maxLevel": 7
+            },
+            {
+              "id": "uniqueskill_CHIRRUTIMWE02",
+              "level": 7,
+              "maxLevel": 7
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 5
         },
         "chopper": {
@@ -468,6 +1842,32 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 1,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_CHOPPERS3",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CHOPPERS301",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CHOPPERS302",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CHOPPERS301",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "cinta-kaz": {
@@ -477,6 +1877,35 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_CINTA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_CINTA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CINTA01",
+              "level": 6,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "uniqueskill_CINTA02",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "clone-sergeant-phase-i": {
@@ -486,6 +1915,27 @@ window.ForgeData.staticRosters = {
           "gear": 11,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_CLONESERGEANTPHASEI",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CLONESERGEANTPHASEI01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CLONESERGEANTPHASEI01",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "clone-wars-chewbacca": {
@@ -495,6 +1945,33 @@ window.ForgeData.staticRosters = {
           "gear": 8,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_CLONEWARSCHEWBACCA",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_CLONEWARSCHEWBACCA",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CLONEWARSCHEWBACCA02",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CLONEWARSCHEWBACCA01",
+              "level": 4,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 5
         },
         "colonel-starck": {
@@ -504,6 +1981,33 @@ window.ForgeData.staticRosters = {
           "gear": 8,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "uniqueskill_COLONELSTARCK01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_COLONELSTARCK02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_COLONELSTARCK01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_COLONELSTARCK",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "colonel-ward": {
@@ -513,6 +2017,35 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "uniqueskill_BISHOP01",
+              "level": 6,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            },
+            {
+              "id": "basicskill_BISHOP",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BISHOP01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BISHOP02",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "commander-luke": {
@@ -522,6 +2055,45 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 6,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_COMMANDERLUKESKYWALKER",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_COMMANDERLUKESKYWALKER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_COMMANDERLUKESKYWALKER02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_COMMANDERLUKESKYWALKER",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_COMMANDERLUKESKYWALKER01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_COMMANDERLUKESKYWALKER02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "coruscant-underworld-police": {
@@ -531,6 +2103,27 @@ window.ForgeData.staticRosters = {
           "gear": 5,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_CORUSCANTUNDERWORLDPOLICE",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CORUSCANTUNDERWORLDPOLICE01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CORUSCANTUNDERWORLDPOLICE01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "count-dooku": {
@@ -540,6 +2133,38 @@ window.ForgeData.staticRosters = {
           "gear": 8,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_COUNTDOOKU",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_COUNTDOOKU01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_COUNTDOOKU",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_COUNTDOOKU01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_COUNTDOOKU02",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "crosshair-scarred": {
@@ -549,6 +2174,11 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 0,
+          "abilities": [],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "ct-21-0408-echo": {
@@ -558,6 +2188,33 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_CT210408",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CT210408",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_ct21040801",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_ct21040802",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "ct-5555-fives": {
@@ -567,6 +2224,39 @@ window.ForgeData.staticRosters = {
           "gear": 9,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_CT5555",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CT555501",
+              "level": 6,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_CT5555",
+              "level": 6,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CT555502",
+              "level": 5,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_CT555501",
+              "level": 5,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "ct-7567-rex": {
@@ -576,6 +2266,38 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_REX",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_REX01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_REX02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_REX",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_REX01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "cx-2": {
@@ -585,6 +2307,11 @@ window.ForgeData.staticRosters = {
           "gear": 4,
           "relic": 0,
           "skillCount": 0,
+          "abilities": [],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "dark-trooper": {
@@ -594,6 +2321,28 @@ window.ForgeData.staticRosters = {
           "gear": 3,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_DARKTROOPER",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DARKTROOPER01",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_DARKTROOPER01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "darth-malak": {
@@ -603,6 +2352,39 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_DARTHMALAK",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DARTHMALAK01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DARTHMALAK02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_DARTHMALAK01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_DARTHMALAK02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "darth-maul": {
@@ -612,6 +2394,33 @@ window.ForgeData.staticRosters = {
           "gear": 8,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_MAUL",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MAUL01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_MAUL",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_MAUL01",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 5
         },
         "darth-nihilus": {
@@ -621,6 +2430,39 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_DARTHNIHILUS",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DARTHNIHILUS01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DARTHNIHILUS02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_DARTHNIHILUS",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_DARTHNIHILUS01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "darth-revan": {
@@ -630,6 +2472,45 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 4,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_DARTHREVAN",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DARTHREVAN01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DARTHREVAN02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_DARTHREVAN",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_DARTHREVAN01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_DARTHREVAN02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "darth-sidious": {
@@ -639,6 +2520,35 @@ window.ForgeData.staticRosters = {
           "gear": 8,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_DARTHSIDIOUS01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_DARTHSIDIOUS",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_DARTHSIDIOUS01",
+              "level": 7,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "basicskill_DARTHSIDIOUS",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 5
         },
         "darth-sion": {
@@ -648,6 +2558,38 @@ window.ForgeData.staticRosters = {
           "gear": 8,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_DARTHSION",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DARTHSION01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DARTHSION02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DARTHSION03",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_DARTHSION01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "darth-talon": {
@@ -657,6 +2599,22 @@ window.ForgeData.staticRosters = {
           "gear": 2,
           "relic": 0,
           "skillCount": 2,
+          "abilities": [
+            {
+              "id": "basicskill_DARTHTALON",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DARTHTALON01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "darth-traya": {
@@ -666,6 +2624,41 @@ window.ForgeData.staticRosters = {
           "gear": 11,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_DARTHTRAYA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DARTHTRAYA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DARTHTRAYA02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_DARTHTRAYA",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_DARTHTRAYA01",
+              "level": 7,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "darth-vader": {
@@ -675,6 +2668,45 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_VADER",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_VADER02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_VADER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_VADER",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_VADER01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_VADER03",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "darth-vader-duel-s-end": {
@@ -684,6 +2716,43 @@ window.ForgeData.staticRosters = {
           "gear": 6,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_VADERDUELSEND",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_VADERDUELSEND01",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_VADERDUELSEND02",
+              "level": 5,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            },
+            {
+              "id": "uniqueskill_VADERDUELSEND01",
+              "level": 3,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            },
+            {
+              "id": "uniqueskill_VADERDUELSEND02",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "dathcha": {
@@ -693,6 +2762,32 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "uniqueskill_DATHCHA01",
+              "level": 3,
+              "maxLevel": 7
+            },
+            {
+              "id": "leaderskill_DATHCHA",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_DATHCHA",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DATHCHA01",
+              "level": 4,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "death-trooper": {
@@ -702,6 +2797,33 @@ window.ForgeData.staticRosters = {
           "gear": 5,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_DEATHTROOPER",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DEATHTROOPER01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DEATHTROOPER02",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_DEATHTROOPER01",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "death-trooper-peridea": {
@@ -711,6 +2833,35 @@ window.ForgeData.staticRosters = {
           "gear": 8,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_DEATHTROOPERPERIDEA",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DEATHTROOPERPERIDEA01",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "specialskill_DEATHTROOPERPERIDEA02",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_DEATHTROOPERPERIDEA01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "dedra-meero": {
@@ -720,6 +2871,40 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_DEDRAMEERO",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DEDRAMEERO01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DEDRAMEERO02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_DEDRAMEERO01",
+              "level": 6,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 14
+            },
+            {
+              "id": "uniqueskill_DEDRAMEERO02",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 5
         },
         "dengar": {
@@ -729,6 +2914,43 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_DENGAR",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DENGAR01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DENGAR02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_DENGAR",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_DENGAR01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "contractskill_DENGAR01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "director-krennic": {
@@ -738,6 +2960,40 @@ window.ForgeData.staticRosters = {
           "gear": 4,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_DIRECTORKRENNIC",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DIRECTORKRENNIC01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DIRECTORKRENNIC02",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_DIRECTORKRENNIC",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_DIRECTORKRENNIC01",
+              "level": 3,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "droideka": {
@@ -747,6 +3003,36 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_DROIDEKA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_DROIDEKA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_DROIDEKA01",
+              "level": 9,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "zeta": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "specialskill_DROIDEKA02",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 1,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "echo": {
@@ -756,6 +3042,33 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_BADBATCHECHO",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BADBATCHECHO01",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BADBATCHECHO02",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_BADBATCHECHO01",
+              "level": 4,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "eeth-koth": {
@@ -765,6 +3078,32 @@ window.ForgeData.staticRosters = {
           "gear": 6,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "uniqueskill_EETHKOTH01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_EETHKOTH",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_EETHKOTH01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_EETHKOTH",
+              "level": 3,
+              "maxLevel": 7
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "eighth-brother": {
@@ -774,6 +3113,45 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 6,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_EIGHTHBROTHER",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_EIGHTHBROTHER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_EIGHTHBROTHER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_INQUISITOR01_EIGHTHBROTHER",
+              "level": 3,
+              "maxLevel": 3
+            },
+            {
+              "id": "specialskill_EIGHTHBROTHER02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "leaderskill_EIGHTHBROTHER",
+              "level": 7,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "embo": {
@@ -783,6 +3161,36 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_EMBO",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_EMBO01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_EMBO",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_EMBO01",
+              "level": 7,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "emperor-palpatine": {
@@ -792,6 +3200,39 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_EMPERORPALPATINE",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_EMPERORPALPATINE01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_EMPERORPALPATINE02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_EMPERORPALPATINE",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_EMPERORPALPATINE01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "enfys-nest": {
@@ -801,6 +3242,11 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 0,
+          "abilities": [],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "ewok-elder": {
@@ -810,6 +3256,27 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_EWOKELDER",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_EWOKELDER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_EWOKELDER02",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "ewok-scout": {
@@ -819,6 +3286,27 @@ window.ForgeData.staticRosters = {
           "gear": 10,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "specialskill_EWOKSCOUT01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_EWOKSCOUT",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_EWOKSCOUT01",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "ezra-bridger": {
@@ -828,6 +3316,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 2,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_EZRABRIDGERS3",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_EZRABRIDGERS302",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_EZRABRIDGERS301",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_EZRABRIDGERS301",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "fennec-shand": {
@@ -837,6 +3352,38 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "uniqueskill_FENNECSHAND01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "basicskill_FENNECSHAND",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_FENNECSHAND01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_FENNECSHAND01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "contractskill_FENNECSHAND",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "fifth-brother": {
@@ -846,6 +3393,45 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 6,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_FIFTHBROTHER",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_FIFTHBROTHER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_FIFTHBROTHER02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_FIFTHBROTHER",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_FIFTHBROTHER",
+              "level": 8,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "uniqueskill_INQUISITOR01_SUPPORT",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "finn": {
@@ -855,6 +3441,35 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_FINN",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_FINN01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_FINN02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_FINN",
+              "level": 7,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 7
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "first-order-officer": {
@@ -864,6 +3479,27 @@ window.ForgeData.staticRosters = {
           "gear": 8,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_FIRSTORDEROFFICERMALE",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_FIRSTORDEROFFICERMALE01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_FIRSTORDEROFFICERMALE02",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 5
         },
         "first-order-sf-tie-pilot": {
@@ -873,6 +3509,27 @@ window.ForgeData.staticRosters = {
           "gear": 3,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_FIRSTORDERSPECIALFORCESPILOT",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_FIRSTORDERSPECIALFORCESPILOT01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_FIRSTORDERSPECIALFORCESPILOT02",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "first-order-stormtrooper": {
@@ -882,6 +3539,28 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_FIRSTORDERTROOPER",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_FIRSTORDERTROOPER01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_FIRSTORDERTROOPER01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 5
         },
         "first-order-tie-pilot": {
@@ -891,6 +3570,30 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_FIRSTORDERTIEPILOT",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_FIRSTORDERTIEPILOT01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_FIRSTORDERTIEPILOT01",
+              "level": 7,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "gamorrean-guard": {
@@ -900,6 +3603,27 @@ window.ForgeData.staticRosters = {
           "gear": 3,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_GAMORREANGUARD",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GAMORREANGUARD01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GAMORREANGUARD02",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "gar-saxon": {
@@ -909,6 +3633,33 @@ window.ForgeData.staticRosters = {
           "gear": 4,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_GARSAXON",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GARSAXON01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_GARSAXON01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_GARSAXON",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "garazeb-zeb-orrelios": {
@@ -918,6 +3669,33 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_ZEBS3",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_ZEBS302",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_ZEBS301",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_ZEBS301",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "general-grievous": {
@@ -927,6 +3705,39 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 2,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_GRIEVOUS",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GRIEVOUS01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GRIEVOUS02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_GRIEVOUS",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_GRIEVOUS01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "general-kenobi": {
@@ -936,6 +3747,38 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 6,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_GENERALKENOBI",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GENERALKENOBI01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GENERALKENOBI02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_GENERALKENOBI",
+              "level": 7,
+              "maxLevel": 7
+            },
+            {
+              "id": "uniqueskill_GENERALKENOBI01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "general-skywalker": {
@@ -945,6 +3788,46 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_GENERALSKYWALKER",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_GENERALSKYWALKER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GENERALSKYWALKER02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_GENERALSKYWALKER",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_GENERALSKYWALKER01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_GENERALSKYWALKER02",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "general-syndulla": {
@@ -954,6 +3837,41 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 3,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "leaderskill_GENERALSYNDULLA",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_GENERALSYNDULLA01",
+              "level": 5,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "basicskill_GENERALSYNDULLA",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GENERALSYNDULLA01",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GENERALSYNDULLA02",
+              "level": 5,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "general-veers": {
@@ -963,6 +3881,33 @@ window.ForgeData.staticRosters = {
           "gear": 10,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_VEERS",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_VEERS01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_VEERS",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_VEERS01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "geonosian-brood-alpha": {
@@ -972,6 +3917,44 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 3,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_GEONOSIANBROODALPHA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GEONOSIANBROODALPHA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GEONOSIANBROODALPHA02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_GEONOSIANBROODALPHA",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_GEONOSIANBROODALPHA01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_GEONOSIANBROODALPHA02",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "geonosian-soldier": {
@@ -981,6 +3964,27 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 3,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "uniqueskill_GEONOSIANSOLDIER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GEONOSIANSOLDIER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_GEONOSIANSOLDIER",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "geonosian-spy": {
@@ -990,6 +3994,32 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 3,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_GEONOSIANSPY",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GEONOSIANSPY01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_GEONOSIANSPY01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GEONOSIANSPY02",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "grand-admiral-thrawn": {
@@ -999,6 +4029,39 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_GRANDADMIRALTHRAWN",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GRANDADMIRALTHRAWN01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GRANDADMIRALTHRAWN02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_GRANDADMIRALTHRAWN",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_GRANDADMIRALTHRAWN01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 5
         },
         "grand-inquisitor": {
@@ -1008,6 +4071,51 @@ window.ForgeData.staticRosters = {
           "gear": 10,
           "relic": 0,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_GRANDINQUISITOR",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_GRANDINQUISITOR01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GRANDINQUISITOR02",
+              "level": 7,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "leaderskill_GRANDINQUISITOR",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "uniqueskill_GRANDINQUISITOR01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "uniqueskill_INQUISITOR01_GRANDINQUISITOR",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "grand-master-yoda": {
@@ -1017,6 +4125,39 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 7,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_GRANDMASTERYODA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GRANDMASTERYODA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GRANDMASTERYODA02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_GRANDMASTERYODA",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_GRANDMASTERYODA03",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "grand-moff-tarkin": {
@@ -1026,6 +4167,41 @@ window.ForgeData.staticRosters = {
           "gear": 10,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_GRANDMOFFTARKIN",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GRANDMOFFTARKIN01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GRANDMOFFTARKIN02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_GRANDMOFFTARKIN",
+              "level": 7,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 14
+            },
+            {
+              "id": "uniqueskill_GRANDMOFFTARKIN01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 5
         },
         "great-mothers": {
@@ -1035,6 +4211,38 @@ window.ForgeData.staticRosters = {
           "gear": 8,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_GREATMOTHERS",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_GREATMOTHERS01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "leaderskill_GREATMOTHERS",
+              "level": 7,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "uniqueskill_GREATMOTHERS01",
+              "level": 7,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "greedo": {
@@ -1044,6 +4252,43 @@ window.ForgeData.staticRosters = {
           "gear": 9,
           "relic": 0,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_GREEDO",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GREEDO01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_GREEDO01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_GREEDO",
+              "level": 7,
+              "maxLevel": 7
+            },
+            {
+              "id": "specialskill_GREEDO02",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "contractskill_GREEDO01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "greef-karga": {
@@ -1053,6 +4298,44 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_GREEFKARGA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GREEFKARGA01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_GREEFKARGA02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "leaderskill_GREEFKARGA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_GREEFKARGA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "contractskill_GREEFKARGA01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "grogu-anzellans": {
@@ -1062,6 +4345,40 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "uniqueskill_GOPHERANTS01",
+              "level": 6,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            },
+            {
+              "id": "basicskill_GOPHERANTS",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_GOPHERANTS02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GOPHERANTS02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GOPHERANTS01",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "gungan-boomadier": {
@@ -1071,6 +4388,35 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_BOOMADIER",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BOOMADIER01",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_BOOMADIER01",
+              "level": 4,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 4
+            },
+            {
+              "id": "specialskill_BOOMADIER02",
+              "level": 4,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "gungan-phalanx": {
@@ -1080,6 +4426,35 @@ window.ForgeData.staticRosters = {
           "gear": 5,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_GUNGANPHALANX",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GUNGANPHALANX01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GUNGANPHALANX02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_GUNGANPHALANX01",
+              "level": 6,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "han-solo": {
@@ -1089,6 +4464,33 @@ window.ForgeData.staticRosters = {
           "gear": 9,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_HANSOLO",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_HANSOLO01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_HANSOLO02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_HANSOLO01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "hera-syndulla": {
@@ -1098,6 +4500,35 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 3,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_HERASYNDULLAS3",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_HERASYNDULLAS302",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_HERASYNDULLAS3",
+              "level": 9,
+              "maxLevel": 9,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "specialskill_HERASYNDULLAS301",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "hermit-yoda": {
@@ -1107,6 +4538,39 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_HERMITYODA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_HERMITYODA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_HERMITYODA02",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_HERMITYODA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_HERMITYODA02",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "hk-47": {
@@ -1116,6 +4580,44 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "leaderskill_HK47",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_HK4701",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_HK47",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_HK4701",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_HK4702",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_HK4702",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "hondo-ohnaka": {
@@ -1125,6 +4627,25 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 2,
+          "abilities": [
+            {
+              "id": "basicskill_HONDO",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_HONDO01",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "hoth-rebel-scout": {
@@ -1134,6 +4655,27 @@ window.ForgeData.staticRosters = {
           "gear": 5,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_HOTHREBELSCOUT",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_HOTHREBELSCOUT01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_HOTHREBELSCOUT01",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "hoth-rebel-soldier": {
@@ -1143,6 +4685,27 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_HOTHREBELSOLDIER",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_HOTHREBELSOLDIER01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_HOTHREBELSOLDIER01",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "hunter": {
@@ -1152,6 +4715,33 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_BADBATCHHUNTER",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BADBATCHHUNTER01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BADBATCHHUNTER02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_BADBATCHHUNTER",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "hux": {
@@ -1161,6 +4751,38 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_GENERALHUX",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GENERALHUX01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GENERALHUX02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_GENERALHUX",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_GENERALHUX01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "ig-11": {
@@ -1170,6 +4792,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_IG11",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_IG1101",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_IG1102",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_IG1101",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "ig-12-grogu": {
@@ -1179,6 +4828,35 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_IG1202",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_IG12",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_IG1201",
+              "level": 8,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "specialskill_IG1201",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "ig-86-sentinel-droid": {
@@ -1188,6 +4866,27 @@ window.ForgeData.staticRosters = {
           "gear": 4,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_IG86SENTINELDROID",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_IG86SENTINELDROID01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_IG86SENTINELDROID01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "ig-88": {
@@ -1197,6 +4896,38 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_IG88",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_IG8801",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_IG88",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_IG8801",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "contractskill_IG8801",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "ima-gun-di": {
@@ -1206,6 +4937,11 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 0,
+          "abilities": [],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "imperial-probe-droid": {
@@ -1215,6 +4951,40 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_IMPERIALPROBEDROID",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_IMPERIALPROBEDROID01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_IMPERIALPROBEDROID02",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_IMPERIALPROBEDROID01",
+              "level": 3,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 7
+            },
+            {
+              "id": "uniqueskill_IMPERIALPROBEDROID02",
+              "level": 2,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "imperial-super-commando": {
@@ -1224,6 +4994,27 @@ window.ForgeData.staticRosters = {
           "gear": 4,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_IMPERIALSUPERCOMMANDO",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_IMPERIALSUPERCOMMANDO01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_IMPERIALSUPERCOMMANDO01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "jango-fett": {
@@ -1233,6 +5024,44 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_JANGOFETT",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_JANGOFETT01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_JANGOFETT02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_JANGOFETT",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_JANGOFETT01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "contractskill_JANGOFETT01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "jawa": {
@@ -1242,6 +5071,27 @@ window.ForgeData.staticRosters = {
           "gear": 4,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_JAWA",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_JAWA01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_JAWA01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "jawa-engineer": {
@@ -1251,6 +5101,11 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 0,
+          "abilities": [],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "jawa-scavenger": {
@@ -1260,6 +5115,32 @@ window.ForgeData.staticRosters = {
           "gear": 5,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_JAWASCAVENGER",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_JAWASCAVENGER01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_JAWASCAVENGER01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_JAWASCAVENGER02",
+              "level": 3,
+              "maxLevel": 7
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "jedi-consular": {
@@ -1269,6 +5150,27 @@ window.ForgeData.staticRosters = {
           "gear": 11,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "specialskill_JEDIKNIGHTCONSULAR02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_JEDIKNIGHTCONSULAR01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_JEDIKNIGHTCONSULAR",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "jedi-knight-anakin": {
@@ -1278,6 +5180,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_ANAKINKNIGHT",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_ANAKINKNIGHT01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_ANAKINKNIGHT",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_ANAKINKNIGHT01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "jedi-knight-cal-kestis": {
@@ -1287,6 +5216,51 @@ window.ForgeData.staticRosters = {
           "gear": 8,
           "relic": 0,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_JEDIKNIGHTCAL",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_JEDIKNIGHTCAL01",
+              "level": 7,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 7
+            },
+            {
+              "id": "specialskill_JEDIKNIGHTCAL02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_JEDIKNIGHTCAL03",
+              "level": 6,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 7
+            },
+            {
+              "id": "leaderskill_JEDIKNIGHTCAL",
+              "level": 7,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 7
+            },
+            {
+              "id": "uniqueskill_JEDIKNIGHTCAL01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "jedi-knight-guardian": {
@@ -1296,6 +5270,27 @@ window.ForgeData.staticRosters = {
           "gear": 4,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_JEDIKNIGHTGUARDIAN",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_JEDIKNIGHTGUARDIAN01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_JEDIKNIGHTGUARDIAN01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "jedi-knight-revan": {
@@ -1305,6 +5300,45 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 7,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_JEDIKNIGHTREVAN",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_JEDIKNIGHTREVAN01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_JEDIKNIGHTREVAN02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "leaderskill_JEDIKNIGHTREVAN",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_JEDIKNIGHTREVAN01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_JEDIKNIGHTREVAN02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "jolee-bindo": {
@@ -1314,6 +5348,38 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 6,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_JOLEEBINDO",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_JOLEEBINDO01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_JOLEEBINDO01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_JOLEEBINDO02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_JOLEEBINDO02",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "juhani": {
@@ -1323,6 +5389,36 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_juhani",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_juhani01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_juhani02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_juhani01",
+              "level": 9,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "zeta": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            }
+          ],
+          "zetaCount": 1,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "jyn-erso": {
@@ -1332,6 +5428,41 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_JYNERSO",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_JYNERSO01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_JYNERSO02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_JYNERSO",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_JYNERSO01",
+              "level": 7,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "k-2so": {
@@ -1341,6 +5472,33 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_K2SO",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_K2SO01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_K2SO01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_K2SO02",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "kanan-jarrus": {
@@ -1350,6 +5508,33 @@ window.ForgeData.staticRosters = {
           "gear": 11,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_KANANJARRUSS3",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_KANANJARRUSS301",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_KANANJARRUSS301",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_KANANJARRUSS302",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "kelleran-beq": {
@@ -1359,6 +5544,41 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 6,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_KELLERANBEQ",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_KELLERANBEQ01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_KELLERANBEQ",
+              "level": 8,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "specialskill_KELLERANBEQ02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_KELLERANBEQ01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "kit-fisto": {
@@ -1368,6 +5588,32 @@ window.ForgeData.staticRosters = {
           "gear": 4,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_KITFISTO",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_KITFISTO01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_KITFISTO",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_KITFISTO01",
+              "level": 3,
+              "maxLevel": 7
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "kleya-marki": {
@@ -1377,6 +5623,35 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_KLEYA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_KLEYA02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_KLEYA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_KLEYA01",
+              "level": 6,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 14
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "krrsantan": {
@@ -1386,6 +5661,45 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_KRRSANTAN",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_KRRSANTAN01",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_KRRSANTAN01",
+              "level": 5,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            },
+            {
+              "id": "specialskill_KRRSANTAN02",
+              "level": 6,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_KRRSANTAN",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "contractskill_KRRSANTAN01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "kuiil": {
@@ -1395,6 +5709,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_KUIIL",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_KUIIL01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_KUIIL02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_KUIIL01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "kx-security-droid": {
@@ -1404,6 +5745,35 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "uniqueskill_KXSECURITYDROID01",
+              "level": 6,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "uniqueskill_KXSECURITYDROID02",
+              "level": 3,
+              "maxLevel": 3
+            },
+            {
+              "id": "specialskill_KXSECURITYDROID01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_KXSECURITYDROID",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "kyle-katarn": {
@@ -1413,6 +5783,35 @@ window.ForgeData.staticRosters = {
           "gear": 5,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_KYLEKATARN",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_KYLEKATARN01",
+              "level": 2,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 7
+            },
+            {
+              "id": "specialskill_KYLEKATARN02",
+              "level": 2,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_KYLEKATARN01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "kylo-ren": {
@@ -1422,6 +5821,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_KYLOREN",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_KYLOREN01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_KYLOREN01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_KYLOREN02",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "kylo-ren-unmasked": {
@@ -1431,6 +5857,39 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "specialskill_KYLORENUNMASKED01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_KYLORENUNMASKED",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_KYLORENUNMASKED02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_KYLORENUNMASKED",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_KYLORENUNMASKED01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "l3-37": {
@@ -1440,6 +5899,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_l3_37",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_l3_37_01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_l3_37_01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_l3_37_02",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "lando-calrissian": {
@@ -1449,6 +5935,32 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_ADMINISTRATORLANDO",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_ADMINISTRATORLANDO01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_ADMINISTRATORLANDO",
+              "level": 7,
+              "maxLevel": 7
+            },
+            {
+              "id": "uniqueskill_ADMINISTRATORLANDO01",
+              "level": 7,
+              "maxLevel": 7
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "lobot": {
@@ -1458,6 +5970,32 @@ window.ForgeData.staticRosters = {
           "gear": 4,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_LOBOT",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_LOBOT01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_LOBOT",
+              "level": 3,
+              "maxLevel": 7
+            },
+            {
+              "id": "uniqueskill_LOBOT01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "logray": {
@@ -1467,6 +6005,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_LOGRAY",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_LOGRAY01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_LOGRAY02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_LOGRAY01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "luke-skywalker-farmboy": {
@@ -1476,6 +6041,36 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_LUKESKYWALKER",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_LUKESKYWALKER",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_LUKESKYWALKER01",
+              "level": 8,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "specialskill_LUKESKYWALKER01",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "luminara-unduli": {
@@ -1485,6 +6080,35 @@ window.ForgeData.staticRosters = {
           "gear": 9,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_LUMINARAUNDULI",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_LUMINARAUNDULI",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_LUMINARAUNDULI02",
+              "level": 7,
+              "maxLevel": 9,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            },
+            {
+              "id": "specialskill_LUMINARAUNDULI01",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "mace-windu": {
@@ -1494,6 +6118,48 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_MACEWINDU",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MACEWINDU01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MACEWINDU02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "leaderskill_MACEWINDU",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_MACEWINDU01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_MACEWINDU02",
+              "level": 9,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "zeta": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            }
+          ],
+          "zetaCount": 1,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "magma-guard": {
@@ -1503,6 +6169,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 2,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_MAGNAGUARD",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MAGNAGUARD01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_MAGNAGUARD01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MAGNAGUARD02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "magmatrooper": {
@@ -1512,6 +6205,27 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_MAGMATROOPER",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MAGMATROOPER01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_MAGMATROOPER01",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "major-partagaz": {
@@ -1521,6 +6235,40 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_MAJORPARTAGAZ",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_MAJORPARTAGAZ02",
+              "level": 3,
+              "maxLevel": 3
+            },
+            {
+              "id": "uniqueskill_MAJORPARTAGAZ01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_MAJORPARTAGAZ",
+              "level": 7,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            },
+            {
+              "id": "specialskill_MAJORPARTAGAZ01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "mara-jade": {
@@ -1530,6 +6278,30 @@ window.ForgeData.staticRosters = {
           "gear": 3,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_MARAJADE",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_MARAJADE01",
+              "level": 3,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "specialskill_MARAJADE01",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "mara-jade-skywalker": {
@@ -1539,6 +6311,35 @@ window.ForgeData.staticRosters = {
           "gear": 6,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_MARAJADESKYWALKER",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MARAJADESKYWALKER01",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MARAJADESKYWALKER02",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_MARAJADESKYWALKER01",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "master-qui-gon": {
@@ -1548,6 +6349,35 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_MASTERQUIGON",
+              "level": 6,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MASTERQUIGON01",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MASTERQUIGON02",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_MASTERQUIGON01",
+              "level": 4,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "merrin": {
@@ -1557,6 +6387,41 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 6,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_MERRIN",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MERRIN02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_MERRIN01",
+              "level": 7,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            },
+            {
+              "id": "uniqueskill_MERRIN02",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_MERRIN01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "mission-vao": {
@@ -1566,6 +6431,34 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_MISSIONVAO",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MISSIONVAO01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_MISSIONVAO01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_MISSIONVAO02",
+              "level": 8,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "mob-enforcer": {
@@ -1575,6 +6468,27 @@ window.ForgeData.staticRosters = {
           "gear": 4,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_HUMANTHUG",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_HUMANTHUG01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_HUMANTHUG01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "moff-gideon": {
@@ -1584,6 +6498,39 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_MOFFGIDEONS1",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MOFFGIDEONS101",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_MOFFGIDEONS101",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MOFFGIDEONS102",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "leaderskill_MOFFGIDEONS1",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "mon-mothma": {
@@ -1593,6 +6540,39 @@ window.ForgeData.staticRosters = {
           "gear": 6,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_MONMOTHMA",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MONMOTHMA01",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_MONMOTHMA01",
+              "level": 4,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_MONMOTHMA02",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_MONMOTHMA",
+              "level": 4,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "morgan-elsbeth": {
@@ -1602,6 +6582,35 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_MORGANELSBETH",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MORGANELSBETH01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MORGANELSBETH02",
+              "level": 7,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            },
+            {
+              "id": "uniqueskill_MORGANELSBETH01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "mother-talzin": {
@@ -1611,6 +6620,39 @@ window.ForgeData.staticRosters = {
           "gear": 10,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_MOTHERTALZIN",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MOTHERTALZIN01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MOTHERTALZIN02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_MOTHERTALZIN",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_MOTHERTALZIN01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "night-trooper": {
@@ -1620,6 +6662,36 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_NIGHTTROOPER01",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_NIGHTTROOPER02",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_NIGHTTROOPER",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_NIGHTTROOPER01",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "nightsister-acolyte": {
@@ -1629,6 +6701,27 @@ window.ForgeData.staticRosters = {
           "gear": 6,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "specialskill_NIGHTSISTERACOLYTE01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_NIGHTSISTERACOLYTE01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_NIGHTSISTERACOLYTE",
+              "level": 4,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "nightsister-initiate": {
@@ -1638,6 +6731,33 @@ window.ForgeData.staticRosters = {
           "gear": 6,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_NIGHTSISTERINITIATE",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_NIGHTSISTERINITIATE01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_NIGHTSISTERINITIATE02",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_NIGHTSISTERINITIATE01",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "nightsister-spirit": {
@@ -1647,6 +6767,27 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_NIGHTSISTERSPIRIT",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_NIGHTSISTERSPIRIT01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_NIGHTSISTERSPIRIT01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "nightsister-zombie": {
@@ -1656,6 +6797,32 @@ window.ForgeData.staticRosters = {
           "gear": 10,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_NIGHTSISTERZOMBIE",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_NIGHTSISTERZOMBIE01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_NIGHTSISTERZOMBIE01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_NIGHTSISTERZOMBIE02",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "ninth-sister": {
@@ -1665,6 +6832,46 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 6,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "uniqueskill_NINTHSISTER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_NINTHSISTER",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_NINTHSISTER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_NINTHSISTER02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "leaderskill_NINTHSISTER",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "uniqueskill_INQUISITOR01_TANK",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "nute-gunray": {
@@ -1674,6 +6881,33 @@ window.ForgeData.staticRosters = {
           "gear": 4,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_NUTEGUNRAY",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_NUTEGUNRAY01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_NUTEGUNRAY",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_NUTEGUNRAY01",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "obi-wan-kenobi-old-ben": {
@@ -1683,6 +6917,39 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_OLDBENKENOBI",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_OLDBENKENOBI01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_OLDBENKENOBI",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_OLDBENKENOBI01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_OLDBENKENOBI02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "old-daka": {
@@ -1692,6 +6959,33 @@ window.ForgeData.staticRosters = {
           "gear": 10,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_DAKA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_DAKA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_DAKA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_DAKA01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "omega": {
@@ -1701,6 +6995,36 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_BADBATCHOMEGA",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BADBATCHOMEGA01",
+              "level": 4,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_BADBATCHOMEGA02",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_BADBATCHOMEGA01",
+              "level": 4,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 7
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "padawan-obi-wan": {
@@ -1710,6 +7034,35 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_PADAWANOBIWAN",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_PADAWANOBIWAN01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_PADAWANOBIWAN02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_PADAWANOBIWAN01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 11
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "padawan-sabine-wren": {
@@ -1719,6 +7072,35 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 2,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_PADAWANSABINE01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_PADAWANSABINE02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_PADAWANSABINE01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "basicskill_PADAWANSABINE",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "padme-amidala": {
@@ -1728,6 +7110,39 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_PADMEAMIDALA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_PADMEAMIDALA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_PADMEAMIDALA02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_PADMEAMIDALA",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_PADMEAMIDALA01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "pao": {
@@ -1737,6 +7152,33 @@ window.ForgeData.staticRosters = {
           "gear": 5,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_PAO",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_PAO01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_PAO02",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_PAO01",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "paploo": {
@@ -1746,6 +7188,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_PAPLOO",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_PAPLOO01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_PAPLOO02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_PAPLOO01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "plo-koon": {
@@ -1755,6 +7224,32 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_PLOKOON",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_PLOKOON01",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_PLOKOON02",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_PLOKOON",
+              "level": 5,
+              "maxLevel": 7
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 5
         },
         "poe-dameron": {
@@ -1764,6 +7259,32 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_POE",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_POE01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_POE",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_POE01",
+              "level": 7,
+              "maxLevel": 7
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "poggle-the-lesser": {
@@ -1773,6 +7294,34 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 3,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_POGGLETHELESSER",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_POGGLETHELESSER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_POGGLETHELESSER",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_POGGLETHELESSER01",
+              "level": 8,
+              "maxLevel": 9,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "princess-kneesaa": {
@@ -1782,6 +7331,35 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_PRINCESSKNEESAA",
+              "level": 6,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_PRINCESSKNEESAA01",
+              "level": 7,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "specialskill_PRINCESSKNEESAA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_PRINCESSKNEESAA02",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "princess-leia": {
@@ -1791,6 +7369,35 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_PRINCESSLEIA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_PRINCESSLEIA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_PRINCESSLEIA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_PRINCESSLEIA01",
+              "level": 8,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "qi-ra": {
@@ -1800,6 +7407,38 @@ window.ForgeData.staticRosters = {
           "gear": 9,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_QIRA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_QIRA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_QIRA02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_QIRA01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "leaderskill_QIRA",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "qui-gon-jinn": {
@@ -1809,6 +7448,35 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_QUIGONJINN",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_QUIGONJINN01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_QUIGONJINN02",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_QUIGONJINN",
+              "level": 4,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "r2-d2": {
@@ -1818,6 +7486,39 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_R2D2_LEGENDARY",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_R2D2_LEGENDARY01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_R2D2_LEGENDARY02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_R2D2_LEGENDARY01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_R2D2_LEGENDARY02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "r5-d4": {
@@ -1827,6 +7528,35 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_R5D401",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_R5D4",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_R5D402",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_R5D401",
+              "level": 6,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "range-trooper": {
@@ -1836,6 +7566,27 @@ window.ForgeData.staticRosters = {
           "gear": 4,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_RANGETROOPER",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_RANGETROOPER01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_RANGETROOPER01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "rebel-officer-leia-organa": {
@@ -1845,6 +7596,35 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 4,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_HOTHLEIA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_HOTHLEIA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_HOTHLEIA",
+              "level": 9,
+              "maxLevel": 9,
+              "omicronAvailable": true,
+              "omicronMode": 7
+            },
+            {
+              "id": "uniqueskill_HOTHLEIA01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "resistance-hero-finn": {
@@ -1854,6 +7634,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_EPIXFINN",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_EPIXFINN01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_EPIXFINN02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_EPIXFINN01",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "resistance-hero-poe": {
@@ -1863,6 +7670,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_EPIXPOE",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_EPIXPOE01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_EPIXPOE01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_EPIXPOE02",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "resistance-pilot": {
@@ -1872,6 +7706,27 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_RESISTANCEPILOT",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_RESISTANCEPILOT01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_RESISTANCEPILOT01",
+              "level": 7,
+              "maxLevel": 7
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "resistance-trooper": {
@@ -1881,6 +7736,27 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "specialskill_RESISTANCETROOPER01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_RESISTANCETROOPER01",
+              "level": 7,
+              "maxLevel": 7
+            },
+            {
+              "id": "basicskill_RESISTANCETROOPER",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "rey-jedi-training": {
@@ -1890,6 +7766,45 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 6,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_REYJEDITRAINING",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_REYJEDITRAINING01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_REYJEDITRAINING02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_REYJEDITRAINING",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_REYJEDITRAINING01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_REYJEDITRAINING02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "rey-scavenger": {
@@ -1899,6 +7814,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_REY",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_REY01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_REY02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_REY01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "rose-tico": {
@@ -1908,6 +7850,35 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_ROSETICO",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_ROSETICO01",
+              "level": 7,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            },
+            {
+              "id": "specialskill_ROSETICO01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_ROSETICO02",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "rotta-the-hutt": {
@@ -1917,6 +7888,47 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "leaderskill_RACCOON",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_RACCOON01",
+              "level": 6,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            },
+            {
+              "id": "specialskill_RACCOON01",
+              "level": 6,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            },
+            {
+              "id": "basicskill_RACCOON",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_RACCOON02",
+              "level": 6,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "royal-guard": {
@@ -1926,6 +7938,28 @@ window.ForgeData.staticRosters = {
           "gear": 6,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "specialskill_ROYALGUARD01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_ROYALGUARD01",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "basicskill_ROYALGUARD",
+              "level": 4,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "sabine-wren": {
@@ -1935,6 +7969,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 2,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_SABINEWRENS3",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_SABINEWRENS301",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_SABINEWRENS301",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_SABINEWRENS302",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "sana-starros": {
@@ -1944,6 +8005,25 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 2,
+          "abilities": [
+            {
+              "id": "basicskill_SANASTARROS",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_SANASTARROS",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "savage-opress": {
@@ -1953,6 +8033,35 @@ window.ForgeData.staticRosters = {
           "gear": 6,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_SAVAGEOPRESS",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_SAVAGEOPRESS",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_SAVAGEOPRESS01",
+              "level": 3,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            },
+            {
+              "id": "specialskill_SAVAGEOPRESS01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "saw-gerrera": {
@@ -1962,6 +8071,36 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_SAWGERRERA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_SAWGERRERA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_SAWGERRERA01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "leaderskill_SAWGERRERA",
+              "level": 6,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "scarif-rebel-pathfinder": {
@@ -1971,6 +8110,27 @@ window.ForgeData.staticRosters = {
           "gear": 5,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_SCARIFREBEL",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_SCARIFREBEL01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_SCARIFREBEL01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "scout-trooper": {
@@ -1980,6 +8140,22 @@ window.ForgeData.staticRosters = {
           "gear": 2,
           "relic": 0,
           "skillCount": 2,
+          "abilities": [
+            {
+              "id": "basicskill_SCOUTTROOPER_V3",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_SCOUTTROOPER_V301",
+              "level": 4,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "second-sister": {
@@ -1989,6 +8165,45 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 7,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_SECONDSISTER",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_SECONDSISTER02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_SECONDSISTER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_SECONDSISTER",
+              "level": 8,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "uniqueskill_SECONDSISTER01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_INQUISITOR01_SECONDSISTER",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "seventh-sister": {
@@ -1998,6 +8213,46 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 6,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_SEVENTHSISTER",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_SEVENTHSISTER",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "uniqueskill_INQUISITOR01_HEALER",
+              "level": 3,
+              "maxLevel": 3
+            },
+            {
+              "id": "specialskill_SEVENTHSISTER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_SEVENTHSISTER02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_SEVENTHSISTER04",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "shaak-ti": {
@@ -2007,6 +8262,39 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 2,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_SHAAKTI",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_SHAAKTI01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_SHAAKTI02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_SHAAKTI",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_SHAAKTI01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 5
         },
         "shoretrooper": {
@@ -2016,6 +8304,27 @@ window.ForgeData.staticRosters = {
           "gear": 4,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_SHORETROOPER",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_SHORETROOPER01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_SHORETROOPER01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "sith-assassin": {
@@ -2025,6 +8334,27 @@ window.ForgeData.staticRosters = {
           "gear": 2,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_SITHASSASSIN",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_SITHASSASSIN01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_SITHASSASSIN02",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "sith-empire-trooper": {
@@ -2034,6 +8364,27 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_SITHTROOPER",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_SITHTROOPER01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_SITHTROOPER01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "sith-marauder": {
@@ -2043,6 +8394,27 @@ window.ForgeData.staticRosters = {
           "gear": 6,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_SITHMARAUDER",
+              "level": 6,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_SITHMARAUDER01",
+              "level": 6,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_SITHMARAUDER01",
+              "level": 6,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "skiff-lando": {
@@ -2052,6 +8424,22 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 2,
+          "abilities": [
+            {
+              "id": "basicskill_UNDERCOVERLANDO",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_UNDERCOVERLANDO01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "snowtrooper": {
@@ -2061,6 +8449,27 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "specialskill_SNOWTROOPER01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_SNOWTROOPER",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_SNOWTROOPER",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "snowtrooper-commander": {
@@ -2070,6 +8479,40 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "specialskill_REMNANTSNOWCOMMANDER02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_REMNANTSNOWCOMMANDER",
+              "level": 6,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 14
+            },
+            {
+              "id": "specialskill_REMNANTSNOWCOMMANDER01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_REMNANTSNOWCOMMANDER",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_REMNANTSNOWCOMMANDER01",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "stap": {
@@ -2079,6 +8522,35 @@ window.ForgeData.staticRosters = {
           "gear": 3,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_STAP",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_STAP01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_STAP01",
+              "level": 5,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            },
+            {
+              "id": "specialskill_STAP02",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "stormtrooper": {
@@ -2088,6 +8560,28 @@ window.ForgeData.staticRosters = {
           "gear": 8,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_STORMTROOPER01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_STORMTROOPER01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_STORMTROOPER01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "stormtrooper-han": {
@@ -2097,6 +8591,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_STORMTROOPERHAN",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_STORMTROOPERHAN01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_STORMTROOPERHAN",
+              "level": 7,
+              "maxLevel": 7
+            },
+            {
+              "id": "uniqueskill_STORMTROOPERHAN01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "sun-fac": {
@@ -2106,6 +8627,32 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 3,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_SUNFAC",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_SUNFAC01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_SUNFAC02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_SUNFAC01",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "t3-m4": {
@@ -2115,6 +8662,41 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_t3_m4",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_t3_m4_01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_t3_m4_02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_t3_m4_01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_t3_m4_02",
+              "level": 7,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "talia": {
@@ -2124,6 +8706,32 @@ window.ForgeData.staticRosters = {
           "gear": 9,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_TALIA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_TALIA02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_TALIA",
+              "level": 7,
+              "maxLevel": 7
+            },
+            {
+              "id": "basicskill_TALIA",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "tarfful": {
@@ -2133,6 +8741,41 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_TARFFUL",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_TARFFUL01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "leaderskill_TARFFUL",
+              "level": 6,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 8
+            },
+            {
+              "id": "specialskill_TARFFUL01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_TARFFUL02",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "tech": {
@@ -2142,6 +8785,33 @@ window.ForgeData.staticRosters = {
           "gear": 8,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_BADBATCHTECH",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_BADBATCHTECH01",
+              "level": 4,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_BADBATCHTECH01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BADBATCHTECH02",
+              "level": 6,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "teebo": {
@@ -2151,6 +8821,32 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_TEEBO02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_TEEBO01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_TEEBO",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_TEEBO",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "the-armorer": {
@@ -2160,6 +8856,38 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_ARMORER",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_ARMORER01",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_ARMORER02",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_ARMORER",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_ARMORER01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "the-mandalorian": {
@@ -2169,6 +8897,39 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_THEMANDALORIAN",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_THEMANDALORIAN01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_THEMANDALORIAN",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_THEMANDALORIAN01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "contractskill_THEMANDALORIAN",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "the-mandalorian-beskar-armor": {
@@ -2178,6 +8939,39 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 1,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_THEMANDALORIANBESKARARMOR",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_THEMANDALORIANBESKARARMOR01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_THEMANDALORIANBESKARARMOR02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_THEMANDALORIANBESKARARMOR01",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "leaderskill_THEMANDALORIANBESKARARMOR",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "tie-fighter-pilot": {
@@ -2187,6 +8981,27 @@ window.ForgeData.staticRosters = {
           "gear": 8,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_TIEFIGHTERPILOT",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_TIEFIGHTERPILOT01",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_TIEFIGHTERPILOT01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "tusken-raider": {
@@ -2196,6 +9011,29 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_TUSKENRAIDER",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_TUSKENRAIDER01",
+              "level": 3,
+              "maxLevel": 9,
+              "omicronAvailable": true,
+              "omicronMode": 14
+            },
+            {
+              "id": "specialskill_TUSKENRAIDER01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "tusken-shaman": {
@@ -2205,6 +9043,27 @@ window.ForgeData.staticRosters = {
           "gear": 6,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_TUSKENSHAMAN",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_TUSKENSHAMAN01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_TUSKENSHAMAN01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "tusken-warrior": {
@@ -2214,6 +9073,28 @@ window.ForgeData.staticRosters = {
           "gear": 4,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_TUSKENHUNTRESS",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_TUSKENHUNTRESS01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_TUSKENHUNTRESS02",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "ugnaught": {
@@ -2223,6 +9104,27 @@ window.ForgeData.staticRosters = {
           "gear": 6,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_UGNAUGHT",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_UGNAUGHT01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_UGNAUGHT01",
+              "level": 3,
+              "maxLevel": 7
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "urorrur-r-r": {
@@ -2232,6 +9134,32 @@ window.ForgeData.staticRosters = {
           "gear": 4,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_URORRURRR",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_URORRURRR01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_URORRURRR",
+              "level": 3,
+              "maxLevel": 7
+            },
+            {
+              "id": "uniqueskill_URORRURRR01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "vandor-chewbacca": {
@@ -2241,6 +9169,33 @@ window.ForgeData.staticRosters = {
           "gear": 5,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_YOUNGCHEWBACCA",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_YOUNGCHEWBACCA01",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_YOUNGCHEWBACCA01",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_YOUNGCHEWBACCA02",
+              "level": 5,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "vel-sartha": {
@@ -2250,6 +9205,35 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_VEL",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_VEL02",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_VEL01",
+              "level": 7,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 7
+            },
+            {
+              "id": "specialskill_VEL01",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "veteran-smuggler-chewbacca": {
@@ -2259,6 +9243,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_SMUGGLERCHEWBACCA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_SMUGGLERCHEWBACCA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_SMUGGLERCHEWBACCA02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_SMUGGLERCHEWBACCA01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "veteran-smuggler-han-solo": {
@@ -2268,6 +9279,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_SMUGGLERHAN",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_SMUGGLERHAN01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_SMUGGLERHAN02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_SMUGGLERHAN01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "visas-marr": {
@@ -2277,6 +9315,33 @@ window.ForgeData.staticRosters = {
           "gear": 6,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_VISASMARR",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_VISASMARR01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_VISASMARR02",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_VISASMARR01",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "wampa": {
@@ -2286,6 +9351,41 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 4,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_WAMPA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_WAMPA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_WAMPA02",
+              "level": 8,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_WAMPA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_WAMPA02",
+              "level": 7,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 5
         },
         "wedge-antilles": {
@@ -2295,6 +9395,32 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_WEDGEANTILLES",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_WEDGEANTILLES01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_WEDGEANTILLES01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_WEDGEANTILLES",
+              "level": 7,
+              "maxLevel": 7
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "wicket": {
@@ -2304,6 +9430,33 @@ window.ForgeData.staticRosters = {
           "gear": 8,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_WICKET",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_WICKET01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_WICKET02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_WICKET01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "wrecker": {
@@ -2313,6 +9466,33 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_BADBATCHWRECKER",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BADBATCHWRECKER01",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_BADBATCHWRECKER01",
+              "level": 4,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_BADBATCHWRECKER02",
+              "level": 4,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "wrecker-mercenary": {
@@ -2322,6 +9502,36 @@ window.ForgeData.staticRosters = {
           "gear": 4,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_WRECKERS3",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_WRECKERS301",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_WRECKERS302",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "uniqueskill_WRECKERS301",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 7
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "yoda-chewie": {
@@ -2331,6 +9541,35 @@ window.ForgeData.staticRosters = {
           "gear": 7,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_YODACHEWBACCA",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_YODACHEWBACCA01",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_YODACHEWBACCA02",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_YODACHEWBACCA01",
+              "level": 5,
+              "maxLevel": 8,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "yoda-dark-side-vision": {
@@ -2340,6 +9579,40 @@ window.ForgeData.staticRosters = {
           "gear": 6,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "uniqueskill_YODADSV02",
+              "level": 3,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 7
+            },
+            {
+              "id": "basicskill_YODADSV",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_YODADSV01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_YODADSV02",
+              "level": 4,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_YODADSV01",
+              "level": 4,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "young-han-solo": {
@@ -2349,6 +9622,33 @@ window.ForgeData.staticRosters = {
           "gear": 8,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_YOUNGHAN",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_YOUNGHAN01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_YOUNGHAN02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_YOUNGHAN01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "young-lando-calrissian": {
@@ -2358,6 +9658,33 @@ window.ForgeData.staticRosters = {
           "gear": 13,
           "relic": 5,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_YOUNGLANDO",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_YOUNGLANDO_01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_YOUNGLANDO_02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_YOUNGLANDO_01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "zaalbar": {
@@ -2367,6 +9694,35 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_ZAALBAR",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_ZAALBAR01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_ZAALBAR01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_ZAALBAR02",
+              "level": 7,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "zam-wesell": {
@@ -2376,6 +9732,45 @@ window.ForgeData.staticRosters = {
           "gear": 5,
           "relic": 0,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_ZAMWESELL",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_ZAMWESELL01",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_ZAMWESELL02",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "leaderskill_ZAMWESELL",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_ZAMWESELL01",
+              "level": 3,
+              "maxLevel": 9,
+              "zetaAvailable": true,
+              "omicronAvailable": true,
+              "omicronMode": 9
+            },
+            {
+              "id": "contractskill_ZAMWESELL01",
+              "level": 2,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "zeb-orrelios-new-republic-pilot": {
@@ -2385,6 +9780,35 @@ window.ForgeData.staticRosters = {
           "gear": 12,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "uniqueskill_RANGERZEB01",
+              "level": 7,
+              "maxLevel": 8,
+              "omicronAvailable": true,
+              "omicronMode": 14
+            },
+            {
+              "id": "specialskill_RANGERZEB01",
+              "level": 7,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            },
+            {
+              "id": "specialskill_RANGERZEB02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_RANGERZEB",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 6
         },
         "zorii-bliss": {
@@ -2394,6 +9818,23 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 2,
+          "abilities": [
+            {
+              "id": "basicskill_ZORIIBLISS_V2",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_ZORIIBLISS_V202",
+              "level": 3,
+              "maxLevel": 8,
+              "zetaAvailable": true
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         }
       },
@@ -2405,6 +9846,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_JEDISTARFIGHTERAHSOKATANO",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_JEDISTARFIGHTERAHSOKATANO02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_JEDISTARFIGHTERAHSOKATANO01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_JEDISTARFIGHTERAHSOKATANO01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "anakin-eta": {
@@ -2414,6 +9881,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_JEDISTARFIGHTERANAKIN",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_JEDISTARFIGHTERANAKIN01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_JEDISTARFIGHTERANAKIN01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_JEDISTARFIGHTERANAKIN01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "b-28-extinction-class-bomber": {
@@ -2423,6 +9916,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_sithbomber",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_sithbomber01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_sithbomber01",
+              "level": 2,
+              "maxLevel": 3
+            },
+            {
+              "id": "specialskill_sithbomber01",
+              "level": 6,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "biggs-darklighter-s-x-wing": {
@@ -2432,6 +9951,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_XWINGRED3",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_XWINGRED301",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_XWINGRED301",
+              "level": 2,
+              "maxLevel": 3
+            },
+            {
+              "id": "specialskill_XWINGRED301",
+              "level": 6,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "bistan-s-u-wing": {
@@ -2441,6 +9986,37 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_UWINGSCARIF",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_UWINGSCARIF02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_UWINGSCARIF01",
+              "level": 2,
+              "maxLevel": 3
+            },
+            {
+              "id": "specialskill_UWINGSCARIF01",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_UWINGSCARIF01",
+              "level": 5,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "cassian-s-u-wing": {
@@ -2450,6 +10026,42 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "basicskill_uwingrogueone",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_uwingrogueone01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_uwingrogueone01",
+              "level": 2,
+              "maxLevel": 3
+            },
+            {
+              "id": "specialskill_uwingrogueone01",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_uwingrogueone03",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_uwingrogueone02",
+              "level": 4,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "chimaera": {
@@ -2459,6 +10071,37 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_CAPITALCHIMAERA",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CAPITALCHIMAERA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CAPITALCHIMAERA02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CAPITALCHIMAERA01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CAPITALCHIMAERA03",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "clone-sergeant-s-arc-170": {
@@ -2468,6 +10111,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_ARC170CLONESERGEANT",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_ARC170CLONESERGEANT02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_ARC170CLONESERGEANT01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_ARC170CLONESERGEANT01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "ebon-hawk": {
@@ -2477,6 +10146,37 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "specialskill_EBONHAWK01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_EBONHAWK02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_EBONHAWK",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_EBONHAWK01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_EBONHAWK01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "endurance": {
@@ -2486,6 +10186,37 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "specialskill_CAPITALJEDICRUISER03",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_CAPITALJEDICRUISER",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CAPITALJEDICRUISER02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CAPITALJEDICRUISER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CAPITALJEDICRUISER01",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "executrix": {
@@ -2495,6 +10226,37 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "uniqueskill_CAPITALSTARDESTROYER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_CAPITALSTARDESTROYER",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CAPITALSTARDESTROYER03",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CAPITALSTARDESTROYER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CAPITALSTARDESTROYER02",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "finalizer": {
@@ -2504,6 +10266,37 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "uniqueskill_CAPITALFINALIZER01",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_CAPITALFINALIZER",
+              "level": 2,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CAPITALFINALIZER02",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CAPITALFINALIZER03",
+              "level": 2,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CAPITALFINALIZER01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "first-order-sf-tie-fighter": {
@@ -2513,6 +10306,27 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_TIEFIGHTERFOSF",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_TIEFIGHTERFOSF01",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_TIEFIGHTERFOSF02",
+              "level": 5,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "first-order-tie": {
@@ -2522,6 +10336,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_TIEFIGHTERFIRSTORDER01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_TIEFIGHTERFIRSTORDER",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_TIEFIGHTERFIRSTORDER01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_TIEFIGHTERFIRSTORDER01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "gauntlet-starfighter": {
@@ -2531,6 +10371,37 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_GAUNTLETSTARFIGHTER",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_GAUNTLETSTARFIGHTER01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_GAUNTLETSTARFIGHTER01",
+              "level": 2,
+              "maxLevel": 3
+            },
+            {
+              "id": "specialskill_GAUNTLETSTARFIGHTER01",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GAUNTLETSTARFIGHTER02",
+              "level": 4,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "geonosian-soldier-s-starfighter": {
@@ -2540,6 +10411,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_GEONOSIANSTARFIGHTER2",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_GEONOSIANSTARFIGHTER201",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GEONOSIANSTARFIGHTER201",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_GEONOSIANSTARFIGHTER201",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "geonosian-spy-s-starfighter": {
@@ -2549,6 +10446,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_GEONOSIANSTARFIGHTER3",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_GEONOSIANSTARFIGHTER301",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GEONOSIANSTARFIGHTER301",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_GEONOSIANSTARFIGHTER301",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "ghost": {
@@ -2558,6 +10481,42 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "specialskill_GHOST01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_GHOST",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_GHOST01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GHOST03",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_GHOST02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_GHOST01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "home-one": {
@@ -2567,6 +10526,37 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_CAPITALMONCALAMARICRUISER",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CAPITALMONCALAMARICRUISER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CAPITALMONCALAMARICRUISER02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CAPITALMONCALAMARICRUISER03",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CAPITALMONCALAMARICRUISER01",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "hounds-tooth": {
@@ -2576,6 +10566,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_HOUNDSTOOTH",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_HOUNDSTOOTH01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_HOUNDSTOOTH01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_HOUNDSTOOTH01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "ig-2000": {
@@ -2585,6 +10601,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "uniqueskill_IG20001",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_IG2000",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_IG20001",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_IG20001",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "imperial-tie": {
@@ -2594,6 +10636,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_TIEFIGHTERIMPERIAL",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_TIEFIGHTERIMPERIAL01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_TIEFIGHTERIMPERIAL02",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_TIEFIGHTERIMPERIAL01",
+              "level": 2,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "jedi-consular-s-starfighter": {
@@ -2603,6 +10671,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_JEDISTARFIGHTERCONSULAR",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_JEDISTARFIGHTERCONSULAR01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_JEDISTARFIGHTERCONSULAR02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_JEDISTARFIGHTERCONSULAR01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "kylo-ren-s-command-shuttle": {
@@ -2612,6 +10706,42 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "specialskill_commandshuttle01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_commandshuttle02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_commandshuttle01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_commandshuttle",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_commandshuttle03",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_commandshuttle",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "lando-s-millennium-falcon": {
@@ -2621,6 +10751,37 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_MILLENNIUMFALCONPRISTINE",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_MILLENNIUMFALCONPRISTINE01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MILLENNIUMFALCONPRISTINE01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_MILLENNIUMFALCONPRISTINE01",
+              "level": 3,
+              "maxLevel": 3
+            },
+            {
+              "id": "specialskill_MILLENNIUMFALCONPRISTINE02",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "millennium-falcon": {
@@ -2630,6 +10791,37 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "specialskill_MILLENNIUMFALCON01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MILLENNIUMFALCON02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_MILLENNIUMFALCON",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_MILLENNIUMFALCON01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_MILLENNIUMFALCON01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "phantom-ii": {
@@ -2639,6 +10831,42 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 6,
+          "abilities": [
+            {
+              "id": "uniqueskill_PHANTOM201",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_PHANTOM202",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_PHANTOM2",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_PHANTOM202",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_PHANTOM201",
+              "level": 3,
+              "maxLevel": 3
+            },
+            {
+              "id": "specialskill_PHANTOM201",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "plo-koon-starfighter": {
@@ -2648,6 +10876,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_BLADEOFDORIN",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BLADEOFDORIN02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_BLADEOFDORIN01",
+              "level": 6,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_BLADEOFDORIN01",
+              "level": 2,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "poe-dameron-s-x-wing": {
@@ -2657,6 +10911,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_XWINGBLACKONE01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_XWINGBLACKONE",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_XWINGBLACKONE02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_XWINGBLACKONE01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "raddus": {
@@ -2666,6 +10946,37 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_CAPITALRADDUS",
+              "level": 3,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CAPITALRADDUS01",
+              "level": 2,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CAPITALRADDUS02",
+              "level": 2,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_CAPITALRADDUS03",
+              "level": 2,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_CAPITALRADDUS01",
+              "level": 3,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "raven-s-claw": {
@@ -2675,6 +10986,37 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_RAVENSCLAW",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_RAVENSCLAW01",
+              "level": 6,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_RAVENSCLAW01",
+              "level": 6,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_RAVENSCLAW02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_RAVENSCLAW",
+              "level": 2,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "razor-crest": {
@@ -2684,6 +11026,37 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "basicskill_RAZORCREST",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_RAZORCREST01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_RAZORCREST02",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_RAZORCREST",
+              "level": 3,
+              "maxLevel": 3
+            },
+            {
+              "id": "uniqueskill_RAZORCREST01",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "resistance-x-wing": {
@@ -2693,6 +11066,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_XWINGRESISTANCE01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_XWINGRESISTANCE",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_XWINGRESISTANCE02",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_XWINGRESISTANCE01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "rex-s-arc-170": {
@@ -2702,6 +11101,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_arc170rex",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_arc170rex",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_arc170rex",
+              "level": 2,
+              "maxLevel": 3
+            },
+            {
+              "id": "specialskill_arc170rex",
+              "level": 7,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "rey-s-millennium-falcon": {
@@ -2711,6 +11136,37 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "specialskill_MILLENNIUMFALCONEP702",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_MILLENNIUMFALCONEP701",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_MILLENNIUMFALCONEP7",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_MILLENNIUMFALCONEP701",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_MILLENNIUMFALCONEP701",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "scimitar": {
@@ -2720,6 +11176,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_SITHINFILTRATOR01",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_SITHINFILTRATOR",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_SITHINFILTRATOR01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_SITHINFILTRATOR01",
+              "level": 2,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "slave-i": {
@@ -2729,6 +11211,37 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 5,
+          "abilities": [
+            {
+              "id": "specialskill_slave101",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_slave1",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_slave102",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_slave101",
+              "level": 3,
+              "maxLevel": 3
+            },
+            {
+              "id": "uniqueskill_slave101",
+              "level": 8,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "sun-fac-starfighter": {
@@ -2738,6 +11251,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_GEONOSIANSTARFIGHTER1",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_GEONOSIANSTARFIGHTER101",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_GEONOSIANSTARFIGHTER101",
+              "level": 3,
+              "maxLevel": 3
+            },
+            {
+              "id": "specialskill_GEONOSIANSTARFIGHTER101",
+              "level": 5,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "tie-advanced": {
@@ -2747,6 +11286,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_TIEADVANCED01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_TIEADVANCED",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_TIEADVANCED01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_TIEADVANCED01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "tie-bomber": {
@@ -2756,6 +11321,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_TIEBOMBERIMPERIAL",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_TIEBOMBERIMPERIAL01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_TIEBOMBERIMPERIAL01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_TIEBOMBERIMPERIAL",
+              "level": 2,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "tie-reaper": {
@@ -2765,6 +11356,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_TIEREAPER01",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_TIEREAPER02",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_TIEREAPER",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_TIEREAPER01",
+              "level": 5,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "tie-silencer": {
@@ -2774,6 +11391,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_TIESILENCER",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_TIESILENCER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_TIESILENCER01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_TIESILENCER01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "umbaran-starfighter": {
@@ -2783,6 +11426,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "specialskill_UMBARANSTARFIGHTER01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "basicskill_UMBARANSTARFIGHTER",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_UMBARANSTARFIGHTER01",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_UMBARANSTARFIGHTER01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "wedge-antilles-s-x-wing": {
@@ -2792,6 +11461,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_XWINGRED2",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_XWINGRED201",
+              "level": 7,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_XWINGRED201",
+              "level": 2,
+              "maxLevel": 3
+            },
+            {
+              "id": "specialskill_XWINGRED201",
+              "level": 5,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "xanadu-blood": {
@@ -2801,6 +11496,32 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 4,
+          "abilities": [
+            {
+              "id": "basicskill_XANADUBLOOD",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_XANADUBLOOD01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_XANADUBLOOD01",
+              "level": 8,
+              "maxLevel": 8
+            },
+            {
+              "id": "hardwareskill_XANADUBLOOD01",
+              "level": 3,
+              "maxLevel": 3
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         },
         "y-wing-rebel": {
@@ -2810,6 +11531,27 @@ window.ForgeData.staticRosters = {
           "gear": 1,
           "relic": 0,
           "skillCount": 3,
+          "abilities": [
+            {
+              "id": "basicskill_YWINGREBEL",
+              "level": 5,
+              "maxLevel": 8
+            },
+            {
+              "id": "specialskill_YWINGREBEL01",
+              "level": 4,
+              "maxLevel": 8
+            },
+            {
+              "id": "uniqueskill_YWINGREBEL01",
+              "level": 5,
+              "maxLevel": 8
+            }
+          ],
+          "zetaCount": 0,
+          "omicronCount": 0,
+          "abilityProgressionComplete": true,
+          "purchasedAbilityCount": 0,
           "equippedModCount": 0
         }
       },
