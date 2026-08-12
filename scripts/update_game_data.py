@@ -147,11 +147,28 @@ def find_collection(document: Any, *names: str) -> list[Any]:
     return []
 
 
-def merge_catalog_responses(category_data: Any, unit_data: Any) -> dict[str, list[Any]]:
-    """Extract only the two requested collections from separate Comlink responses."""
+def merge_catalog_responses(
+    category_data: Any,
+    unit_data: Any,
+    skill_data: Any | None = None,
+    ability_data: Any | None = None,
+    recommended_squad_data: Any | None = None,
+) -> dict[str, list[Any]]:
+    """Extract the catalog and team-building collections from Comlink responses."""
     return {
         "category": find_collection(category_data, "category", "categories"),
         "units": find_collection(unit_data, "units", "unit"),
+        "skill": find_collection(skill_data, "skill", "skills") if skill_data else [],
+        "ability": find_collection(ability_data, "ability", "abilities") if ability_data else [],
+        "recommendedSquad": (
+            find_collection(
+                recommended_squad_data,
+                "recommendedSquad",
+                "recommendedSquads",
+            )
+            if recommended_squad_data
+            else []
+        ),
     }
 
 
@@ -243,9 +260,14 @@ def select_game_data_items(enums: Any) -> dict[str, int]:
 
     selected = {
         "categories": choose("categorydefinitions", "categorydefinition", "categories"),
+        "skills": choose("skilldefinitions", "skilldefinition", "skills", "skill"),
         "equipment": choose("equipmentdefinitions", "equipmentdefinition", "equipment"),
+        "abilities": choose("abilitydefinitions", "abilitydefinition", "abilities", "ability"),
         "units": choose("unitdefinitions", "unitdefinition", "units"),
         "segment3": choose("segment3", "segmentthree"),
+        "recommendedSquads": choose(
+            "recommendedsquads", "recommendedsquad", "recommendedsquaddefinitions"
+        ),
     }
     if selected["units"] is None and selected["segment3"] is None:
         choices = ", ".join(f"{name}={value}" for name, value in sorted(available.items())[:30])
@@ -649,6 +671,336 @@ def normalize_catalog(
     for collection in (characters, ships, capitals):
         collection.sort(key=lambda item: (item["name"].casefold(), item["baseId"]))
     return characters, ships, capitals
+
+
+ABILITY_LOCALIZATION_PATTERN = re.compile(
+    r"^((?:BASIC|SPECIAL|UNIQUE|LEADER)ABILITY_.+?)"
+    r"(?:_TIER_?(\d+))?_DESC(?:_V(\d+))?$",
+    re.IGNORECASE,
+)
+
+
+def strip_game_markup(value: str) -> str:
+    value = re.sub(r"\[(?:/?[a-z](?:=[^\]]+)?|[0-9a-f]{6,8})\]", "", value, flags=re.IGNORECASE)
+    return re.sub(r"\s+", " ", value).strip()
+
+
+def skill_kind(skill_id: str) -> str:
+    lowered = skill_id.casefold()
+    for prefix, kind in (
+        ("leaderskill_", "leader"),
+        ("uniqueskill_", "unique"),
+        ("specialskill_", "special"),
+        ("basicskill_", "basic"),
+    ):
+        if lowered.startswith(prefix):
+            return kind
+    return "other"
+
+
+def skill_localization_stem(skill_id: str) -> str:
+    match = re.match(r"^(basic|special|unique|leader)skill_(.+)$", skill_id, re.IGNORECASE)
+    if not match:
+        return ""
+    return f"{match.group(1).upper()}ABILITY_{match.group(2).upper()}"
+
+
+def ability_localization_index(translations: Mapping[str, str]) -> dict[str, dict[str, str]]:
+    indexed: dict[str, dict[str, Any]] = {}
+    upper = {key.upper(): value for key, value in translations.items()}
+    for key, text in upper.items():
+        match = ABILITY_LOCALIZATION_PATTERN.match(key)
+        if not match:
+            continue
+        stem = match.group(1).upper()
+        rank = (as_int(match.group(2), -1), as_int(match.group(3), 0))
+        current = indexed.setdefault(stem, {"rank": (-2, -1), "description": ""})
+        if rank > current["rank"]:
+            current.update({"rank": rank, "description": text})
+    result: dict[str, dict[str, str]] = {}
+    for stem, values in indexed.items():
+        result[stem] = {
+            "name": upper.get(f"{stem}_NAME", humanize(stem)),
+            "description": str(values["description"]),
+        }
+    return result
+
+
+def ability_signals(description: str) -> list[str]:
+    lowered = strip_game_markup(description).casefold()
+    patterns = (
+        ("shares unique abilities", r"grant(?:s)? (?:their|its) unique ability|unique ability to other"),
+        ("calls assists", r"\bassist(?:s|ed|ing)?\b|call(?:s|ed)? .*? to assist"),
+        ("summons an ally", r"\bsummon(?:s|ed|ing)?\b"),
+        ("grants bonus turns or Turn Meter", r"turn meter|bonus turn"),
+        ("recovers Health or Protection", r"recover(?:s|ed)? .*?(?:health|protection)|\bheal(?:s|ed|ing)?\b"),
+        ("cleanses allies", r"dispel(?:s|led)? (?:all )?debuff|\bcleanse"),
+        ("dispels enemy buffs", r"dispel(?:s|led)? (?:all )?buff"),
+        ("revives allies", r"\brevive(?:s|d)?\b"),
+        ("controls enemies", r"\bstun|\bdaze|ability block|\bfear|\bfracture"),
+        ("manipulates cooldowns", r"cooldown"),
+        ("improves Speed", r"\bspeed\b"),
+        ("improves offense", r"\boffense\b|critical damage|deals? .*?more damage"),
+        ("improves durability", r"\bdefense\b|max health|max protection|damage immunity|\btaunt"),
+    )
+    return [label for label, pattern in patterns if re.search(pattern, lowered)]
+
+
+def ability_modes(description: str) -> list[str]:
+    lowered = strip_game_markup(description).casefold()
+    modes: list[str] = []
+    for label, pattern in (
+        ("gac", r"grand arena"),
+        ("gac-5v5", r"5v5 grand arena"),
+        ("gac-3v3", r"3v3 grand arena"),
+        ("tw", r"territory war"),
+        ("tb", r"territory battle"),
+        ("conquest", r"\bconquest\b"),
+        ("raid", r"\braid\b"),
+    ):
+        if re.search(pattern, lowered):
+            modes.append(label)
+    return modes
+
+
+def maximum_allied_benefit_percent(description: str) -> int:
+    values: list[int] = []
+    for sentence in re.split(r"[.\n]+", strip_game_markup(description)):
+        if not re.search(r"\ball(?:y|ies)\b", sentence, re.IGNORECASE):
+            continue
+        values.extend(
+            as_int(match)
+            for match in re.findall(
+                r"(?:gain(?:s)?|have|recover(?:s)?|grant(?:s)?|increased by)"
+                r"[^.;]{0,60}?(\d+)%",
+                sentence,
+                flags=re.IGNORECASE,
+            )
+        )
+    return max(values, default=0)
+
+
+def general_ability_text(description: str) -> str:
+    """Exclude mode-only tails so general scoring does not count an inactive Omicron."""
+    return re.split(
+        r"\bwhile in (?:5v5 |3v3 )?(?:grand arenas?|territory wars?|territory battles?|conquest|raids?)\b",
+        strip_game_markup(description),
+        maxsplit=1,
+        flags=re.IGNORECASE,
+    )[0]
+
+
+def normalize_synergy_model(
+    game_data: Any,
+    localization: Any,
+    characters: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Build compact, explainable team relationships from official game-data fields."""
+    translations = collect_localization(localization)
+    categories = category_index(find_collection(game_data, "category", "categories"), translations)
+    raw_units = {
+        str(first_value(unit, "baseId", "base_id", "id")): unit
+        for unit in select_unit_definitions(find_collection(game_data, "units", "unit"))
+        if isinstance(unit, Mapping) and combat_kind(unit) == "character"
+    }
+    character_by_base = {character["baseId"]: character for character in characters}
+    skill_by_id = {
+        str(first_value(skill, "id", "skillId")): skill
+        for skill in find_collection(game_data, "skill", "skills")
+        if isinstance(skill, Mapping) and first_value(skill, "id", "skillId")
+    }
+    ability_by_id = {
+        str(first_value(ability, "id", "abilityId")): ability
+        for ability in find_collection(game_data, "ability", "abilities")
+        if isinstance(ability, Mapping) and first_value(ability, "id", "abilityId")
+    }
+    localized_abilities = ability_localization_index(translations)
+    relevant_prefixes = ("affiliation_", "profession_", "species_", "alignment_", "role_")
+    category_labels = {
+        category_id: strip_game_markup(str(value["label"]))
+        for category_id, value in categories.items()
+        if category_id.casefold().startswith(relevant_prefixes)
+        and not category_id.casefold().startswith("role_capital")
+        and len(strip_game_markup(str(value["label"]))) >= 3
+    }
+
+    def referenced_categories(description: str) -> list[str]:
+        text = strip_game_markup(description).casefold()
+        matched: list[str] = []
+        claimed_spans: list[tuple[int, int]] = []
+        for category_id, label in sorted(
+            category_labels.items(), key=lambda item: len(item[1]), reverse=True
+        ):
+            label_pattern = rf"(?<![a-z0-9]){re.escape(label.casefold())}(?![a-z0-9])"
+            for occurrence in re.finditer(label_pattern, text):
+                start, end = occurrence.span()
+                if any(claimed_start <= start and end <= claimed_end for claimed_start, claimed_end in claimed_spans):
+                    continue
+                nearby = text[max(0, start - 35) : min(len(text), end + 45)]
+                enemy_nearby = re.search(r"\benem(?:y|ies)\b", nearby)
+                ally_nearby = re.search(r"\ball(?:y|ies)\b", nearby)
+                if ally_nearby and not enemy_nearby:
+                    matched.append(category_id)
+                    claimed_spans.append((start, end))
+                    break
+        return list(dict.fromkeys(matched))
+
+    unit_names = sorted(
+        ((character["id"], character["name"]) for character in characters if len(character["name"]) >= 4),
+        key=lambda item: len(item[1]),
+        reverse=True,
+    )
+
+    def referenced_units(description: str, owner_id: str) -> list[str]:
+        text = strip_game_markup(description).casefold()
+        result: list[str] = []
+        for unit_id, name in unit_names:
+            if unit_id == owner_id:
+                continue
+            pattern = rf"(?<![a-z0-9]){re.escape(name.casefold())}(?![a-z0-9])"
+            occurrences = list(re.finditer(pattern, text))
+            if any(
+                not re.search(
+                    r"\benem(?:y|ies)\b",
+                    text[max(0, occurrence.start() - 35) : min(len(text), occurrence.end() + 35)],
+                )
+                for occurrence in occurrences
+            ):
+                result.append(unit_id)
+        return result
+
+    profiles: dict[str, Any] = {}
+    localized_ability_count = 0
+    explicit_synergy_count = 0
+    for base_id, character in character_by_base.items():
+        raw = raw_units.get(base_id, {})
+        ids = category_ids(raw)
+        skill_references = first_value(
+            raw, "skillReference", "skillReferenceList", "skillReferences", "skills", default=[]
+        )
+        abilities: list[dict[str, Any]] = []
+        for reference in as_list(skill_references):
+            skill_id = str(
+                first_value(reference, "skillId", "id", "skill", default="")
+                if isinstance(reference, Mapping)
+                else reference
+            )
+            if not skill_id:
+                continue
+            skill = skill_by_id.get(skill_id, {})
+            ability_id = str(first_value(skill, "abilityReference", "abilityId", default=""))
+            ability = ability_by_id.get(ability_id, {})
+            stem = skill_localization_stem(skill_id)
+            localized = localized_abilities.get(stem, {})
+            name = translate(
+                first_value(ability, "nameKey", default=first_value(skill, "nameKey")),
+                translations,
+                fallback=str(localized.get("name") or humanize(skill_id)),
+            )
+            description_key = first_value(ability, "descKey", "shortDescKey")
+            for tier in as_list(ability.get("tier")) if isinstance(ability, Mapping) else []:
+                if isinstance(tier, Mapping) and tier.get("descKey"):
+                    description_key = tier["descKey"]
+            description = translate(
+                description_key,
+                translations,
+                fallback=str(localized.get("description") or ""),
+            )
+            if description:
+                localized_ability_count += 1
+            synergy = ability.get("synergy", {}) if isinstance(ability, Mapping) else {}
+            grouped = [str(value) for value in as_list(first_value(synergy, "groupedCategoryId", default=[]))]
+            separate = [str(value) for value in as_list(first_value(synergy, "separateCategoryId", default=[]))]
+            if grouped or separate:
+                explicit_synergy_count += 1
+            general_text = general_ability_text(description)
+            inferred = referenced_categories(general_text)
+            target_categories = list(dict.fromkeys(grouped + separate + inferred))
+            signals = ability_signals(general_text)
+            benefit_percent = maximum_allied_benefit_percent(general_text)
+            kind = skill_kind(skill_id)
+            impact = min(
+                10,
+                1
+                + len(signals)
+                + (2 if kind == "leader" else 1 if kind == "unique" else 0)
+                + (1 if target_categories else 0)
+                + (2 if benefit_percent >= 50 else 1 if benefit_percent >= 20 else 0),
+            )
+            ability_record: dict[str, Any] = {
+                "skillId": skill_id,
+                "kind": kind,
+                "name": name,
+                "targetCategories": target_categories,
+                "targetUnits": referenced_units(general_text, character["id"]),
+                "signals": signals,
+                "modeBonuses": ability_modes(description),
+                "impact": impact,
+            }
+            if benefit_percent:
+                ability_record["maximumAlliedBenefitPercent"] = benefit_percent
+            if grouped:
+                ability_record["groupedCategories"] = grouped
+            if separate:
+                ability_record["separateCategories"] = separate
+            if as_bool(first_value(skill, "isZeta", default=False)) or any(
+                as_bool(tier.get("isZetaTier"))
+                for tier in as_list(skill.get("tier"))
+                if isinstance(tier, Mapping)
+            ):
+                ability_record["zeta"] = True
+            omicron_mode = first_value(skill, "omicronMode")
+            if omicron_mode not in (None, 0, "0", "OmicronMode_DEFAULT"):
+                ability_record["omicronMode"] = omicron_mode
+            abilities.append(ability_record)
+
+        profiles[character["id"]] = {
+            "baseId": base_id,
+            "categories": ids,
+            "teamUpTags": [value for value in ids if value.casefold().startswith("teamup_")],
+            "abilities": abilities,
+        }
+
+    official_squads: list[dict[str, Any]] = []
+    for raw in find_collection(game_data, "recommendedSquad", "recommendedSquads"):
+        if not isinstance(raw, Mapping):
+            continue
+        members = [
+            character_by_base[str(base_id)]["id"]
+            for base_id in as_list(first_value(raw, "unitDefId", "unitDefIds", default=[]))
+            if str(base_id) in character_by_base
+        ]
+        members = list(dict.fromkeys(members))
+        if len(members) < 3:
+            continue
+        official_squads.append(
+            {
+                "id": str(first_value(raw, "id", default=f"official-{len(official_squads) + 1}")),
+                "name": translate(first_value(raw, "name", "nameKey"), translations, fallback="Recommended squad"),
+                "description": translate(first_value(raw, "descriptionKey"), translations, fallback=""),
+                "members": members,
+            }
+        )
+
+    if skill_by_id and ability_by_id and explicit_synergy_count:
+        quality = "explicit-ability-data"
+    elif localized_ability_count:
+        quality = "localized-kit-text"
+    else:
+        quality = "category-tags-only"
+    return {
+        "schemaVersion": 1,
+        "source": "comlink",
+        "quality": quality,
+        "units": profiles,
+        "officialSquads": official_squads,
+        "counts": {
+            "unitProfiles": len(profiles),
+            "abilities": sum(len(profile["abilities"]) for profile in profiles.values()),
+            "explicitAbilitySynergies": explicit_synergy_count,
+            "officialSquads": len(official_squads),
+        },
+    }
 
 
 def metadata_value(metadata: Mapping[str, Any], *keys: str) -> str:
@@ -1115,7 +1467,58 @@ def fetch_comlink(args: argparse.Namespace) -> tuple[dict[str, Any], Any, Any]:
                 )
                 metadata.setdefault("_forgeCatalogWarnings", []).append(warning)
                 recorder.note(warning, classification="optional-category-item-missing")
-            game_data = merge_catalog_responses(category_data, unit_data)
+
+            team_data_responses: dict[str, Any] = {}
+            for item_key, item_label, collection_name in (
+                ("skills", "SkillDefinitions", "skill"),
+                ("abilities", "AbilityDefinitions", "ability"),
+                ("recommendedSquads", "RecommendedSquads", "recommendedSquad"),
+            ):
+                if item_key not in data_items:
+                    warning = (
+                        f"The live enum did not expose {item_label}; team scoring will use the "
+                        "available unit tags and localized kit text."
+                    )
+                    metadata.setdefault("_forgeCatalogWarnings", []).append(warning)
+                    recorder.note(warning, classification="optional-team-data-item-missing")
+                    continue
+                item_value = data_items[item_key]
+                data_body = {
+                    "payload": {
+                        "version": game_version,
+                        "devicePlatform": device_platform,
+                        "includePveUnits": False,
+                        "items": str(item_value),
+                    },
+                    "enums": False,
+                }
+                try:
+                    team_data_responses[item_key] = traced_request(
+                        recorder,
+                        f"read {item_label} for team synergy",
+                        "POST",
+                        "/data",
+                        data_body,
+                        lambda item_value=item_value, collection_name=collection_name: request_game_data(
+                            item_value, collection_name
+                        ),
+                    )
+                except Exception as team_data_error:
+                    warning = (
+                        f"{item_label} were unavailable; team scoring will use the remaining "
+                        f"game-data signals. Comlink reported: {team_data_error}"
+                    )
+                    print(f"Warning: {warning}", file=sys.stderr)
+                    metadata.setdefault("_forgeCatalogWarnings", []).append(warning)
+                    recorder.note(warning, classification="optional-team-data-request-failure")
+
+            game_data = merge_catalog_responses(
+                category_data,
+                unit_data,
+                team_data_responses.get("skills"),
+                team_data_responses.get("abilities"),
+                team_data_responses.get("recommendedSquads"),
+            )
     except Exception as error:
         recorder.finish("failed", error)
         diagnostic = ""
@@ -1146,6 +1549,7 @@ def write_catalog(
     characters: list[dict[str, Any]],
     ships: list[dict[str, Any]],
     capitals: list[dict[str, Any]],
+    synergy_model: dict[str, Any],
     metadata: dict[str, Any],
 ) -> None:
     atomic_text(output_dir / "characters.js", javascript_assignment("characters", characters))
@@ -1156,6 +1560,7 @@ def write_catalog(
         f"window.ForgeData.capitalShips = {json.dumps(capitals, ensure_ascii=False, indent=2)};\n"
     )
     atomic_text(output_dir / "ships.js", ship_source)
+    atomic_text(output_dir / "synergies.js", javascript_assignment("synergyModel", synergy_model))
     atomic_text(output_dir / "catalog-meta.js", javascript_assignment("catalogMeta", metadata))
 
 
@@ -1173,6 +1578,7 @@ def main(argv: list[str] | None = None) -> int:
                 atomic_json(args.cache_dir / "localization.json", localization)
 
         characters, ships, capitals = normalize_catalog(game_data, localization, previous_by_name)
+        synergy_model = normalize_synergy_model(game_data, localization, characters)
         validate_catalog(
             characters,
             ships,
@@ -1198,6 +1604,10 @@ def main(argv: list[str] | None = None) -> int:
                 "ships": len(ships),
                 "capitalShips": len(capitals),
             },
+            "teamData": {
+                "quality": synergy_model["quality"],
+                **synergy_model["counts"],
+            },
         }
         summary = (
             f"{len(characters)} characters, {len(ships)} ships, "
@@ -1206,7 +1616,14 @@ def main(argv: list[str] | None = None) -> int:
         if args.dry_run:
             print(f"Validated {summary}; dry run left generated files unchanged.")
         else:
-            write_catalog(args.output_dir, characters, ships, capitals, catalog_metadata)
+            write_catalog(
+                args.output_dir,
+                characters,
+                ships,
+                capitals,
+                synergy_model,
+                catalog_metadata,
+            )
             print(f"Updated {args.output_dir} with {summary}.")
         return 0
     except (FileNotFoundError, RuntimeError, ValueError, OSError) as error:

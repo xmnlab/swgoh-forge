@@ -4,17 +4,19 @@
 
 SWGOH Forge is an unofficial, fan-made planning concept for *Star Wars: Galaxy of Heroes*. It is a static frontend prototype with an optional local data pipeline for generating a current character and ship catalog from [SWGOH Comlink](https://github.com/swgoh-utils/swgoh-comlink).
 
-The unit catalog can be current game data. Recommendation scores, success rates, battle counts, requirements, account details, and optimization results remain structured mock/demo data; Comlink does not supply that historical strategy dataset.
+The unit catalog and general squad-synergy model can be generated from current game data. General squad scores compare leader coverage, kit relationships, assists, recovery/control mechanics, explicit team-up tags, faction cohesion, and role balance. They are explainable formation estimates—not observed win rates or a battle simulator. Counter results, fleet results, requirements, battle counts, account details, and whole-roster optimization remain structured mock/demo data.
 
 ## Prototype features
 
 - Squad builder with required-character and required-leader constraints
+- Data-driven general squad formation ranking with leadership and cohesion explanations
 - Fleet builder with capital ship, starters, reinforcements, and reinforcement order
 - Squad and fleet counter flows
 - Searchable, filterable character and ship pickers
 - Minimum, recommended, and safe requirement tiers
 - Demo roster readiness and whole-roster optimization
 - Optional locally generated unit, ship, category, and English-name snapshot
+- Optional localized kit, explicit ability-synergy, and in-game recommended-squad snapshot
 - Responsive layouts and keyboard-accessible dialogs and drawers
 
 ## Running the site locally
@@ -27,7 +29,7 @@ python3 -m http.server
 
 Then open [http://localhost:8000](http://localhost:8000). The checked-in catalog is used until you run the optional updater below.
 
-The bundled catalog contains only 53 representative characters for the static prototype; it is intentionally incomplete. A successful local update changes the interface label to **Local SWGOH Comlink snapshot** and records a generation date and game-data version. If the interface still says **Bundled seed catalog (not complete)**, the updater did not finish successfully.
+The checked-in catalog is a point-in-time snapshot. A successful local update labels it **Local SWGOH Comlink snapshot** and records its generation date and game-data version. If the interface says **Bundled seed catalog (not complete)**, the updater did not finish successfully and that small fallback catalog should not be treated as current.
 
 ## Updating game data locally
 
@@ -72,8 +74,9 @@ The wrapper creates or repairs `.venv-data`, installs the pinned `swgoh_comlink`
 - `data/characters.js`
 - `data/ships.js`
 - `data/catalog-meta.js`
+- `data/synergies.js`
 
-It reads `/enums` and uses only values advertised by that running server. The first unit request asks for the minimal `UnitDefinitions` collection; `Segment3` is tried once only if that request fails. This avoids making a large aggregate the first request against a fresh container. `CategoryDefinitions` is requested separately and remains optional because faction labels can be inferred from unit category IDs.
+It reads `/enums` and uses only values advertised by that running server. The first unit request asks for the minimal `UnitDefinitions` collection; `Segment3` is tried once only if that request fails. This avoids making a large aggregate the first request against a fresh container. `CategoryDefinitions` is requested separately and remains optional because faction labels can be inferred from unit category IDs. The updater then requests `SkillDefinitions`, `AbilityDefinitions`, and `RecommendedSquads` separately for team modeling. If one is unavailable, the generated metadata records the limitation and the model falls back to unit tags and localized final-tier kit text rather than silently treating missing relationships as complete data.
 
 If both unit strategies fail, the updater makes one small `EquipmentDefinitions` request. A successful probe isolates the problem to unit data or response size; a failed probe shows that `/data` is unavailable even for a small live-enum collection. It never invents `ALL=-1` when the live enum does not expose that value.
 
@@ -109,7 +112,13 @@ COMLINK_LOCALE=FRE_FR ./scripts/update-data.sh
 COMLINK_SERVER_VERSION=4.5.0 ./scripts/update-data-full.sh --dry-run
 ```
 
-The updater preserves existing human-readable IDs where localized names match, adds stable base-ID aliases, selects the highest-rarity definition for each playable unit, links ships to their crew, and writes files atomically. Comlink encounter clones are excluded using their nonzero `obtainableTime` sentinel; this removes raid, journey, and inherited-event copies without relying on naming suffixes. It refuses an implausibly small response or a snapshot that unexpectedly removes existing IDs. `--allow-missing-seed-units` is available for an intentional removal after reviewing the result.
+The updater preserves existing human-readable IDs where localized names match, adds stable base-ID aliases, selects the highest-rarity definition for each playable unit, links ships to their crew, and writes files atomically. It also links unit skill IDs to final-tier localized kits, records explicit ability target categories and game-provided squad compositions when available, and reduces kit text to compact relationship signals instead of publishing full descriptions. Comlink encounter clones are excluded using their nonzero `obtainableTime` sentinel; this removes raid, journey, and inherited-event copies without relying on naming suffixes. It refuses an implausibly small response or a snapshot that unexpectedly removes existing IDs. `--allow-missing-seed-units` is available for an intentional removal after reviewing the result.
+
+### What the team score means
+
+The Build → Characters flow runs locally in the browser over the generated `data/synergies.js` model. It searches valid leaders and squad combinations while honoring required, excluded, and locked-leader constraints. Leadership coverage carries the largest weight, followed by shared affiliations, directed unique/special relationships, explicit `teamup_*` tags, role balance, and any game-provided recommended-squad overlap. Expanded results name the abilities and relationships that drove the score.
+
+The score deliberately does not claim which squad wins a specific matchup. Gear, relics, mods, datacrons, turn order, AI behavior, an opponent lineup, and empirical battle outcomes are outside this general formation score. Those require roster and battle-history data that Comlink's static game definitions do not provide.
 
 Stop the local service when finished:
 
@@ -121,7 +130,7 @@ The container is bound to `127.0.0.1`, so it is not exposed to other machines. I
 
 ### Data scope and provenance
 
-The generated files contain a compact subset needed by the UI: base ID, localized name, unit type, visible faction categories, alignment, role, leadership, crew relationships, and display metadata. The updater does not request player profiles, guilds, rosters, battle histories, or credentials.
+The generated files contain a compact subset needed by the UI: base ID, localized name, unit type, visible faction categories, alignment, role, leadership, crew relationships, display metadata, skill/ability relationship signals, and official recommended-squad membership when present. The updater does not request player profiles, guilds, rosters, battle histories, or credentials.
 
 SWGOH Comlink and `comlink-python` are third-party community projects. Their software licenses do not grant rights to Electronic Arts game data. Before redistributing generated snapshots, review the applicable game terms and repository policies yourself. Keeping the collection local reduces operational load and makes every update an explicit, reviewable action; it is not a grant of permission from a rights holder.
 
@@ -138,6 +147,7 @@ swgoh-forge/
 ├── index.html
 ├── styles.css
 ├── app.js
+├── team-optimizer.js          # Explainable general squad synergy search
 ├── compose.comlink.yaml       # Loopback-only local Comlink service
 ├── requirements-data.txt     # Pinned Python updater dependency
 ├── scripts/
@@ -149,17 +159,19 @@ swgoh-forge/
 │   ├── catalog-meta.js        # Snapshot source, version, date, and counts
 │   ├── characters.js          # Generated or bundled character catalog
 │   ├── ships.js               # Generated or bundled ship catalogs
+│   ├── synergies.js           # Generated unit-kit and team relationships
 │   ├── recommendations.js     # Squad, fleet, counter, and roster demos
 │   ├── encounters.js          # Context, objectives, and mission demos
 │   └── demo-roster.js         # Fictional local roster
 ├── tests/
-│   └── test_update_game_data.py
+│   ├── test_update_game_data.py
+│   └── test_team_optimizer.js
 └── assets/
 ```
 
 ## Unit images
 
-No copyrighted character or ship artwork is bundled. Generated records reference predictable local paths such as `assets/characters/darth-vader.png`. When an image is absent, the interface displays an initials-based fallback.
+No copyrighted character or ship artwork is bundled. The interface intentionally renders initials instead of requesting the image paths present in catalog metadata.
 
 Third-party images placed under `assets/` remain subject to their respective rights and are not automatically covered by this project's MIT license.
 
@@ -169,8 +181,9 @@ Run the local checks with:
 
 ```bash
 python3 -m unittest discover -s tests
+node tests/test_team_optimizer.js
 bash -n scripts/update-data.sh scripts/update-data-full.sh
-node --check app.js
+node --check app.js && node --check team-optimizer.js
 ```
 
 ## Disclaimer

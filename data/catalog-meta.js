@@ -5,7 +5,7 @@ window.ForgeData.catalogMeta = {
   "status": "generated",
   "source": "comlink",
   "sourceLabel": "Local SWGOH Comlink snapshot",
-  "generatedAt": "2026-08-12T13:40:09Z",
+  "generatedAt": "2026-08-12T15:11:08Z",
   "gameDataVersion": "0.40.5:RJAhxL8sTGS_f1S8K9y1uw",
   "localizationVersion": "bc79IouQRamTlJtWi4D_kw",
   "locale": "ENG_US",
@@ -15,5 +15,12 @@ window.ForgeData.catalogMeta = {
     "characters": 340,
     "ships": 59,
     "capitalShips": 11
+  },
+  "teamData": {
+    "quality": "localized-kit-text",
+    "unitProfiles": 340,
+    "abilities": 1516,
+    "explicitAbilitySynergies": 0,
+    "officialSquads": 0
   }
 };

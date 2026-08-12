@@ -35,6 +35,7 @@
     compareRoster: false,
     requirementLevel: "recommended",
     results: { build: false, counter: false, roster: false },
+    generatedSquads: null,
     loading: null,
     expandedRecommendations: new Set(["empire-control"]),
     detailTabs: {},
@@ -306,18 +307,23 @@
 
   function renderBuildResults() {
     if (state.unitType === "fleets") return renderFleetResults();
-    const recommendations = getMockSquadRecommendations();
-    return `<section class="results-zone" id="build-results" data-step="5"><div class="results-heading"><div><span class="eyebrow">Forge output</span><h2>Top Recommended Squads</h2><p>Ranked for ${escapeHtml(currentModeLabel())} · ${escapeHtml(data.objectives.find((item) => item.id === state.objective)?.label)}</p></div><span class="demo-badge">Demo data</span></div><div class="results-list">${recommendations.map((rec, index) => renderSquadRecommendation(rec, index)).join("")}</div></section>`;
+    const recommendations = state.generatedSquads || calculateSquadRecommendations();
+    const quality = data.synergyModel?.quality === "explicit-ability-data" ? "Ability relationships" : data.synergyModel?.quality === "localized-kit-text" ? "Localized kit model" : "Tag-only model";
+    return `<section class="results-zone" id="build-results" data-step="5"><div class="results-heading"><div><span class="eyebrow">Forge output</span><h2>Top Synergy Formations</h2><p>General team cohesion with the selected constraints · not an opponent-specific counter ranking</p></div><span class="context-badge">${escapeHtml(quality)}</span></div>${recommendations.length ? `<div class="results-list">${recommendations.map((rec, index) => renderSquadRecommendation(rec, index)).join("")}</div>` : '<div class="empty-state">No valid squad fits these required, leader, and excluded-unit constraints.</div>'}</section>`;
   }
 
-  function getMockSquadRecommendations() {
+  function calculateSquadRecommendations() {
     const size = state.gameMode === "gac-3v3" ? 3 : 5;
-    return data.squadRecommendations.map((template, index) => {
-      const leaderId = state.leaderId || template.leaderId;
-      const ordered = [leaderId, ...state.requiredUnits, ...template.members, ...data.characters.map((unit) => unit.id)];
-      const members = [...new Set(ordered)].filter((id) => characterMap.has(id)).slice(0, size);
-      if (!members.includes(leaderId)) members.unshift(leaderId);
-      return { ...template, leaderId, members: members.slice(0, size), score: Math.max(70, template.score - (state.leaderId && state.leaderId !== template.leaderId ? 5 + index : 0)) };
+    if (!window.ForgeTeamOptimizer) return [];
+    return window.ForgeTeamOptimizer.optimize({
+      characters: data.characters,
+      synergyModel: data.synergyModel,
+      size,
+      requiredIds: state.requiredUnits,
+      excludedIds: state.excludedUnits,
+      leaderId: state.leaderId,
+      mode: state.gameMode,
+      limit: 3
     });
   }
 
@@ -327,7 +333,7 @@
       <div class="recommendation-main">
         <div class="rank">#${index + 1}</div>
         <div class="formation" aria-label="Recommended squad">${rec.members.map((id) => formationUnit(id, { leader: id === rec.leaderId })).join("")}</div>
-        <div class="metrics-wrap">${renderMetrics(rec)}<div class="qualifiers"><span>Investment<strong>${escapeHtml(rec.investment)}</strong></span><span>Mods<strong>${escapeHtml(rec.modDifficulty)}</strong></span><span>RNG<strong>${escapeHtml(rec.rng)}</strong></span></div></div>
+        <div class="metrics-wrap">${renderMetrics(rec)}${rec.model === "synergy" ? `<div class="qualifiers"><span>Basis<strong>Kit relationships</strong></span><span>Target<strong>General</strong></span><span>Simulation<strong>None</strong></span></div>` : `<div class="qualifiers"><span>Investment<strong>${escapeHtml(rec.investment)}</strong></span><span>Mods<strong>${escapeHtml(rec.modDifficulty)}</strong></span><span>RNG<strong>${escapeHtml(rec.rng)}</strong></span></div>`}</div>
         <button class="expand-button" type="button" data-expand-recommendation="${rec.id}" aria-expanded="${expanded}" aria-label="${expanded ? "Collapse" : "Expand"} recommendation details">＋</button>
       </div>
       ${expanded ? renderRecommendationDetails(rec) : ""}
@@ -335,10 +341,14 @@
   }
 
   function renderMetrics(rec) {
+    if (rec.model === "synergy") return `<div class="metrics"><div class="metric primary"><strong>${rec.score}</strong><span>Synergy</span></div><div class="metric"><strong>${rec.leadership}</strong><span>Leadership</span></div><div class="metric"><strong>${rec.cohesion}</strong><span>Cohesion</span></div></div>`;
     return `<div class="metrics"><div class="metric primary"><strong>${rec.score}</strong><span>Overall</span></div><div class="metric"><strong>${rec.win}</strong><span>Win potential</span></div><div class="metric"><strong>${rec.reliability}</strong><span>Reliability</span></div></div>`;
   }
 
   function renderRecommendationDetails(rec) {
+    if (rec.model === "synergy") {
+      return `<div class="recommendation-details"><div class="detail-copy" style="padding-top:18px"><p>${rec.explanations.map((explanation) => escapeHtml(explanation)).join(" ")}</p><span class="micro-label">Modeled mechanics</span><div class="tag-list">${rec.strongFor.length ? rec.strongFor.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("") : '<span class="tag">Shared unit tags</span>'}<span class="tag">No battle simulation</span></div><p class="requirement-note" style="margin-top:15px">This score compares leader coverage, kit relationships, explicit team-up tags, faction cohesion, and role balance. It does not estimate a win rate or account for gear, mods, datacrons, or a specific opponent.</p></div></div>`;
+    }
     const tab = state.detailTabs[rec.id] || "why";
     return `<div class="recommendation-details"><div class="detail-tabs" role="tablist" aria-label="Recommendation details"><button class="${tab === "why" ? "active" : ""}" type="button" role="tab" aria-selected="${tab === "why"}" data-rec-tab="why" data-rec-id="${rec.id}">Why this works</button><button class="${tab === "requirements" ? "active" : ""}" type="button" role="tab" aria-selected="${tab === "requirements"}" data-rec-tab="requirements" data-rec-id="${rec.id}">Requirements</button><button class="${tab === "substitutes" ? "active" : ""}" type="button" role="tab" aria-selected="${tab === "substitutes"}" data-rec-tab="substitutes" data-rec-id="${rec.id}">Substitutes</button></div>${tab === "requirements" ? renderCharacterRequirements(rec) : tab === "substitutes" ? renderSubstitutes(rec) : renderWhy(rec)}</div>`;
   }
@@ -636,9 +646,11 @@
   function startForging(scope) {
     state.loading = scope;
     state.results[scope] = false;
+    if (scope === "build") state.generatedSquads = null;
     render();
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     window.setTimeout(() => {
+      if (scope === "build" && state.unitType === "characters") state.generatedSquads = calculateSquadRecommendations();
       state.loading = null;
       state.results[scope] = true;
       render();
@@ -653,6 +665,7 @@
     state.capitalShipId = null;
     state.fleetStarters = [];
     state.fleetReinforcements = [];
+    state.generatedSquads = null;
     state.results.build = false;
     state.loading = null;
     render();

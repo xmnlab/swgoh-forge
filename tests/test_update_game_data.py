@@ -237,9 +237,121 @@ class NormalizeCatalogTests(unittest.TestCase):
             self.assertEqual(0, result)
             self.assertIn("window.ForgeData.characters", (output / "characters.js").read_text())
             self.assertIn("window.ForgeData.capitalShips", (output / "ships.js").read_text())
+            self.assertIn("window.ForgeData.synergyModel", (output / "synergies.js").read_text())
             metadata_js = (output / "catalog-meta.js").read_text()
             self.assertIn('"gameDataVersion": "test-game-version"', metadata_js)
             self.assertIn('"characters": 100', metadata_js)
+
+    def test_builds_synergy_from_localized_final_tier_kit_text(self):
+        game_data = {
+            "category": [
+                {"id": "affiliation_phoenix", "descKey": "PHOENIX"},
+                {"id": "affiliation_rebels", "descKey": "REBELS"},
+                {"id": "role_leader", "descKey": "LEADER"},
+            ],
+            "units": [
+                {
+                    "baseId": "HERA",
+                    "combatType": 1,
+                    "obtainable": True,
+                    "categoryId": ["affiliation_phoenix", "affiliation_rebels", "role_leader"],
+                    "skillReference": [{"skillId": "leaderskill_HERA"}],
+                },
+                {
+                    "baseId": "REX",
+                    "combatType": 1,
+                    "obtainable": True,
+                    "categoryId": ["affiliation_phoenix", "affiliation_rebels"],
+                    "skillReference": [{"skillId": "uniqueskill_REX01"}],
+                },
+            ],
+        }
+        localization = {
+            "PHOENIX": "Phoenix",
+            "REBELS": "Rebels",
+            "LEADER": "Leader",
+            "LEADERABILITY_HERA_NAME": "Rise Together",
+            "LEADERABILITY_HERA_TIER_07_DESC": (
+                "Each Phoenix ally grants their Unique ability to other Phoenix allies. "
+                "Whenever a Phoenix ally uses a Special ability, they gain Turn Meter."
+            ),
+            "UNIQUEABILITY_REX01_NAME": "The Lost Commander",
+            "UNIQUEABILITY_REX01_TIER_06_DESC": (
+                "Whenever another Phoenix ally uses a Special ability, Rex assists. "
+                "Phoenix allies recover Health and Protection."
+            ),
+        }
+        characters = [
+            {"id": "hera", "baseId": "HERA", "name": "Hera", "canLead": True},
+            {"id": "rex", "baseId": "REX", "name": "Rex", "canLead": False},
+        ]
+
+        model = update_game_data.normalize_synergy_model(game_data, localization, characters)
+
+        self.assertEqual("localized-kit-text", model["quality"])
+        hera_lead = model["units"]["hera"]["abilities"][0]
+        self.assertEqual("leader", hera_lead["kind"])
+        self.assertIn("affiliation_phoenix", hera_lead["targetCategories"])
+        self.assertIn("shares unique abilities", hera_lead["signals"])
+        rex_unique = model["units"]["rex"]["abilities"][0]
+        self.assertIn("calls assists", rex_unique["signals"])
+        self.assertIn("recovers Health or Protection", rex_unique["signals"])
+
+    def test_prefers_explicit_ability_synergy_and_normalizes_official_squads(self):
+        game_data = {
+            "units": [
+                {
+                    "baseId": "LEADER",
+                    "combatType": 1,
+                    "obtainable": True,
+                    "categoryId": ["affiliation_test", "role_leader"],
+                    "skillReference": [{"skillId": "leaderskill_TEST"}],
+                },
+                {
+                    "baseId": "ALLY_A",
+                    "combatType": 1,
+                    "obtainable": True,
+                    "categoryId": ["affiliation_test"],
+                },
+                {
+                    "baseId": "ALLY_B",
+                    "combatType": 1,
+                    "obtainable": True,
+                    "categoryId": ["affiliation_test"],
+                },
+            ],
+            "skill": [
+                {"id": "leaderskill_TEST", "abilityReference": "ability_TEST", "isZeta": True}
+            ],
+            "ability": [
+                {
+                    "id": "ability_TEST",
+                    "nameKey": "ABILITY_NAME",
+                    "descKey": "ABILITY_DESC",
+                    "synergy": {"separateCategoryId": ["affiliation_test"]},
+                }
+            ],
+            "recommendedSquad": [
+                {"id": "test-squad", "name": "Test squad", "unitDefId": ["LEADER", "ALLY_A", "ALLY_B"]}
+            ],
+        }
+        characters = [
+            {"id": "leader", "baseId": "LEADER", "name": "Leader", "canLead": True},
+            {"id": "ally-a", "baseId": "ALLY_A", "name": "Ally A", "canLead": False},
+            {"id": "ally-b", "baseId": "ALLY_B", "name": "Ally B", "canLead": False},
+        ]
+
+        model = update_game_data.normalize_synergy_model(
+            game_data,
+            {"ABILITY_NAME": "Test Leadership", "ABILITY_DESC": "Test allies gain Offense."},
+            characters,
+        )
+
+        self.assertEqual("explicit-ability-data", model["quality"])
+        ability = model["units"]["leader"]["abilities"][0]
+        self.assertEqual(["affiliation_test"], ability["separateCategories"])
+        self.assertTrue(ability["zeta"])
+        self.assertEqual(["leader", "ally-a", "ally-b"], model["officialSquads"][0]["members"])
 
     def test_reads_live_game_data_item_enum_shapes(self):
         fixtures = [
@@ -310,10 +422,13 @@ class NormalizeCatalogTests(unittest.TestCase):
                 return {
                     "GameDataItems": {
                         "CategoryDefinitions": 101,
+                        "SkillDefinitions": 4,
                         "EquipmentDefinitions": 808,
+                        "AbilityDefinitions": 22,
                         "UnitDefinitions": 313,
                         "SEGMENT1": 1_111,
                         "SEGMENT3": 3_333,
+                        "RecommendedSquads": 44,
                         "ALL": -1,
                     }
                 }
@@ -330,6 +445,12 @@ class NormalizeCatalogTests(unittest.TestCase):
                 self.calls.append(kwargs)
                 if kwargs["items"] == 101:
                     return {"category": [{"id": "affiliation_rebel"}], "units": []}
+                if kwargs["items"] == 4:
+                    return {"skill": [{"id": "leaderskill_TEST"}]}
+                if kwargs["items"] == 22:
+                    return {"ability": [{"id": "ability_TEST"}]}
+                if kwargs["items"] == 44:
+                    return {"recommendedSquad": [{"id": "recommended_TEST"}]}
                 return {"category": [], "units": [{"baseId": "TEST_HERO"}]}
 
             def get_localization(self, **kwargs):
@@ -349,9 +470,12 @@ class NormalizeCatalogTests(unittest.TestCase):
         self.assertEqual({"platform": "Android"}, FakeComlink.metadata_specs)
         self.assertEqual([{"id": "affiliation_rebel"}], game_data["category"])
         self.assertEqual([{"baseId": "TEST_HERO"}], game_data["units"])
+        self.assertEqual([{"id": "leaderskill_TEST"}], game_data["skill"])
+        self.assertEqual([{"id": "ability_TEST"}], game_data["ability"])
+        self.assertEqual([{"id": "recommended_TEST"}], game_data["recommendedSquad"])
         self.assertEqual("Test Hero", localization["HERO_NAME"])
         self.assertEqual(
-            [313, 101],
+            [313, 101, 4, 22, 44],
             [call["items"] for call in FakeComlink.calls],
         )
         self.assertTrue(all("request_segment" not in call for call in FakeComlink.calls))
