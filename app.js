@@ -9,6 +9,16 @@
   const drawerContent = document.querySelector("#drawer-content");
   const drawerScrim = document.querySelector(".drawer-scrim");
   const toastRegion = document.querySelector("#toast-region");
+  const EXCLUDED_UNITS_STORAGE_KEY = "swgoh-forge.excluded-units.v1";
+
+  function readCachedExcludedUnits() {
+    try {
+      const cached = JSON.parse(window.localStorage.getItem(EXCLUDED_UNITS_STORAGE_KEY) || "[]");
+      return Array.isArray(cached) ? cached.filter((id) => typeof id === "string") : [];
+    } catch {
+      return [];
+    }
+  }
 
   const state = {
     section: getSectionFromHash(),
@@ -17,7 +27,7 @@
     objective: "best-overall",
     resultCount: 3,
     requiredUnits: ["darth-vader", "mara-jade"],
-    excludedUnits: [],
+    excludedUnits: readCachedExcludedUnits(),
     preservedUnits: [],
     leaderId: null,
     capitalShipId: "executor",
@@ -57,6 +67,7 @@
 
   const pickerConfig = {
     required: { title: "Add required characters", kind: "character", multi: true },
+    excluded: { title: "Exclude unavailable characters", kind: "character", multi: true },
     leader: { title: "Lock required leader", kind: "character", multi: false, leadersOnly: true },
     "attacker-leader": { title: "Choose Team A leader", kind: "character", multi: false, leadersOnly: true },
     "attacker-members": { title: "Add Team A characters", kind: "character", multi: true, max: 4 },
@@ -86,6 +97,49 @@
   const characterMap = createUnitMap(data.characters);
   const shipMap = createUnitMap(data.ships);
   const capitalMap = createUnitMap(data.capitalShips);
+
+  state.excludedUnits = [...new Set(state.excludedUnits.map((id) => characterMap.get(id)?.id).filter(Boolean))];
+  state.requiredUnits = state.requiredUnits.filter((id) => !state.excludedUnits.includes(id));
+  if (state.leaderId && state.excludedUnits.includes(state.leaderId)) state.leaderId = null;
+
+  function persistExcludedUnits() {
+    try {
+      if (state.excludedUnits.length) window.localStorage.setItem(EXCLUDED_UNITS_STORAGE_KEY, JSON.stringify(state.excludedUnits));
+      else window.localStorage.removeItem(EXCLUDED_UNITS_STORAGE_KEY);
+    } catch {
+      // Storage can be disabled by the browser; exclusions still work for this session.
+    }
+  }
+
+  function invalidateBuildResults() {
+    state.generatedSquads = null;
+    state.results.build = false;
+  }
+
+  function restoreBuildUnits(ids) {
+    const restoring = new Set(ids);
+    const next = state.excludedUnits.filter((id) => !restoring.has(id));
+    if (next.length === state.excludedUnits.length) return;
+    state.excludedUnits = next;
+    persistExcludedUnits();
+    showToast("Required units were restored to the recommendation pool.");
+  }
+
+  function setBuildExclusions(ids) {
+    state.excludedUnits = [...new Set(ids.map((id) => characterMap.get(id)?.id).filter(Boolean))];
+    const excluded = new Set(state.excludedUnits);
+    const previousRequiredCount = state.requiredUnits.length;
+    state.requiredUnits = state.requiredUnits.filter((id) => !excluded.has(id));
+    const removedLeader = state.leaderId && excluded.has(state.leaderId);
+    if (removedLeader) state.leaderId = null;
+    persistExcludedUnits();
+    invalidateBuildResults();
+    if (state.requiredUnits.length !== previousRequiredCount || removedLeader) {
+      showToast("Excluded units were removed from the current requirements.");
+    }
+  }
+
+  persistExcludedUnits();
 
   function getSectionFromHash() {
     const section = location.hash.replace("#", "").split("?")[0];
@@ -259,7 +313,7 @@
       <div class="panel">
         <h2 class="side-title">Build sequence</h2>
         <div class="side-nav">${steps.map(([number, label], index) => `<button type="button" class="${index === 0 ? "active" : ""}" data-scroll-step="${index + 1}"><span class="nav-number">${number}</span><span>${label}</span></button>`).join("")}</div>
-        <div class="side-summary"><span class="micro-label">Current brief</span><dl><dt>Formation</dt><dd>${state.unitType === "characters" ? "Squad" : "Fleet"}</dd><dt>Context</dt><dd>${escapeHtml(currentModeLabel())}</dd><dt>Objective</dt><dd>${escapeHtml(data.objectives.find((item) => item.id === state.objective)?.label || "Best overall")}</dd>${state.unitType === "characters" ? `<dt>Results</dt><dd>Top ${state.resultCount}</dd>` : ""}</dl></div>
+        <div class="side-summary"><span class="micro-label">Current brief</span><dl><dt>Formation</dt><dd>${state.unitType === "characters" ? "Squad" : "Fleet"}</dd><dt>Context</dt><dd>${escapeHtml(currentModeLabel())}</dd><dt>Objective</dt><dd>${escapeHtml(data.objectives.find((item) => item.id === state.objective)?.label || "Best overall")}</dd>${state.unitType === "characters" ? `<dt>Results</dt><dd>Top ${state.resultCount}</dd><dt>Excluded</dt><dd>${state.excludedUnits.length}</dd>` : ""}</dl></div>
       </div>
     </aside>`;
   }
@@ -278,9 +332,10 @@
       <div class="field"><label for="objective">Optimization objective</label><select class="select" id="objective" data-field="objective">${optionsMarkup(objectiveOptions(), state.objective)}</select><p class="field-hint">Only objectives relevant to this context are shown.</p></div>
       <div class="field"><label for="result-count">Number of results</label><input class="input" id="result-count" type="number" min="1" max="20" step="1" value="${state.resultCount}" list="result-count-presets" data-field="resultCount" inputmode="numeric"><datalist id="result-count-presets"><option value="3"></option><option value="5"></option><option value="10"></option><option value="15"></option><option value="20"></option></datalist><p class="field-hint">Choose any value from 1–20. Common choices: 3, 5, 10, 15, or 20.</p></div>
     </div>
-    <div class="constraint-grid" data-step="3">
+    <div class="constraint-grid with-exclusions" data-step="3">
       <div class="field"><span class="field-label">Required units</span><div class="selection-zone"><div class="unit-row">${state.requiredUnits.map((id) => unitToken(id, { removeTarget: "required" })).join("")}<button class="add-unit" type="button" data-open-picker="required">＋ Add character</button></div>${state.requiredUnits.length ? "" : '<p class="empty-inline">Start with anyone — or leave the formation open and let Forge recommend the complete squad.</p>'}</div><p class="field-hint">Every selected character must appear in every result.</p></div>
       <div class="field" data-step="4"><span class="field-label">Required leader</span><div class="selection-zone leader-zone">${leader ? `<div class="unit-row">${unitToken(leader.id, { leader: true, removeTarget: "leader" })}</div>` : '<button class="add-unit" type="button" data-open-picker="leader">♛ Lock a leader</button><p class="empty-inline">Leave unlocked and we’ll recommend the strongest leader.</p>'}</div><p class="field-hint">A locked leader automatically becomes required.</p></div>
+      <div class="field"><div class="field-label-row"><span class="field-label">Excluded units</span>${state.excludedUnits.length ? '<button type="button" data-action="clear-exclusions">Clear all</button>' : ""}</div><div class="selection-zone exclusion-zone"><div class="unit-row">${state.excludedUnits.map((id) => unitToken(id, { removeTarget: "excluded" })).join("")}<button class="add-unit" type="button" data-open-picker="excluded">⊘ Exclude character</button></div>${state.excludedUnits.length ? "" : '<p class="empty-inline">Add characters you do not own or do not want recommended.</p>'}</div><p class="field-hint">Saved locally in this browser and kept when the form is reset.</p></div>
     </div>
     <div class="panel-actions"><button class="button button-quiet button-small" type="button" data-action="reset-build">Reset</button><button class="button button-wide" type="button" data-action="forge-build">Forge teams <span aria-hidden="true">→</span></button></div>`;
   }
@@ -594,7 +649,7 @@
 
   function pickerSelectedIds(target) {
     const mapping = {
-      required: state.requiredUnits, leader: state.leaderId ? [state.leaderId] : [], "attacker-leader": state.attackerLeaderId ? [state.attackerLeaderId] : [], "attacker-members": state.attackerMembers, "enemy-leader": state.opponentLeaderId ? [state.opponentLeaderId] : [], "enemy-members": state.opponentMembers,
+      required: state.requiredUnits, excluded: state.excludedUnits, leader: state.leaderId ? [state.leaderId] : [], "attacker-leader": state.attackerLeaderId ? [state.attackerLeaderId] : [], "attacker-members": state.attackerMembers, "enemy-leader": state.opponentLeaderId ? [state.opponentLeaderId] : [], "enemy-members": state.opponentMembers,
       "must-use": state.mustUse, "counter-excluded": state.counterExcluded, "counter-preserved": state.counterPreserved, capital: state.capitalShipId ? [state.capitalShipId] : [], starters: state.fleetStarters,
       reinforcements: state.fleetReinforcements, "enemy-capital": state.opponentCapitalId ? [state.opponentCapitalId] : [], "enemy-starters": state.opponentStarters, "enemy-reinforcements": state.opponentReinforcements
     };
@@ -640,8 +695,9 @@
   }
 
   function assignPickerSelection(target, ids) {
-    if (target === "required") state.requiredUnits = ids;
-    else if (target === "leader") { state.leaderId = ids[0] || null; if (state.leaderId && !state.requiredUnits.includes(state.leaderId)) state.requiredUnits.push(state.leaderId); }
+    if (target === "required") { state.requiredUnits = ids; restoreBuildUnits(ids); invalidateBuildResults(); }
+    else if (target === "excluded") setBuildExclusions(ids);
+    else if (target === "leader") { state.leaderId = ids[0] || null; if (state.leaderId && !state.requiredUnits.includes(state.leaderId)) state.requiredUnits.push(state.leaderId); restoreBuildUnits(ids); invalidateBuildResults(); }
     else if (target === "attacker-leader") { state.attackerLeaderId = ids[0] || null; state.attackerMembers = state.attackerMembers.filter((id) => id !== state.attackerLeaderId); }
     else if (target === "attacker-members") state.attackerMembers = ids.filter((id) => id !== state.attackerLeaderId);
     else if (target === "enemy-leader") { state.opponentLeaderId = ids[0] || null; state.opponentMembers = state.opponentMembers.filter((id) => id !== state.opponentLeaderId); }
@@ -750,6 +806,7 @@
 
   function removeSelection(target, id) {
     if (target === "required") { state.requiredUnits = state.requiredUnits.filter((unitId) => unitId !== id); if (state.leaderId === id) state.leaderId = null; }
+    else if (target === "excluded") setBuildExclusions(state.excludedUnits.filter((unitId) => unitId !== id));
     else if (target === "leader") state.leaderId = null;
     else if (target === "attacker-leader") state.attackerLeaderId = null;
     else if (target === "attacker-members") state.attackerMembers = state.attackerMembers.filter((unitId) => unitId !== id);
@@ -768,6 +825,7 @@
       state.simulationResult = null;
       state.results.counter = false;
     }
+    if (["required", "leader"].includes(target)) invalidateBuildResults();
     render();
   }
 
@@ -795,6 +853,7 @@
     else if (action === "forge-build") startForging("build");
     else if (action === "forge-counter") startForging("counter");
     else if (action === "reset-build") resetBuild();
+    else if (action === "clear-exclusions") { setBuildExclusions([]); render(); showToast("Cached unit exclusions cleared."); }
     else if (action === "reset-counter") resetCounter();
     else if (action === "load-roster") { state.rosterLoaded = true; render(); showToast("Local demo roster loaded. No network request was made."); }
     else if (action === "optimize-roster") startForging("roster");

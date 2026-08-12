@@ -462,6 +462,14 @@ button.unit-token { cursor: pointer; }
 .leader-zone { border-style: solid; border-color: rgba(239,169,92,.28); background: rgba(239,169,92,.04); }
 .leader-zone .add-unit { border-color: rgba(239,169,92,.35); color: var(--amber); }
 .constraint-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 18px; margin-top: 20px; }
+.constraint-grid.with-exclusions { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 1.25fr); }
+.field-label-row { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.field-label-row .field-label { margin-bottom: 8px; }
+.field-label-row button { padding: 0; border: 0; background: transparent; color: var(--red); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
+.field-label-row button:hover { color: var(--text); }
+.exclusion-zone { max-height: 240px; overflow-y: auto; overscroll-behavior: contain; border-color: rgba(239,119,119,.32); background: rgba(118,34,37,.05); scrollbar-width: thin; }
+.exclusion-zone .add-unit { border-color: rgba(239,119,119,.35); color: var(--red); }
+.exclusion-zone .add-unit:hover { background: rgba(239,119,119,.06); }
 .panel-actions { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
 
 .switch-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; }
@@ -775,7 +783,7 @@ button.mission-card { width: 100%; }
   .hero h1 { font-size: clamp(34px, 10vw, 39px); }
   .hero-actions .button { flex: 1 1 145px; }
   .hero-demo { padding: 17px; }
-  .form-grid, .form-grid.three, .constraint-grid, .constraint-columns, .fleet-builder-layout, .mission-result, .simulator-teams, .coverage-panel { grid-template-columns: 1fr; }
+  .form-grid, .form-grid.three, .constraint-grid, .constraint-grid.with-exclusions, .constraint-columns, .fleet-builder-layout, .mission-result, .simulator-teams, .coverage-panel { grid-template-columns: 1fr; }
   .versus-marker { min-height: 30px; }
   .model-notice { display: grid; }
   .panel { padding: 17px; }

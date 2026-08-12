@@ -56,4 +56,19 @@ assert.strictEqual(
   "expanded results should be distinct squads"
 );
 
+const withoutRex = optimizer.optimize({
+  characters: data.characters,
+  synergyModel: data.synergyModel,
+  size: 5,
+  requiredIds: ["hera-syndulla"],
+  leaderId: "hera-syndulla",
+  excludedIds: ["captain-rex"],
+  limit: 20
+});
+assert(withoutRex.length > 0, "excluding one unit should still leave valid formations");
+assert(
+  withoutRex.every((result) => !result.members.includes("captain-rex")),
+  "an excluded unit must never appear in recommendations"
+);
+
 console.log("Team optimizer tests passed.");
