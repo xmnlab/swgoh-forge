@@ -417,7 +417,11 @@ button.unit-token { cursor: pointer; }
 .section-hero > p { font-size: 16px; }
 
 .panel { padding: clamp(18px, 3vw, 28px); }
-.build-panel { container: build-panel / inline-size; }
+.build-workspace,
+.build-workspace > *,
+.build-panel,
+.build-panel .selection-zone { min-width: 0; max-width: 100%; }
+.build-panel { width: 100%; }
 .panel + .panel, .panel + .results-zone, .results-zone + .panel { margin-top: 20px; }
 .panel-heading { margin-bottom: 22px; }
 .panel-heading > *, .results-heading > *, .demo-head > *, .card-head > *, .profile-head > * { min-width: 0; }
@@ -501,36 +505,6 @@ button.unit-token { cursor: pointer; }
 .exclusion-zone .add-unit { border-color: rgba(239,119,119,.35); color: var(--red); }
 .exclusion-zone .add-unit:hover { background: rgba(239,119,119,.06); }
 .panel-actions { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
-
-@container build-panel (max-width: 760px) {
-  .build-panel .panel-heading { flex-direction: column; align-items: stretch; }
-  .build-panel .segmented { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
-  .build-panel .segmented button { min-width: 0; padding-inline: 8px; overflow-wrap: anywhere; line-height: 1.25; }
-  .build-panel .form-grid.three,
-  .build-panel .constraint-grid.with-exclusions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .build-panel .fleet-builder-layout { grid-template-columns: 1fr; }
-  .build-panel .form-grid.three > :last-child,
-  .build-panel .constraint-grid.with-exclusions > :last-child { grid-column: 1 / -1; }
-}
-
-@container build-panel (max-width: 600px) {
-  .build-panel .form-grid,
-  .build-panel .form-grid.three,
-  .build-panel .constraint-grid,
-  .build-panel .constraint-grid.with-exclusions,
-  .build-panel .fleet-builder-layout { grid-template-columns: 1fr; }
-  .build-panel .form-grid.three > :last-child,
-  .build-panel .constraint-grid.with-exclusions > :last-child { grid-column: auto; }
-  .build-panel .unit-token,
-  .build-panel .add-unit { max-width: 100%; }
-  .build-panel .field-label-row { flex-wrap: wrap; }
-}
-
-@container build-panel (max-width: 420px) {
-  .build-panel .panel-actions { position: static; display: grid; grid-template-columns: 1fr; margin-inline: 0; padding: 20px 0 0; background: none; }
-  .build-panel .panel-actions .button,
-  .build-panel .panel-actions .button-quiet { width: 100%; }
-}
 
 .switch-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; }
 .check-label { display: inline-flex; align-items: center; gap: 9px; color: var(--muted); font-size: 12px; cursor: pointer; }
@@ -943,6 +917,68 @@ button.mission-card { width: 100%; }
   .hero h1 { font-size: 32px; }
   .section-hero h1 { font-size: 28px; }
   .simulation-matchup, .coverage-panel, .simulation-evidence { padding-inline: 12px; }
+}
+
+/* The Build workspace has a sidebar at desktop widths, so its layout needs
+   coordinated breakpoints instead of inheriting the generic scrolling nav. */
+@media (max-width: 1150px) {
+  .build-layout { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .build-sequence { position: static; min-width: 0; }
+  .build-sequence .panel { padding: 13px; overflow: visible; }
+  .build-sequence .side-title { display: block; margin: 2px 7px 11px; }
+  .build-sequence .side-summary { display: none; }
+  .build-sequence .side-nav {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 7px;
+    min-width: 0;
+    width: 100%;
+  }
+  .build-sequence .side-nav button {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+    padding: 10px 8px;
+    overflow-wrap: anywhere;
+  }
+  .build-mode-header { width: 100%; max-width: 100%; }
+  .build-mode-header h1 { font-size: clamp(30px, 5vw, 46px); }
+}
+
+@media (max-width: 800px) {
+  .build-sequence .side-nav { grid-template-columns: repeat(auto-fit, minmax(min(100%, 130px), 1fr)); }
+  .build-panel .panel-heading { flex-direction: column; align-items: stretch; }
+  .build-panel .segmented { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
+  .build-panel .segmented button { min-width: 0; padding-inline: 8px; overflow-wrap: anywhere; line-height: 1.25; }
+  .build-panel .form-grid.three,
+  .build-panel .constraint-grid.with-exclusions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .build-panel .fleet-builder-layout { grid-template-columns: minmax(0, 1fr); }
+  .build-panel .form-grid.three > :last-child,
+  .build-panel .constraint-grid.with-exclusions > :last-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 620px) {
+  .build-panel .form-grid,
+  .build-panel .form-grid.three,
+  .build-panel .constraint-grid,
+  .build-panel .constraint-grid.with-exclusions,
+  .build-panel .fleet-builder-layout { grid-template-columns: minmax(0, 1fr); }
+  .build-panel .form-grid.three > :last-child,
+  .build-panel .constraint-grid.with-exclusions > :last-child { grid-column: auto; }
+  .build-panel .unit-token,
+  .build-panel .add-unit,
+  .build-panel .select,
+  .build-panel .input { max-width: 100%; }
+  .build-panel .field-label-row { flex-wrap: wrap; }
+}
+
+@media (max-width: 420px) {
+  .build-sequence .side-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .build-sequence .side-nav button:last-child { grid-column: 1 / -1; }
+  .build-panel .panel-actions { position: static; display: grid; grid-template-columns: minmax(0, 1fr); margin-inline: 0; padding: 20px 0 0; background: none; }
+  .build-panel .panel-actions .button,
+  .build-panel .panel-actions .button-quiet { width: 100%; min-width: 0; }
 }
 
 @media (max-height: 560px) and (min-width: 651px) {

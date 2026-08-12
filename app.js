@@ -292,10 +292,10 @@
   function renderBuild() {
     return `<div class="page-shell">
       ${renderHero()}
-      <div class="app-frame" id="builder">
+      <div class="app-frame build-layout" id="builder">
         ${renderBuildSidebar()}
-        <div class="workspace">
-          <section class="section-hero">
+        <div class="workspace build-workspace">
+          <section class="section-hero build-mode-header">
             <div class="eyebrow">Build mode</div>
             <h1>Forge your strongest formation.</h1>
             <p>Lock the pieces that matter, leave the rest open, and explore demo recommendations using the available unit catalog.</p>
@@ -311,7 +311,7 @@
     const steps = state.unitType === "characters"
       ? [["01", "Formation type"], ["02", "Battle context"], ["03", "Required units"], ["04", "Required leader"], ["05", "Recommendations"]]
       : [["01", "Formation type"], ["02", "Capital ship"], ["03", "Starting lineup"], ["04", "Reinforcements"], ["05", "Recommendations"]];
-    return `<aside class="side-panel" aria-label="Build workflow">
+    return `<aside class="side-panel build-sequence" aria-label="Build workflow">
       <div class="panel">
         <h2 class="side-title">Build sequence</h2>
         <div class="side-nav">${steps.map(([number, label], index) => `<button type="button" class="${index === 0 ? "active" : ""}" data-scroll-step="${index + 1}"><span class="nav-number">${number}</span><span>${label}</span></button>`).join("")}</div>
