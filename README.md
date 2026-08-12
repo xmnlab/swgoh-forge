@@ -8,7 +8,7 @@ The unit catalog and general squad-synergy model can be generated from current g
 
 ## Prototype features
 
-- Squad builder with required-character and required-leader constraints
+- Squad builder with required-character and required-leader constraints and 1–20 ranked results
 - Data-driven general squad formation ranking with leadership and cohesion explanations
 - Fleet builder with capital ship, starters, reinforcements, and reinforcement order
 - Local two-squad battle simulation with reproducible outcomes and coverage disclosure

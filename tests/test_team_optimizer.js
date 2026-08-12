@@ -41,4 +41,19 @@ assert(
   "the result should explain Captain Rex's team-wide contribution"
 );
 
+const expandedPhoenix = optimizer.optimize({
+  characters: data.characters,
+  synergyModel: data.synergyModel,
+  size: 5,
+  requiredIds: ["hera-syndulla"],
+  leaderId: "hera-syndulla",
+  limit: 20
+});
+assert.strictEqual(expandedPhoenix.length, 20, "a locked leader should support up to 20 results");
+assert.strictEqual(
+  new Set(expandedPhoenix.map((result) => [...result.members].sort().join("|"))).size,
+  20,
+  "expanded results should be distinct squads"
+);
+
 console.log("Team optimizer tests passed.");

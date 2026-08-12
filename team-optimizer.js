@@ -189,6 +189,7 @@
     const characters = options.characters || [];
     const model = options.synergyModel || { units: {}, officialSquads: [], quality: "category-tags-only" };
     const size = options.size || 5;
+    const resultLimit = Math.max(1, Math.min(20, Math.round(Number(options.limit) || 3)));
     const requiredIds = unique(options.requiredIds || []);
     const excluded = new Set(options.excludedIds || []);
     const characterById = new Map(characters.map((unit) => [unit.id, unit]));
@@ -249,10 +250,10 @@
             seen.add(key);
             return true;
           })
-          .slice(0, 12);
+          .slice(0, Math.max(12, resultLimit));
         if (!beams.length) break;
       }
-      beams.slice(0, options.leaderId ? 3 : 2).forEach((beam) => {
+      beams.slice(0, options.leaderId ? resultLimit : Math.max(2, Math.ceil(resultLimit / Math.max(1, leaders.length)) + 1)).forEach((beam) => {
         const ordered = [leader, ...beam.units.filter((unit) => unit.id !== leader.id)];
         allResults.push({ leader, units: ordered, metrics: evaluateTeam(ordered, leader.id, model) });
       });
@@ -267,7 +268,7 @@
         seen.add(key);
         return true;
       })
-      .slice(0, options.limit || 3)
+      .slice(0, resultLimit)
       .map((result, index) => ({
         id: `synergy-${result.leader.id}-${index + 1}`,
         model: "synergy",
