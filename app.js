@@ -230,7 +230,8 @@
               : "gear-white";
     const legend = endgame && isGalacticLegend(unit, owned) ? " galactic-legend" : "";
     const ultimate = endgame && hasUnlockedUltimate(unit, owned) ? " ultimate-unlocked" : "";
-    return ` roster-progress ${band}${legend}${ultimate}`;
+    const relic = Number(owned.relic) > 0 ? " relic-active" : "";
+    return ` roster-progress ${band}${relic}${legend}${ultimate}`;
   }
 
   function portrait(unit, kind = "character", size = "") {
@@ -266,20 +267,34 @@
     return `View ${unit.name} details. ${owned.stars || 0} stars, level ${owned.level || 0}, ${tier}${legend}, ${abilityCount} abilities, ${zetas}, ${omicrons}`;
   }
 
-  function rosterAvatar(unit, id, kind, size, owned) {
+  function progressionRingCount(owned) {
+    if (!owned) return 0;
+    const gear = Math.max(1, Number(owned.gear) || 1);
+    if (Number(owned.relic) > 0 || gear >= 13) return 4;
+    return Math.max(1, Math.min(4, Math.ceil(gear / 3)));
+  }
+
+  function progressionPortrait(unit, id, kind, size = "", owned = rosterUnitProgression(id, kind)) {
     if (!owned) return portrait(unit, kind, size);
-    const abilityCount = catalogAbilities(id, kind).length || owned.skillCount || 0;
     const tierLabel = owned.relic > 0 ? `R${owned.relic}` : `G${owned.gear || 0}`;
     const tierTitle = owned.relic > 0 ? `Relic level ${owned.relic}` : `Gear level ${owned.gear || 0}`;
     const stars = Math.max(0, Math.min(7, Number(owned.stars) || 0));
     const frameClasses = progressionFrameClasses(unit, owned);
     const ultimateTitle = hasUnlockedUltimate(unit, owned) ? ' title="Galactic Legend · Ultimate unlocked"' : isGalacticLegend(unit, owned) ? ' title="Galactic Legend"' : "";
-    return `<span class="roster-avatar-shell${frameClasses}"${ultimateTitle}>
+    const ringCount = kind === "character" ? progressionRingCount(owned) : 0;
+    return `<span class="roster-avatar-shell${kind === "character" ? "" : " ship-avatar"}${frameClasses}"${ultimateTitle}>
+      ${ringCount ? `<span class="progression-rings ring-count-${ringCount}${Number(owned.relic) > 0 ? " relic-rings" : ""}" aria-hidden="true"><i></i><i></i><i></i><i></i></span>` : ""}
       ${portrait(unit, kind, size)}
       <span class="roster-tier-badge${Number(owned.gear) >= 13 || owned.relic > 0 ? ` endgame ${alignmentFrameClass(unit)}` : ""}" title="${tierTitle}">${tierLabel}</span>
       <span class="roster-level-badge" title="Training level ${owned.level || 0}">L${owned.level || 0}</span>
-      <span class="roster-stars" title="${stars} stars" aria-hidden="true">${"★".repeat(stars) || "☆"}</span>
-    </span>
+      <span class="roster-stars" title="${stars} stars" aria-hidden="true"><b>★</b>${stars}</span>
+    </span>`;
+  }
+
+  function rosterAvatar(unit, id, kind, size, owned) {
+    if (!owned) return portrait(unit, kind, size);
+    const abilityCount = catalogAbilities(id, kind).length || owned.skillCount || 0;
+    return `${progressionPortrait(unit, id, kind, size, owned)}
     <span class="roster-ability-strip" aria-hidden="true">
       <span title="${abilityCount} abilities">A${abilityCount}</span>
       <span class="zeta" title="${countLabel(owned.zetaCount)} applied zeta power-ups">Z${countLabel(owned.zetaCount)}</span>
@@ -309,7 +324,7 @@
     if (!unit) return "";
     const remove = options.removeTarget ? `<button class="remove-token" type="button" data-remove-target="${options.removeTarget}" data-remove-id="${id}" aria-label="Remove ${escapeHtml(unit.name)}">×</button>` : "";
     return `<span class="unit-token${options.leader ? " leader" : ""}">
-      ${portrait(unit, kind, "", "")}
+      ${progressionPortrait(unit, id, kind)}
       <button class="token-name" type="button" data-unit-id="${id}" data-unit-kind="${kind}">${escapeHtml(displayName(unit))}</button>
       ${remove}
     </span>`;
@@ -504,7 +519,7 @@
     if (!ids.length) return '<div class="empty-state">No reinforcements selected yet.</div>';
     return `<div class="reinforcement-list">${ids.map((id, index) => {
       const unit = shipMap.get(id);
-      return `<div class="reinforcement-item"><span class="order">${index + 1}</span>${portrait(unit, "ship")}<button class="name" type="button" data-unit-id="${id}" data-unit-kind="ship">${escapeHtml(displayName(unit))}</button><div class="order-controls"><button type="button" data-order-scope="${scope}" data-order-index="${index}" data-order-direction="up" aria-label="Move ${escapeHtml(unit.name)} up" ${index === 0 ? "disabled" : ""}>↑</button><button type="button" data-order-scope="${scope}" data-order-index="${index}" data-order-direction="down" aria-label="Move ${escapeHtml(unit.name)} down" ${index === ids.length - 1 ? "disabled" : ""}>↓</button><button type="button" data-remove-target="${scope === "fleet" ? "reinforcements" : "enemy-reinforcements"}" data-remove-id="${id}" aria-label="Remove ${escapeHtml(unit.name)}">×</button></div></div>`;
+      return `<div class="reinforcement-item"><span class="order">${index + 1}</span>${progressionPortrait(unit, id, "ship")}<button class="name" type="button" data-unit-id="${id}" data-unit-kind="ship">${escapeHtml(displayName(unit))}</button><div class="order-controls"><button type="button" data-order-scope="${scope}" data-order-index="${index}" data-order-direction="up" aria-label="Move ${escapeHtml(unit.name)} up" ${index === 0 ? "disabled" : ""}>↑</button><button type="button" data-order-scope="${scope}" data-order-index="${index}" data-order-direction="down" aria-label="Move ${escapeHtml(unit.name)} down" ${index === ids.length - 1 ? "disabled" : ""}>↓</button><button type="button" data-remove-target="${scope === "fleet" ? "reinforcements" : "enemy-reinforcements"}" data-remove-id="${id}" aria-label="Remove ${escapeHtml(unit.name)}">×</button></div></div>`;
     }).join("")}</div>`;
   }
 
@@ -777,7 +792,7 @@
   function renderRosterProfile() {
     const roster = activeRoster();
     if (!roster) return "";
-    return `<div class="roster-profile"><div class="profile-emblem" aria-hidden="true">${escapeHtml(initials(roster.name))}</div><div><div class="profile-head"><div><h2>${escapeHtml(roster.name)}</h2><p>${escapeHtml(roster.guild)} · ${escapeHtml(formatAllyCode(roster.allyCode))}<br><small>Snapshot updated ${escapeHtml(formatSnapshotDate(roster.updatedAt))}</small></p></div><span class="status-badge">Static snapshot</span></div><div class="profile-stats"><div class="profile-stat"><strong>${formatPower(roster.galacticPower)}</strong><span>Galactic Power</span></div><div class="profile-stat"><strong>${formatNumber(roster.characterCount)}</strong><span>Characters</span></div><div class="profile-stat"><strong>${formatNumber(roster.shipCount)}</strong><span>Ships</span></div><div class="profile-stat"><strong>${formatNumber(roster.relicCount)}</strong><span>Relic units</span></div><div class="profile-stat"><strong>${formatNumber(roster.galacticLegends)}</strong><span>Galactic Legends</span></div></div><div class="roster-badge-legend" aria-label="Roster avatar badge legend"><span><strong>G / R</strong>Gear or relic</span><span><strong>A</strong>Abilities</span><span><strong>Z</strong>Zetas</span><span><strong>O</strong>Omicrons</span><span><strong class="legend-gold">Gold ring</strong>Galactic Legend / Ultimate glow</span></div></div></div>`;
+    return `<div class="roster-profile"><div class="profile-emblem" aria-hidden="true">${escapeHtml(initials(roster.name))}</div><div><div class="profile-head"><div><h2>${escapeHtml(roster.name)}</h2><p>${escapeHtml(roster.guild)} · ${escapeHtml(formatAllyCode(roster.allyCode))}<br><small>Snapshot updated ${escapeHtml(formatSnapshotDate(roster.updatedAt))}</small></p></div><span class="status-badge">Static snapshot</span></div><div class="profile-stats"><div class="profile-stat"><strong>${formatPower(roster.galacticPower)}</strong><span>Galactic Power</span></div><div class="profile-stat"><strong>${formatNumber(roster.characterCount)}</strong><span>Characters</span></div><div class="profile-stat"><strong>${formatNumber(roster.shipCount)}</strong><span>Ships</span></div><div class="profile-stat"><strong>${formatNumber(roster.relicCount)}</strong><span>Relic units</span></div><div class="profile-stat"><strong>${formatNumber(roster.galacticLegends)}</strong><span>Galactic Legends</span></div></div><div class="roster-badge-legend" aria-label="Roster avatar badge legend"><span><strong>G / R</strong>Gear or relic · rings intensify</span><span><strong>L / ★</strong>Training level / stars</span><span><strong>A</strong>Abilities</span><span><strong>Z</strong>Zetas</span><span><strong>O</strong>Omicrons</span><span><strong class="legend-gold">Gold ring</strong>Galactic Legend / Ultimate glow</span></div></div></div>`;
   }
 
   function renderRosterWorkspace() {
@@ -837,7 +852,7 @@
     const allUnits = config.kind === "capital" ? data.capitalShips : config.kind === "ship" ? data.ships : data.characters;
     const factions = [...new Set(allUnits.flatMap((unit) => unit.factions || []))].sort();
     const roles = [...new Set(allUnits.map((unit) => unit.role).filter(Boolean))].sort();
-    pickerContent.innerHTML = `<div class="picker-head"><div><span class="micro-label">Unit library</span><h2 id="picker-title">${escapeHtml(config.title)}</h2></div><button class="icon-button" type="button" data-action="close-picker" aria-label="Close picker">×</button></div><div class="picker-controls"><input class="input" type="search" data-picker-field="query" value="${escapeHtml(state.pickerQuery)}" placeholder="Search ${config.kind === "character" ? "characters" : "ships"}..." aria-label="Search units"><select class="select" data-picker-field="faction" aria-label="Filter by faction"><option value="all">All factions</option>${factions.map((faction) => `<option value="${escapeHtml(faction)}"${faction === state.pickerFaction ? " selected" : ""}>${escapeHtml(faction)}</option>`).join("")}</select>${config.kind === "character" ? `<select class="select" data-picker-field="alignment" aria-label="Filter by alignment"><option value="all">All alignments</option><option value="Light Side"${state.pickerAlignment === "Light Side" ? " selected" : ""}>Light Side</option><option value="Dark Side"${state.pickerAlignment === "Dark Side" ? " selected" : ""}>Dark Side</option></select>` : ""}${roles.length ? `<select class="select" data-picker-field="role" aria-label="Filter by role"><option value="all">All roles</option>${roles.map((role) => `<option value="${escapeHtml(role)}"${role === state.pickerRole ? " selected" : ""}>${escapeHtml(role)}</option>`).join("")}</select>` : ""}</div><div class="picker-body"><div class="picker-meta"><span>${units.length} units found</span><span>${selected.length}${displayedMax ? ` / ${displayedMax}` : ""} selected</span></div>${units.length ? `<div class="picker-grid" role="listbox" aria-label="Available units" aria-multiselectable="${config.multi}">${units.map((unit) => `<button type="button" class="picker-unit ${selected.includes(unit.id) ? "selected" : ""}" role="option" aria-selected="${selected.includes(unit.id)}" data-picker-unit="${unit.id}">${portrait(unit, config.kind)}<span><span class="picker-name">${escapeHtml(displayName(unit))}</span><span class="picker-info">${escapeHtml((unit.factions || []).slice(0, 2).join(" · ") || unit.commanderName || "Capital ship")}</span></span></button>`).join("")}</div>` : '<div class="empty-state">No units match these filters. Try clearing the search or choosing another faction.</div>'}</div>`;
+    pickerContent.innerHTML = `<div class="picker-head"><div><span class="micro-label">Unit library</span><h2 id="picker-title">${escapeHtml(config.title)}</h2></div><button class="icon-button" type="button" data-action="close-picker" aria-label="Close picker">×</button></div><div class="picker-controls"><input class="input" type="search" data-picker-field="query" value="${escapeHtml(state.pickerQuery)}" placeholder="Search ${config.kind === "character" ? "characters" : "ships"}..." aria-label="Search units"><select class="select" data-picker-field="faction" aria-label="Filter by faction"><option value="all">All factions</option>${factions.map((faction) => `<option value="${escapeHtml(faction)}"${faction === state.pickerFaction ? " selected" : ""}>${escapeHtml(faction)}</option>`).join("")}</select>${config.kind === "character" ? `<select class="select" data-picker-field="alignment" aria-label="Filter by alignment"><option value="all">All alignments</option><option value="Light Side"${state.pickerAlignment === "Light Side" ? " selected" : ""}>Light Side</option><option value="Dark Side"${state.pickerAlignment === "Dark Side" ? " selected" : ""}>Dark Side</option></select>` : ""}${roles.length ? `<select class="select" data-picker-field="role" aria-label="Filter by role"><option value="all">All roles</option>${roles.map((role) => `<option value="${escapeHtml(role)}"${role === state.pickerRole ? " selected" : ""}>${escapeHtml(role)}</option>`).join("")}</select>` : ""}</div><div class="picker-body"><div class="picker-meta"><span>${units.length} units found</span><span>${selected.length}${displayedMax ? ` / ${displayedMax}` : ""} selected</span></div>${units.length ? `<div class="picker-grid" role="listbox" aria-label="Available units" aria-multiselectable="${config.multi}">${units.map((unit) => `<button type="button" class="picker-unit ${selected.includes(unit.id) ? "selected" : ""}" role="option" aria-selected="${selected.includes(unit.id)}" data-picker-unit="${unit.id}">${progressionPortrait(unit, unit.id, config.kind)}<span><span class="picker-name">${escapeHtml(displayName(unit))}</span><span class="picker-info">${escapeHtml((unit.factions || []).slice(0, 2).join(" · ") || unit.commanderName || "Capital ship")}</span></span></button>`).join("")}</div>` : '<div class="empty-state">No units match these filters. Try clearing the search or choosing another faction.</div>'}</div>`;
   }
 
   function selectPickerUnit(id) {
@@ -1019,7 +1034,7 @@
         ? `<div class="drawer-section"><h3>Pilot relationship</h3><div class="data-row"><span>Pilot</span><strong>${escapeHtml(pilot)}</strong></div><div class="data-row"><span>Ship role</span><strong>${escapeHtml(unit.role)}</strong></div><p class="requirement-note" style="margin-top:13px">${escapeHtml(pilot)} <span style="color:var(--teal)">↓</span> ${escapeHtml(unit.name)}. Pilot progression affects resulting ship stats.</p></div>`
         : `<div class="drawer-section"><h3>Command</h3><div class="data-row"><span>Commander</span><strong>${escapeHtml(commander)}</strong></div><div class="data-row"><span>Faction</span><strong>${escapeHtml((unit.factions || []).join(", "))}</strong></div></div>`;
     const abilityProgression = renderAbilityProgression(id, kind, owned);
-    drawerContent.innerHTML = `<div class="drawer-head"><div><span class="micro-label">Optimization detail</span><h2 id="drawer-title">Unit snapshot</h2></div><button class="icon-button" type="button" data-action="close-drawer" aria-label="Close unit details">×</button></div><div class="drawer-hero">${portrait(unit, kind, "xlarge")}<h3>${escapeHtml(unit.name)}</h3><p>${escapeHtml((unit.factions || []).join(" · "))}${unit.alignment ? ` · ${escapeHtml(unit.alignment)}` : ""}</p>${rosterStatus}</div><div class="drawer-section"><h3>${owned ? "Loaded roster progression" : "Roster progression"}</h3>${progression}</div>${abilityProgression}${relationship}<div class="drawer-section"><p class="requirement-note">Roster progression comes from the loaded static Comlink snapshot. Missing values are shown as unavailable rather than estimated.</p></div>`;
+    drawerContent.innerHTML = `<div class="drawer-head"><div><span class="micro-label">Optimization detail</span><h2 id="drawer-title">Unit snapshot</h2></div><button class="icon-button" type="button" data-action="close-drawer" aria-label="Close unit details">×</button></div><div class="drawer-hero">${progressionPortrait(unit, id, kind, "xlarge", owned)}<h3>${escapeHtml(unit.name)}</h3><p>${escapeHtml((unit.factions || []).join(" · "))}${unit.alignment ? ` · ${escapeHtml(unit.alignment)}` : ""}</p>${rosterStatus}</div><div class="drawer-section"><h3>${owned ? "Loaded roster progression" : "Roster progression"}</h3>${progression}</div>${abilityProgression}${relationship}<div class="drawer-section"><p class="requirement-note">Roster progression comes from the loaded static Comlink snapshot. Missing values are shown as unavailable rather than estimated.</p></div>`;
     drawer.classList.add("open");
     drawer.setAttribute("aria-hidden", "false");
     drawerScrim.hidden = false;
