@@ -369,16 +369,21 @@ button.unit-token { cursor: pointer; }
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--gear-color), white 18%), 0 0 9px var(--gear-color), 0 0 24px var(--gear-glow);
 }
 .portrait.roster-unactivated {
+  --locked-tint: #dcebed;
+  --locked-deep: #5f7074;
   border-style: dashed;
-  border-color: rgba(220, 239, 241, .72);
+  border-color: color-mix(in srgb, var(--locked-tint), white 34%);
   background:
-    linear-gradient(rgba(226, 241, 242, .28), rgba(226, 241, 242, .28)),
-    radial-gradient(circle at 28% 22%, color-mix(in srgb, var(--avatar-color), white 58%), transparent 34%),
-    linear-gradient(145deg, color-mix(in srgb, var(--avatar-color), #cddadd 72%), #536267);
-  filter: saturate(.28) brightness(1.22);
-  opacity: .76;
-  box-shadow: inset 0 0 0 2px rgba(235, 247, 248, .12);
+    linear-gradient(rgba(236, 245, 246, .17), rgba(236, 245, 246, .17)),
+    radial-gradient(circle at 28% 22%, color-mix(in srgb, var(--locked-tint), white 36%), transparent 36%),
+    linear-gradient(145deg, color-mix(in srgb, var(--locked-tint), #9caaad 44%), var(--locked-deep));
+  filter: saturate(.72) brightness(1.16);
+  opacity: .8;
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--locked-tint), transparent 84%);
 }
+.portrait.roster-unactivated.alignment-light { --locked-tint: #55ddff; --locked-deep: #356b78; }
+.portrait.roster-unactivated.alignment-dark { --locked-tint: #ff6179; --locked-deep: #743442; }
+.portrait.roster-unactivated.alignment-neutral { --locked-tint: #edf7f8; --locked-deep: #647579; }
 .formation-unit.roster-unactivated .unit-name { color: #9aa9aa; }
 .portrait.galactic-legend::after { border-color: #ffd878; box-shadow: inset 0 0 5px rgba(255, 195, 67, .48); opacity: .9; }
 .portrait.ultimate-unlocked::after { border-width: 2px; border-color: #ffe39a; box-shadow: inset 0 0 7px #f0a933, 0 0 7px rgba(255, 207, 94, .72); }

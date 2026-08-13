@@ -939,7 +939,7 @@
         <div class="help-avatar-layout">
           ${renderHelpAvatarExample()}
           <dl class="help-anatomy-list">
-            <div><dt>Avatar interior</dt><dd>Cyan means Light Side, crimson means Dark Side, and silver means Neutral. With a roster loaded, an unactivated unit is washed out with a pale dashed edge.</dd></div>
+            <div><dt>Avatar interior</dt><dd>Cyan means Light Side, crimson means Dark Side, and silver means Neutral. With a roster loaded, an unactivated unit keeps a paler version of that alignment tint with a dashed edge.</dd></div>
             <div><dt>Colored progression rings</dt><dd>One ring for Gear 1–3, two for 4–6, three for 7–9, and four for Gear 10+. Color advances through white, green, blue, purple, Gear XII gold, then the alignment palette at Gear XIII/relic.</dd></div>
             <div><dt><code>G</code> / <code>R</code></dt><dd>The exact gear or relic tier. The broad ring count never replaces this precise value.</dd></div>
             <div><dt><code>L</code> / <code>★</code></dt><dd>Training level and star rarity from the loaded roster snapshot.</dd></div>
