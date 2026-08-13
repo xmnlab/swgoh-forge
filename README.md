@@ -21,6 +21,7 @@ The unit catalog, general squad-synergy model, and selected player roster snapsh
 - Demo whole-roster assignments, clearly separated from real roster progression
 - Optional locally generated unit, ship, category, and English-name snapshot
 - Optional localized kit, explicit ability-synergy, and in-game recommended-squad snapshot
+- Built-in Help page covering the workflow, avatar legend, ranking order, static roster data, and model limitations
 - Responsive layouts and keyboard-accessible dialogs and drawers
 
 ## Running the site locally

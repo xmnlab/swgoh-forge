@@ -175,7 +175,7 @@
 
   function getSectionFromHash() {
     const section = location.hash.replace("#", "").split("?")[0];
-    return ["build", "counter", "missions", "roster"].includes(section) ? section : "build";
+    return ["build", "counter", "missions", "roster", "help"].includes(section) ? section : "build";
   }
 
   function escapeHtml(value) {
@@ -478,6 +478,7 @@
     if (state.section === "counter") app.innerHTML = renderCounter();
     else if (state.section === "missions") app.innerHTML = renderMissions();
     else if (state.section === "roster") app.innerHTML = renderRoster();
+    else if (state.section === "help") app.innerHTML = renderHelp();
     else app.innerHTML = renderBuild();
   }
 
@@ -888,6 +889,113 @@
     return `<section class="results-zone" id="roster-results"><div class="results-heading"><div><span class="eyebrow">Roster output</span><h2>Optimized Lineup</h2><p>No character appears twice in this curated demo assignment.</p></div><span class="demo-badge">Demo data</span></div><div class="lineup-summary"><div class="summary-card"><strong>${average}</strong><span>Average team score</span></div><div class="summary-card"><strong>${ready} / ${teams.length}</strong><span>Ready now</span></div><div class="summary-card"><strong>${minor}</strong><span>Minor upgrades</span></div><div class="summary-card"><strong>${major}</strong><span>Major upgrades</span></div></div><div class="optimized-grid">${teams.map((team, index) => `<article class="optimized-team"><div class="optimized-team-head"><h3>Team ${index + 1} · ${escapeHtml(team.name)}</h3><strong>${team.score}</strong></div>${renderCharacterFormation(team.members, { leaderId: team.leaderId })}<div class="team-status"><span class="readiness ${team.status === "ready" ? "ready" : team.status === "minor" ? "borderline" : "insufficient"}">${team.status === "ready" ? "✓ Ready now" : team.status === "minor" ? "△ Minor upgrades" : "! Major upgrades"}</span></div></article>`).join("")}</div></section>`;
   }
 
+  function renderHelpAvatarExample() {
+    return `<div class="help-avatar-example" aria-label="Example roster avatar: Light Side, Relic 7, level 85, seven stars, four abilities, three zetas, one omicron, and one of two leader groups matched">
+      <div class="help-reference-unit">
+        <span class="roster-avatar-shell roster-progress gear-relic alignment-light relic-active">
+          <span class="progression-rings ring-count-4 relic-rings" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span class="portrait large alignment-light roster-progress gear-relic alignment-light relic-active" style="--unit-color:#22d5ff"><span aria-hidden="true">BS</span></span>
+          <span class="roster-tier-badge endgame alignment-light">R7</span>
+          <span class="roster-level-badge">L85</span>
+          <span class="roster-stars" aria-hidden="true"><b>★</b>7</span>
+          <span class="leader-synergy-ring has-match" style="--synergy-segments:conic-gradient(from -90deg,var(--synergy-active) 0deg 170deg,transparent 170deg 180deg,var(--synergy-inactive) 180deg 350deg,transparent 350deg 360deg)" aria-hidden="true"></span>
+        </span>
+        <span class="roster-ability-strip" aria-hidden="true"><span>A4</span><span class="zeta">Z3</span><span class="omicron">O1</span></span>
+        <strong>Example ally</strong>
+        <small>1 of 2 leader groups</small>
+      </div>
+    </div>`;
+  }
+
+  function renderHelp() {
+    const roster = activeRoster();
+    const rosterStatus = roster
+      ? `${roster.name} · snapshot ${formatSnapshotDate(roster.updatedAt)}`
+      : "No roster selected · catalog-only view";
+    return `<div class="page-shell help-page">
+      <section class="section-hero help-hero">
+        <div class="eyebrow">Help & model guide</div>
+        <h1>Understand every ring, score, and recommendation.</h1>
+        <p>SWGOH Forge is an explainable planning tool built from static game and roster snapshots. This guide shows what the interface means, how formations are ranked, and where the current model stops.</p>
+        <div class="hero-actions"><button class="button" type="button" data-nav="build">Build a squad</button><button class="button button-secondary" type="button" data-nav="roster">Manage roster</button></div>
+        <div class="help-current-state"><span class="catalog-status-dot ${roster ? "current" : "seed"}" aria-hidden="true"></span><span><strong>Current session</strong><small>${escapeHtml(rosterStatus)}</small></span></div>
+      </section>
+
+      <nav class="help-jump-grid" aria-label="Help topics">
+        <button type="button" data-help-scroll="help-start"><span>01</span><strong>Quick start</strong><small>Build your first formation</small></button>
+        <button type="button" data-help-scroll="help-avatars"><span>02</span><strong>Avatar guide</strong><small>Rings, colors, and badges</small></button>
+        <button type="button" data-help-scroll="help-ranking"><span>03</span><strong>Scores & ranking</strong><small>Candidate pool before Top K</small></button>
+        <button type="button" data-help-scroll="help-data"><span>04</span><strong>Roster & data</strong><small>Snapshots, caching, privacy</small></button>
+        <button type="button" data-help-scroll="help-limits"><span>05</span><strong>Model limits</strong><small>Real data versus prototypes</small></button>
+      </nav>
+
+      <section class="panel help-section" id="help-start">
+        <div class="help-section-heading"><span class="step-index">01 / QUICK START</span><h2>How SWGOH Forge works</h2><p>Constraints narrow the legal formations; ranking decides which of those formations appear first.</p></div>
+        <ol class="help-steps">
+          <li><span>1</span><div><strong>Load a roster — optional</strong><p>A local Ally Code snapshot enables ownership filtering, progression badges, team GP, and roster comparison. Without it, Forge still works from the unit catalog.</p></div></li>
+          <li><span>2</span><div><strong>Choose the battle context</strong><p>Select squad or fleet, the game mode, and the optimization objective. A 3v3 context changes squad size.</p></div></li>
+          <li><span>3</span><div><strong>Set constraints</strong><p>Require units or a leader, and exclude anything unavailable or reserved elsewhere. Exclusions are cached in this browser.</p></div></li>
+          <li><span>4</span><div><strong>Choose ranking and Top K</strong><p>Forge builds a larger candidate pool, applies the selected sort, and only then returns the requested 1–20 results.</p></div></li>
+          <li><span>5</span><div><strong>Inspect the evidence</strong><p>Expand a formation to see leader coverage, kit relationships, modeled mechanics, exact score, GP, and important limitations.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="panel help-section" id="help-avatars">
+        <div class="help-section-heading"><span class="step-index">02 / AVATARS</span><h2>Read a unit at a glance</h2><p>The center communicates alignment. Surrounding rings and badges communicate progression and formation-specific leader coverage.</p></div>
+        <div class="help-avatar-layout">
+          ${renderHelpAvatarExample()}
+          <dl class="help-anatomy-list">
+            <div><dt>Avatar interior</dt><dd>Cyan means Light Side, crimson means Dark Side, and silver means Neutral.</dd></div>
+            <div><dt>Colored progression rings</dt><dd>One ring for Gear 1–3, two for 4–6, three for 7–9, and four for Gear 10+. Color advances through white, green, blue, purple, Gear XII gold, then the alignment palette at Gear XIII/relic.</dd></div>
+            <div><dt><code>G</code> / <code>R</code></dt><dd>The exact gear or relic tier. The broad ring count never replaces this precise value.</dd></div>
+            <div><dt><code>L</code> / <code>★</code></dt><dd>Training level and star rarity from the loaded roster snapshot.</dd></div>
+            <div><dt>Green segmented ring</dt><dd>One fixed segment per group named by the leader ability. Vibrant green segments match this ally; dim segments do not. The leader itself has no coverage ring.</dd></div>
+            <div><dt><code>A</code> / <code>Z</code> / <code>O</code></dt><dd>Ability count, applied zetas, and applied omicrons. A dash means the snapshot cannot calculate that value reliably.</dd></div>
+            <div><dt>Crown and gold ring</dt><dd>The crown marks the formation leader. A gold outer treatment marks an eligible Galactic Legend, with a brighter glow when its Ultimate is unlocked.</dd></div>
+          </dl>
+        </div>
+        <div class="help-example-formation"><div><span class="micro-label">LIVE EXAMPLE · JEDI KNIGHT REVAN</span><p>Every ally has the same two segment positions: Jedi and Old Republic. Bastila and Jolee match both; Grand Master Yoda and General Kenobi match only Jedi.</p></div>${renderCharacterFormation(["jedi-knight-revan", "bastila-shan", "jolee-bindo", "grand-master-yoda", "general-kenobi"], { leaderId: "jedi-knight-revan", ariaLabel: "Jedi Knight Revan leader synergy example" })}</div>
+      </section>
+
+      <section class="panel help-section" id="help-ranking">
+        <div class="help-section-heading"><span class="step-index">03 / SCORES & RANKING</span><h2>Ranking happens before Top K</h2><p>The visible whole-number synergy is rounded. Forge also shows the exact value and mechanics score so apparently equal results remain explainable.</p></div>
+        <div class="help-ranking-flow" aria-label="Formation ranking sequence"><span>Generate up to 80 high-synergy candidates</span><b>→</b><span>Apply selected ordering</span><b>→</b><span>Apply documented tie-breakers</span><b>→</b><span>Return Top K</span></div>
+        <div class="help-table-wrap"><table class="help-table"><thead><tr><th>Sort option</th><th>Primary ordering</th><th>Tie-breakers</th></tr></thead><tbody>
+          <tr><th>Overall synergy</th><td>Exact composite: 44% leadership, 31% cohesion, 25% modeled mechanics, plus recommended-squad overlap and role balance.</td><td>Mechanics, then pair strength.</td></tr>
+          <tr><th>Leadership</th><td>Modeled leader coverage and impact.</td><td>Exact overall, cohesion, mechanics.</td></tr>
+          <tr><th>Cohesion</th><td>Shared weighted faction/category relationships.</td><td>Exact overall, leadership, mechanics.</td></tr>
+          <tr><th>Team GP</th><td>Sum of calculated GP for every roster unit in the formation.</td><td>Exact overall, mechanics, pair strength. Incomplete GP totals sort after complete totals.</td></tr>
+        </tbody></table></div>
+        <div class="model-notice"><strong>GP is separate</strong><span>Team GP can be useful for investment comparisons, but it is not silently included in the default synergy score. More GP does not necessarily mean a kit has better synergy.</span></div>
+      </section>
+
+      <section class="panel help-section" id="help-data">
+        <div class="help-section-heading"><span class="step-index">04 / ROSTER & DATA</span><h2>Static by design</h2><p>The published site has no server and cannot fetch an arbitrary Ally Code from a visitor's browser.</p></div>
+        <div class="help-card-grid">
+          <article><span class="help-card-icon">C</span><h3>Game catalog</h3><p>Characters, ships, categories, skill relationships, and current game-data versions come from a locally operated Comlink instance and are committed as static files.</p></article>
+          <article><span class="help-card-icon">R</span><h3>Roster snapshot</h3><p><code>./scripts/update-roster-full.sh ALLY_CODE</code> fetches the public player profile locally, calculates unit GP, and upserts that Ally Code into the static roster store.</p></article>
+          <article><span class="help-card-icon">B</span><h3>Browser storage</h3><p>Only UI preferences such as the active Ally Code and excluded-unit IDs are remembered. Progression data is read from the current static snapshot after every refresh.</p></article>
+          <article><span class="help-card-icon">!</span><h3>Publishing & privacy</h3><p>Committing <code>data/rosters.js</code> makes the normalized player, guild, ownership, and progression snapshot public through the static site. Publish it only with the player's expectation.</p></article>
+        </div>
+      </section>
+
+      <section class="panel help-section" id="help-limits">
+        <div class="help-section-heading"><span class="step-index">05 / MODEL LIMITS</span><h2>Know what to trust</h2><p>Forge separates snapshot-backed behavior, approximate models, and structured demonstrations.</p></div>
+        <div class="help-status-grid">
+          <div class="help-status real"><span>Snapshot-backed</span><h3>Catalog, roster, ownership, progression, GP</h3><p>These values come from the generated Comlink and local roster snapshots. Missing values are shown as unavailable rather than estimated.</p></div>
+          <div class="help-status model"><span>Explainable model</span><h3>General squad synergy and squad simulation</h3><p>Synergy uses leader coverage, categories, kit relationships, team-up tags, roles, and game-provided squads. Simulation is a compact seeded engine—not the proprietary game engine or observed win-rate data.</p></div>
+          <div class="help-status demo"><span>Demonstration</span><h3>Fleet rankings, fleet counters, missions, requirements, roster assignments</h3><p>These flows show the intended product structure but still contain curated prototype values. They are labeled as demo data in the interface.</p></div>
+        </div>
+        <div class="help-faq-list">
+          <details><summary>Why can two formations both show 87 but appear in a specific order?</summary><p>The card rounds synergy to a whole number. Default ranking uses the exact decimal composite, then mechanics and pair strength. The exact value is shown below the main metrics.</p></details>
+          <details><summary>Why is a high-GP formation not first?</summary><p>Default ranking measures kit synergy, not investment. Choose Team GP explicitly when you want GP to be the primary ordering.</p></details>
+          <details><summary>Why does a leader-synergy segment remain dim?</summary><p>The leader ability names that group, but this ally does not carry the matching category. Every ally keeps the same segment positions so coverage is directly comparable.</p></details>
+          <details><summary>Why does a value show a dash?</summary><p>The current snapshot lacks enough reliable data to calculate it. Forge avoids substituting an estimate where a real roster value is expected.</p></details>
+        </div>
+      </section>
+    </div>`;
+  }
+
   function openPicker(target) {
     const config = pickerConfig[target];
     if (!config) return;
@@ -1266,7 +1374,7 @@
   }
 
   function changeSection(section) {
-    if (!["build", "counter", "missions", "roster"].includes(section)) return;
+    if (!["build", "counter", "missions", "roster", "help"].includes(section)) return;
     state.section = section;
     if (location.hash !== `#${section}`) history.pushState(null, "", `#${section}`);
     render();
@@ -1284,6 +1392,12 @@
     if (nav) {
       event.preventDefault();
       changeSection(nav.dataset.nav);
+      return;
+    }
+
+    const helpScroll = event.target.closest("[data-help-scroll]");
+    if (helpScroll) {
+      document.querySelector(`#${helpScroll.dataset.helpScroll}`)?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
       return;
     }
 
