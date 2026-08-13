@@ -1,7 +1,9 @@
 import importlib.util
 import copy
 import json
+import sys
 import tempfile
+import types
 import unittest
 from pathlib import Path
 from unittest import mock
@@ -46,6 +48,7 @@ class UpdateRosterDataTests(unittest.TestCase):
                     "currentLevel": 85,
                     "currentRarity": 7,
                     "currentTier": 13,
+                    "gp": 43210,
                     "relic": {"currentTier": 9},
                     "skill": [{"id": "basic", "tier": 6}],
                     "equippedStatMod": [{"id": "mod-1"}],
@@ -62,6 +65,7 @@ class UpdateRosterDataTests(unittest.TestCase):
                     "currentLevel": 85,
                     "currentRarity": "SEVEN_STAR",
                     "currentTier": "TIER_01",
+                    "gp": 12345,
                     "skill": [],
                 },
                 {"definitionId": "UNKNOWN_UNIT:SEVEN_STAR", "currentLevel": 1},
@@ -83,14 +87,62 @@ class UpdateRosterDataTests(unittest.TestCase):
         self.assertEqual(1, roster["shipCount"])
         self.assertEqual(1, roster["relicCount"])
         self.assertEqual(1, roster["galacticLegends"])
+        self.assertEqual(1, roster["characterGpCoverage"])
+        self.assertEqual(1, roster["shipGpCoverage"])
         self.assertEqual(["UNKNOWN_UNIT"], roster["unmatchedBaseIds"])
         hero = roster["units"]["test-hero"]
+        self.assertEqual(43210, hero["gp"])
         self.assertEqual(7, hero["relic"])
         self.assertEqual(13, hero["gear"])
         self.assertEqual(298, hero["speed"])
         self.assertEqual(81234, hero["health"])
         self.assertEqual(85, hero["potency"])
+        self.assertEqual(12345, roster["ships"]["test-ship"]["gp"])
         self.assertEqual(7, roster["ships"]["test-ship"]["stars"])
+
+    def test_calculates_roster_gp_before_normalization(self):
+        player = copy.deepcopy(self.player)
+        for unit in player["rosterUnit"]:
+            unit.pop("gp", None)
+
+        class FakeCalculator:
+            def calc_roster_stats(self, roster_units):
+                roster_units[0]["gp"] = 45678
+                roster_units[1]["gp"] = 23456
+                return roster_units
+
+        skills = [{"id": "basicskill_TEST", "tier": []}]
+        with mock.patch.object(
+            update_roster_data,
+            "fetch_gp_calculator",
+            return_value=(FakeCalculator(), skills),
+        ):
+            result = update_roster_data.calculate_player_galactic_power(
+                "http://127.0.0.1:3000",
+                player,
+            )
+
+        self.assertEqual(skills, result)
+        self.assertEqual(45678, player["rosterUnit"][0]["gp"])
+        self.assertEqual(23456, player["rosterUnit"][1]["gp"])
+
+    def test_rejects_gp_calculation_with_no_unit_results(self):
+        player = copy.deepcopy(self.player)
+        for unit in player["rosterUnit"]:
+            unit.pop("gp", None)
+
+        calculator = mock.Mock()
+        calculator.calc_roster_stats.return_value = player["rosterUnit"]
+        with mock.patch.object(
+            update_roster_data,
+            "fetch_gp_calculator",
+            return_value=(calculator, []),
+        ):
+            with self.assertRaisesRegex(RuntimeError, "did not produce GP"):
+                update_roster_data.calculate_player_galactic_power(
+                    "http://127.0.0.1:3000",
+                    player,
+                )
 
     def test_upsert_adds_then_replaces_only_matching_ally_code(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -211,6 +263,76 @@ class UpdateRosterDataTests(unittest.TestCase):
         data_payload = request_json.call_args_list[2].args[2]
         self.assertEqual("test-version", data_payload["payload"]["version"])
         self.assertEqual("4", data_payload["payload"]["items"])
+
+    def test_builds_gp_calculator_from_separate_live_data_items(self):
+        captured = {}
+
+        class FakeBuilder:
+            def __init__(self, client):
+                self.client = client
+
+            def build(self):
+                captured["raw"] = self.client.get_game_data(items="ignored")
+                return {"unitData": {"TEST_HERO": {}}}
+
+        class FakeStatCalc:
+            def __init__(self, game_data):
+                self.game_data = game_data
+
+        fake_package = types.SimpleNamespace(GameDataBuilder=FakeBuilder, StatCalc=FakeStatCalc)
+        enums = {
+            "GameDataItemsEnum": {
+                "CategoryDefinitions": 1,
+                "SkillDefinitions": 4,
+                "EquipmentDefinitions": 8,
+                "AllTables": 32,
+                "StatProgression": 4194304,
+                "StatMod": 33554432,
+                "RelicTierDefinitions": 68719476736,
+                "UnitDefinitions": 137438953472,
+            }
+        }
+        responses = [
+            enums,
+            {"latestGamedataVersion": "test-version"},
+            {"category": [{"id": "category"}]},
+            {"skill": [{"id": "skill"}]},
+            {"equipment": [{"id": "equipment"}]},
+            {"table": [{"id": "table"}], "xpTable": [{"id": "xp"}]},
+            {"statProgression": [{"id": "progression"}]},
+            {"statModSet": [{"id": "mod-set"}]},
+            {"relicTierDefinition": [{"id": "relic"}]},
+            {"units": [{"id": "TEST_HERO"}]},
+        ]
+        with mock.patch.dict(sys.modules, {"swgoh_comlink": fake_package}), mock.patch.object(
+            update_roster_data,
+            "request_json",
+            side_effect=responses,
+        ) as request_json:
+            calculator, skills = update_roster_data.fetch_gp_calculator("http://127.0.0.1:3000")
+
+        self.assertIsInstance(calculator, FakeStatCalc)
+        self.assertEqual([{"id": "skill"}], skills)
+        self.assertEqual(
+            {
+                "category",
+                "skill",
+                "equipment",
+                "table",
+                "xpTable",
+                "statProgression",
+                "statModSet",
+                "relicTierDefinition",
+                "units",
+            },
+            set(captured["raw"]),
+        )
+        data_requests = request_json.call_args_list[2:]
+        self.assertEqual(
+            ["1", "4", "8", "32", "4194304", "33554432", "68719476736", "137438953472"],
+            [call.args[2]["payload"]["items"] for call in data_requests],
+        )
+        self.assertTrue(all(call.args[2]["payload"]["version"] == "test-version" for call in data_requests))
 
     def test_ally_code_validation_accepts_hyphens_but_rejects_zero(self):
         self.assertEqual("123456789", update_roster_data.normalize_ally_code("123-456-789"))

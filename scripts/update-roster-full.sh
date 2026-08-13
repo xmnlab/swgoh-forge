@@ -15,6 +15,8 @@ compose_file="${repository_root}/compose.comlink.yaml"
 compose_project="swgoh-forge-roster"
 cache_dir="${repository_root}/.cache/comlink"
 app_name_file="${cache_dir}/app-name"
+venv_dir="${repository_root}/.venv-data"
+export PIP_CACHE_DIR="${repository_root}/.cache/pip"
 
 mkdir -p "${cache_dir}"
 
@@ -103,7 +105,31 @@ if [[ "${ready}" != true ]]; then
   exit 1
 fi
 
-if ! python3 "${script_dir}/update_roster_data.py" "${ally_code}" --url "${COMLINK_URL}" "$@"; then
+if [[ ! -x "${venv_dir}/bin/python" ]]; then
+  python3 -m venv "${venv_dir}"
+fi
+
+if ! "${venv_dir}/bin/python" -m pip --version >/dev/null 2>&1; then
+  if ! "${venv_dir}/bin/python" -m ensurepip --upgrade >/dev/null 2>&1; then
+    echo "The existing data virtual environment has no pip; rebuilding it." >&2
+    if ! python3 -m venv --clear "${venv_dir}"; then
+      echo "Unable to rebuild ${venv_dir}. Install your system's Python venv package and retry." >&2
+      exit 1
+    fi
+  fi
+fi
+
+if ! "${venv_dir}/bin/python" -c \
+  'from importlib.metadata import version; raise SystemExit(version("swgoh_comlink") != "2.3.0")' \
+  >/dev/null 2>&1; then
+  if ! "${venv_dir}/bin/python" -m pip install --disable-pip-version-check --quiet \
+    --requirement "${repository_root}/requirements-data.txt"; then
+    echo "Unable to install the pinned data dependency required for Galactic Power calculation." >&2
+    exit 1
+  fi
+fi
+
+if ! "${venv_dir}/bin/python" "${script_dir}/update_roster_data.py" "${ally_code}" --url "${COMLINK_URL}" "$@"; then
   capture_logs
   echo "Comlink logs were saved to ${cache_dir}/roster-container.log" >&2
   exit 1

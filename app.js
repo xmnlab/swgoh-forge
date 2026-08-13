@@ -319,6 +319,37 @@
     return new Intl.NumberFormat("en-US").format(value);
   }
 
+  function rosterUnitGp(id, kind = "character") {
+    const roster = activeRoster();
+    if (!state.rosterLoaded || !roster) return null;
+    const owned = kind === "character" ? roster.units?.[id] : roster.ships?.[id];
+    if (!owned || owned.gp == null || owned.gp === "") return null;
+    return Number.isFinite(Number(owned.gp)) ? Number(owned.gp) : null;
+  }
+
+  function renderFormationGp(ids, kind = "character", label = "Team GP") {
+    if (!state.rosterLoaded || !activeRoster() || !ids.length) return "";
+    const values = ids.map((id) => rosterUnitGp(id, kind));
+    const complete = values.every((value) => value !== null);
+    const total = complete ? values.reduce((sum, value) => sum + value, 0) : null;
+    const title = complete
+      ? `${label}: ${formatNumber(total)}`
+      : `${label} unavailable because one or more units lack calculated GP. Refresh this Ally Code with the local roster updater.`;
+    return `<div class="formation-gp${complete ? "" : " unavailable"}" title="${escapeHtml(title)}"><span>${escapeHtml(label)}</span><strong>${complete ? formatNumber(total) : "—"}</strong></div>`;
+  }
+
+  function renderCharacterFormation(ids, options = {}) {
+    const leaderId = options.leaderId || null;
+    const units = ids.map((id) => formationUnit(id, { leader: id === leaderId, excludable: options.excludable })).join("");
+    return `<div class="formation-summary"><div class="formation"${options.ariaLabel ? ` aria-label="${escapeHtml(options.ariaLabel)}"` : ""}>${units}</div>${renderFormationGp(ids)}</div>`;
+  }
+
+  function renderFleetFormation(capitalShipId, starters = [], reinforcements = [], options = {}) {
+    const ids = [capitalShipId, ...starters, ...reinforcements].filter(Boolean);
+    const reinforcementMarkup = reinforcements.map((id, position) => `${options.numberReinforcements ? `<span class="micro-label">${position + 1}</span>` : ""}${formationUnit(id, { kind: "ship" })}`).join("");
+    return `<div class="formation-summary"><div class="fleet-formation"${options.ariaLabel ? ` aria-label="${escapeHtml(options.ariaLabel)}"` : ""}><div class="fleet-group"><span class="fleet-group-label">${escapeHtml(options.capitalLabel || "Capital")}</span>${capitalShipId ? formationUnit(capitalShipId, { kind: "capital", leader: true }) : ""}</div><div class="fleet-group"><span class="fleet-group-label">${escapeHtml(options.startersLabel || "Start")}</span>${starters.map((id) => formationUnit(id, { kind: "ship" })).join("")}</div><div class="fleet-group"><span class="fleet-group-label">${escapeHtml(options.reinforcementsLabel || "Reinforce")}</span>${reinforcementMarkup}</div></div>${renderFormationGp(ids, "ship", "Fleet GP")}</div>`;
+  }
+
   function currentModeLabel() {
     return data.gameModes.find((mode) => mode.id === state.gameMode)?.label || "General";
   }
@@ -393,7 +424,7 @@
         <div class="unit-row">${unitToken("darth-vader")}${unitToken("mara-jade")}</div>
         <div class="demo-flow-arrow" aria-hidden="true"></div>
         <div class="demo-flow-label">Recommended</div>
-        <div class="formation">${["emperor-palpatine", "mara-jade", "darth-vader", "grand-admiral-thrawn", "royal-guard"].map((id, index) => formationUnit(id, { leader: index === 0 })).join("")}</div>
+        ${renderCharacterFormation(["emperor-palpatine", "mara-jade", "darth-vader", "grand-admiral-thrawn", "royal-guard"], { leaderId: "emperor-palpatine" })}
         <div class="hero-score"><strong>94</strong><span>Overall formation score<br><small>Prototype recommendation</small></span></div>
       </div>
     </section>`;
@@ -465,6 +496,7 @@
       </div>
       <div class="fleet-slot-panel" data-step="4"><h3>Reinforcement order · ${state.fleetReinforcements.length}/4</h3>${renderReinforcementList(state.fleetReinforcements, "fleet")}${state.fleetReinforcements.length < 4 ? '<button class="add-unit" type="button" data-open-picker="reinforcements">＋ Add reinforcement</button>' : ""}<p class="field-hint">Order is part of the formation and can change the recommendation.</p></div>
     </div>
+    ${renderFormationGp([state.capitalShipId, ...state.fleetStarters, ...state.fleetReinforcements].filter(Boolean), "ship", "Selected fleet GP")}
     <div class="panel-actions"><button class="button button-quiet button-small" type="button" data-action="reset-build">Reset</button><button class="button button-wide" type="button" data-action="forge-build">Forge fleets <span aria-hidden="true">→</span></button></div>`;
   }
 
@@ -510,7 +542,7 @@
     return `<article class="recommendation-card">
       <div class="recommendation-main">
         <div class="rank">#${index + 1}</div>
-        <div class="formation" aria-label="Recommended squad">${rec.members.map((id) => formationUnit(id, { leader: id === rec.leaderId, excludable: true })).join("")}</div>
+        ${renderCharacterFormation(rec.members, { leaderId: rec.leaderId, excludable: true, ariaLabel: "Recommended squad" })}
         <div class="metrics-wrap">${renderMetrics(rec)}${rec.model === "synergy" ? `<div class="qualifiers"><span>Basis<strong>Kit relationships</strong></span><span>Target<strong>General</strong></span><span>Simulation<strong>None</strong></span></div>` : `<div class="qualifiers"><span>Investment<strong>${escapeHtml(rec.investment)}</strong></span><span>Mods<strong>${escapeHtml(rec.modDifficulty)}</strong></span><span>RNG<strong>${escapeHtml(rec.rng)}</strong></span></div>`}</div>
         <button class="expand-button" type="button" data-expand-recommendation="${rec.id}" aria-expanded="${expanded}" aria-label="${expanded ? "Collapse" : "Expand"} recommendation details">＋</button>
       </div>
@@ -614,7 +646,7 @@
 
   function renderFleetRecommendation(rec, index) {
     const expanded = state.expandedRecommendations.has(rec.id);
-    return `<article class="recommendation-card"><div class="recommendation-main"><div class="rank">#${index + 1}</div><div class="fleet-formation"><div class="fleet-group"><span class="fleet-group-label">Capital ship</span>${formationUnit(rec.capitalShipId, { kind: "capital", leader: true })}</div><div class="fleet-group"><span class="fleet-group-label">Start</span>${rec.starters.map((id) => formationUnit(id, { kind: "ship" })).join("")}</div><div class="fleet-group"><span class="fleet-group-label">Reinforce</span>${rec.reinforcements.map((id, position) => `<span class="micro-label">${position + 1}</span>${formationUnit(id, { kind: "ship" })}`).join("")}</div></div><div class="metrics-wrap">${renderMetrics(rec)}<div class="qualifiers"><span>Investment<strong>${escapeHtml(rec.investment)}</strong></span><span>Formation<strong>Fleet</strong></span><span>RNG<strong>${escapeHtml(rec.rng)}</strong></span></div></div><button class="expand-button" type="button" data-expand-recommendation="${rec.id}" aria-expanded="${expanded}" aria-label="${expanded ? "Collapse" : "Expand"} fleet details">＋</button></div>${expanded ? renderFleetDetails(rec) : ""}</article>`;
+    return `<article class="recommendation-card"><div class="recommendation-main"><div class="rank">#${index + 1}</div>${renderFleetFormation(rec.capitalShipId, rec.starters, rec.reinforcements, { capitalLabel: "Capital ship", numberReinforcements: true, ariaLabel: "Recommended fleet" })}<div class="metrics-wrap">${renderMetrics(rec)}<div class="qualifiers"><span>Investment<strong>${escapeHtml(rec.investment)}</strong></span><span>Formation<strong>Fleet</strong></span><span>RNG<strong>${escapeHtml(rec.rng)}</strong></span></div></div><button class="expand-button" type="button" data-expand-recommendation="${rec.id}" aria-expanded="${expanded}" aria-label="${expanded ? "Collapse" : "Expand"} fleet details">＋</button></div>${expanded ? renderFleetDetails(rec) : ""}</article>`;
   }
 
   function renderFleetDetails(rec) {
@@ -639,7 +671,10 @@
     const opponentLeader = characterMap.get(state.opponentLeaderId);
     const attackerComplete = Boolean(attackerLeader) && state.attackerMembers.length === teamSize - 1;
     const opponentComplete = Boolean(opponentLeader) && state.opponentMembers.length === teamSize - 1;
-    const renderTeam = (label, leader, members, leaderPicker, membersPicker, tone) => `<div class="simulator-team ${tone}"><span class="micro-label">${label}</span><div class="simulator-team-head"><h3>${label === "TEAM A · ATTACK" ? "Attacking squad" : "Defending squad"}</h3><span>${leader ? members.length + 1 : members.length} / ${teamSize}</span></div><div class="unit-row">${leader ? unitToken(leader.id, { leader: true, removeTarget: leaderPicker }) : `<button class="add-unit" type="button" data-open-picker="${leaderPicker}">♛ Choose leader</button>`}${members.map((id) => unitToken(id, { removeTarget: membersPicker })).join("")}${members.length < teamSize - 1 ? `<button class="add-unit" type="button" data-open-picker="${membersPicker}">＋ Add character</button>` : ""}</div><p class="field-hint">${leader ? `${escapeHtml(displayName(leader))} applies modeled leadership to matching allies.` : "A leader is required for this team."}</p></div>`;
+    const renderTeam = (label, leader, members, leaderPicker, membersPicker, tone) => {
+      const unitIds = leader ? [leader.id, ...members] : members;
+      return `<div class="simulator-team ${tone}"><span class="micro-label">${label}</span><div class="simulator-team-head"><h3>${label === "TEAM A · ATTACK" ? "Attacking squad" : "Defending squad"}</h3><span>${leader ? members.length + 1 : members.length} / ${teamSize}</span></div><div class="unit-row">${leader ? unitToken(leader.id, { leader: true, removeTarget: leaderPicker }) : `<button class="add-unit" type="button" data-open-picker="${leaderPicker}">♛ Choose leader</button>`}${members.map((id) => unitToken(id, { removeTarget: membersPicker })).join("")}${members.length < teamSize - 1 ? `<button class="add-unit" type="button" data-open-picker="${membersPicker}">＋ Add character</button>` : ""}</div>${renderFormationGp(unitIds)}<p class="field-hint">${leader ? `${escapeHtml(displayName(leader))} applies modeled leadership to matching allies.` : "A leader is required for this team."}</p></div>`;
+    };
     return `<div class="simulator-teams" data-step="2">${renderTeam("TEAM A · ATTACK", attackerLeader, state.attackerMembers, "attacker-leader", "attacker-members", "attacker")}<div class="versus-marker" aria-hidden="true">VS</div>${renderTeam("TEAM B · DEFENSE", opponentLeader, state.opponentMembers, "enemy-leader", "enemy-members", "defender")}</div>
     <div class="form-grid simulator-settings" data-step="3"><div class="field"><label for="counter-context">Game context</label><select class="select" id="counter-context" data-field="gameMode">${optionsMarkup(data.gameModes.filter((mode) => ["gac-5v5", "gac-3v3", "tw", "arena", "conquest", "tb", "general"].includes(mode.id)), state.gameMode)}</select><p class="field-hint">3v3 changes the required squad size; mode-specific omicrons are disclosed but not yet executed.</p></div><div class="field"><label for="simulation-iterations">Simulation runs</label><select class="select" id="simulation-iterations" data-field="simulationIterations"><option value="200"${state.simulationIterations === 200 ? " selected" : ""}>200 · quick</option><option value="500"${state.simulationIterations === 500 ? " selected" : ""}>500 · balanced</option><option value="1000"${state.simulationIterations === 1000 ? " selected" : ""}>1,000 · smoother estimate</option></select><p class="field-hint">Every run varies targeting, critical hits, control effects, and damage. The matchup seed is repeatable.</p></div></div>
     <div class="model-notice"><strong>Approximate combat model</strong><span>Uses normalized Gear XIII stats and parsed kit mechanics. It does not use player mods, relics, datacrons, or the proprietary game engine.</span></div>
@@ -652,7 +687,7 @@
 
   function renderFleetCounterForm() {
     const capital = capitalMap.get(state.opponentCapitalId);
-    return `<div class="fleet-builder-layout" data-step="2"><div><div class="fleet-slot-panel"><h3>Enemy capital ship</h3>${capital ? `<div class="unit-row">${unitToken(capital.id, { kind: "capital", leader: true, removeTarget: "enemy-capital" })}<button class="add-unit" type="button" data-open-picker="enemy-capital">Change</button></div>` : '<button class="add-unit" type="button" data-open-picker="enemy-capital">＋ Choose capital ship</button>'}</div><div class="fleet-slot-panel"><h3>Enemy starting ships · ${state.opponentStarters.length}/3</h3><div class="unit-row">${state.opponentStarters.map((id) => unitToken(id, { kind: "ship", removeTarget: "enemy-starters" })).join("")}${state.opponentStarters.length < 3 ? '<button class="add-unit" type="button" data-open-picker="enemy-starters">＋ Add starter</button>' : ""}</div></div></div><div class="fleet-slot-panel"><h3>Known enemy reinforcements · optional</h3>${renderReinforcementList(state.opponentReinforcements, "enemy")}${state.opponentReinforcements.length < 4 ? '<button class="add-unit" type="button" data-open-picker="enemy-reinforcements">＋ Add reinforcement</button>' : ""}</div></div><div class="form-grid" style="margin-top:18px"><div class="field"><label for="fleet-counter-context">Game context</label><select class="select" id="fleet-counter-context" data-field="gameMode">${optionsMarkup(data.gameModes.filter((mode) => ["gac-5v5", "tw", "arena", "tb", "general"].includes(mode.id)), state.gameMode)}</select></div><div class="field"><span class="field-label">Formation note</span><p class="field-hint">Unknown enemy reinforcements are modeled as uncertainty.</p></div></div><div class="panel-actions"><button class="button button-quiet button-small" type="button" data-action="reset-counter">Reset</button><button class="button button-wide" type="button" data-action="forge-counter" ${capital ? "" : "disabled"}>Find fleet counters <span aria-hidden="true">→</span></button></div>`;
+    return `<div class="fleet-builder-layout" data-step="2"><div><div class="fleet-slot-panel"><h3>Enemy capital ship</h3>${capital ? `<div class="unit-row">${unitToken(capital.id, { kind: "capital", leader: true, removeTarget: "enemy-capital" })}<button class="add-unit" type="button" data-open-picker="enemy-capital">Change</button></div>` : '<button class="add-unit" type="button" data-open-picker="enemy-capital">＋ Choose capital ship</button>'}</div><div class="fleet-slot-panel"><h3>Enemy starting ships · ${state.opponentStarters.length}/3</h3><div class="unit-row">${state.opponentStarters.map((id) => unitToken(id, { kind: "ship", removeTarget: "enemy-starters" })).join("")}${state.opponentStarters.length < 3 ? '<button class="add-unit" type="button" data-open-picker="enemy-starters">＋ Add starter</button>' : ""}</div></div></div><div class="fleet-slot-panel"><h3>Known enemy reinforcements · optional</h3>${renderReinforcementList(state.opponentReinforcements, "enemy")}${state.opponentReinforcements.length < 4 ? '<button class="add-unit" type="button" data-open-picker="enemy-reinforcements">＋ Add reinforcement</button>' : ""}</div></div>${renderFormationGp([state.opponentCapitalId, ...state.opponentStarters, ...state.opponentReinforcements].filter(Boolean), "ship", "Enemy fleet GP")}<div class="form-grid" style="margin-top:18px"><div class="field"><label for="fleet-counter-context">Game context</label><select class="select" id="fleet-counter-context" data-field="gameMode">${optionsMarkup(data.gameModes.filter((mode) => ["gac-5v5", "tw", "arena", "tb", "general"].includes(mode.id)), state.gameMode)}</select></div><div class="field"><span class="field-label">Formation note</span><p class="field-hint">Unknown enemy reinforcements are modeled as uncertainty.</p></div></div><div class="panel-actions"><button class="button button-quiet button-small" type="button" data-action="reset-counter">Reset</button><button class="button button-wide" type="button" data-action="forge-counter" ${capital ? "" : "disabled"}>Find fleet counters <span aria-hidden="true">→</span></button></div>`;
   }
 
   function renderCounterResults() {
@@ -670,7 +705,7 @@
     const favorite = result.teamAWinPercent === result.teamBWinPercent ? "No clear favorite" : result.teamAWinPercent > result.teamBWinPercent ? "Team A is favored" : "Team B is favored";
     const quality = result.coverage.quality.replaceAll("-", " ");
     return `<section class="results-zone simulation-results" id="counter-results" data-step="4"><div class="results-heading"><div><span class="eyebrow">Modeled outcome</span><h2>${favorite}</h2><p>${formatNumber(result.iterations)} deterministic-seed Monte Carlo runs · these are model estimates, not recorded game wins</p></div><span class="context-badge">${escapeHtml(currentModeLabel())}</span></div>
-      <article class="recommendation-card simulation-card"><div class="simulation-matchup"><div class="simulation-side"><span class="micro-label">TEAM A · ATTACK</span><strong>${result.teamAWinPercent}%</strong><span>modeled win rate</span><div class="formation">${teamA.map((id) => formationUnit(id, { leader: id === state.attackerLeaderId })).join("")}</div><small>${result.averageSurvivorsA} average survivors</small></div><div class="simulation-divider"><span>${result.drawPercent}%</span><small>draw</small></div><div class="simulation-side defender"><span class="micro-label">TEAM B · DEFENSE</span><strong>${result.teamBWinPercent}%</strong><span>modeled win rate</span><div class="formation">${teamB.map((id) => formationUnit(id, { leader: id === state.opponentLeaderId })).join("")}</div><small>${result.averageSurvivorsB} average survivors</small></div></div>
+      <article class="recommendation-card simulation-card"><div class="simulation-matchup"><div class="simulation-side"><span class="micro-label">TEAM A · ATTACK</span><strong>${result.teamAWinPercent}%</strong><span>modeled win rate</span>${renderCharacterFormation(teamA, { leaderId: state.attackerLeaderId })}<small>${result.averageSurvivorsA} average survivors</small></div><div class="simulation-divider"><span>${result.drawPercent}%</span><small>draw</small></div><div class="simulation-side defender"><span class="micro-label">TEAM B · DEFENSE</span><strong>${result.teamBWinPercent}%</strong><span>modeled win rate</span>${renderCharacterFormation(teamB, { leaderId: state.opponentLeaderId })}<small>${result.averageSurvivorsB} average survivors</small></div></div>
       <div class="simulation-insights"><div class="simulation-stat"><span>Average battle</span><strong>${result.averageActions} actions</strong></div><div class="simulation-stat"><span>Usually moves first</span><strong>${escapeHtml(result.mostFrequentFirstAction?.unit || "—")}</strong><small>${result.mostFrequentFirstAction ? `${result.mostFrequentFirstAction.percent}% of runs` : "No result"}</small></div><div class="simulation-stat"><span>Most modeled damage</span><strong>${escapeHtml(result.topDamageUnit || "—")}</strong></div></div>
       <div class="coverage-panel"><div><span class="micro-label">MODEL COVERAGE</span><h3>${result.coverage.percent}% of detected mechanics represented</h3><p>${formatNumber(result.coverage.modeledMechanics)} of ${formatNumber(result.coverage.examinedMechanics)} detected mechanic signals · ${escapeHtml(quality)}</p></div><div class="coverage-meter ${coverageTone}" role="meter" aria-label="Model coverage" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${result.coverage.percent}"><span style="width:${result.coverage.percent}%"></span></div></div>
       <div class="simulation-evidence"><div><span class="micro-label">EXAMPLE RUN</span><ol class="battle-log">${result.exampleLog.map((line) => `<li>${escapeHtml(line)}</li>`).join("") || "<li>No actions were recorded.</li>"}</ol></div><div><span class="micro-label">READ BEFORE USING THIS RESULT</span><ul class="limitations">${result.limitations.map((line) => `<li>${escapeHtml(line)}</li>`).join("")}</ul></div></div></article></section>`;
@@ -694,8 +729,8 @@
 
   function renderCounterResult(result, index) {
     const formation = state.counterType === "squad"
-      ? `<div class="formation">${result.members.map((id) => formationUnit(id, { leader: id === result.leaderId })).join("")}</div>`
-      : `<div class="fleet-formation"><div class="fleet-group"><span class="fleet-group-label">Capital</span>${formationUnit(result.capitalShipId, { kind: "capital", leader: true })}</div><div class="fleet-group"><span class="fleet-group-label">Start</span>${result.starters.map((id) => formationUnit(id, { kind: "ship" })).join("")}</div><div class="fleet-group"><span class="fleet-group-label">Reinforce</span>${result.reinforcements.map((id) => formationUnit(id, { kind: "ship" })).join("")}</div></div>`;
+      ? renderCharacterFormation(result.members, { leaderId: result.leaderId })
+      : renderFleetFormation(result.capitalShipId, result.starters, result.reinforcements);
     return `<article class="recommendation-card counter-result"><div><span class="micro-label">Route ${index + 1}</span>${formation}</div><div><div class="performance-block"><strong>${result.success}%</strong><div><small>Demo success</small><span>${escapeHtml(result.confidence)} confidence</span><span>${formatNumber(result.sample)} demo battles</span></div></div><div class="tag-list"><span class="tag">${escapeHtml(result.investment)} investment</span><span class="tag">Demo data</span></div></div><div class="strategy-note"><span class="micro-label">Strategy note</span><p>${escapeHtml(result.note)}</p><span class="micro-label">Minimum requirements</span><p>${escapeHtml(result.requirements)}</p></div></article>`;
   }
 
@@ -708,8 +743,8 @@
     const category = data.missionCategories.find((item) => item.id === state.selectedMission);
     const tier = mission.tierRequirements[state.requirementLevel];
     const formation = mission.type === "fleet"
-      ? `<div class="fleet-formation"><div class="fleet-group"><span class="fleet-group-label">Capital</span>${formationUnit(mission.capitalShipId, { kind: "capital", leader: true })}</div><div class="fleet-group"><span class="fleet-group-label">Start</span>${mission.starters.map((id) => formationUnit(id, { kind: "ship" })).join("")}</div><div class="fleet-group"><span class="fleet-group-label">Reinforce</span>${mission.reinforcements.map((id) => formationUnit(id, { kind: "ship" })).join("")}</div></div>`
-      : `<div class="formation">${mission.formation.map((id) => formationUnit(id, { leader: id === mission.leaderId })).join("")}</div>`;
+      ? renderFleetFormation(mission.capitalShipId, mission.starters, mission.reinforcements)
+      : renderCharacterFormation(mission.formation, { leaderId: mission.leaderId });
     const rosterMessage = state.compareRoster
       ? state.rosterLoaded
         ? "Static roster comparison is active."
@@ -755,7 +790,7 @@
     const ready = teams.filter((team) => team.status === "ready").length;
     const minor = teams.filter((team) => team.status === "minor").length;
     const major = teams.filter((team) => team.status === "major").length;
-    return `<section class="results-zone" id="roster-results"><div class="results-heading"><div><span class="eyebrow">Roster output</span><h2>Optimized Lineup</h2><p>No character appears twice in this curated demo assignment.</p></div><span class="demo-badge">Demo data</span></div><div class="lineup-summary"><div class="summary-card"><strong>${average}</strong><span>Average team score</span></div><div class="summary-card"><strong>${ready} / ${teams.length}</strong><span>Ready now</span></div><div class="summary-card"><strong>${minor}</strong><span>Minor upgrades</span></div><div class="summary-card"><strong>${major}</strong><span>Major upgrades</span></div></div><div class="optimized-grid">${teams.map((team, index) => `<article class="optimized-team"><div class="optimized-team-head"><h3>Team ${index + 1} · ${escapeHtml(team.name)}</h3><strong>${team.score}</strong></div><div class="formation">${team.members.map((id) => formationUnit(id, { leader: id === team.leaderId })).join("")}</div><div class="team-status"><span class="readiness ${team.status === "ready" ? "ready" : team.status === "minor" ? "borderline" : "insufficient"}">${team.status === "ready" ? "✓ Ready now" : team.status === "minor" ? "△ Minor upgrades" : "! Major upgrades"}</span></div></article>`).join("")}</div></section>`;
+    return `<section class="results-zone" id="roster-results"><div class="results-heading"><div><span class="eyebrow">Roster output</span><h2>Optimized Lineup</h2><p>No character appears twice in this curated demo assignment.</p></div><span class="demo-badge">Demo data</span></div><div class="lineup-summary"><div class="summary-card"><strong>${average}</strong><span>Average team score</span></div><div class="summary-card"><strong>${ready} / ${teams.length}</strong><span>Ready now</span></div><div class="summary-card"><strong>${minor}</strong><span>Minor upgrades</span></div><div class="summary-card"><strong>${major}</strong><span>Major upgrades</span></div></div><div class="optimized-grid">${teams.map((team, index) => `<article class="optimized-team"><div class="optimized-team-head"><h3>Team ${index + 1} · ${escapeHtml(team.name)}</h3><strong>${team.score}</strong></div>${renderCharacterFormation(team.members, { leaderId: team.leaderId })}<div class="team-status"><span class="readiness ${team.status === "ready" ? "ready" : team.status === "minor" ? "borderline" : "insufficient"}">${team.status === "ready" ? "✓ Ready now" : team.status === "minor" ? "△ Minor upgrades" : "! Major upgrades"}</span></div></article>`).join("")}</div></section>`;
   }
 
   function openPicker(target) {
@@ -964,6 +999,7 @@
       : '<span class="readiness borderline">○ Catalog data only</span>';
     const statGrid = (entries) => `<div class="stat-grid">${entries.map(([label, value]) => `<div class="stat-box"><span>${escapeHtml(label)}</span><strong>${typeof value === "number" ? formatNumber(value) : escapeHtml(value ?? "—")}</strong></div>`).join("")}</div>`;
     const progression = statGrid([
+      ["Galactic Power", owned?.gp != null ? owned.gp : "—"],
       ["Stars", owned ? `${owned.stars}★` : "—"],
       ["Level", owned?.level || "—"],
       ["Gear", owned?.gear || "—"],

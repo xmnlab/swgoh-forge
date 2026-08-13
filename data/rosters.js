@@ -2,8 +2,8 @@
 window.ForgeData = window.ForgeData || {};
 
 window.ForgeData.staticRosters = {
-  "schemaVersion": 2,
-  "updatedAt": "2026-08-12T23:58:49Z",
+  "schemaVersion": 4,
+  "updatedAt": "2026-08-13T00:23:07Z",
   "rosters": {
     "885583128": {
       "allyCode": "885583128",
@@ -15,9 +15,11 @@ window.ForgeData.staticRosters = {
       "shipGP": 2106647,
       "characterCount": 264,
       "shipCount": 46,
+      "characterGpCoverage": 264,
+      "shipGpCoverage": 46,
       "relicCount": 74,
       "galacticLegends": 0,
-      "updatedAt": "2026-08-12T23:58:49Z",
+      "updatedAt": "2026-08-13T00:23:07Z",
       "source": "comlink-static",
       "units": {
         "0-0-0": {
@@ -43,7 +45,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 973
         },
         "aayla-secura": {
           "baseId": "AAYLASECURA",
@@ -73,7 +76,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 4246
         },
         "admiral-ackbar": {
           "baseId": "ADMIRALACKBAR",
@@ -110,7 +114,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 17082
         },
         "admiral-piett": {
           "baseId": "ADMIRALPIETT",
@@ -152,7 +157,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 22468
         },
         "admiral-raddus": {
           "baseId": "ADMIRALRADDUS",
@@ -177,7 +183,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 1261
         },
         "ahsoka-tano-fulcrum": {
           "baseId": "FULCRUMAHSOKA",
@@ -215,7 +222,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 10708
         },
         "ahsoka-tano-snips": {
           "baseId": "AHSOKATANO",
@@ -251,7 +259,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 25519
         },
         "amilyn-holdo": {
           "baseId": "AMILYNHOLDO",
@@ -287,7 +296,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 21184
         },
         "arc-trooper": {
           "baseId": "ARCTROOPER501ST",
@@ -318,7 +328,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 9535
         },
         "asajj-ventress": {
           "baseId": "ASAJVENTRESS",
@@ -363,7 +374,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 26271
         },
         "aurra-sing": {
           "baseId": "AURRA_SING",
@@ -400,7 +412,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 3
+          "equippedModCount": 3,
+          "gp": 2587
         },
         "b1-battle-droid": {
           "baseId": "B1BATTLEDROIDV2",
@@ -436,7 +449,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 23134
         },
         "b2-super-battle-droid": {
           "baseId": "B2SUPERBATTLEDROID",
@@ -472,7 +486,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 22423
         },
         "barriss-offee": {
           "baseId": "BARRISSOFFEE",
@@ -508,7 +523,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 15178
         },
         "bastila-fallen": {
           "baseId": "BASTILASHANDARK",
@@ -554,7 +570,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 26488
         },
         "bastila-shan": {
           "baseId": "BASTILASHAN",
@@ -600,7 +617,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 27501
         },
         "baze-malbus": {
           "baseId": "BAZEMALBUS",
@@ -640,7 +658,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 5
+          "equippedModCount": 5,
+          "gp": 6819
         },
         "bb-8": {
           "baseId": "BB8",
@@ -682,7 +701,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 18412
         },
         "biggs-darklighter": {
           "baseId": "BIGGSDARKLIGHTER",
@@ -712,7 +732,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 7195
         },
         "bistan": {
           "baseId": "BISTAN",
@@ -742,7 +763,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 5341
         },
         "bo-katan-kryze": {
           "baseId": "BOKATAN",
@@ -778,7 +800,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 5847
         },
         "boba-fett": {
           "baseId": "BOBAFETT",
@@ -824,7 +847,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 27289
         },
         "bodhi-rook": {
           "baseId": "BODHIROOK",
@@ -860,7 +884,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 11632
         },
         "boss-nass": {
           "baseId": "BOSSNASS",
@@ -904,7 +929,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 5302
         },
         "bossk": {
           "baseId": "BOSSK",
@@ -951,7 +977,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 29697
         },
         "boushh-leia": {
           "baseId": "BOUSHH",
@@ -976,7 +1003,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 1711
         },
         "bt-1": {
           "baseId": "BT1",
@@ -1004,7 +1032,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 973
         },
         "c-3po": {
           "baseId": "C3POLEGENDARY",
@@ -1056,7 +1085,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 30003
         },
         "cad-bane": {
           "baseId": "CADBANE",
@@ -1096,7 +1126,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 24178
         },
         "cal-kestis": {
           "baseId": "CALKESTIS",
@@ -1136,7 +1167,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 26670
         },
         "canderous-ordo": {
           "baseId": "CANDEROUSORDO",
@@ -1172,7 +1204,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 19845
         },
         "captain-carson-teva": {
           "baseId": "CARSONTEVA",
@@ -1210,7 +1243,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 13917
         },
         "captain-drogan": {
           "baseId": "CAPTAINDROGAN",
@@ -1224,7 +1258,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 889
         },
         "captain-enoch": {
           "baseId": "CAPTAINENOCH",
@@ -1263,7 +1298,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 9345
         },
         "captain-han-solo": {
           "baseId": "HOTHHAN",
@@ -1299,7 +1335,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 24438
         },
         "captain-phasma": {
           "baseId": "PHASMA",
@@ -1337,7 +1374,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 22393
         },
         "captain-rex": {
           "baseId": "CAPTAINREX",
@@ -1376,7 +1414,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 24642
         },
         "captain-tarpals": {
           "baseId": "CAPTAINTARPALS",
@@ -1414,7 +1453,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 5620
         },
         "cara-dune": {
           "baseId": "CARADUNE",
@@ -1450,7 +1490,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 20941
         },
         "carth-onasi": {
           "baseId": "CARTHONASI",
@@ -1488,7 +1529,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 25638
         },
         "cassian-andor": {
           "baseId": "CASSIANANDOR",
@@ -1526,7 +1568,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 10989
         },
         "cc-1119-appo": {
           "baseId": "APPO",
@@ -1565,7 +1608,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 8259
         },
         "cc-2224-cody": {
           "baseId": "CC2224",
@@ -1601,7 +1645,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 10321
         },
         "cere-junda": {
           "baseId": "CEREJUNDA",
@@ -1645,7 +1690,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 16977
         },
         "chewbacca": {
           "baseId": "CHEWBACCALEGENDARY",
@@ -1687,7 +1733,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 28585
         },
         "chewpio": {
           "baseId": "C3POCHEWBACCA",
@@ -1717,7 +1764,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 1471
         },
         "chief-chirpa": {
           "baseId": "CHIEFCHIRPA",
@@ -1756,7 +1804,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 25599
         },
         "chief-nebit": {
           "baseId": "CHIEFNEBIT",
@@ -1793,7 +1842,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 6033
         },
         "chirrut-imwe": {
           "baseId": "CHIRRUTIMWE",
@@ -1833,7 +1883,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 5
+          "equippedModCount": 5,
+          "gp": 17721
         },
         "chopper": {
           "baseId": "CHOPPERS3",
@@ -1868,7 +1919,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 19461
         },
         "cinta-kaz": {
           "baseId": "CINTA",
@@ -1906,7 +1958,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 13434
         },
         "clone-sergeant-phase-i": {
           "baseId": "CLONESERGEANTPHASEI",
@@ -1936,7 +1989,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 16039
         },
         "clone-wars-chewbacca": {
           "baseId": "CLONEWARSCHEWBACCA",
@@ -1972,7 +2026,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 5
+          "equippedModCount": 5,
+          "gp": 9712
         },
         "colonel-starck": {
           "baseId": "COLONELSTARCK",
@@ -2008,7 +2063,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 10681
         },
         "colonel-ward": {
           "baseId": "BISHOP",
@@ -2046,7 +2102,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 11994
         },
         "commander-luke": {
           "baseId": "COMMANDERLUKESKYWALKER",
@@ -2094,7 +2151,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 33252
         },
         "coruscant-underworld-police": {
           "baseId": "CORUSCANTUNDERWORLDPOLICE",
@@ -2124,7 +2182,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 4036
         },
         "count-dooku": {
           "baseId": "COUNTDOOKU",
@@ -2165,7 +2224,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 14739
         },
         "crosshair-scarred": {
           "baseId": "CROSSHAIRS3",
@@ -2179,7 +2239,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 1014
         },
         "ct-21-0408-echo": {
           "baseId": "CT210408",
@@ -2215,7 +2276,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 17028
         },
         "ct-5555-fives": {
           "baseId": "CT5555",
@@ -2257,7 +2319,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 12912
         },
         "ct-7567-rex": {
           "baseId": "CT7567",
@@ -2298,7 +2361,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 18082
         },
         "cx-2": {
           "baseId": "OPERATIVE",
@@ -2312,7 +2376,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 2242
         },
         "dark-trooper": {
           "baseId": "DARKTROOPER",
@@ -2343,7 +2408,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 1684
         },
         "darth-malak": {
           "baseId": "DARTHMALAK",
@@ -2385,7 +2451,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 22918
         },
         "darth-maul": {
           "baseId": "MAUL",
@@ -2421,7 +2488,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 5
+          "equippedModCount": 5,
+          "gp": 12907
         },
         "darth-nihilus": {
           "baseId": "DARTHNIHILUS",
@@ -2463,7 +2531,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 22708
         },
         "darth-revan": {
           "baseId": "DARTHREVAN",
@@ -2511,7 +2580,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 30576
         },
         "darth-sidious": {
           "baseId": "DARTHSIDIOUS",
@@ -2549,7 +2619,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 5
+          "equippedModCount": 5,
+          "gp": 12030
         },
         "darth-sion": {
           "baseId": "DARTHSION",
@@ -2590,7 +2661,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 10101
         },
         "darth-talon": {
           "baseId": "DARTHTALON",
@@ -2615,7 +2687,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 1036
         },
         "darth-traya": {
           "baseId": "DARTHTRAYA",
@@ -2659,7 +2732,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 19186
         },
         "darth-vader": {
           "baseId": "VADER",
@@ -2707,7 +2781,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 31713
         },
         "darth-vader-duel-s-end": {
           "baseId": "VADERDUELSEND",
@@ -2753,7 +2828,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 6003
         },
         "dathcha": {
           "baseId": "DATHCHA",
@@ -2788,7 +2864,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 7797
         },
         "death-trooper": {
           "baseId": "DEATHTROOPER",
@@ -2824,7 +2901,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 4731
         },
         "death-trooper-peridea": {
           "baseId": "DEATHTROOPERPERIDEA",
@@ -2862,7 +2940,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 6154
         },
         "dedra-meero": {
           "baseId": "DEDRAMEERO",
@@ -2905,7 +2984,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 5
+          "equippedModCount": 5,
+          "gp": 13410
         },
         "dengar": {
           "baseId": "DENGAR",
@@ -2951,7 +3031,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 21048
         },
         "director-krennic": {
           "baseId": "DIRECTORKRENNIC",
@@ -2994,7 +3075,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 6076
         },
         "droideka": {
           "baseId": "DROIDEKA",
@@ -3033,7 +3115,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 25293
         },
         "echo": {
           "baseId": "BADBATCHECHO",
@@ -3069,7 +3152,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 5257
         },
         "eeth-koth": {
           "baseId": "EETHKOTH",
@@ -3104,7 +3188,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 6499
         },
         "eighth-brother": {
           "baseId": "EIGHTHBROTHER",
@@ -3152,7 +3237,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 28351
         },
         "embo": {
           "baseId": "EMBO",
@@ -3191,7 +3277,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 12504
         },
         "emperor-palpatine": {
           "baseId": "EMPERORPALPATINE",
@@ -3233,7 +3320,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 24133
         },
         "enfys-nest": {
           "baseId": "ENFYSNEST",
@@ -3247,7 +3335,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 1003
         },
         "ewok-elder": {
           "baseId": "EWOKELDER",
@@ -3277,7 +3366,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 22471
         },
         "ewok-scout": {
           "baseId": "EWOKSCOUT",
@@ -3307,7 +3397,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 14431
         },
         "ezra-bridger": {
           "baseId": "EZRABRIDGERS3",
@@ -3343,7 +3434,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 22779
         },
         "fennec-shand": {
           "baseId": "FENNECSHAND",
@@ -3384,7 +3476,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 20263
         },
         "fifth-brother": {
           "baseId": "FIFTHBROTHER",
@@ -3432,7 +3525,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 30757
         },
         "finn": {
           "baseId": "FINN",
@@ -3470,7 +3564,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 23047
         },
         "first-order-officer": {
           "baseId": "FIRSTORDEROFFICERMALE",
@@ -3500,7 +3595,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 5
+          "equippedModCount": 5,
+          "gp": 12219
         },
         "first-order-sf-tie-pilot": {
           "baseId": "FIRSTORDERSPECIALFORCESPILOT",
@@ -3530,7 +3626,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 2176
         },
         "first-order-stormtrooper": {
           "baseId": "FIRSTORDERTROOPER",
@@ -3561,7 +3658,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 5
+          "equippedModCount": 5,
+          "gp": 20430
         },
         "first-order-tie-pilot": {
           "baseId": "FIRSTORDERTIEPILOT",
@@ -3594,7 +3692,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 21795
         },
         "gamorrean-guard": {
           "baseId": "GAMORREANGUARD",
@@ -3624,7 +3723,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 1669
         },
         "gar-saxon": {
           "baseId": "GARSAXON",
@@ -3660,7 +3760,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 3705
         },
         "garazeb-zeb-orrelios": {
           "baseId": "ZEBS3",
@@ -3696,7 +3797,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 17302
         },
         "general-grievous": {
           "baseId": "GRIEVOUS",
@@ -3738,7 +3840,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 20847
         },
         "general-kenobi": {
           "baseId": "GENERALKENOBI",
@@ -3779,7 +3882,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 27652
         },
         "general-skywalker": {
           "baseId": "GENERALSKYWALKER",
@@ -3828,7 +3932,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 16341
         },
         "general-syndulla": {
           "baseId": "GENERALSYNDULLA",
@@ -3872,7 +3977,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 14895
         },
         "general-veers": {
           "baseId": "VEERS",
@@ -3908,7 +4014,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 12175
         },
         "geonosian-brood-alpha": {
           "baseId": "GEONOSIANBROODALPHA",
@@ -3955,7 +4062,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 27102
         },
         "geonosian-soldier": {
           "baseId": "GEONOSIANSOLDIER",
@@ -3985,7 +4093,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 20376
         },
         "geonosian-spy": {
           "baseId": "GEONOSIANSPY",
@@ -4020,7 +4129,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 21297
         },
         "grand-admiral-thrawn": {
           "baseId": "GRANDADMIRALTHRAWN",
@@ -4062,7 +4172,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 5
+          "equippedModCount": 5,
+          "gp": 17955
         },
         "grand-inquisitor": {
           "baseId": "GRANDINQUISITOR",
@@ -4116,7 +4227,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 21327
         },
         "grand-master-yoda": {
           "baseId": "GRANDMASTERYODA",
@@ -4158,7 +4270,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 32455
         },
         "grand-moff-tarkin": {
           "baseId": "GRANDMOFFTARKIN",
@@ -4202,7 +4315,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 5
+          "equippedModCount": 5,
+          "gp": 15195
         },
         "great-mothers": {
           "baseId": "GREATMOTHERS",
@@ -4243,7 +4357,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 9547
         },
         "greedo": {
           "baseId": "GREEDO",
@@ -4289,7 +4404,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 15750
         },
         "greef-karga": {
           "baseId": "GREEFKARGA",
@@ -4336,7 +4452,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 24801
         },
         "grogu-anzellans": {
           "baseId": "GOPHERANTS",
@@ -4379,7 +4496,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 12568
         },
         "gungan-boomadier": {
           "baseId": "BOOMADIER",
@@ -4417,7 +4535,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 5397
         },
         "gungan-phalanx": {
           "baseId": "GUNGANPHALANX",
@@ -4455,7 +4574,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 7440
         },
         "han-solo": {
           "baseId": "HANSOLO",
@@ -4491,7 +4611,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 17080
         },
         "hera-syndulla": {
           "baseId": "HERASYNDULLAS3",
@@ -4529,7 +4650,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 23589
         },
         "hermit-yoda": {
           "baseId": "HERMITYODA",
@@ -4571,7 +4693,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 23830
         },
         "hk-47": {
           "baseId": "HK47",
@@ -4618,7 +4741,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 23728
         },
         "hondo-ohnaka": {
           "baseId": "HONDO",
@@ -4646,7 +4770,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 973
         },
         "hoth-rebel-scout": {
           "baseId": "HOTHREBELSCOUT",
@@ -4676,7 +4801,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 10639
         },
         "hoth-rebel-soldier": {
           "baseId": "HOTHREBELSOLDIER",
@@ -4706,7 +4832,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 8838
         },
         "hunter": {
           "baseId": "BADBATCHHUNTER",
@@ -4742,7 +4869,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 7603
         },
         "hux": {
           "baseId": "GENERALHUX",
@@ -4783,7 +4911,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 17362
         },
         "ig-11": {
           "baseId": "IG11",
@@ -4819,7 +4948,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 20964
         },
         "ig-12-grogu": {
           "baseId": "IG12",
@@ -4857,7 +4987,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 19488
         },
         "ig-86-sentinel-droid": {
           "baseId": "IG86SENTINELDROID",
@@ -4887,7 +5018,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 5907
         },
         "ig-88": {
           "baseId": "IG88",
@@ -4928,7 +5060,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 20272
         },
         "ima-gun-di": {
           "baseId": "IMAGUNDI",
@@ -4942,7 +5075,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 1014
         },
         "imperial-probe-droid": {
           "baseId": "IMPERIALPROBEDROID",
@@ -4985,7 +5119,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 3961
         },
         "imperial-super-commando": {
           "baseId": "IMPERIALSUPERCOMMANDO",
@@ -5015,7 +5150,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 1921
         },
         "jango-fett": {
           "baseId": "JANGOFETT",
@@ -5062,7 +5198,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 23296
         },
         "jawa": {
           "baseId": "JAWA",
@@ -5092,7 +5229,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 3904
         },
         "jawa-engineer": {
           "baseId": "JAWAENGINEER",
@@ -5106,7 +5244,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 1705
         },
         "jawa-scavenger": {
           "baseId": "JAWASCAVENGER",
@@ -5141,7 +5280,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 6219
         },
         "jedi-consular": {
           "baseId": "JEDIKNIGHTCONSULAR",
@@ -5171,7 +5311,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 15679
         },
         "jedi-knight-anakin": {
           "baseId": "ANAKINKNIGHT",
@@ -5207,7 +5348,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 21378
         },
         "jedi-knight-cal-kestis": {
           "baseId": "JEDIKNIGHTCAL",
@@ -5261,7 +5403,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 16473
         },
         "jedi-knight-guardian": {
           "baseId": "JEDIKNIGHTGUARDIAN",
@@ -5291,7 +5434,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 5619
         },
         "jedi-knight-revan": {
           "baseId": "JEDIKNIGHTREVAN",
@@ -5339,7 +5483,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 35151
         },
         "jolee-bindo": {
           "baseId": "JOLEEBINDO",
@@ -5380,7 +5525,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 27961
         },
         "juhani": {
           "baseId": "JUHANI",
@@ -5419,7 +5565,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 20172
         },
         "jyn-erso": {
           "baseId": "JYNERSO",
@@ -5463,7 +5610,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 17175
         },
         "k-2so": {
           "baseId": "K2SO",
@@ -5499,7 +5647,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 10431
         },
         "kanan-jarrus": {
           "baseId": "KANANJARRUSS3",
@@ -5535,7 +5684,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 16311
         },
         "kelleran-beq": {
           "baseId": "KELLERANBEQ",
@@ -5579,7 +5729,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 30066
         },
         "kit-fisto": {
           "baseId": "KITFISTO",
@@ -5614,7 +5765,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 5700
         },
         "kleya-marki": {
           "baseId": "KLEYA",
@@ -5652,7 +5804,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 11656
         },
         "krrsantan": {
           "baseId": "KRRSANTAN",
@@ -5700,7 +5853,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 6937
         },
         "kuiil": {
           "baseId": "KUIIL",
@@ -5736,7 +5890,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 21060
         },
         "kx-security-droid": {
           "baseId": "KXSECURITYDROID",
@@ -5774,7 +5929,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 14136
         },
         "kyle-katarn": {
           "baseId": "KYLEKATARN",
@@ -5812,7 +5968,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 4113
         },
         "kylo-ren": {
           "baseId": "KYLOREN",
@@ -5848,7 +6005,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 23163
         },
         "kylo-ren-unmasked": {
           "baseId": "KYLORENUNMASKED",
@@ -5890,7 +6048,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 26164
         },
         "l3-37": {
           "baseId": "L3_37",
@@ -5926,7 +6085,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 21006
         },
         "lando-calrissian": {
           "baseId": "ADMINISTRATORLANDO",
@@ -5961,7 +6121,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 22927
         },
         "lobot": {
           "baseId": "LOBOT",
@@ -5996,7 +6157,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 3909
         },
         "logray": {
           "baseId": "LOGRAY",
@@ -6032,7 +6194,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 20853
         },
         "luke-skywalker-farmboy": {
           "baseId": "LUKESKYWALKER",
@@ -6071,7 +6234,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 23047
         },
         "luminara-unduli": {
           "baseId": "LUMINARAUNDULI",
@@ -6109,7 +6273,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 12514
         },
         "mace-windu": {
           "baseId": "MACEWINDU",
@@ -6160,7 +6325,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 27045
         },
         "magma-guard": {
           "baseId": "MAGNAGUARD",
@@ -6196,7 +6362,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 22402
         },
         "magmatrooper": {
           "baseId": "MAGMATROOPER",
@@ -6226,7 +6393,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 10816
         },
         "major-partagaz": {
           "baseId": "MAJORPARTAGAZ",
@@ -6269,7 +6437,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 14526
         },
         "mara-jade": {
           "baseId": "MARAJADE",
@@ -6302,7 +6471,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 1332
         },
         "mara-jade-skywalker": {
           "baseId": "MARAJADESKYWALKER",
@@ -6340,7 +6510,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 3358
         },
         "master-qui-gon": {
           "baseId": "MASTERQUIGON",
@@ -6378,7 +6549,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 5631
         },
         "merrin": {
           "baseId": "MERRIN",
@@ -6422,7 +6594,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 24885
         },
         "mission-vao": {
           "baseId": "MISSIONVAO",
@@ -6459,7 +6632,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 17418
         },
         "mob-enforcer": {
           "baseId": "HUMANTHUG",
@@ -6489,7 +6663,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 5602
         },
         "moff-gideon": {
           "baseId": "MOFFGIDEONS1",
@@ -6531,7 +6706,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 5409
         },
         "mon-mothma": {
           "baseId": "MONMOTHMA",
@@ -6573,7 +6749,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 5563
         },
         "morgan-elsbeth": {
           "baseId": "MORGANELSBETH",
@@ -6611,7 +6788,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 6081
         },
         "mother-talzin": {
           "baseId": "MOTHERTALZIN",
@@ -6653,7 +6831,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 15375
         },
         "night-trooper": {
           "baseId": "NIGHTTROOPER",
@@ -6692,7 +6871,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 10443
         },
         "nightsister-acolyte": {
           "baseId": "NIGHTSISTERACOLYTE",
@@ -6722,7 +6902,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 6567
         },
         "nightsister-initiate": {
           "baseId": "NIGHTSISTERINITIATE",
@@ -6758,7 +6939,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 6615
         },
         "nightsister-spirit": {
           "baseId": "NIGHTSISTERSPIRIT",
@@ -6788,7 +6970,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 7021
         },
         "nightsister-zombie": {
           "baseId": "NIGHTSISTERZOMBIE",
@@ -6823,7 +7006,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 15331
         },
         "ninth-sister": {
           "baseId": "NINTHSISTER",
@@ -6872,7 +7056,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 30757
         },
         "nute-gunray": {
           "baseId": "NUTEGUNRAY",
@@ -6908,7 +7093,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 5691
         },
         "obi-wan-kenobi-old-ben": {
           "baseId": "OLDBENKENOBI",
@@ -6950,7 +7136,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 22468
         },
         "old-daka": {
           "baseId": "DAKA",
@@ -6986,7 +7173,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 15321
         },
         "omega": {
           "baseId": "BADBATCHOMEGA",
@@ -7025,7 +7213,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 10093
         },
         "padawan-obi-wan": {
           "baseId": "PADAWANOBIWAN",
@@ -7063,7 +7252,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 20650
         },
         "padawan-sabine-wren": {
           "baseId": "PADAWANSABINE",
@@ -7101,7 +7291,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 18108
         },
         "padme-amidala": {
           "baseId": "PADMEAMIDALA",
@@ -7143,7 +7334,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 28548
         },
         "pao": {
           "baseId": "PAO",
@@ -7179,7 +7371,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 6219
         },
         "paploo": {
           "baseId": "PAPLOO",
@@ -7215,7 +7408,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 25452
         },
         "plo-koon": {
           "baseId": "PLOKOON",
@@ -7250,7 +7444,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 5
+          "equippedModCount": 5,
+          "gp": 10165
         },
         "poe-dameron": {
           "baseId": "POE",
@@ -7285,7 +7480,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 23139
         },
         "poggle-the-lesser": {
           "baseId": "POGGLETHELESSER",
@@ -7322,7 +7518,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 21297
         },
         "princess-kneesaa": {
           "baseId": "PRINCESSKNEESAA",
@@ -7360,7 +7557,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 13059
         },
         "princess-leia": {
           "baseId": "PRINCESSLEIA",
@@ -7398,7 +7596,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 20943
         },
         "qi-ra": {
           "baseId": "QIRA",
@@ -7439,7 +7638,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 15385
         },
         "qui-gon-jinn": {
           "baseId": "QUIGONJINN",
@@ -7477,7 +7677,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 9291
         },
         "r2-d2": {
           "baseId": "R2D2_LEGENDARY",
@@ -7519,7 +7720,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 23877
         },
         "r5-d4": {
           "baseId": "R5D4",
@@ -7557,7 +7759,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 13141
         },
         "range-trooper": {
           "baseId": "RANGETROOPER",
@@ -7587,7 +7790,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 1650
         },
         "rebel-officer-leia-organa": {
           "baseId": "HOTHLEIA",
@@ -7625,7 +7829,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 24456
         },
         "resistance-hero-finn": {
           "baseId": "EPIXFINN",
@@ -7661,7 +7866,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 20997
         },
         "resistance-hero-poe": {
           "baseId": "EPIXPOE",
@@ -7697,7 +7903,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 22327
         },
         "resistance-pilot": {
           "baseId": "RESISTANCEPILOT",
@@ -7727,7 +7934,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 21393
         },
         "resistance-trooper": {
           "baseId": "RESISTANCETROOPER",
@@ -7757,7 +7965,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 21217
         },
         "rey-jedi-training": {
           "baseId": "REYJEDITRAINING",
@@ -7805,7 +8014,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 32943
         },
         "rey-scavenger": {
           "baseId": "REY",
@@ -7841,7 +8051,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 22999
         },
         "rose-tico": {
           "baseId": "ROSETICO",
@@ -7879,7 +8090,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 20997
         },
         "rotta-the-hutt": {
           "baseId": "RACCOON",
@@ -7929,7 +8141,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 13162
         },
         "royal-guard": {
           "baseId": "ROYALGUARD",
@@ -7960,7 +8173,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 8575
         },
         "sabine-wren": {
           "baseId": "SABINEWRENS3",
@@ -7996,7 +8210,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 22423
         },
         "sana-starros": {
           "baseId": "SANASTARROS",
@@ -8024,7 +8239,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 988
         },
         "savage-opress": {
           "baseId": "SAVAGEOPRESS",
@@ -8062,7 +8278,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 8361
         },
         "saw-gerrera": {
           "baseId": "SAWGERRERA",
@@ -8101,7 +8318,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 22659
         },
         "scarif-rebel-pathfinder": {
           "baseId": "SCARIFREBEL",
@@ -8131,7 +8349,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 5935
         },
         "scout-trooper": {
           "baseId": "SCOUTTROOPER_V3",
@@ -8156,7 +8375,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 1905
         },
         "second-sister": {
           "baseId": "SECONDSISTER",
@@ -8204,7 +8424,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 30834
         },
         "seventh-sister": {
           "baseId": "SEVENTHSISTER",
@@ -8253,7 +8474,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 31119
         },
         "shaak-ti": {
           "baseId": "SHAAKTI",
@@ -8295,7 +8517,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 5
+          "equippedModCount": 5,
+          "gp": 25341
         },
         "shoretrooper": {
           "baseId": "SHORETROOPER",
@@ -8325,7 +8548,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 2146
         },
         "sith-assassin": {
           "baseId": "SITHASSASSIN",
@@ -8355,7 +8579,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 5338
         },
         "sith-empire-trooper": {
           "baseId": "SITHTROOPER",
@@ -8385,7 +8610,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 4339
         },
         "sith-marauder": {
           "baseId": "SITHMARAUDER",
@@ -8415,7 +8641,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 5758
         },
         "skiff-lando": {
           "baseId": "UNDERCOVERLANDO",
@@ -8440,7 +8667,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 1900
         },
         "snowtrooper": {
           "baseId": "SNOWTROOPER",
@@ -8470,7 +8698,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 7738
         },
         "snowtrooper-commander": {
           "baseId": "REMNANTSNOWCOMMANDER",
@@ -8513,7 +8742,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 12568
         },
         "stap": {
           "baseId": "STAP",
@@ -8551,7 +8781,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 3648
         },
         "stormtrooper": {
           "baseId": "STORMTROOPER",
@@ -8582,7 +8813,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 11541
         },
         "stormtrooper-han": {
           "baseId": "STORMTROOPERHAN",
@@ -8618,7 +8850,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 20712
         },
         "sun-fac": {
           "baseId": "SUNFAC",
@@ -8653,7 +8886,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 21297
         },
         "t3-m4": {
           "baseId": "T3_M4",
@@ -8697,7 +8931,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 23574
         },
         "talia": {
           "baseId": "TALIA",
@@ -8732,7 +8967,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 13968
         },
         "tarfful": {
           "baseId": "TARFFUL",
@@ -8776,7 +9012,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 17584
         },
         "tech": {
           "baseId": "BADBATCHTECH",
@@ -8812,7 +9049,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 8410
         },
         "teebo": {
           "baseId": "TEEBO",
@@ -8847,7 +9085,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 17680
         },
         "the-armorer": {
           "baseId": "ARMORER",
@@ -8888,7 +9127,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 5521
         },
         "the-mandalorian": {
           "baseId": "THEMANDALORIAN",
@@ -8930,7 +9170,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 24132
         },
         "the-mandalorian-beskar-armor": {
           "baseId": "THEMANDALORIANBESKARARMOR",
@@ -8972,7 +9213,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 24753
         },
         "tie-fighter-pilot": {
           "baseId": "TIEFIGHTERPILOT",
@@ -9002,7 +9244,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 10053
         },
         "tusken-raider": {
           "baseId": "TUSKENRAIDER",
@@ -9034,7 +9277,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 7423
         },
         "tusken-shaman": {
           "baseId": "TUSKENSHAMAN",
@@ -9064,7 +9308,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 6754
         },
         "tusken-warrior": {
           "baseId": "TUSKENHUNTRESS",
@@ -9095,7 +9340,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 2046
         },
         "ugnaught": {
           "baseId": "UGNAUGHT",
@@ -9125,7 +9371,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 6340
         },
         "urorrur-r-r": {
           "baseId": "URORRURRR",
@@ -9160,7 +9407,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 2481
         },
         "vandor-chewbacca": {
           "baseId": "YOUNGCHEWBACCA",
@@ -9196,7 +9444,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 7074
         },
         "vel-sartha": {
           "baseId": "VEL",
@@ -9234,7 +9483,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 13200
         },
         "veteran-smuggler-chewbacca": {
           "baseId": "SMUGGLERCHEWBACCA",
@@ -9270,7 +9520,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 22977
         },
         "veteran-smuggler-han-solo": {
           "baseId": "SMUGGLERHAN",
@@ -9306,7 +9557,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 23044
         },
         "visas-marr": {
           "baseId": "VISASMARR",
@@ -9342,7 +9594,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 3637
         },
         "wampa": {
           "baseId": "WAMPA",
@@ -9386,7 +9639,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 5
+          "equippedModCount": 5,
+          "gp": 25128
         },
         "wedge-antilles": {
           "baseId": "WEDGEANTILLES",
@@ -9421,7 +9675,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 16539
         },
         "wicket": {
           "baseId": "WICKET",
@@ -9457,7 +9712,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 11046
         },
         "wrecker": {
           "baseId": "BADBATCHWRECKER",
@@ -9493,7 +9749,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 6226
         },
         "wrecker-mercenary": {
           "baseId": "WRECKERS3",
@@ -9532,7 +9789,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 1906
         },
         "yoda-chewie": {
           "baseId": "YODACHEWBACCA",
@@ -9570,7 +9828,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 7129
         },
         "yoda-dark-side-vision": {
           "baseId": "YODADSV",
@@ -9613,7 +9872,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 3268
         },
         "young-han-solo": {
           "baseId": "YOUNGHAN",
@@ -9649,7 +9909,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 13930
         },
         "young-lando-calrissian": {
           "baseId": "YOUNGLANDO",
@@ -9685,7 +9946,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 20997
         },
         "zaalbar": {
           "baseId": "ZAALBAR",
@@ -9723,7 +9985,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 17443
         },
         "zam-wesell": {
           "baseId": "ZAMWESELL",
@@ -9771,7 +10034,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 10426
         },
         "zeb-orrelios-new-republic-pilot": {
           "baseId": "RANGERZEB",
@@ -9809,7 +10073,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 6
+          "equippedModCount": 6,
+          "gp": 13341
         },
         "zorii-bliss": {
           "baseId": "ZORIIBLISS_V2",
@@ -9835,7 +10100,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 973
         }
       },
       "ships": {
@@ -9872,7 +10138,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 64727
         },
         "anakin-eta": {
           "baseId": "JEDISTARFIGHTERANAKIN",
@@ -9907,7 +10174,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 55410
         },
         "b-28-extinction-class-bomber": {
           "baseId": "SITHBOMBER",
@@ -9942,7 +10210,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 14336
         },
         "biggs-darklighter-s-x-wing": {
           "baseId": "XWINGRED3",
@@ -9977,7 +10246,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 20604
         },
         "bistan-s-u-wing": {
           "baseId": "UWINGSCARIF",
@@ -10017,7 +10287,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 17143
         },
         "cassian-s-u-wing": {
           "baseId": "UWINGROGUEONE",
@@ -10062,7 +10333,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 39454
         },
         "chimaera": {
           "baseId": "CAPITALCHIMAERA",
@@ -10102,7 +10374,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 46296
         },
         "clone-sergeant-s-arc-170": {
           "baseId": "ARC170CLONESERGEANT",
@@ -10137,7 +10410,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 43397
         },
         "ebon-hawk": {
           "baseId": "EBONHAWK",
@@ -10177,7 +10451,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 73690
         },
         "endurance": {
           "baseId": "CAPITALJEDICRUISER",
@@ -10217,7 +10492,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 66749
         },
         "executrix": {
           "baseId": "CAPITALSTARDESTROYER",
@@ -10257,7 +10533,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 40086
         },
         "finalizer": {
           "baseId": "CAPITALFINALIZER",
@@ -10297,7 +10574,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 32479
         },
         "first-order-sf-tie-fighter": {
           "baseId": "TIEFIGHTERFOSF",
@@ -10327,7 +10605,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 6444
         },
         "first-order-tie": {
           "baseId": "TIEFIGHTERFIRSTORDER",
@@ -10362,7 +10641,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 55718
         },
         "gauntlet-starfighter": {
           "baseId": "GAUNTLETSTARFIGHTER",
@@ -10402,7 +10682,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 10674
         },
         "geonosian-soldier-s-starfighter": {
           "baseId": "GEONOSIANSTARFIGHTER2",
@@ -10437,7 +10718,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 53155
         },
         "geonosian-spy-s-starfighter": {
           "baseId": "GEONOSIANSTARFIGHTER3",
@@ -10472,7 +10754,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 55017
         },
         "ghost": {
           "baseId": "GHOST",
@@ -10517,7 +10800,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 60360
         },
         "home-one": {
           "baseId": "CAPITALMONCALAMARICRUISER",
@@ -10557,7 +10841,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 44122
         },
         "hounds-tooth": {
           "baseId": "HOUNDSTOOTH",
@@ -10592,7 +10877,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 74127
         },
         "ig-2000": {
           "baseId": "IG2000",
@@ -10627,7 +10913,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 45319
         },
         "imperial-tie": {
           "baseId": "TIEFIGHTERIMPERIAL",
@@ -10662,7 +10949,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 26913
         },
         "jedi-consular-s-starfighter": {
           "baseId": "JEDISTARFIGHTERCONSULAR",
@@ -10697,7 +10985,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 42587
         },
         "kylo-ren-s-command-shuttle": {
           "baseId": "COMMANDSHUTTLE",
@@ -10742,7 +11031,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 67425
         },
         "lando-s-millennium-falcon": {
           "baseId": "MILLENNIUMFALCONPRISTINE",
@@ -10782,7 +11072,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 64378
         },
         "millennium-falcon": {
           "baseId": "MILLENNIUMFALCON",
@@ -10822,7 +11113,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 63366
         },
         "phantom-ii": {
           "baseId": "PHANTOM2",
@@ -10867,7 +11159,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 67075
         },
         "plo-koon-starfighter": {
           "baseId": "BLADEOFDORIN",
@@ -10902,7 +11195,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 27287
         },
         "poe-dameron-s-x-wing": {
           "baseId": "XWINGBLACKONE",
@@ -10937,7 +11231,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 58952
         },
         "raddus": {
           "baseId": "CAPITALRADDUS",
@@ -10977,7 +11272,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 45194
         },
         "raven-s-claw": {
           "baseId": "RAVENSCLAW",
@@ -11017,7 +11313,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 11908
         },
         "razor-crest": {
           "baseId": "RAZORCREST",
@@ -11057,7 +11354,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 58218
         },
         "resistance-x-wing": {
           "baseId": "XWINGRESISTANCE",
@@ -11092,7 +11390,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 54813
         },
         "rex-s-arc-170": {
           "baseId": "ARC170REX",
@@ -11127,7 +11426,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 41209
         },
         "rey-s-millennium-falcon": {
           "baseId": "MILLENNIUMFALCONEP7",
@@ -11167,7 +11467,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 70256
         },
         "scimitar": {
           "baseId": "SITHINFILTRATOR",
@@ -11202,7 +11503,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 33642
         },
         "slave-i": {
           "baseId": "SLAVE1",
@@ -11242,7 +11544,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 69494
         },
         "sun-fac-starfighter": {
           "baseId": "GEONOSIANSTARFIGHTER1",
@@ -11277,7 +11580,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 49927
         },
         "tie-advanced": {
           "baseId": "TIEADVANCED",
@@ -11312,7 +11616,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 78663
         },
         "tie-bomber": {
           "baseId": "TIEBOMBERIMPERIAL",
@@ -11347,7 +11652,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 29225
         },
         "tie-reaper": {
           "baseId": "TIEREAPER",
@@ -11382,7 +11688,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 9353
         },
         "tie-silencer": {
           "baseId": "TIESILENCER",
@@ -11417,7 +11724,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 66178
         },
         "umbaran-starfighter": {
           "baseId": "UMBARANSTARFIGHTER",
@@ -11452,7 +11760,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 33036
         },
         "wedge-antilles-s-x-wing": {
           "baseId": "XWINGRED2",
@@ -11487,7 +11796,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 41717
         },
         "xanadu-blood": {
           "baseId": "XANADUBLOOD",
@@ -11522,7 +11832,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 61710
         },
         "y-wing-rebel": {
           "baseId": "YWINGREBEL",
@@ -11552,7 +11863,8 @@ window.ForgeData.staticRosters = {
           "omicronCount": 0,
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
-          "equippedModCount": 0
+          "equippedModCount": 0,
+          "gp": 14814
         }
       },
       "unmatchedBaseIds": []

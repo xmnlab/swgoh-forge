@@ -23,7 +23,7 @@ DEFAULT_CHARACTERS = REPOSITORY_ROOT / "data" / "characters.js"
 DEFAULT_SHIPS = REPOSITORY_ROOT / "data" / "ships.js"
 ALLY_CODE_PATTERN = re.compile(r"^[1-9]{9}$")
 STORE_VARIABLE = "window.ForgeData.staticRosters"
-SCHEMA_VERSION = 3
+SCHEMA_VERSION = 4
 STAT_FIELDS = {
     1: "health",
     5: "speed",
@@ -233,6 +233,8 @@ def normalize_unit(
         "purchasedAbilityCount": len(purchased_abilities),
         "equippedModCount": len(unit.get("equippedStatMod") or []),
     }
+    if isinstance(unit.get("gp"), (int, float)) and unit["gp"] >= 0:
+        record["gp"] = round(unit["gp"])
     record.update(roster_stats(unit))
     if galactic_legend:
         record["galacticLegend"] = True
@@ -303,6 +305,8 @@ def normalize_player(
         "shipGP": ship_gp,
         "characterCount": len(characters),
         "shipCount": len(ships),
+        "characterGpCoverage": sum(1 for unit in characters.values() if "gp" in unit),
+        "shipGpCoverage": sum(1 for unit in ships.values() if "gp" in unit),
         "relicCount": sum(1 for unit in characters.values() if unit.get("relic", 0) > 0),
         "galacticLegends": sum(1 for unit in characters.values() if unit.get("galacticLegend")),
         "updatedAt": updated_at or utc_now(),
@@ -478,6 +482,87 @@ def fetch_skill_definitions(url: str) -> list[dict[str, Any]]:
     return skills
 
 
+def fetch_gp_calculator(url: str) -> tuple[Any, list[dict[str, Any]]]:
+    """Build the pinned Comlink client's local GP calculator from live data."""
+    try:
+        from swgoh_comlink import GameDataBuilder, StatCalc
+    except ImportError as error:
+        raise RuntimeError(
+            "The pinned swgoh_comlink package is required for Galactic Power calculation. "
+            "Run this command through scripts/update-roster-full.sh."
+        ) from error
+
+    enums = request_json(url, "/enums", None, "read GP GameDataItems enum")
+    metadata = request_json(
+        url,
+        "/metadata",
+        {"payload": {"clientSpecs": {"platform": "Android"}}, "enums": False},
+        "read GP game-data version",
+    )
+    version = str(metadata.get("latestGamedataVersion") or metadata.get("latestGameDataVersion") or "")
+    if not version:
+        raise RuntimeError("Comlink /metadata did not include latestGamedataVersion for GP calculation.")
+
+    requests = (
+        ("CategoryDefinitions", (("category", "categories"), "category")),
+        ("SkillDefinitions", (("skill", "skills"), "skill")),
+        ("EquipmentDefinitions", (("equipment",), "equipment")),
+        ("AllTables", (("table",), "table"), (("xpTable",), "xpTable")),
+        ("StatProgression", (("statProgression",), "statProgression")),
+        ("StatMod", (("statModSet",), "statModSet")),
+        ("RelicTierDefinitions", (("relicTierDefinition",), "relicTierDefinition")),
+        ("UnitDefinitions", (("units", "unit"), "units")),
+    )
+    raw: dict[str, list[dict[str, Any]]] = {}
+    for item_name, *collections in requests:
+        item_value = game_data_item_value(enums, item_name)
+        response = request_json(
+            url,
+            "/data",
+            {
+                "payload": {
+                    "version": version,
+                    "devicePlatform": "Android",
+                    "includePveUnits": False,
+                    "items": str(item_value),
+                },
+                "enums": False,
+            },
+            f"read {item_name} for Galactic Power ({item_value})",
+            timeout=180,
+        )
+        for aliases, output_name in collections:
+            collection = find_collection(response, *aliases)
+            if not collection:
+                raise RuntimeError(
+                    f"Comlink returned {item_name} successfully but its {output_name} collection was empty."
+                )
+            raw[output_name] = collection
+
+    class PreloadedGameDataClient:
+        def get_game_data(self, **_: Any) -> dict[str, list[dict[str, Any]]]:
+            return raw
+
+    game_data = GameDataBuilder(PreloadedGameDataClient()).build()
+    calculator = StatCalc(game_data=game_data)
+    print(
+        f"[roster] GP calculator ready for {len(game_data['unitData'])} unit definitions",
+        file=sys.stderr,
+    )
+    return calculator, raw["skill"]
+
+
+def calculate_player_galactic_power(url: str, player: dict[str, Any]) -> list[dict[str, Any]]:
+    calculator, skill_definitions = fetch_gp_calculator(url)
+    roster_units = player.get("rosterUnit") or []
+    calculator.calc_roster_stats(roster_units)
+    calculated = sum(1 for unit in roster_units if isinstance(unit.get("gp"), (int, float)))
+    if calculated == 0:
+        raise RuntimeError("The Galactic Power calculator did not produce GP for any roster units.")
+    print(f"[roster] calculated Galactic Power for {calculated}/{len(roster_units)} roster units", file=sys.stderr)
+    return skill_definitions
+
+
 def load_store(path: Path) -> dict[str, Any]:
     if not path.exists():
         return {"schemaVersion": SCHEMA_VERSION, "updatedAt": None, "rosters": {}}
@@ -531,7 +616,7 @@ def main(argv: list[str] | None = None) -> int:
         print("Do not commit a snapshot unless the player expects it to be published with the site.", file=sys.stderr)
         character_by_base, ship_by_base = load_catalog(arguments.characters, arguments.ships)
         player = fetch_player(arguments.url, ally_code)
-        skill_definitions = fetch_skill_definitions(arguments.url)
+        skill_definitions = calculate_player_galactic_power(arguments.url, player)
         roster = normalize_player(
             player,
             ally_code,
@@ -542,14 +627,17 @@ def main(argv: list[str] | None = None) -> int:
         if arguments.dry_run:
             print(
                 f"Validated {roster['name']} ({ally_code}): {roster['characterCount']} characters, "
-                f"{roster['shipCount']} ships; no files changed."
+                f"{roster['shipCount']} ships, GP calculated for "
+                f"{roster['characterGpCoverage']}/{roster['characterCount']} characters and "
+                f"{roster['shipGpCoverage']}/{roster['shipCount']} ships; no files changed."
             )
             return 0
         _, replaced = upsert_roster(arguments.output, roster)
         verb = "Updated" if replaced else "Added"
         print(
             f"{verb} {roster['name']} ({ally_code}) in {arguments.output} with "
-            f"{roster['characterCount']} characters and {roster['shipCount']} ships."
+            f"{roster['characterCount']} characters and {roster['shipCount']} ships; GP calculated for "
+            f"{roster['characterGpCoverage'] + roster['shipGpCoverage']} units."
         )
         if roster["unmatchedBaseIds"]:
             print(
