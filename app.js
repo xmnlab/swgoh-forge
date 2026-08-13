@@ -104,19 +104,9 @@
     "enemy-reinforcements": { title: "Add enemy reinforcements", kind: "ship", multi: true, max: 4 }
   };
 
-  function createUnitMap(units) {
-    const map = new Map();
-    units.forEach((unit) => {
-      map.set(unit.id, unit);
-      if (unit.baseId) map.set(unit.baseId, unit);
-      (unit.aliases || []).forEach((alias) => map.set(alias, unit));
-    });
-    return map;
-  }
-
-  const characterMap = createUnitMap(data.characters);
-  const shipMap = createUnitMap(data.ships);
-  const capitalMap = createUnitMap(data.capitalShips);
+  const characterMap = window.ForgeCatalogIndex.createUnitMap(data.characters);
+  const shipMap = window.ForgeCatalogIndex.createUnitMap(data.ships);
+  const capitalMap = window.ForgeCatalogIndex.createUnitMap(data.capitalShips);
 
   state.excludedUnits = [...new Set(state.excludedUnits.map((id) => characterMap.get(id)?.id).filter(Boolean))];
   state.requiredUnits = state.requiredUnits.filter((id) => !state.excludedUnits.includes(id));
@@ -555,7 +545,7 @@
     <div class="constraint-grid with-exclusions" data-step="3">
       <div class="field"><span class="field-label">Required units</span><div class="selection-zone"><div class="unit-row">${state.requiredUnits.map((id) => unitToken(id, { removeTarget: "required" })).join("")}<button class="add-unit" type="button" data-open-picker="required">＋ Add character</button></div>${state.requiredUnits.length ? "" : '<p class="empty-inline">Start with anyone — or leave the formation open and let Forge recommend the complete squad.</p>'}</div><p class="field-hint">Every selected character must appear in every result.</p></div>
       <div class="field" data-step="4"><span class="field-label">Required leader</span><div class="selection-zone leader-zone">${leader ? `<div class="unit-row">${unitToken(leader.id, { leader: true, removeTarget: "leader" })}</div>` : '<button class="add-unit" type="button" data-open-picker="leader">♛ Lock a leader</button><p class="empty-inline">Leave unlocked and we’ll recommend the strongest leader.</p>'}</div><p class="field-hint">A locked leader automatically becomes required.</p></div>
-      <div class="field"><div class="field-label-row"><span class="field-label">Excluded units</span>${state.excludedUnits.length ? '<button type="button" data-action="clear-exclusions">Clear all</button>' : ""}</div><div class="selection-zone exclusion-zone"><div class="unit-row">${state.excludedUnits.map((id) => unitToken(id, { removeTarget: "excluded" })).join("")}<button class="add-unit" type="button" data-open-picker="excluded">⊘ Exclude character</button></div>${state.excludedUnits.length ? "" : '<p class="empty-inline">Add characters you do not own or do not want recommended.</p>'}</div><p class="field-hint">Saved locally in this browser and kept when the form is reset.</p></div>
+      <div class="field"><div class="field-label-row"><span class="field-label">Excluded units</span>${state.excludedUnits.length ? '<button type="button" data-action="clear-exclusions">Clear all</button>' : ""}</div><div class="selection-zone exclusion-zone"><div class="unit-row">${state.excludedUnits.map((id) => unitToken(id, { removeTarget: "excluded" })).join("")}<button class="add-unit" type="button" data-open-picker="excluded">⊘ Exclude character</button></div>${state.excludedUnits.length ? "" : '<p class="empty-inline">Add characters you do not own or do not want recommended.</p>'}</div><p class="field-hint">Saved locally in this browser and kept when the form is reset. Selecting an excluded unit as required restores that exact unit.</p></div>
     </div>
     <div class="panel-actions"><button class="button button-quiet button-small" type="button" data-action="reset-build">Reset</button><button class="button button-wide" type="button" data-action="forge-build">Forge teams <span aria-hidden="true">→</span></button></div>`;
   }
@@ -1031,6 +1021,14 @@
     return mapping[target] || [];
   }
 
+  function renderPickerUnit(unit, config, selected) {
+    const isSelected = selected.includes(unit.id);
+    const canOverrideBuildExclusion = config.kind === "character" && ["required", "leader"].includes(state.picker);
+    const isSoftExcluded = canOverrideBuildExclusion && state.excludedUnits.includes(unit.id);
+    const info = (unit.factions || []).slice(0, 2).join(" · ") || unit.commanderName || "Capital ship";
+    return `<button type="button" class="picker-unit${isSelected ? " selected" : ""}${isSoftExcluded ? " soft-excluded" : ""}" role="option" aria-selected="${isSelected}" data-picker-unit="${escapeHtml(unit.id)}">${progressionPortrait(unit, unit.id, config.kind)}<span><span class="picker-name">${escapeHtml(displayName(unit))}</span><span class="picker-info">${escapeHtml(info)}</span>${isSoftExcluded ? '<span class="picker-availability">Excluded · select to include</span>' : ""}</span></button>`;
+  }
+
   function renderPicker() {
     const config = pickerConfig[state.picker];
     if (!config) return;
@@ -1040,7 +1038,8 @@
     const allUnits = config.kind === "capital" ? data.capitalShips : config.kind === "ship" ? data.ships : data.characters;
     const factions = [...new Set(allUnits.flatMap((unit) => unit.factions || []))].sort();
     const roles = [...new Set(allUnits.map((unit) => unit.role).filter(Boolean))].sort();
-    pickerContent.innerHTML = `<div class="picker-head"><div><span class="micro-label">Unit library</span><h2 id="picker-title">${escapeHtml(config.title)}</h2></div><button class="icon-button" type="button" data-action="close-picker" aria-label="Close picker">×</button></div><div class="picker-controls"><input class="input" type="search" data-picker-field="query" value="${escapeHtml(state.pickerQuery)}" placeholder="Search ${config.kind === "character" ? "characters" : "ships"}..." aria-label="Search units"><select class="select" data-picker-field="faction" aria-label="Filter by faction"><option value="all">All factions</option>${factions.map((faction) => `<option value="${escapeHtml(faction)}"${faction === state.pickerFaction ? " selected" : ""}>${escapeHtml(faction)}</option>`).join("")}</select>${config.kind === "character" ? `<select class="select" data-picker-field="alignment" aria-label="Filter by alignment"><option value="all">All alignments</option><option value="Light Side"${state.pickerAlignment === "Light Side" ? " selected" : ""}>Light Side</option><option value="Dark Side"${state.pickerAlignment === "Dark Side" ? " selected" : ""}>Dark Side</option></select>` : ""}${roles.length ? `<select class="select" data-picker-field="role" aria-label="Filter by role"><option value="all">All roles</option>${roles.map((role) => `<option value="${escapeHtml(role)}"${role === state.pickerRole ? " selected" : ""}>${escapeHtml(role)}</option>`).join("")}</select>` : ""}</div><div class="picker-body"><div class="picker-meta"><span>${units.length} units found</span><span>${selected.length}${displayedMax ? ` / ${displayedMax}` : ""} selected</span></div>${units.length ? `<div class="picker-grid" role="listbox" aria-label="Available units" aria-multiselectable="${config.multi}">${units.map((unit) => `<button type="button" class="picker-unit ${selected.includes(unit.id) ? "selected" : ""}" role="option" aria-selected="${selected.includes(unit.id)}" data-picker-unit="${unit.id}">${progressionPortrait(unit, unit.id, config.kind)}<span><span class="picker-name">${escapeHtml(displayName(unit))}</span><span class="picker-info">${escapeHtml((unit.factions || []).slice(0, 2).join(" · ") || unit.commanderName || "Capital ship")}</span></span></button>`).join("")}</div>` : '<div class="empty-state">No units match these filters. Try clearing the search or choosing another faction.</div>'}</div>`;
+    const explainsExclusions = config.kind === "character" && ["required", "leader"].includes(state.picker) && state.excludedUnits.length;
+    pickerContent.innerHTML = `<div class="picker-head"><div><span class="micro-label">Unit library</span><h2 id="picker-title">${escapeHtml(config.title)}</h2></div><button class="icon-button" type="button" data-action="close-picker" aria-label="Close picker">×</button></div><div class="picker-controls"><input class="input" type="search" data-picker-field="query" value="${escapeHtml(state.pickerQuery)}" placeholder="Search ${config.kind === "character" ? "characters" : "ships"}..." aria-label="Search units"><select class="select" data-picker-field="faction" aria-label="Filter by faction"><option value="all">All factions</option>${factions.map((faction) => `<option value="${escapeHtml(faction)}"${faction === state.pickerFaction ? " selected" : ""}>${escapeHtml(faction)}</option>`).join("")}</select>${config.kind === "character" ? `<select class="select" data-picker-field="alignment" aria-label="Filter by alignment"><option value="all">All alignments</option><option value="Light Side"${state.pickerAlignment === "Light Side" ? " selected" : ""}>Light Side</option><option value="Dark Side"${state.pickerAlignment === "Dark Side" ? " selected" : ""}>Dark Side</option></select>` : ""}${roles.length ? `<select class="select" data-picker-field="role" aria-label="Filter by role"><option value="all">All roles</option>${roles.map((role) => `<option value="${escapeHtml(role)}"${role === state.pickerRole ? " selected" : ""}>${escapeHtml(role)}</option>`).join("")}</select>` : ""}</div><div class="picker-body">${explainsExclusions ? '<p class="picker-context-note"><strong>Excluded units stay visible.</strong> Selecting one here restores that exact unit to the recommendation pool.</p>' : ""}<div class="picker-meta"><span>${units.length} units found</span><span>${selected.length}${displayedMax ? ` / ${displayedMax}` : ""} selected</span></div>${units.length ? `<div class="picker-grid" role="listbox" aria-label="Available units" aria-multiselectable="${config.multi}">${units.map((unit) => renderPickerUnit(unit, config, selected)).join("")}</div>` : '<div class="empty-state">No units match these filters. Try clearing the search or choosing another faction.</div>'}</div>`;
   }
 
   function selectPickerUnit(id) {
