@@ -23,7 +23,7 @@ DEFAULT_CHARACTERS = REPOSITORY_ROOT / "data" / "characters.js"
 DEFAULT_SHIPS = REPOSITORY_ROOT / "data" / "ships.js"
 ALLY_CODE_PATTERN = re.compile(r"^[1-9]{9}$")
 STORE_VARIABLE = "window.ForgeData.staticRosters"
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 STAT_FIELDS = {
     1: "health",
     5: "speed",
@@ -217,6 +217,8 @@ def normalize_unit(
         unit,
         skill_by_id or {},
     )
+    purchased_abilities = unit.get("purchasedAbilityId") or []
+    galactic_legend = "Galactic Legend" in (catalog_unit.get("factions") or [])
     record: dict[str, Any] = {
         "baseId": base_id,
         "level": int(unit.get("currentLevel") or 0),
@@ -228,12 +230,13 @@ def normalize_unit(
         "zetaCount": zeta_count,
         "omicronCount": omicron_count,
         "abilityProgressionComplete": ability_progression_complete,
-        "purchasedAbilityCount": len(unit.get("purchasedAbilityId") or []),
+        "purchasedAbilityCount": len(purchased_abilities),
         "equippedModCount": len(unit.get("equippedStatMod") or []),
     }
     record.update(roster_stats(unit))
-    if "Galactic Legend" in (catalog_unit.get("factions") or []):
+    if galactic_legend:
         record["galacticLegend"] = True
+        record["ultimateUnlocked"] = bool(purchased_abilities)
     return record
 
 

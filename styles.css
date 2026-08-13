@@ -331,6 +331,25 @@ button.unit-token { cursor: pointer; }
   letter-spacing: .04em;
 }
 .portrait::after { position: absolute; inset: 3px; border: 1px solid rgba(255,255,255,.13); border-radius: inherit; content: ""; pointer-events: none; }
+.portrait.roster-progress {
+  --gear-color: #dce5e8;
+  --gear-glow: rgba(220, 229, 232, .2);
+  border-width: 2px;
+  border-color: var(--gear-color);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--gear-color), transparent 54%), 0 0 9px var(--gear-glow);
+}
+.portrait.roster-progress::after { border-color: color-mix(in srgb, var(--gear-color), white 24%); opacity: .48; }
+.portrait.gear-white { --gear-color: #dce5e8; --gear-glow: rgba(220, 229, 232, .16); }
+.portrait.gear-green { --gear-color: #56d477; --gear-glow: rgba(86, 212, 119, .24); }
+.portrait.gear-blue { --gear-color: #4b9cff; --gear-glow: rgba(75, 156, 255, .28); }
+.portrait.gear-purple { --gear-color: #b26aff; --gear-glow: rgba(178, 106, 255, .3); box-shadow: 0 0 0 1px #7042a2, 0 0 0 3px rgba(178, 106, 255, .13), 0 0 10px var(--gear-glow); }
+.portrait.gear-gold { --gear-color: #f5c453; --gear-glow: rgba(245, 196, 83, .36); box-shadow: 0 0 0 1px #9f6e20, 0 0 0 3px rgba(245, 196, 83, .15), 0 0 11px var(--gear-glow); }
+.portrait.gear-relic.alignment-light { --gear-color: #58cfff; --gear-glow: rgba(55, 183, 255, .58); }
+.portrait.gear-relic.alignment-dark { --gear-color: #ff5563; --gear-glow: rgba(255, 45, 66, .58); }
+.portrait.gear-relic.alignment-neutral { --gear-color: #c8d0d3; --gear-glow: rgba(211, 222, 225, .46); }
+.portrait.gear-relic { box-shadow: 0 0 0 1px color-mix(in srgb, var(--gear-color), white 18%), 0 0 5px var(--gear-color), 0 0 14px var(--gear-glow); }
+.portrait.galactic-legend::after { border-color: #ffd878; box-shadow: inset 0 0 5px rgba(255, 195, 67, .48); opacity: .9; }
+.portrait.ultimate-unlocked::after { border-width: 2px; border-color: #ffe39a; box-shadow: inset 0 0 7px #f0a933, 0 0 7px rgba(255, 207, 94, .72); }
 .portrait.ship { border-radius: 10px; }
 .portrait.large { width: 68px; height: 68px; font-size: 14px; }
 .portrait.xlarge { width: 96px; height: 96px; font-size: 18px; }
@@ -354,6 +373,26 @@ button.unit-token { cursor: pointer; }
 .formation-unit button { padding: 0; border: 0; background: transparent; color: inherit; cursor: pointer; }
 .formation-unit .unit-detail-button { display: grid; justify-items: center; width: 100%; gap: 9px; }
 .roster-avatar-shell { position: relative; display: grid; place-items: center; }
+.roster-avatar-shell.galactic-legend::before,
+.roster-avatar-shell.ultimate-unlocked::after {
+  position: absolute;
+  z-index: 1;
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+.roster-avatar-shell.galactic-legend::before {
+  inset: -5px;
+  background: conic-gradient(from -12deg, transparent 0 5%, #ffd970 5% 17%, transparent 17% 33%, #c98e2c 33% 47%, transparent 47% 55%, #ffd970 55% 69%, transparent 69% 84%, #c98e2c 84% 96%, transparent 96%);
+  filter: drop-shadow(0 0 3px rgba(245, 184, 63, .55));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 0);
+  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 0);
+}
+.roster-avatar-shell.ultimate-unlocked::after {
+  inset: -8px;
+  border: 1px solid rgba(255, 220, 126, .8);
+  box-shadow: 0 0 5px #f4ad35, inset 0 0 6px rgba(255, 201, 81, .58), 0 0 14px rgba(255, 198, 67, .65);
+}
 .roster-tier-badge,
 .roster-level-badge {
   position: absolute;
@@ -372,7 +411,14 @@ button.unit-token { cursor: pointer; }
   line-height: 1;
 }
 .roster-tier-badge { left: -4px; border-radius: 5px 3px 5px 3px; color: var(--amber); }
-.roster-tier-badge.relic { border-color: rgba(116, 199, 246, .65); background: #123047; color: #8dd9ff; }
+.roster-avatar-shell.gear-white .roster-tier-badge { color: #dce5e8; }
+.roster-avatar-shell.gear-green .roster-tier-badge { border-color: rgba(86, 212, 119, .55); color: #70e58e; }
+.roster-avatar-shell.gear-blue .roster-tier-badge { border-color: rgba(75, 156, 255, .58); color: #73b4ff; }
+.roster-avatar-shell.gear-purple .roster-tier-badge { border-color: rgba(178, 106, 255, .6); color: #c48cff; }
+.roster-avatar-shell.gear-gold .roster-tier-badge { border-color: rgba(245, 196, 83, .68); background: #382b12; color: #f8d477; }
+.roster-tier-badge.endgame.alignment-light { border-color: rgba(88, 207, 255, .7); background: #103249; color: #8cdeff; }
+.roster-tier-badge.endgame.alignment-dark { border-color: rgba(255, 85, 99, .72); background: #3b171d; color: #ff8a94; }
+.roster-tier-badge.endgame.alignment-neutral { border-color: rgba(200, 208, 211, .7); background: #283035; color: #e0e5e7; }
 .roster-level-badge { right: -4px; border-radius: 50%; }
 .roster-stars {
   position: absolute;
@@ -816,6 +862,7 @@ button.mission-card { width: 100%; }
 .roster-badge-legend { display: flex; flex-wrap: wrap; gap: 7px 14px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--faint); font-size: 9px; text-transform: uppercase; }
 .roster-badge-legend span { display: inline-flex; gap: 5px; align-items: center; }
 .roster-badge-legend strong { color: var(--teal); font: 800 9px ui-monospace, monospace; }
+.roster-badge-legend .legend-gold { color: #f5c453; text-shadow: 0 0 6px rgba(245, 196, 83, .48); }
 .preferences { display: grid; gap: 10px; }
 .lineup-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px; }
 .summary-card { padding: 14px; border: 1px solid var(--line); border-radius: 9px; }

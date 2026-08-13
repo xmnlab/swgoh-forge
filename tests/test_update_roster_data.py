@@ -127,6 +127,7 @@ class UpdateRosterDataTests(unittest.TestCase):
             {"id": "basicskill_TEST", "tier": 6},
             {"id": "uniqueskill_TEST", "tier": 7},
         ]
+        player["rosterUnit"][0]["purchasedAbilityId"] = ["ultimateability_TEST"]
         skill_definitions = [
             {
                 "id": "basicskill_TEST",
@@ -152,6 +153,9 @@ class UpdateRosterDataTests(unittest.TestCase):
         self.assertTrue(hero["abilityProgressionComplete"])
         self.assertEqual(1, hero["zetaCount"])
         self.assertEqual(1, hero["omicronCount"])
+        self.assertTrue(hero["galacticLegend"])
+        self.assertTrue(hero["ultimateUnlocked"])
+        self.assertEqual(1, hero["purchasedAbilityCount"])
         self.assertEqual(
             [
                 {

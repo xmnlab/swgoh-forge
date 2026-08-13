@@ -197,10 +197,47 @@
     return unit?.shortName || unit?.name || "Unknown unit";
   }
 
+  function isGalacticLegend(unit, owned) {
+    return Boolean(owned?.galacticLegend || unit?.factions?.includes("Galactic Legend"));
+  }
+
+  function hasUnlockedUltimate(unit, owned) {
+    if (!isGalacticLegend(unit, owned) || !owned) return false;
+    if (owned.ultimateUnlocked !== null && owned.ultimateUnlocked !== undefined) return owned.ultimateUnlocked === true;
+    return Number(owned.purchasedAbilityCount || 0) > 0;
+  }
+
+  function alignmentFrameClass(unit) {
+    if (unit?.alignment === "Light Side") return "alignment-light";
+    if (unit?.alignment === "Dark Side") return "alignment-dark";
+    return "alignment-neutral";
+  }
+
+  function progressionFrameClasses(unit, owned) {
+    if (!owned) return "";
+    const gear = Number(owned.gear) || 1;
+    const endgame = gear >= 13 || Number(owned.relic) > 0;
+    const band = endgame
+      ? `gear-relic ${alignmentFrameClass(unit)}`
+      : gear >= 12
+        ? "gear-gold"
+        : gear >= 7
+          ? "gear-purple"
+          : gear >= 4
+            ? "gear-blue"
+            : gear >= 2
+              ? "gear-green"
+              : "gear-white";
+    const legend = endgame && isGalacticLegend(unit, owned) ? " galactic-legend" : "";
+    const ultimate = endgame && hasUnlockedUltimate(unit, owned) ? " ultimate-unlocked" : "";
+    return ` roster-progress ${band}${legend}${ultimate}`;
+  }
+
   function portrait(unit, kind = "character", size = "") {
     if (!unit) return "";
     const shipClass = kind === "character" ? "" : " ship";
-    return `<span class="portrait${shipClass}${size ? ` ${size}` : ""}" style="--unit-color:${escapeHtml(unit.color)}">
+    const owned = rosterUnitProgression(unit.id, kind);
+    return `<span class="portrait${shipClass}${size ? ` ${size}` : ""}${progressionFrameClasses(unit, owned)}" style="--unit-color:${escapeHtml(unit.color)}">
       <span aria-hidden="true">${initials(unit.name)}</span>
     </span>`;
   }
@@ -225,7 +262,8 @@
     const tier = owned.relic > 0 ? `Relic ${owned.relic}` : `Gear ${owned.gear || 0}`;
     const zetas = countLabel(owned.zetaCount) !== "—" ? `${owned.zetaCount} zeta power-ups` : "zeta data unavailable";
     const omicrons = countLabel(owned.omicronCount) !== "—" ? `${owned.omicronCount} omicron power-ups` : "omicron data unavailable";
-    return `View ${unit.name} details. ${owned.stars || 0} stars, level ${owned.level || 0}, ${tier}, ${abilityCount} abilities, ${zetas}, ${omicrons}`;
+    const legend = isGalacticLegend(unit, owned) ? `, Galactic Legend${hasUnlockedUltimate(unit, owned) ? " with Ultimate unlocked" : ""}` : "";
+    return `View ${unit.name} details. ${owned.stars || 0} stars, level ${owned.level || 0}, ${tier}${legend}, ${abilityCount} abilities, ${zetas}, ${omicrons}`;
   }
 
   function rosterAvatar(unit, id, kind, size, owned) {
@@ -234,9 +272,11 @@
     const tierLabel = owned.relic > 0 ? `R${owned.relic}` : `G${owned.gear || 0}`;
     const tierTitle = owned.relic > 0 ? `Relic level ${owned.relic}` : `Gear level ${owned.gear || 0}`;
     const stars = Math.max(0, Math.min(7, Number(owned.stars) || 0));
-    return `<span class="roster-avatar-shell">
+    const frameClasses = progressionFrameClasses(unit, owned);
+    const ultimateTitle = hasUnlockedUltimate(unit, owned) ? ' title="Galactic Legend · Ultimate unlocked"' : isGalacticLegend(unit, owned) ? ' title="Galactic Legend"' : "";
+    return `<span class="roster-avatar-shell${frameClasses}"${ultimateTitle}>
       ${portrait(unit, kind, size)}
-      <span class="roster-tier-badge${owned.relic > 0 ? " relic" : ""}" title="${tierTitle}">${tierLabel}</span>
+      <span class="roster-tier-badge${Number(owned.gear) >= 13 || owned.relic > 0 ? ` endgame ${alignmentFrameClass(unit)}` : ""}" title="${tierTitle}">${tierLabel}</span>
       <span class="roster-level-badge" title="Training level ${owned.level || 0}">L${owned.level || 0}</span>
       <span class="roster-stars" title="${stars} stars" aria-hidden="true">${"★".repeat(stars) || "☆"}</span>
     </span>
@@ -702,7 +742,7 @@
   function renderRosterProfile() {
     const roster = activeRoster();
     if (!roster) return "";
-    return `<div class="roster-profile"><div class="profile-emblem" aria-hidden="true">${escapeHtml(initials(roster.name))}</div><div><div class="profile-head"><div><h2>${escapeHtml(roster.name)}</h2><p>${escapeHtml(roster.guild)} · ${escapeHtml(formatAllyCode(roster.allyCode))}<br><small>Snapshot updated ${escapeHtml(formatSnapshotDate(roster.updatedAt))}</small></p></div><span class="status-badge">Static snapshot</span></div><div class="profile-stats"><div class="profile-stat"><strong>${formatPower(roster.galacticPower)}</strong><span>Galactic Power</span></div><div class="profile-stat"><strong>${formatNumber(roster.characterCount)}</strong><span>Characters</span></div><div class="profile-stat"><strong>${formatNumber(roster.shipCount)}</strong><span>Ships</span></div><div class="profile-stat"><strong>${formatNumber(roster.relicCount)}</strong><span>Relic units</span></div><div class="profile-stat"><strong>${formatNumber(roster.galacticLegends)}</strong><span>Galactic Legends</span></div></div><div class="roster-badge-legend" aria-label="Roster avatar badge legend"><span><strong>G / R</strong>Gear or relic</span><span><strong>A</strong>Abilities</span><span><strong>Z</strong>Zetas</span><span><strong>O</strong>Omicrons</span></div></div></div>`;
+    return `<div class="roster-profile"><div class="profile-emblem" aria-hidden="true">${escapeHtml(initials(roster.name))}</div><div><div class="profile-head"><div><h2>${escapeHtml(roster.name)}</h2><p>${escapeHtml(roster.guild)} · ${escapeHtml(formatAllyCode(roster.allyCode))}<br><small>Snapshot updated ${escapeHtml(formatSnapshotDate(roster.updatedAt))}</small></p></div><span class="status-badge">Static snapshot</span></div><div class="profile-stats"><div class="profile-stat"><strong>${formatPower(roster.galacticPower)}</strong><span>Galactic Power</span></div><div class="profile-stat"><strong>${formatNumber(roster.characterCount)}</strong><span>Characters</span></div><div class="profile-stat"><strong>${formatNumber(roster.shipCount)}</strong><span>Ships</span></div><div class="profile-stat"><strong>${formatNumber(roster.relicCount)}</strong><span>Relic units</span></div><div class="profile-stat"><strong>${formatNumber(roster.galacticLegends)}</strong><span>Galactic Legends</span></div></div><div class="roster-badge-legend" aria-label="Roster avatar badge legend"><span><strong>G / R</strong>Gear or relic</span><span><strong>A</strong>Abilities</span><span><strong>Z</strong>Zetas</span><span><strong>O</strong>Omicrons</span><span><strong class="legend-gold">Gold ring</strong>Galactic Legend / Ultimate glow</span></div></div></div>`;
   }
 
   function renderRosterWorkspace() {
@@ -928,6 +968,7 @@
       ["Level", owned?.level || "—"],
       ["Gear", owned?.gear || "—"],
       ["Relic", owned?.relic > 0 ? `R${owned.relic}` : "—"],
+      ...(isGalacticLegend(unit, owned) ? [["Ultimate", owned ? (hasUnlockedUltimate(unit, owned) ? "Unlocked" : "Not unlocked") : "—"]] : []),
       ["Speed", owned?.speed || "—"],
       ["Health", owned?.health || "—"],
       ["Protection", owned?.protection || "—"],
