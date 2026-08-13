@@ -218,7 +218,7 @@
     const gear = Number(owned.gear) || 1;
     const endgame = gear >= 13 || Number(owned.relic) > 0;
     const band = endgame
-      ? `gear-relic ${alignmentFrameClass(unit)}`
+      ? "gear-relic"
       : gear >= 12
         ? "gear-gold"
         : gear >= 7
@@ -231,14 +231,15 @@
     const legend = endgame && isGalacticLegend(unit, owned) ? " galactic-legend" : "";
     const ultimate = endgame && hasUnlockedUltimate(unit, owned) ? " ultimate-unlocked" : "";
     const relic = Number(owned.relic) > 0 ? " relic-active" : "";
-    return ` roster-progress ${band}${relic}${legend}${ultimate}`;
+    return ` roster-progress ${band} ${alignmentFrameClass(unit)}${relic}${legend}${ultimate}`;
   }
 
   function portrait(unit, kind = "character", size = "") {
     if (!unit) return "";
     const shipClass = kind === "character" ? "" : " ship";
     const owned = rosterUnitProgression(unit.id, kind);
-    return `<span class="portrait${shipClass}${size ? ` ${size}` : ""}${progressionFrameClasses(unit, owned)}" style="--unit-color:${escapeHtml(unit.color)}">
+    const alignmentClass = owned ? "" : ` ${alignmentFrameClass(unit)}`;
+    return `<span class="portrait${shipClass}${size ? ` ${size}` : ""}${alignmentClass}${progressionFrameClasses(unit, owned)}" style="--unit-color:${escapeHtml(unit.color)}">
       <span aria-hidden="true">${initials(unit.name)}</span>
     </span>`;
   }

@@ -314,6 +314,8 @@ button.unit-token { cursor: pointer; }
 
 .portrait {
   --unit-color: #55777c;
+  --avatar-color: var(--unit-color);
+  --avatar-deep: #0b1519;
   position: relative;
   display: grid;
   flex: 0 0 auto;
@@ -321,16 +323,22 @@ button.unit-token { cursor: pointer; }
   width: 42px;
   height: 42px;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--unit-color), white 14%);
+  border: 1px solid color-mix(in srgb, var(--avatar-color), white 14%);
   border-radius: 50%;
   background:
-    linear-gradient(135deg, color-mix(in srgb, var(--unit-color), #111 22%), #0b1519);
+    radial-gradient(circle at 28% 22%, color-mix(in srgb, var(--avatar-color), white 20%), transparent 9%, color-mix(in srgb, var(--avatar-color), transparent 78%) 30%, transparent 52%),
+    radial-gradient(circle at 50% 112%, color-mix(in srgb, var(--avatar-color), transparent 52%), transparent 58%),
+    linear-gradient(145deg, color-mix(in srgb, var(--avatar-color), #071014 68%), var(--avatar-deep));
   color: #f4faf9;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: .04em;
   z-index: 1;
 }
+.portrait.alignment-light { --avatar-color: #22d5ff; --avatar-deep: #062635; }
+.portrait.alignment-dark { --avatar-color: #ff304d; --avatar-deep: #350a14; }
+.portrait.alignment-neutral { --avatar-color: #dcebed; --avatar-deep: #222f33; }
+.portrait > span { position: relative; z-index: 1; text-shadow: 0 1px 4px #000, 0 0 7px color-mix(in srgb, var(--avatar-color), transparent 35%); }
 .portrait::after { position: absolute; inset: 3px; border: 1px solid rgba(255,255,255,.13); border-radius: inherit; content: ""; pointer-events: none; }
 .portrait.roster-progress {
   --gear-color: #dce5e8;
@@ -349,13 +357,14 @@ button.unit-token { cursor: pointer; }
 .portrait.gear-relic.alignment-dark { --gear-color: #ff304d; --gear-glow: rgba(255, 35, 70, .82); }
 .portrait.gear-relic.alignment-neutral { --gear-color: #edf7f8; --gear-glow: rgba(213, 238, 242, .7); }
 .portrait.gear-relic {
-  background:
-    radial-gradient(circle at 50% 110%, color-mix(in srgb, var(--gear-color), transparent 53%), transparent 58%),
-    linear-gradient(135deg, color-mix(in srgb, var(--unit-color), #111 16%), #071216);
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--gear-color), white 26%), 0 0 7px var(--gear-color), 0 0 19px var(--gear-glow);
 }
 .portrait.gear-relic.relic-active {
   border-color: color-mix(in srgb, var(--gear-color), white 20%);
+  background:
+    radial-gradient(circle at 28% 22%, color-mix(in srgb, var(--avatar-color), white 32%), transparent 10%, color-mix(in srgb, var(--avatar-color), transparent 62%) 34%, transparent 56%),
+    radial-gradient(circle at 50% 112%, color-mix(in srgb, var(--avatar-color), transparent 35%), transparent 61%),
+    linear-gradient(145deg, color-mix(in srgb, var(--avatar-color), #071014 54%), var(--avatar-deep));
   filter: saturate(1.25) brightness(1.08);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--gear-color), white 18%), 0 0 9px var(--gear-color), 0 0 24px var(--gear-glow);
 }

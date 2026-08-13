@@ -3,7 +3,7 @@ window.ForgeData = window.ForgeData || {};
 
 window.ForgeData.staticRosters = {
   "schemaVersion": 4,
-  "updatedAt": "2026-08-13T00:23:07Z",
+  "updatedAt": "2026-08-13T00:56:55Z",
   "rosters": {
     "885583128": {
       "allyCode": "885583128",
@@ -19,7 +19,7 @@ window.ForgeData.staticRosters = {
       "shipGpCoverage": 46,
       "relicCount": 74,
       "galacticLegends": 0,
-      "updatedAt": "2026-08-13T00:23:07Z",
+      "updatedAt": "2026-08-13T00:56:55Z",
       "source": "comlink-static",
       "units": {
         "0-0-0": {
