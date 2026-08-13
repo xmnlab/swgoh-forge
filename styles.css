@@ -419,6 +419,19 @@ button.unit-token { cursor: pointer; }
 .progression-rings.relic-rings i { border-width: 2px; box-shadow: 0 0 4px var(--gear-color), 0 0 9px var(--gear-glow); }
 .progression-rings.relic-rings i:nth-child(4) { border-color: color-mix(in srgb, var(--gear-color), white 23%); box-shadow: 0 0 6px var(--gear-color), 0 0 16px var(--gear-glow); }
 .roster-avatar-shell.relic-active { filter: drop-shadow(0 0 7px color-mix(in srgb, var(--gear-color), transparent 30%)); }
+.leader-synergy-ring {
+  --synergy-active: #72ffa5;
+  --synergy-inactive: rgba(151, 188, 177, .22);
+  position: absolute;
+  z-index: 5;
+  inset: 4px;
+  border-radius: 50%;
+  background: var(--synergy-segments);
+  filter: drop-shadow(0 0 2px rgba(114, 255, 165, .18));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2.5px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2.5px));
+}
+.leader-synergy-ring.has-match { filter: drop-shadow(0 0 3px rgba(114, 255, 165, .78)); }
 .roster-avatar-shell.galactic-legend::before,
 .roster-avatar-shell.ultimate-unlocked::after {
   position: absolute;
@@ -675,6 +688,12 @@ button.unit-token { cursor: pointer; }
 .recommendation-card:first-child .rank { color: var(--amber); }
 .formation { display: flex; flex-wrap: wrap; gap: 5px; align-items: flex-start; }
 .formation-summary { min-width: 0; }
+.leader-synergy-summary { display: flex; flex-wrap: wrap; gap: 5px 9px; align-items: center; margin-top: 9px; color: #9debb7; font-size: 9px; line-height: 1.35; }
+.leader-synergy-summary strong { color: #c0ffd4; font-weight: 800; }
+.leader-synergy-summary small { color: var(--faint); font-size: 8px; letter-spacing: .06em; text-transform: uppercase; }
+.leader-synergy-summary.unavailable { color: var(--faint); }
+.leader-synergy-swatch { width: 12px; height: 12px; border: 2px solid #72ffa5; border-radius: 50%; box-shadow: 0 0 5px rgba(114, 255, 165, .55); }
+.leader-synergy-summary.unavailable .leader-synergy-swatch { border-color: rgba(151,188,177,.3); box-shadow: none; }
 .formation-gp { display: inline-flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; margin-top: 9px; padding: 6px 10px; border: 1px solid rgba(71,199,194,.25); border-radius: 5px; background: rgba(71,199,194,.06); }
 .formation-gp span { color: var(--faint); font-size: 8px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .formation-gp strong { color: var(--teal); font: 700 12px ui-monospace, monospace; }

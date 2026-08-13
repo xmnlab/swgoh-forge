@@ -71,4 +71,18 @@ assert(
   "an excluded unit must never appear in recommendations"
 );
 
+const revanIds = ["jedi-knight-revan", "bastila-shan", "jolee-bindo", "grand-master-yoda", "general-kenobi"];
+const revanSynergy = optimizer.leaderSynergyGroups(
+  revanIds.map((id) => data.characters.find((unit) => unit.id === id)),
+  "jedi-knight-revan",
+  data.synergyModel
+);
+const labelsFor = (unitId) => revanSynergy.byUnit[unitId].map((group) => group.label).sort();
+assert.deepStrictEqual(labelsFor("bastila-shan"), ["Jedi", "Old Republic"]);
+assert.deepStrictEqual(labelsFor("jolee-bindo"), ["Jedi", "Old Republic"]);
+assert.deepStrictEqual(labelsFor("grand-master-yoda"), ["Jedi"]);
+assert.deepStrictEqual(labelsFor("general-kenobi"), ["Jedi"]);
+assert.strictEqual(revanSynergy.coveredCount, 4, "Revan should cover every ally in this formation");
+assert.deepStrictEqual(revanSynergy.groups.map((group) => group.label).sort(), ["Jedi", "Old Republic"]);
+
 console.log("Team optimizer tests passed.");

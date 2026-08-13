@@ -3,23 +3,23 @@ window.ForgeData = window.ForgeData || {};
 
 window.ForgeData.staticRosters = {
   "schemaVersion": 4,
-  "updatedAt": "2026-08-13T00:56:55Z",
+  "updatedAt": "2026-08-13T02:01:41Z",
   "rosters": {
     "885583128": {
       "allyCode": "885583128",
       "name": "XMN",
       "guild": "Mustafar's nightmare",
       "level": 85,
-      "galacticPower": 5972366,
-      "characterGP": 3865719,
-      "shipGP": 2106647,
+      "galacticPower": 5974384,
+      "characterGP": 3867616,
+      "shipGP": 2106768,
       "characterCount": 264,
       "shipCount": 46,
       "characterGpCoverage": 264,
       "shipGpCoverage": 46,
       "relicCount": 74,
       "galacticLegends": 0,
-      "updatedAt": "2026-08-13T00:56:55Z",
+      "updatedAt": "2026-08-13T02:01:41Z",
       "source": "comlink-static",
       "units": {
         "0-0-0": {
@@ -7973,7 +7973,7 @@ window.ForgeData.staticRosters = {
           "level": 85,
           "stars": 7,
           "gear": 13,
-          "relic": 6,
+          "relic": 7,
           "skillCount": 6,
           "abilities": [
             {
@@ -8015,7 +8015,7 @@ window.ForgeData.staticRosters = {
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
           "equippedModCount": 6,
-          "gp": 32943
+          "gp": 34840
         },
         "rey-scavenger": {
           "baseId": "REY",
@@ -11572,7 +11572,7 @@ window.ForgeData.staticRosters = {
             },
             {
               "id": "specialskill_GEONOSIANSTARFIGHTER101",
-              "level": 5,
+              "level": 6,
               "maxLevel": 8
             }
           ],
@@ -11581,7 +11581,7 @@ window.ForgeData.staticRosters = {
           "abilityProgressionComplete": true,
           "purchasedAbilityCount": 0,
           "equippedModCount": 0,
-          "gp": 49927
+          "gp": 50048
         },
         "tie-advanced": {
           "baseId": "TIEADVANCED",

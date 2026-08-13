@@ -275,8 +275,28 @@
     return Math.max(1, Math.min(4, Math.ceil(gear / 3)));
   }
 
-  function progressionPortrait(unit, id, kind, size = "", owned = rosterUnitProgression(id, kind)) {
-    if (!owned) return portrait(unit, kind, size);
+  function renderLeaderSynergyRing(matchedGroups = [], allGroups = []) {
+    if (!allGroups.length) return "";
+    const matchedKeys = new Set(matchedGroups.map((group) => group.key));
+    const step = 360 / allGroups.length;
+    const gap = Math.min(10, Math.max(5, step * 0.08));
+    const stops = allGroups.flatMap((group, index) => {
+      const start = index * step;
+      const end = (index + 1) * step - gap;
+      const color = matchedKeys.has(group.key) ? "var(--synergy-active)" : "var(--synergy-inactive)";
+      return [`${color} ${start}deg ${end}deg`, `transparent ${end}deg ${(index + 1) * step}deg`];
+    }).join(",");
+    const matchedLabels = matchedGroups.map((group) => group.label);
+    const missedLabels = allGroups.filter((group) => !matchedKeys.has(group.key)).map((group) => group.label);
+    const title = `${matchedGroups.length}/${allGroups.length} leader synergy groups matched${matchedLabels.length ? `: ${matchedLabels.join(" + ")}` : ""}${missedLabels.length ? `. Not matched: ${missedLabels.join(" + ")}` : ""}`;
+    return `<span class="leader-synergy-ring${matchedGroups.length ? " has-match" : ""}" style="--synergy-segments:conic-gradient(from -90deg,${stops})" title="${escapeHtml(title)}" aria-hidden="true"></span>`;
+  }
+
+  function progressionPortrait(unit, id, kind, size = "", owned = rosterUnitProgression(id, kind), leaderGroups = [], allLeaderGroups = []) {
+    if (!owned) {
+      if (!allLeaderGroups.length) return portrait(unit, kind, size);
+      return `<span class="roster-avatar-shell leader-synergy-active">${portrait(unit, kind, size)}${renderLeaderSynergyRing(leaderGroups, allLeaderGroups)}</span>`;
+    }
     const tierLabel = owned.relic > 0 ? `R${owned.relic}` : `G${owned.gear || 0}`;
     const tierTitle = owned.relic > 0 ? `Relic level ${owned.relic}` : `Gear level ${owned.gear || 0}`;
     const stars = Math.max(0, Math.min(7, Number(owned.stars) || 0));
@@ -289,13 +309,14 @@
       <span class="roster-tier-badge${Number(owned.gear) >= 13 || owned.relic > 0 ? ` endgame ${alignmentFrameClass(unit)}` : ""}" title="${tierTitle}">${tierLabel}</span>
       <span class="roster-level-badge" title="Training level ${owned.level || 0}">L${owned.level || 0}</span>
       <span class="roster-stars" title="${stars} stars" aria-hidden="true"><b>★</b>${stars}</span>
+      ${renderLeaderSynergyRing(leaderGroups, allLeaderGroups)}
     </span>`;
   }
 
-  function rosterAvatar(unit, id, kind, size, owned) {
+  function rosterAvatar(unit, id, kind, size, owned, leaderGroups = [], allLeaderGroups = []) {
     if (!owned) return portrait(unit, kind, size);
     const abilityCount = catalogAbilities(id, kind).length || owned.skillCount || 0;
-    return `${progressionPortrait(unit, id, kind, size, owned)}
+    return `${progressionPortrait(unit, id, kind, size, owned, leaderGroups, allLeaderGroups)}
     <span class="roster-ability-strip" aria-hidden="true">
       <span title="${abilityCount} abilities">A${abilityCount}</span>
       <span class="zeta" title="${countLabel(owned.zetaCount)} applied zeta power-ups">Z${countLabel(owned.zetaCount)}</span>
@@ -309,10 +330,13 @@
     if (!unit) return "";
     const canExclude = options.excludable && kind === "character";
     const owned = rosterUnitProgression(id, kind);
+    const leaderGroups = options.leaderGroups || [];
+    const allLeaderGroups = options.allLeaderGroups || [];
+    const synergyLabel = allLeaderGroups.length ? ` Matches ${leaderGroups.length} of ${allLeaderGroups.length} leader synergy groups${leaderGroups.length ? `: ${leaderGroups.map((group) => group.label).join(" and ")}` : ""}.` : "";
     return `<div class="formation-unit${options.leader ? " leader" : ""}${canExclude ? " excludable" : ""}${owned ? " roster-enhanced" : ""}">
       ${options.leader ? '<span class="crown" aria-label="Leader">♛</span>' : ""}
-      <button class="unit-detail-button" type="button" data-unit-id="${id}" data-unit-kind="${kind}" aria-label="${escapeHtml(progressionAriaLabel(unit, owned, id, kind))}">
-        ${rosterAvatar(unit, id, kind, options.size || "large", owned)}
+      <button class="unit-detail-button" type="button" data-unit-id="${id}" data-unit-kind="${kind}" aria-label="${escapeHtml(progressionAriaLabel(unit, owned, id, kind) + synergyLabel)}">
+        ${owned ? rosterAvatar(unit, id, kind, options.size || "large", owned, leaderGroups, allLeaderGroups) : progressionPortrait(unit, id, kind, options.size || "large", owned, leaderGroups, allLeaderGroups)}
       </button>
       ${canExclude ? `<button class="result-exclude-button" type="button" data-exclude-result-unit="${id}" aria-label="Exclude ${escapeHtml(unit.name)} from recommendations" title="Exclude from recommendations"><span aria-hidden="true">×</span></button>` : ""}
       <span class="unit-name">${escapeHtml(displayName(unit))}</span>
@@ -356,8 +380,16 @@
 
   function renderCharacterFormation(ids, options = {}) {
     const leaderId = options.leaderId || null;
-    const units = ids.map((id) => formationUnit(id, { leader: id === leaderId, excludable: options.excludable })).join("");
-    return `<div class="formation-summary"><div class="formation"${options.ariaLabel ? ` aria-label="${escapeHtml(options.ariaLabel)}"` : ""}>${units}</div>${renderFormationGp(ids)}</div>`;
+    const formationUnits = ids.map((id) => characterMap.get(id)).filter(Boolean);
+    const leaderSynergy = leaderId && window.ForgeTeamOptimizer?.leaderSynergyGroups
+      ? window.ForgeTeamOptimizer.leaderSynergyGroups(formationUnits, leaderId, data.synergyModel)
+      : null;
+    const units = ids.map((id) => formationUnit(id, { leader: id === leaderId, excludable: options.excludable, leaderGroups: leaderSynergy?.byUnit?.[id] || [], allLeaderGroups: id === leaderId ? [] : leaderSynergy?.groups || [] })).join("");
+    const groupLabels = leaderSynergy?.groups?.map((group) => group.label) || [];
+    const synergySummary = leaderSynergy
+      ? `<div class="leader-synergy-summary${groupLabels.length ? "" : " unavailable"}"><span class="leader-synergy-swatch" aria-hidden="true"></span><span><strong>${escapeHtml(leaderSynergy.leaderName)}</strong> leader synergy${groupLabels.length ? ` · ${groupLabels.map((label) => escapeHtml(label)).join(" / ")}` : " · no explicit group match"}</span><small>${leaderSynergy.coveredCount}/${leaderSynergy.teammateCount} allies</small></div>`
+      : "";
+    return `<div class="formation-summary"><div class="formation"${options.ariaLabel ? ` aria-label="${escapeHtml(options.ariaLabel)}"` : ""}>${units}</div>${synergySummary}${renderFormationGp(ids)}</div>`;
   }
 
   function renderFleetFormation(capitalShipId, starters = [], reinforcements = [], options = {}) {

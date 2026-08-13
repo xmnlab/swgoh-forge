@@ -8,6 +8,13 @@
 
   const clamp = (value, minimum = 0, maximum = 100) => Math.max(minimum, Math.min(maximum, value));
   const unique = (values) => [...new Set(values)];
+  const leaderGroupPrefixes = ["affiliation_", "profession_", "species_", "alignment_"];
+  const categoryLabelOverrides = {
+    affiliation_oldrepublic: "Old Republic",
+    affiliation_firstorder: "First Order",
+    affiliation_galacticrepublic: "Galactic Republic",
+    affiliation_galactic_republic_jedi: "Galactic Republic Jedi"
+  };
 
   function categoryWeight(category) {
     if (category.startsWith("affiliation_")) return 6;
@@ -17,10 +24,65 @@
   }
 
   function categoryLabel(category) {
+    if (categoryLabelOverrides[category]) return categoryLabelOverrides[category];
     return category
       .replace(/^(?:affiliation|profession|species|alignment|role|teamup)_/, "")
       .replaceAll("_", " ")
       .replace(/\b\w/g, (letter) => letter.toUpperCase());
+  }
+
+  function leaderSynergyGroups(units, leaderId, model) {
+    const entries = (units || []).map((unit) => ({ unit, profile: profileFor(model, unit) }));
+    const leader = entries.find((entry) => entry.unit.id === leaderId);
+    if (!leader) return null;
+    const leaderAbilities = (leader.profile.abilities || []).filter((ability) => ability.kind === "leader");
+    const groupCandidates = [];
+    leaderAbilities.forEach((ability) => {
+      unique([
+        ...(ability.targetCategories || []),
+        ...(ability.separateCategories || []),
+        ...(ability.groupedCategories || [])
+      ]).filter((category) => leaderGroupPrefixes.some((prefix) => category.startsWith(prefix))).forEach((category) => {
+        groupCandidates.push({ key: category, label: categoryLabel(category), ability: ability.name });
+      });
+      (ability.targetUnits || []).forEach((unitId) => {
+        const target = entries.find((entry) => entry.unit.id === unitId)?.unit;
+        groupCandidates.push({ key: `unit_${unitId}`, label: target ? `Direct: ${target.name}` : "Direct ally", ability: ability.name });
+      });
+    });
+    const groups = unique(groupCandidates.map((group) => group.key)).map((key) => groupCandidates.find((group) => group.key === key));
+    const byUnit = {};
+    entries.filter((entry) => entry !== leader).forEach((entry) => {
+      const memberCategories = new Set(entry.profile.categories || []);
+      const groups = [];
+      leaderAbilities.forEach((ability) => {
+        const grouped = ability.groupedCategories || [];
+        const groupedSet = new Set(grouped);
+        const groupedActive = !grouped.length || grouped.every((category) => memberCategories.has(category));
+        const candidates = unique([
+          ...(ability.targetCategories || []),
+          ...(ability.separateCategories || []),
+          ...(groupedActive ? grouped : [])
+        ]).filter((category) => leaderGroupPrefixes.some((prefix) => category.startsWith(prefix)));
+        candidates.forEach((category) => {
+          if (groupedSet.has(category) && !groupedActive) return;
+          if (!memberCategories.has(category)) return;
+          groups.push({ key: category, label: categoryLabel(category), ability: ability.name });
+        });
+        if ((ability.targetUnits || []).includes(entry.unit.id)) {
+          groups.push(groupCandidates.find((group) => group.key === `unit_${entry.unit.id}`));
+        }
+      });
+      byUnit[entry.unit.id] = unique(groups.filter(Boolean).map((group) => group.key)).map((key) => groupCandidates.find((group) => group.key === key));
+    });
+    return {
+      leaderId,
+      leaderName: leader.unit.name,
+      byUnit,
+      groups,
+      coveredCount: Object.values(byUnit).filter((memberGroups) => memberGroups.length > 0).length,
+      teammateCount: Math.max(0, entries.length - 1)
+    };
   }
 
   function profileFor(model, unit) {
@@ -284,5 +346,5 @@
       }));
   }
 
-  return { optimize, evaluateTeam };
+  return { optimize, evaluateTeam, leaderSynergyGroups };
 });
