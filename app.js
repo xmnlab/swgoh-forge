@@ -13,6 +13,7 @@
   const drawerScrim = document.querySelector(".drawer-scrim");
   const toastRegion = document.querySelector("#toast-region");
   const EXCLUDED_UNITS_STORAGE_KEY = "swgoh-forge.excluded-units.v1";
+  const ACTIVE_ROSTER_STORAGE_KEY = "swgoh-forge.active-roster.v1";
 
   function readCachedExcludedUnits() {
     try {
@@ -22,6 +23,19 @@
       return [];
     }
   }
+
+  function readCachedActiveRosterAllyCode() {
+    try {
+      const allyCode = String(window.localStorage.getItem(ACTIVE_ROSTER_STORAGE_KEY) || "").replace(/[\s-]/g, "");
+      if (allyCode && staticRosters[allyCode]) return allyCode;
+      if (allyCode) window.localStorage.removeItem(ACTIVE_ROSTER_STORAGE_KEY);
+    } catch {
+      // The roster can still be loaded manually when browser storage is unavailable.
+    }
+    return null;
+  }
+
+  const cachedActiveRosterAllyCode = readCachedActiveRosterAllyCode();
 
   const state = {
     section: getSectionFromHash(),
@@ -49,10 +63,10 @@
     mustUse: [],
     counterExcluded: [],
     counterPreserved: [],
-    rosterLoaded: false,
-    rosterAllyCode: defaultRosterAllyCode,
-    activeRosterAllyCode: null,
-    compareRoster: false,
+    rosterLoaded: Boolean(cachedActiveRosterAllyCode),
+    rosterAllyCode: cachedActiveRosterAllyCode || defaultRosterAllyCode,
+    activeRosterAllyCode: cachedActiveRosterAllyCode,
+    compareRoster: Boolean(cachedActiveRosterAllyCode),
     requirementLevel: "recommended",
     results: { build: false, counter: false, roster: false },
     generatedSquads: null,
@@ -113,6 +127,18 @@
       else window.localStorage.removeItem(EXCLUDED_UNITS_STORAGE_KEY);
     } catch {
       // Storage can be disabled by the browser; exclusions still work for this session.
+    }
+  }
+
+  function persistActiveRosterSelection() {
+    try {
+      if (state.activeRosterAllyCode && staticRosters[state.activeRosterAllyCode]) {
+        window.localStorage.setItem(ACTIVE_ROSTER_STORAGE_KEY, state.activeRosterAllyCode);
+      } else {
+        window.localStorage.removeItem(ACTIVE_ROSTER_STORAGE_KEY);
+      }
+    } catch {
+      // The active roster remains available for this session when storage is disabled.
     }
   }
 
@@ -1134,6 +1160,7 @@
     state.activeRosterAllyCode = allyCode;
     state.rosterLoaded = true;
     state.compareRoster = true;
+    persistActiveRosterSelection();
     state.generatedSquads = null;
     state.simulationResult = null;
     state.results = { build: false, counter: false, roster: false };
