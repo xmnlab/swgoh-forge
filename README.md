@@ -142,7 +142,9 @@ The generated file intentionally omits the internal player ID, raw equipped-mod 
 
 The Build → Characters flow runs locally in the browser over the generated `data/synergies.js` model. It searches valid leaders and squad combinations while honoring required, excluded, and locked-leader constraints. Leadership coverage carries the largest weight, followed by shared affiliations, directed unique/special relationships, explicit `teamup_*` tags, role balance, and any game-provided recommended-squad overlap. Expanded results name the abilities and relationships that drove the score.
 
-The score deliberately does not claim which squad wins a specific matchup. Gear, relics, mods, datacrons, turn order, AI behavior, an opponent lineup, and empirical battle outcomes are outside this general formation score. Those require roster and battle-history data that Comlink's static game definitions do not provide.
+By default, formations are ordered by the unrounded overall composite: 44% leadership, 31% faction cohesion, and 25% modeled mechanics, plus game-recommended-squad overlap and role balance. Remaining ties use mechanics and pair strength. The displayed whole-number score is rounded, so the interface also exposes the exact composite and mechanics values that distinguish apparently equal results. The ranking control can instead order the candidate pool by leadership, cohesion, or calculated team GP. In every case, Forge builds up to 80 high-synergy candidates, applies the chosen ordering, and only then selects the requested Top K.
+
+The score deliberately does not claim which squad wins a specific matchup. Gear, relics, mods, datacrons, turn order, AI behavior, an opponent lineup, and empirical battle outcomes are outside this general formation score. Team GP is available as an explicit roster-aware ordering but is not silently included in the default synergy composite. Matchup claims require roster and battle-history data that Comlink's static game definitions do not provide.
 
 ### What the battle simulation means
 

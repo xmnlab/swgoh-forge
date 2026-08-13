@@ -43,6 +43,7 @@
     gameMode: "gac-5v5",
     objective: "best-overall",
     resultCount: 3,
+    resultSort: "overall",
     requiredUnits: ["darth-vader", "mara-jade"],
     excludedUnits: readCachedExcludedUnits(),
     preservedUnits: [],
@@ -530,7 +531,7 @@
       <div class="panel">
         <h2 class="side-title">Build sequence</h2>
         <div class="side-nav">${steps.map(([number, label], index) => `<button type="button" class="${index === 0 ? "active" : ""}" data-scroll-step="${index + 1}"><span class="nav-number">${number}</span><span>${label}</span></button>`).join("")}</div>
-        <div class="side-summary"><span class="micro-label">Current brief</span><dl><dt>Formation</dt><dd>${state.unitType === "characters" ? "Squad" : "Fleet"}</dd><dt>Context</dt><dd>${escapeHtml(currentModeLabel())}</dd><dt>Objective</dt><dd>${escapeHtml(data.objectives.find((item) => item.id === state.objective)?.label || "Best overall")}</dd>${state.unitType === "characters" ? `<dt>Results</dt><dd>Top ${state.resultCount}</dd><dt>Excluded</dt><dd>${state.excludedUnits.length}</dd>` : ""}</dl></div>
+        <div class="side-summary"><span class="micro-label">Current brief</span><dl><dt>Formation</dt><dd>${state.unitType === "characters" ? "Squad" : "Fleet"}</dd><dt>Context</dt><dd>${escapeHtml(currentModeLabel())}</dd><dt>Objective</dt><dd>${escapeHtml(data.objectives.find((item) => item.id === state.objective)?.label || "Best overall")}</dd>${state.unitType === "characters" ? `<dt>Sort</dt><dd>${escapeHtml(resultSortLabel())}</dd><dt>Results</dt><dd>Top ${state.resultCount}</dd><dt>Excluded</dt><dd>${state.excludedUnits.length}</dd>` : ""}</dl></div>
       </div>
     </aside>`;
   }
@@ -544,10 +545,11 @@
 
   function renderCharacterBuildForm() {
     const leader = characterMap.get(state.leaderId);
-    return `<div class="form-grid three" data-step="2">
+    return `<div class="form-grid four" data-step="2">
       <div class="field"><label for="game-mode">Battle context</label><select class="select" id="game-mode" data-field="gameMode">${optionsMarkup(data.gameModes, state.gameMode)}</select><p class="field-hint">Context remains attached to every result.</p></div>
       <div class="field"><label for="objective">Optimization objective</label><select class="select" id="objective" data-field="objective">${optionsMarkup(objectiveOptions(), state.objective)}</select><p class="field-hint">Only objectives relevant to this context are shown.</p></div>
       <div class="field"><label for="result-count">Number of results</label><input class="input" id="result-count" type="number" min="1" max="20" step="1" value="${state.resultCount}" list="result-count-presets" data-field="resultCount" inputmode="numeric"><datalist id="result-count-presets"><option value="3"></option><option value="5"></option><option value="10"></option><option value="15"></option><option value="20"></option></datalist><p class="field-hint">Choose any value from 1–20. Common choices: 3, 5, 10, 15, or 20.</p></div>
+      <div class="field"><label for="result-sort">Rank formations by</label><select class="select" id="result-sort" data-field="resultSort"><option value="overall"${state.resultSort === "overall" ? " selected" : ""}>Overall synergy · recommended</option><option value="leadership"${state.resultSort === "leadership" ? " selected" : ""}>Leadership coverage</option><option value="cohesion"${state.resultSort === "cohesion" ? " selected" : ""}>Faction cohesion</option><option value="gp"${state.resultSort === "gp" ? " selected" : ""}${state.rosterLoaded ? "" : " disabled"}>Team GP${state.rosterLoaded ? "" : " · load roster"}</option></select><p class="field-hint">The selected ordering is applied to the candidate pool before Top K is taken.</p></div>
     </div>
     <div class="constraint-grid with-exclusions" data-step="3">
       <div class="field"><span class="field-label">Required units</span><div class="selection-zone"><div class="unit-row">${state.requiredUnits.map((id) => unitToken(id, { removeTarget: "required" })).join("")}<button class="add-unit" type="button" data-open-picker="required">＋ Add character</button></div>${state.requiredUnits.length ? "" : '<p class="empty-inline">Start with anyone — or leave the formation open and let Forge recommend the complete squad.</p>'}</div><p class="field-hint">Every selected character must appear in every result.</p></div>
@@ -591,14 +593,30 @@
     const recommendations = state.generatedSquads || calculateSquadRecommendations();
     const quality = data.synergyModel?.quality === "explicit-ability-data" ? "Ability relationships" : data.synergyModel?.quality === "localized-kit-text" ? "Localized kit model" : "Tag-only model";
     const resultHeading = recommendations.length
-      ? `Top ${recommendations.length} Synergy ${recommendations.length === 1 ? "Formation" : "Formations"}`
+      ? `Top ${recommendations.length} ${recommendations.length === 1 ? "Formation" : "Formations"} · ${resultSortLabel()}`
       : "Synergy Formations";
-    return `<section class="results-zone" id="build-results" data-step="5"><div class="results-heading"><div><span class="eyebrow">Forge output</span><h2>${resultHeading}</h2><p>General team cohesion with the selected constraints · not an opponent-specific counter ranking</p></div><span class="context-badge">${escapeHtml(quality)}</span></div>${recommendations.length ? `<div class="results-list">${recommendations.map((rec, index) => renderSquadRecommendation(rec, index)).join("")}</div>` : '<div class="empty-state">No valid squad fits these required, leader, and excluded-unit constraints.</div>'}</section>`;
+    return `<section class="results-zone" id="build-results" data-step="5"><div class="results-heading"><div><span class="eyebrow">Forge output</span><h2>${resultHeading}</h2><p>General team cohesion with the selected constraints · not an opponent-specific counter ranking</p></div><span class="context-badge">${escapeHtml(quality)}</span></div>${recommendations.length ? `${renderRankingExplanation()}<div class="results-list">${recommendations.map((rec, index) => renderSquadRecommendation(rec, index)).join("")}</div>` : '<div class="empty-state">No valid squad fits these required, leader, and excluded-unit constraints.</div>'}</section>`;
+  }
+
+  function resultSortLabel() {
+    return ({ overall: "Overall synergy", leadership: "Leadership", cohesion: "Cohesion", gp: "Team GP" })[state.resultSort] || "Overall synergy";
+  }
+
+  function renderRankingExplanation() {
+    const descriptions = {
+      overall: "Exact composite: 44% leadership + 31% cohesion + 25% modeled mechanics, then game-squad overlap and role balance. Ties use mechanics and pair strength.",
+      leadership: "Leadership score descending; ties use exact overall synergy, cohesion, then modeled mechanics.",
+      cohesion: "Cohesion score descending; ties use exact overall synergy, leadership, then modeled mechanics.",
+      gp: "Complete calculated team GP descending; ties and unavailable GP use exact overall synergy, mechanics, then pair strength."
+    };
+    return `<div class="ranking-explanation"><span class="ranking-icon" aria-hidden="true">⇅</span><div><strong>Sorted by ${escapeHtml(resultSortLabel())} before Top ${state.resultCount}</strong><p>${escapeHtml(descriptions[state.resultSort] || descriptions.overall)} The optimizer first builds up to 80 high-synergy candidates.</p></div></div>`;
   }
 
   function calculateSquadRecommendations() {
     const size = state.gameMode === "gac-3v3" ? 3 : 5;
     if (!window.ForgeTeamOptimizer) return [];
+    const roster = activeRoster();
+    const unitGpById = Object.fromEntries(Object.entries(roster?.units || {}).map(([id, unit]) => [id, unit.gp]));
     return window.ForgeTeamOptimizer.optimize({
       characters: data.characters,
       synergyModel: data.synergyModel,
@@ -607,7 +625,10 @@
       excludedIds: state.excludedUnits,
       leaderId: state.leaderId,
       mode: state.gameMode,
-      limit: state.resultCount
+      limit: state.resultCount,
+      candidateLimit: 80,
+      sortBy: state.resultSort,
+      unitGpById
     });
   }
 
@@ -625,7 +646,7 @@
   }
 
   function renderMetrics(rec) {
-    if (rec.model === "synergy") return `<div class="metrics"><div class="metric primary"><strong>${rec.score}</strong><span>Synergy</span></div><div class="metric"><strong>${rec.leadership}</strong><span>Leadership</span></div><div class="metric"><strong>${rec.cohesion}</strong><span>Cohesion</span></div></div>`;
+    if (rec.model === "synergy") return `<div class="metrics"><div class="metric${state.resultSort === "overall" ? " primary" : ""}"><strong>${rec.score}</strong><span>Synergy</span></div><div class="metric${state.resultSort === "leadership" ? " primary" : ""}"><strong>${rec.leadership}</strong><span>Leadership</span></div><div class="metric${state.resultSort === "cohesion" ? " primary" : ""}"><strong>${rec.cohesion}</strong><span>Cohesion</span></div></div><div class="ranking-facts"><span>Exact synergy <strong>${Number(rec.exactScore).toFixed(2)}</strong></span><span>Mechanics <strong>${rec.mechanics}</strong></span>${state.resultSort === "gp" ? `<span>Team GP <strong>${rec.teamGpComplete ? formatNumber(rec.teamGp) : "—"}</strong></span>` : ""}</div>`;
     return `<div class="metrics"><div class="metric primary"><strong>${rec.score}</strong><span>Overall</span></div><div class="metric"><strong>${rec.win}</strong><span>Win potential</span></div><div class="metric"><strong>${rec.reliability}</strong><span>Reliability</span></div></div>`;
   }
 
@@ -1186,6 +1207,7 @@
     state.fleetReinforcements = [];
     state.generatedSquads = null;
     state.resultCount = 3;
+    state.resultSort = "overall";
     state.results.build = false;
     state.loading = null;
     render();
@@ -1343,6 +1365,10 @@
       else if (field === "resultCount") {
         const parsed = Number.parseInt(event.target.value, 10);
         state.resultCount = Math.max(1, Math.min(20, Number.isFinite(parsed) ? parsed : 3));
+        if (state.results.build && state.unitType === "characters") state.generatedSquads = calculateSquadRecommendations();
+      }
+      else if (field === "resultSort") {
+        state.resultSort = event.target.value;
         if (state.results.build && state.unitType === "characters") state.generatedSquads = calculateSquadRecommendations();
       }
       else state[field] = event.target.value;

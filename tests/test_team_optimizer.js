@@ -85,4 +85,46 @@ assert.deepStrictEqual(labelsFor("general-kenobi"), ["Jedi"]);
 assert.strictEqual(revanSynergy.coveredCount, 4, "Revan should cover every ally in this formation");
 assert.deepStrictEqual(revanSynergy.groups.map((group) => group.label).sort(), ["Jedi", "Old Republic"]);
 
+const cohesionPool = optimizer.optimize({
+  characters: data.characters,
+  synergyModel: data.synergyModel,
+  size: 5,
+  requiredIds: ["hera-syndulla"],
+  leaderId: "hera-syndulla",
+  limit: 20,
+  candidateLimit: 80,
+  sortBy: "cohesion"
+});
+const cohesionTopThree = optimizer.optimize({
+  characters: data.characters,
+  synergyModel: data.synergyModel,
+  size: 5,
+  requiredIds: ["hera-syndulla"],
+  leaderId: "hera-syndulla",
+  limit: 3,
+  candidateLimit: 80,
+  sortBy: "cohesion"
+});
+assert(cohesionPool.every((result, index) => index === 0 || cohesionPool[index - 1].cohesion >= result.cohesion), "cohesion sorting should be descending");
+assert.deepStrictEqual(
+  cohesionTopThree.map((result) => result.members.join("|")),
+  cohesionPool.slice(0, 3).map((result) => result.members.join("|")),
+  "sorting must happen before the Top K slice"
+);
+
+const unitGpById = Object.fromEntries(data.characters.map((unit, index) => [unit.id, (index + 1) * 1000]));
+const gpRanked = optimizer.optimize({
+  characters: data.characters,
+  synergyModel: data.synergyModel,
+  size: 5,
+  requiredIds: ["hera-syndulla"],
+  leaderId: "hera-syndulla",
+  limit: 10,
+  candidateLimit: 80,
+  sortBy: "gp",
+  unitGpById
+});
+assert(gpRanked.every((result) => result.teamGpComplete), "GP sorting should report complete totals when every unit has GP");
+assert(gpRanked.every((result, index) => index === 0 || gpRanked[index - 1].teamGp >= result.teamGp), "GP sorting should be descending");
+
 console.log("Team optimizer tests passed.");

@@ -619,6 +619,7 @@ button.unit-token { cursor: pointer; }
 
 .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .form-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.form-grid.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .field { min-width: 0; }
 .field > label, .field-label { display: block; margin-bottom: 8px; color: var(--muted); font-size: 11px; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; }
 .field-hint { margin: 7px 0 0; color: var(--faint); font-size: 11px; }
@@ -680,6 +681,10 @@ button.unit-token { cursor: pointer; }
 .results-heading { margin: 30px 0 15px; }
 .results-heading p { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
 .results-list { display: grid; gap: 14px; }
+.ranking-explanation { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 11px; align-items: start; margin-bottom: 14px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; background: rgba(71,199,194,.04); }
+.ranking-icon { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid var(--line-strong); border-radius: 50%; color: var(--teal); }
+.ranking-explanation strong { color: var(--text); font-size: 11px; }
+.ranking-explanation p { margin: 4px 0 0; color: var(--faint); font-size: 10px; line-height: 1.5; }
 .recommendation-card { position: relative; overflow: hidden; box-shadow: 0 15px 42px rgba(0,0,0,.19); }
 .recommendation-card::before { position: absolute; top: 0; bottom: 0; left: 0; width: 2px; background: var(--teal); content: ""; opacity: .6; }
 .recommendation-card:first-child::before { background: var(--amber); opacity: 1; }
@@ -709,6 +714,8 @@ button.unit-token { cursor: pointer; }
 .metric strong { display: block; color: var(--text); font-size: 24px; font-weight: 580; line-height: 1; }
 .metric span { display: block; margin-top: 6px; overflow-wrap: anywhere; color: var(--faint); font-size: 8px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
 .metric.primary strong { color: var(--amber); }
+.ranking-facts { display: flex; flex-wrap: wrap; gap: 5px 12px; margin-top: 10px; color: var(--faint); font-size: 8px; letter-spacing: .05em; text-transform: uppercase; }
+.ranking-facts strong { margin-left: 3px; color: var(--muted); font: 800 9px ui-monospace, monospace; }
 .qualifiers { display: grid; grid-template-columns: repeat(3, minmax(0, auto)); gap: 8px 13px; margin-top: 14px; }
 .qualifiers span { color: var(--faint); font-size: 9px; text-transform: uppercase; }
 .qualifiers strong { margin-left: 5px; color: var(--muted); font-size: 10px; font-weight: 700; }
@@ -1019,7 +1026,7 @@ button.mission-card { width: 100%; }
   .hero h1 { font-size: clamp(34px, 10vw, 39px); }
   .hero-actions .button { flex: 1 1 145px; }
   .hero-demo { padding: 17px; }
-  .form-grid, .form-grid.three, .constraint-grid, .constraint-grid.with-exclusions, .constraint-columns, .fleet-builder-layout, .mission-result, .simulator-teams, .coverage-panel { grid-template-columns: 1fr; }
+  .form-grid, .form-grid.three, .form-grid.four, .constraint-grid, .constraint-grid.with-exclusions, .constraint-columns, .fleet-builder-layout, .mission-result, .simulator-teams, .coverage-panel { grid-template-columns: 1fr; }
   .versus-marker { min-height: 30px; }
   .model-notice { display: grid; }
   .panel { padding: 17px; }

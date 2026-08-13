@@ -160,6 +160,28 @@
     return score;
   }
 
+  function teamGalacticPower(units, unitGpById) {
+    const rawValues = units.map((unit) => unitGpById?.[unit.id]);
+    const values = rawValues.map(Number);
+    const complete = values.length > 0 && rawValues.every((value) => value !== null && value !== undefined && value !== "") && values.every((value) => Number.isFinite(value) && value >= 0);
+    return { complete, value: complete ? values.reduce((total, value) => total + value, 0) : null };
+  }
+
+  function compareMetricResults(left, right, sortBy) {
+    const metricDifference = (metric) => Number(right.metrics[metric] || 0) - Number(left.metrics[metric] || 0);
+    if (sortBy === "leadership") {
+      return metricDifference("leadership") || metricDifference("exactScore") || metricDifference("cohesion") || metricDifference("mechanics");
+    }
+    if (sortBy === "cohesion") {
+      return metricDifference("cohesion") || metricDifference("exactScore") || metricDifference("leadership") || metricDifference("mechanics");
+    }
+    if (sortBy === "gp") {
+      if (left.teamGp.complete !== right.teamGp.complete) return left.teamGp.complete ? -1 : 1;
+      if (left.teamGp.complete && left.teamGp.value !== right.teamGp.value) return right.teamGp.value - left.teamGp.value;
+    }
+    return metricDifference("exactScore") || metricDifference("mechanics") || metricDifference("pairStrength");
+  }
+
   function teamExplanations(entries, leader, metrics, officialSource) {
     const teammates = entries.filter((entry) => entry.unit.id !== leader.unit.id);
     const leaderAbilities = (leader.profile.abilities || []).filter((ability) => ability.kind === "leader");
@@ -238,8 +260,10 @@
     const mechanics = clamp(20 + (mechanicsTotal / Math.max(1, pairCount * 34)) * 80);
     const official = officialSquadBonus(entries.map((entry) => entry.unit.id), model?.officialSquads);
     const balance = roleBalance(units);
-    const score = clamp(Math.round(leadership * 0.44 + cohesion * 0.31 + mechanics * 0.25 + official.value + balance), 0, 99);
-    const metrics = { score, leadership: Math.round(leadership), cohesion: Math.round(cohesion), mechanics: Math.round(mechanics), officialBonus: official.value, raw: score * 100 + mechanics + pairTotal / Math.max(1, pairCount) };
+    const exactScore = clamp(leadership * 0.44 + cohesion * 0.31 + mechanics * 0.25 + official.value + balance, 0, 99);
+    const pairStrength = pairTotal / Math.max(1, pairCount);
+    const score = Math.round(exactScore);
+    const metrics = { score, exactScore: Number(exactScore.toFixed(2)), leadership: Math.round(leadership), cohesion: Math.round(cohesion), mechanics: Math.round(mechanics), officialBonus: official.value, roleBalance: balance, pairStrength: Number(pairStrength.toFixed(2)), raw: exactScore * 100 + mechanics + pairStrength };
     return {
       ...metrics,
       explanations: includeExplanations ? teamExplanations(entries, leader, metrics, official.source) : [],
@@ -252,6 +276,9 @@
     const model = options.synergyModel || { units: {}, officialSquads: [], quality: "category-tags-only" };
     const size = options.size || 5;
     const resultLimit = Math.max(1, Math.min(20, Math.round(Number(options.limit) || 3)));
+    const candidateLimit = Math.max(resultLimit, Math.min(100, Math.round(Number(options.candidateLimit) || resultLimit)));
+    const sortBy = ["overall", "leadership", "cohesion", "gp"].includes(options.sortBy) ? options.sortBy : "overall";
+    const unitGpById = options.unitGpById || {};
     const requiredIds = unique(options.requiredIds || []);
     const excluded = new Set(options.excludedIds || []);
     const characterById = new Map(characters.map((unit) => [unit.id, unit]));
@@ -312,18 +339,18 @@
             seen.add(key);
             return true;
           })
-          .slice(0, Math.max(12, resultLimit));
+          .slice(0, Math.max(12, candidateLimit));
         if (!beams.length) break;
       }
-      beams.slice(0, options.leaderId ? resultLimit : Math.max(2, Math.ceil(resultLimit / Math.max(1, leaders.length)) + 1)).forEach((beam) => {
+      beams.slice(0, options.leaderId ? candidateLimit : Math.max(3, Math.ceil(candidateLimit / Math.max(1, leaders.length)) + 2)).forEach((beam) => {
         const ordered = [leader, ...beam.units.filter((unit) => unit.id !== leader.id)];
-        allResults.push({ leader, units: ordered, metrics: evaluateTeam(ordered, leader.id, model) });
+        allResults.push({ leader, units: ordered, metrics: evaluateTeam(ordered, leader.id, model), teamGp: teamGalacticPower(ordered, unitGpById) });
       });
     });
 
     const seen = new Set();
     return allResults
-      .sort((left, right) => right.metrics.score - left.metrics.score || right.metrics.raw - left.metrics.raw)
+      .sort((left, right) => compareMetricResults(left, right, sortBy))
       .filter((result) => {
         const key = result.units.map((unit) => unit.id).sort().join("|");
         if (seen.has(key)) return false;
@@ -337,9 +364,16 @@
         leaderId: result.leader.id,
         members: result.units.map((unit) => unit.id),
         score: result.metrics.score,
+        exactScore: result.metrics.exactScore,
         leadership: result.metrics.leadership,
         cohesion: result.metrics.cohesion,
         mechanics: result.metrics.mechanics,
+        officialBonus: result.metrics.officialBonus,
+        roleBalance: result.metrics.roleBalance,
+        pairStrength: result.metrics.pairStrength,
+        teamGp: result.teamGp.value,
+        teamGpComplete: result.teamGp.complete,
+        sortedBy: sortBy,
         explanations: result.metrics.explanations,
         strongFor: result.metrics.strongFor,
         dataQuality: model.quality || "category-tags-only"
