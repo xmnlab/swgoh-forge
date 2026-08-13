@@ -23,5 +23,15 @@
     return map;
   }
 
-  return { createUnitMap };
+  function createRosterGpMap(units, rosterUnits) {
+    const progression = rosterUnits || {};
+    return Object.fromEntries((units || []).map((unit) => {
+      const owned = progression[unit.id];
+      // A catalog unit absent from a loaded roster is not activated and has 0
+      // GP. An activated unit whose old snapshot lacks GP remains unknown.
+      return [unit.id, owned ? owned.gp : 0];
+    }));
+  }
+
+  return { createUnitMap, createRosterGpMap };
 });

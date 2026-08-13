@@ -85,6 +85,42 @@ assert.deepStrictEqual(labelsFor("general-kenobi"), ["Jedi"]);
 assert.strictEqual(revanSynergy.coveredCount, 4, "Revan should cover every ally in this formation");
 assert.deepStrictEqual(revanSynergy.groups.map((group) => group.label).sort(), ["Jedi", "Old Republic"]);
 
+const gideonWithRey = optimizer.evaluateTeam(
+  ["moff-gideon", "rey", "snowtrooper-commander", "snowtrooper", "scout-trooper"].map((id) => data.characters.find((unit) => unit.id === id)),
+  "moff-gideon",
+  data.synergyModel
+);
+assert(
+  gideonWithRey.leadership < 100,
+  "Rey's Attacker role must not bypass Moff Gideon's Dark Side / Imperial Trooper leader affinities"
+);
+const reyRecommendations = optimizer.optimize({
+  characters: data.characters,
+  synergyModel: data.synergyModel,
+  size: 5,
+  requiredIds: ["rey"],
+  limit: 20,
+  candidateLimit: 80
+});
+assert(
+  reyRecommendations.every((result) => result.leaderId !== "moff-gideon"),
+  "Moff Gideon must not rank as a sensible leader for required Light Side Rey"
+);
+
+const gpWithLockedRey = Object.fromEntries(data.characters.map((unit) => [unit.id, unit.id === "rey" ? 0 : 1_000]));
+const lockedReyResult = optimizer.optimize({
+  characters: data.characters,
+  synergyModel: data.synergyModel,
+  size: 5,
+  requiredIds: ["rey"],
+  limit: 1,
+  candidateLimit: 20,
+  sortBy: "gp",
+  unitGpById: gpWithLockedRey
+})[0];
+assert(lockedReyResult.teamGpComplete, "an unactivated required unit at 0 GP must still produce a complete team total");
+assert.strictEqual(lockedReyResult.teamGp, 4_000, "the locked unit must contribute 0 while the four activated allies contribute GP");
+
 const cohesionPool = optimizer.optimize({
   characters: data.characters,
   synergyModel: data.synergyModel,

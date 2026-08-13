@@ -368,6 +368,18 @@ button.unit-token { cursor: pointer; }
   filter: saturate(1.25) brightness(1.08);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--gear-color), white 18%), 0 0 9px var(--gear-color), 0 0 24px var(--gear-glow);
 }
+.portrait.roster-unactivated {
+  border-style: dashed;
+  border-color: rgba(220, 239, 241, .72);
+  background:
+    linear-gradient(rgba(226, 241, 242, .28), rgba(226, 241, 242, .28)),
+    radial-gradient(circle at 28% 22%, color-mix(in srgb, var(--avatar-color), white 58%), transparent 34%),
+    linear-gradient(145deg, color-mix(in srgb, var(--avatar-color), #cddadd 72%), #536267);
+  filter: saturate(.28) brightness(1.22);
+  opacity: .76;
+  box-shadow: inset 0 0 0 2px rgba(235, 247, 248, .12);
+}
+.formation-unit.roster-unactivated .unit-name { color: #9aa9aa; }
 .portrait.galactic-legend::after { border-color: #ffd878; box-shadow: inset 0 0 5px rgba(255, 195, 67, .48); opacity: .9; }
 .portrait.ultimate-unlocked::after { border-width: 2px; border-color: #ffe39a; box-shadow: inset 0 0 7px #f0a933, 0 0 7px rgba(255, 207, 94, .72); }
 .portrait.ship { border-radius: 10px; }
@@ -704,6 +716,8 @@ button.unit-token { cursor: pointer; }
 .formation-gp strong { color: var(--teal); font: 700 12px ui-monospace, monospace; }
 .formation-gp.unavailable { border-color: var(--line); background: rgba(255,255,255,.02); }
 .formation-gp.unavailable strong { color: var(--faint); }
+.formation-gp.includes-unactivated { border-color: rgba(239,169,92,.27); }
+.formation-gp.includes-unactivated span { color: var(--amber); }
 .fleet-formation { display: grid; gap: 13px; }
 .fleet-group { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .fleet-group-label { width: 92px; color: var(--faint); font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }

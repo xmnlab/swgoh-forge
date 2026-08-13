@@ -255,8 +255,9 @@
     if (!unit) return "";
     const shipClass = kind === "character" ? "" : " ship";
     const owned = rosterUnitProgression(unit.id, kind);
+    const unactivatedClass = state.rosterLoaded && !owned ? " roster-unactivated" : "";
     const alignmentClass = owned ? "" : ` ${alignmentFrameClass(unit)}`;
-    return `<span class="portrait${shipClass}${size ? ` ${size}` : ""}${alignmentClass}${progressionFrameClasses(unit, owned)}" style="--unit-color:${escapeHtml(unit.color)}">
+    return `<span class="portrait${shipClass}${size ? ` ${size}` : ""}${alignmentClass}${progressionFrameClasses(unit, owned)}${unactivatedClass}" style="--unit-color:${escapeHtml(unit.color)}">
       <span aria-hidden="true">${initials(unit.name)}</span>
     </span>`;
   }
@@ -276,7 +277,7 @@
   }
 
   function progressionAriaLabel(unit, owned, id, kind) {
-    if (!owned) return `View ${unit.name} details`;
+    if (!owned) return `View ${unit.name} details${state.rosterLoaded ? ". Not activated in the loaded roster" : ""}`;
     const abilityCount = catalogAbilities(id, kind).length || owned.skillCount || 0;
     const tier = owned.relic > 0 ? `Relic ${owned.relic}` : `Gear ${owned.gear || 0}`;
     const zetas = countLabel(owned.zetaCount) !== "—" ? `${owned.zetaCount} zeta power-ups` : "zeta data unavailable";
@@ -350,7 +351,8 @@
     const leaderGroups = options.leaderGroups || [];
     const allLeaderGroups = options.allLeaderGroups || [];
     const synergyLabel = allLeaderGroups.length ? ` Matches ${leaderGroups.length} of ${allLeaderGroups.length} leader synergy groups${leaderGroups.length ? `: ${leaderGroups.map((group) => group.label).join(" and ")}` : ""}.` : "";
-    return `<div class="formation-unit${options.leader ? " leader" : ""}${canExclude ? " excludable" : ""}${owned ? " roster-enhanced" : ""}">
+    const unactivated = state.rosterLoaded && !owned;
+    return `<div class="formation-unit${options.leader ? " leader" : ""}${canExclude ? " excludable" : ""}${owned ? " roster-enhanced" : ""}${unactivated ? " roster-unactivated" : ""}">
       ${options.leader ? '<span class="crown" aria-label="Leader">♛</span>' : ""}
       <button class="unit-detail-button" type="button" data-unit-id="${id}" data-unit-kind="${kind}" aria-label="${escapeHtml(progressionAriaLabel(unit, owned, id, kind) + synergyLabel)}">
         ${owned ? rosterAvatar(unit, id, kind, options.size || "large", owned, leaderGroups, allLeaderGroups) : progressionPortrait(unit, id, kind, options.size || "large", owned, leaderGroups, allLeaderGroups)}
@@ -380,7 +382,8 @@
     const roster = activeRoster();
     if (!state.rosterLoaded || !roster) return null;
     const owned = kind === "character" ? roster.units?.[id] : roster.ships?.[id];
-    if (!owned || owned.gp == null || owned.gp === "") return null;
+    if (!owned) return 0;
+    if (owned.gp == null || owned.gp === "") return null;
     return Number.isFinite(Number(owned.gp)) ? Number(owned.gp) : null;
   }
 
@@ -389,10 +392,11 @@
     const values = ids.map((id) => rosterUnitGp(id, kind));
     const complete = values.every((value) => value !== null);
     const total = complete ? values.reduce((sum, value) => sum + value, 0) : null;
+    const unactivatedCount = ids.filter((id) => !rosterUnitProgression(id, kind)).length;
     const title = complete
-      ? `${label}: ${formatNumber(total)}`
-      : `${label} unavailable because one or more units lack calculated GP. Refresh this Ally Code with the local roster updater.`;
-    return `<div class="formation-gp${complete ? "" : " unavailable"}" title="${escapeHtml(title)}"><span>${escapeHtml(label)}</span><strong>${complete ? formatNumber(total) : "—"}</strong></div>`;
+      ? `${label}: ${formatNumber(total)}${unactivatedCount ? `. Includes ${unactivatedCount} unactivated ${unactivatedCount === 1 ? "unit" : "units"} at 0 GP.` : ""}`
+      : `${label} unavailable because one or more activated units lack calculated GP. Refresh this Ally Code with the local roster updater.`;
+    return `<div class="formation-gp${complete ? "" : " unavailable"}${unactivatedCount ? " includes-unactivated" : ""}" title="${escapeHtml(title)}"><span>${escapeHtml(label)}${unactivatedCount ? ` · ${unactivatedCount} locked` : ""}</span><strong>${complete ? formatNumber(total) : "—"}</strong></div>`;
   }
 
   function renderCharacterFormation(ids, options = {}) {
@@ -607,7 +611,7 @@
     const size = state.gameMode === "gac-3v3" ? 3 : 5;
     if (!window.ForgeTeamOptimizer) return [];
     const roster = activeRoster();
-    const unitGpById = Object.fromEntries(Object.entries(roster?.units || {}).map(([id, unit]) => [id, unit.gp]));
+    const unitGpById = roster ? window.ForgeCatalogIndex.createRosterGpMap(data.characters, roster.units) : {};
     return window.ForgeTeamOptimizer.optimize({
       characters: data.characters,
       synergyModel: data.synergyModel,
@@ -935,7 +939,7 @@
         <div class="help-avatar-layout">
           ${renderHelpAvatarExample()}
           <dl class="help-anatomy-list">
-            <div><dt>Avatar interior</dt><dd>Cyan means Light Side, crimson means Dark Side, and silver means Neutral.</dd></div>
+            <div><dt>Avatar interior</dt><dd>Cyan means Light Side, crimson means Dark Side, and silver means Neutral. With a roster loaded, an unactivated unit is washed out with a pale dashed edge.</dd></div>
             <div><dt>Colored progression rings</dt><dd>One ring for Gear 1–3, two for 4–6, three for 7–9, and four for Gear 10+. Color advances through white, green, blue, purple, Gear XII gold, then the alignment palette at Gear XIII/relic.</dd></div>
             <div><dt><code>G</code> / <code>R</code></dt><dd>The exact gear or relic tier. The broad ring count never replaces this precise value.</dd></div>
             <div><dt><code>L</code> / <code>★</code></dt><dd>Training level and star rarity from the loaded roster snapshot.</dd></div>
@@ -954,7 +958,7 @@
           <tr><th>Overall synergy</th><td>Exact composite: 44% leadership, 31% cohesion, 25% modeled mechanics, plus recommended-squad overlap and role balance.</td><td>Mechanics, then pair strength.</td></tr>
           <tr><th>Leadership</th><td>Modeled leader coverage and impact.</td><td>Exact overall, cohesion, mechanics.</td></tr>
           <tr><th>Cohesion</th><td>Shared weighted faction/category relationships.</td><td>Exact overall, leadership, mechanics.</td></tr>
-          <tr><th>Team GP</th><td>Sum of calculated GP for every roster unit in the formation.</td><td>Exact overall, mechanics, pair strength. Incomplete GP totals sort after complete totals.</td></tr>
+          <tr><th>Team GP</th><td>Sum of roster GP. An unactivated unit contributes 0 and is labeled locked; an activated unit with missing legacy GP makes the total unavailable.</td><td>Exact overall, mechanics, pair strength. Incomplete GP totals sort after complete totals.</td></tr>
         </tbody></table></div>
         <div class="model-notice"><strong>GP is separate</strong><span>Team GP can be useful for investment comparisons, but it is not silently included in the default synergy score. More GP does not necessarily mean a kit has better synergy.</span></div>
       </section>
@@ -979,6 +983,7 @@
         <div class="help-faq-list">
           <details><summary>Why can two formations both show 87 but appear in a specific order?</summary><p>The card rounds synergy to a whole number. Default ranking uses the exact decimal composite, then mechanics and pair strength. The exact value is shown below the main metrics.</p></details>
           <details><summary>Why is a high-GP formation not first?</summary><p>Default ranking measures kit synergy, not investment. Choose Team GP explicitly when you want GP to be the primary ordering.</p></details>
+          <details><summary>Why does Team GP say that a unit is locked?</summary><p>The unit is absent from the loaded roster snapshot, so it is unactivated and contributes 0 GP. Its pale avatar keeps the hypothetical formation visible without suggesting that it is ready now.</p></details>
           <details><summary>Why does a leader-synergy segment remain dim?</summary><p>The leader ability names that group, but this ally does not carry the matching category. Every ally keeps the same segment positions so coverage is directly comparable.</p></details>
           <details><summary>Why does a value show a dash?</summary><p>The current snapshot lacks enough reliable data to calculate it. Forge avoids substituting an estimate where a real roster value is expected.</p></details>
         </div>

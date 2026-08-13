@@ -99,10 +99,22 @@
     const direct = (ability.targetUnits || []).includes(targetId);
     const grouped = ability.groupedCategories || [];
     const separate = ability.separateCategories || [];
-    const inferred = ability.targetCategories || [];
+    const explicit = new Set([...grouped, ...separate]);
+    const inferred = (ability.targetCategories || []).filter((category) => !explicit.has(category));
     const groupedMatch = grouped.length > 0 && grouped.every((category) => categories.has(category));
     const separateMatches = separate.filter((category) => categories.has(category));
-    const inferredMatches = inferred.filter((category) => categories.has(category));
+    const inferredAffinity = inferred.filter((category) => leaderGroupPrefixes.some((prefix) => category.startsWith(prefix)));
+    const inferredRoles = inferred.filter((category) => category.startsWith("role_"));
+    const inferredOther = inferred.filter((category) => !leaderGroupPrefixes.some((prefix) => category.startsWith(prefix)) && !category.startsWith("role_"));
+    const affinityMatches = inferredAffinity.filter((category) => categories.has(category));
+    // Localized kit text can mention roles as formation conditions (for
+    // example, Moff Gideon's required Trooper composition). When an ability
+    // also names factions/alignment, a role alone must not bypass that affinity.
+    const roleMatches = inferredAffinity.length && !affinityMatches.length
+      ? []
+      : inferredRoles.filter((category) => categories.has(category));
+    const otherMatches = inferredOther.filter((category) => categories.has(category));
+    const inferredMatches = [...affinityMatches, ...roleMatches, ...otherMatches];
     if (!direct && !groupedMatch && !separateMatches.length && !inferredMatches.length) return 0;
     return Math.min(3, (direct ? 2 : 0) + (groupedMatch ? 1.4 : 0) + Math.min(0.9, (separateMatches.length + inferredMatches.length) * 0.45));
   }
